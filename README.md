@@ -1,6 +1,6 @@
 # KommPro · demos
 
-Cada carpeta es un sitio estático. Desde el 26 oct se publican en **Cloudflare Pages** (Netlify quedó sin créditos y no publica cambios nuevos). Cada proyecto de Pages se enlaza a este repo, rama `main`, con su carpeta como root directory y sin comando de build. Cada push a `main` se publica solo.
+Cada carpeta es un sitio estático. Desde el 26 oct se publican en **Cloudflare Pages** (cuenta de Cloudflare de marketing@mariosilesky.com). Cada proyecto de Pages se enlaza a este repo, rama `main`, con su carpeta como root directory y sin comando de build. Cada push a `main` se publica solo.
 
 | Carpeta | Sitio | Proyecto (Cloudflare Pages) |
 |---|---|---|

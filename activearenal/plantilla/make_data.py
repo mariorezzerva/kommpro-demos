@@ -69,20 +69,20 @@ for t in tours: t['departs']=DEP[t['slug']];t['unit']='adult'
 PH={
  'tour-rio-celeste':('img/rio-celeste-wide.webp','img/rio-celeste-trail.webp',['img/rio-celeste-wide.webp','img/rio-celeste-trail.webp','img/rio-celeste-pool.webp']),
  'tour-white-water-rafting':('img/rafting-rapids.webp','img/rafting-rapids.webp',['img/rafting-rapids.webp','img/rafting-river.webp','img/rafting-crew.webp']),
- 'tour-sloth':('img/sloth-bridge.webp','img/sloth.webp',['img/sloth-bridge.webp','img/sloth.webp','img/owl.webp']),
+ 'tour-sloth':('img/sloth-mother.webp','img/sloth-mother.webp',['img/sloth-mother.webp','img/sloth.webp','img/owl.webp']),
  'tour-arenal-hanging-bridges':('img/hanging-bridges-aerial.webp','img/hanging-bridges-aerial.webp',['img/hanging-bridges-aerial.webp','img/hanging-bridges.webp','img/motmot.webp']),
  'tour-arenal-volcano':('img/arenal-volcano-lake.webp','img/arenal-volcano-lake.webp',['img/arenal-volcano-lake.webp','img/volcano-hiker.webp','img/kayak-volcano.webp']),
  'tour-jungle-river-safari':('img/safari-float.webp','img/safari-float.webp',['img/safari-float.webp','img/safari-float-river.webp','img/crocodiles.webp']),
  'tour-night-walk':('img/frog-night.webp','img/frog-night.webp',['img/frog-night.webp','img/frog.webp',U+'2026/09/jungle-night-walk.jpg']),
 }
-POS={'tour-sloth':'center 80%','tour-white-water-rafting':'center 35%','tour-rio-celeste':'center 60%','tour-night-walk':'center 32%'}
+POS={'tour-sloth':'center 45%','tour-white-water-rafting':'center 35%','tour-rio-celeste':'center 60%','tour-night-walk':'center 32%'}
 for t in tours:
     t['hero_pos']=POS.get(t['slug'],'center')
     h,c,g=PH[t['slug']]
     if h: t['hero']=h
     if c: t['card']=c
     t['gallery']=g
-CIMG={'Zip Lines':'img/zipline.webp','Waterfall Rappelling (Canyoning)':'img/rappel.webp','ATV Adventure':'img/atv.webp','Arenal Volcano':'img/arenal-volcano-lake.webp','Hanging Bridges':'img/hanging-bridges-aerial.webp','Rainforest Wildlife Walk':'img/sloth.webp'}
+CIMG={'Zip Lines':'img/zipline.webp','Waterfall Rappelling (Canyoning)':'img/rappel.webp','ATV Adventure':'img/atv.webp','Arenal Volcano':'img/arenal-volcano-lake.webp','Hanging Bridges':'img/hanging-bridges-aerial.webp','Rainforest Wildlife Walk':'img/sloth-mother.webp'}
 for c in combos:
     s2=c['pair'][2:]
     if s2 in CIMG: c['hero']=c['card']=CIMG[s2]
@@ -90,7 +90,7 @@ for c in combos:
     c['gallery']=[c['group_img'],c['hero'],'img/arenal-volcano-lake.webp']
 base['brand']['hero_images']=['img/arenal-volcano-lake.webp','img/rio-celeste-wide.webp']
 base['brand']['band_image']='img/kayak-volcano.webp'
-CAT={'water':'img/rio-celeste-trail.webp','wildlife':'img/sloth.webp','volcano':'img/hanging-bridges-aerial.webp','night':'img/frog-night.webp','combo':'img/rafting-rapids.webp'}
+CAT={'water':'img/rio-celeste-trail.webp','wildlife':'img/sloth-mother.webp','volcano':'img/hanging-bridges-aerial.webp','night':'img/frog-night.webp','combo':'img/rafting-rapids.webp'}
 for cat in base['categories']: cat['image']=CAT.get(cat['id'],cat['image'])
 base['tours']=tours;base['combos']=combos
 json.dump(base,open('data.json','w'),ensure_ascii=False,indent=1)

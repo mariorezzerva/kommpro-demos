@@ -67,7 +67,7 @@
    "title": "Wildlife up close",
    "icon": "leaf",
    "blurb": "Sloths, toucans, frogs. Guides who know where to look.",
-   "image": "img/sloth.webp",
+   "image": "img/sloth-mother.webp",
    "keywords": [
     "animal",
     "wildlife",
@@ -376,8 +376,8 @@
    "product": "tour-sloth",
    "title": "Sloth Tour – Rain Forest Walk",
    "lead": "Meet Costa Rica's most beloved local, the sloth, in the wild.",
-   "hero": "img/sloth-bridge.webp",
-   "card": "img/sloth.webp",
+   "hero": "img/sloth-mother.webp",
+   "card": "img/sloth-mother.webp",
    "duration": "2–3 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
@@ -411,7 +411,7 @@
    ],
    "bring": "Comfortable walking shoes, insect repellent, camera, water.",
    "gallery": [
-    "img/sloth-bridge.webp",
+    "img/sloth-mother.webp",
     "img/sloth.webp",
     "img/owl.webp"
    ],
@@ -432,7 +432,7 @@
    ],
    "departs": "8:00 a.m. or 1:30 p.m.",
    "unit": "adult",
-   "hero_pos": "center 80%"
+   "hero_pos": "center 45%"
   },
   {
    "slug": "tour-arenal-hanging-bridges",
@@ -1124,8 +1124,8 @@
    "title": "Safari Float + Rainforest Wildlife Walk",
    "short": "Safari Float + Rainforest Wildlife Walk",
    "lead": "Safari Float and Rainforest Wildlife Walk in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "img/sloth.webp",
-   "card": "img/sloth.webp",
+   "hero": "img/sloth-mother.webp",
+   "card": "img/sloth-mother.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 160,
@@ -1155,7 +1155,7 @@
    ],
    "gallery": [
     "img/safari-float.webp",
-    "img/sloth.webp",
+    "img/sloth-mother.webp",
     "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",

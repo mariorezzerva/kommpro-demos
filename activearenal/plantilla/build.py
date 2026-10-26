@@ -97,8 +97,9 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .hdr{position:fixed;inset:0 0 auto;z-index:50;transition:background .35s,box-shadow .35s,padding .35s;padding:16px 0}
 .aax .hdr .w{display:flex;align-items:center;gap:22px}
 .aax .hdr.sc{background:rgba(10,46,19,.82);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);box-shadow:0 1px 0 rgba(160,224,160,.18);padding:8px 0}
-.aax .logo{display:inline-flex;align-items:center;background:#fff;border-radius:14px;padding:6px 10px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
-.aax .logo img{height:42px;width:auto}
+.aax .logo{display:inline-flex;align-items:center}
+.aax .logo img{height:56px;width:auto;filter:drop-shadow(0 4px 14px rgba(0,0,0,.35));transition:height .35s}
+.aax .hdr.sc .logo img{height:46px}
 .aax .nav{display:flex;gap:26px;margin-left:auto;color:rgba(255,255,255,.88);font-weight:700;font-size:.93rem}
 .aax .nav a:hover{color:var(--gold)}
 .aax .hdr .btn{padding:10px 18px;font-size:.88rem}

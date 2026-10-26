@@ -17,8 +17,8 @@
   "h1": "Real adventure in the <em>heart of Arenal.</em>",
   "sub": "Local guides, small groups and pickup at your hotel in La Fortuna. Choose your day, see real availability and pay securely by card.",
   "hero_images": [
-   "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
-   "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg"
+   "img/arenal-volcano-lake.webp",
+   "img/rio-celeste-wide.webp"
   ],
   "tape": [
    "Free cancellation up to 24 h",
@@ -34,7 +34,7 @@
   "reviews_note": "Same owner, same guides: Leo Rodríguez and the team behind Driver Costa Rica, now focused on tours from La Fortuna.",
   "footer_blurb": "Tours from La Fortuna with the local team of Leo Rodríguez. Small groups, real guides, a day you will keep talking about.",
   "legal_note": "Part of Driver Costa Rica, serving travelers since 2002.",
-  "band_image": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
+  "band_image": "img/kayak-volcano.webp",
   "band_title": "Nothing here rushes. <em>The river, the sloth, the volcano.</em>",
   "band_text": "We leave from La Fortuna, the town we know best. Small groups, guides who grew up here, and time to actually look around.",
   "ta_rating": "Excellent",
@@ -48,7 +48,7 @@
    "title": "Water days",
    "icon": "drop",
    "blurb": "Turquoise waterfalls, rapids and slow river floats.",
-   "image": "https://activearenal.com/wp-content/uploads/2026/08/rio-celeste-waterfall.png",
+   "image": "img/rio-celeste-trail.webp",
    "keywords": [
     "water",
     "waterfall",
@@ -67,7 +67,7 @@
    "title": "Wildlife up close",
    "icon": "leaf",
    "blurb": "Sloths, toucans, frogs. Guides who know where to look.",
-   "image": "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
+   "image": "img/sloth.webp",
    "keywords": [
     "animal",
     "wildlife",
@@ -88,7 +88,7 @@
    "title": "Volcano and forest",
    "icon": "mountain",
    "blurb": "Lava trails and bridges above the canopy.",
-   "image": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
+   "image": "img/hanging-bridges.webp",
    "keywords": [
     "volcano",
     "lava",
@@ -108,7 +108,7 @@
    "title": "After dark",
    "icon": "moon",
    "blurb": "The rainforest changes shift at night.",
-   "image": "https://activearenal.com/wp-content/uploads/2026/09/jungle-night-walk.jpg",
+   "image": "img/frog.webp",
    "keywords": [
     "night",
     "dark",
@@ -125,7 +125,7 @@
    "title": "Two in one day",
    "icon": "spark",
    "blurb": "Eleven pairings, one pickup.",
-   "image": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "image": "img/rafting-rapids.webp",
    "keywords": [
     "combo",
     "two",
@@ -240,8 +240,8 @@
    "product": "tour-rio-celeste",
    "title": "Río Celeste Waterfall",
    "lead": "Chase the impossible blue of Costa Rica's most famous waterfall.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/08/rio-celeste-waterfall.png",
-   "card": "https://activearenal.com/wp-content/uploads/2026/08/rio-celeste-waterfall.png",
+   "hero": "img/rio-celeste-wide.webp",
+   "card": "img/rio-celeste-trail.webp",
    "duration": "~8 hours",
    "difficulty": "Moderate",
    "guide": "English / Spanish",
@@ -279,9 +279,9 @@
    ],
    "bring": "Hiking shoes, rain jacket, water, sunscreen, camera, cash for extras.",
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/rio-celeste-waterfall.png",
-    "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg"
+    "img/rio-celeste-wide.webp",
+    "img/rio-celeste-trail.webp",
+    "img/rio-celeste-pool.webp"
    ],
    "short": "Río Celeste Waterfall",
    "cats": [
@@ -301,15 +301,16 @@
     "lunch"
    ],
    "departs": "7:30 a.m.",
-   "unit": "adult"
+   "unit": "adult",
+   "hero_pos": "center 60%"
   },
   {
    "slug": "tour-white-water-rafting",
    "product": "tour-white-water-rafting",
    "title": "White Water Rafting",
    "lead": "Paddle through jungle rapids on one of Costa Rica's best rivers.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
-   "card": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "hero": "img/rafting-rapids.webp",
+   "card": "img/rafting-rapids.webp",
    "duration": "½ day",
    "difficulty": "Moderate–High",
    "guide": "English / Spanish",
@@ -345,9 +346,9 @@
    ],
    "bring": "Quick-dry clothes, secured sandals or water shoes, sunscreen, a change of clothes, waterproof camera.",
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
-    "https://activearenal.com/wp-content/uploads/2026/08/RaftingDriver.png",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/rafting-rapids.webp",
+    "img/rafting-river.webp",
+    "img/rafting-crew.webp"
    ],
    "short": "White Water Rafting",
    "cats": [
@@ -367,15 +368,16 @@
     "adrenalina"
    ],
    "departs": "8:15 a.m.",
-   "unit": "adult"
+   "unit": "adult",
+   "hero_pos": "center 35%"
   },
   {
    "slug": "tour-sloth",
    "product": "tour-sloth",
    "title": "Sloth Tour – Rain Forest Walk",
    "lead": "Meet Costa Rica's most beloved local, the sloth, in the wild.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
-   "card": "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
+   "hero": "img/sloth-bridge.webp",
+   "card": "img/sloth.webp",
    "duration": "2–3 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
@@ -409,9 +411,9 @@
    ],
    "bring": "Comfortable walking shoes, insect repellent, camera, water.",
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png"
+    "img/sloth-bridge.webp",
+    "img/sloth.webp",
+    "img/owl.webp"
    ],
    "short": "Sloth Tour",
    "cats": [
@@ -429,15 +431,16 @@
     "familia"
    ],
    "departs": "8:00 a.m. or 1:30 p.m.",
-   "unit": "adult"
+   "unit": "adult",
+   "hero_pos": "center 80%"
   },
   {
    "slug": "tour-arenal-hanging-bridges",
    "product": "tour-arenal-hanging-bridges",
    "title": "Arenal Hanging Bridges",
    "lead": "Walk the treetops on suspended bridges above the rainforest.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
-   "card": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
+   "hero": "img/hanging-bridges.webp",
+   "card": "img/hanging-bridges.webp",
    "duration": "2–3 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
@@ -470,9 +473,9 @@
    ],
    "bring": "Walking shoes, rain jacket, camera, water.",
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg"
+    "img/hanging-bridges.webp",
+    "img/hanging-bridges-family.webp",
+    "img/motmot.webp"
    ],
    "short": "Hanging Bridges",
    "cats": [
@@ -489,15 +492,16 @@
     "aves"
    ],
    "departs": "8:00 a.m. or 1:30 p.m.",
-   "unit": "adult"
+   "unit": "adult",
+   "hero_pos": "center 18%"
   },
   {
    "slug": "tour-arenal-volcano",
    "product": "tour-arenal-volcano",
    "title": "Arenal Volcano National Park",
    "lead": "Hike the lava trails at the foot of an iconic volcano.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
-   "card": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
+   "hero": "img/arenal-volcano-lake.webp",
+   "card": "img/arenal-volcano-lake.webp",
    "duration": "3–4 hours",
    "difficulty": "Easy–Moderate",
    "guide": "English / Spanish",
@@ -532,9 +536,9 @@
    ],
    "bring": "Hiking shoes, hat, sunscreen, rain jacket, water, camera.",
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
-    "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg"
+    "img/arenal-volcano-lake.webp",
+    "img/volcano-hiker.webp",
+    "img/kayak-volcano.webp"
    ],
    "short": "Arenal Volcano Hike",
    "cats": [
@@ -550,15 +554,16 @@
     "lago"
    ],
    "departs": "8:00 a.m. or 1:30 p.m.",
-   "unit": "adult"
+   "unit": "adult",
+   "hero_pos": "center"
   },
   {
    "slug": "tour-jungle-river-safari",
    "product": "tour-jungle-river-safari",
    "title": "Jungle River Safari Float",
    "lead": "Drift downriver and let the wildlife come to you.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
-   "card": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "hero": "img/safari-float.webp",
+   "card": "img/safari-float.webp",
    "duration": "~3 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
@@ -592,9 +597,9 @@
    ],
    "bring": "Sunscreen, hat, binoculars, camera, water.",
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
-    "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg"
+    "img/safari-float.webp",
+    "img/safari-float-river.webp",
+    "img/crocodiles.webp"
    ],
    "short": "Jungle River Safari Float",
    "cats": [
@@ -617,7 +622,8 @@
     "papas"
    ],
    "departs": "8:00 a.m. or 1:30 p.m.",
-   "unit": "adult"
+   "unit": "adult",
+   "hero_pos": "center"
   },
   {
    "slug": "tour-night-walk",
@@ -626,7 +632,7 @@
    "title": "Jungle Night Walk",
    "lead": "The rainforest wakes up when the sun goes down.",
    "hero": "https://activearenal.com/wp-content/uploads/2026/09/jungle-night-walk.jpg",
-   "card": "https://activearenal.com/wp-content/uploads/2026/09/jungle-night-walk.jpg",
+   "card": "img/frog.webp",
    "duration": "~2 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
@@ -657,8 +663,8 @@
    "bring": "Closed shoes, long pants, insect repellent, a light rain jacket, camera.",
    "gallery": [
     "https://activearenal.com/wp-content/uploads/2026/09/jungle-night-walk.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
-    "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png"
+    "img/frog.webp",
+    "img/owl.webp"
    ],
    "cats": [
     "night",
@@ -675,22 +681,23 @@
     "tonight"
    ],
    "departs": "5:30 p.m.",
-   "unit": "adult"
+   "unit": "adult",
+   "hero_pos": "center"
   }
  ],
  "combos": [
   {
    "slug": "tour-rafting-zip-lines",
    "product": "tour-rafting-zip-lines",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "group_img": "img/rafting-rapids.webp",
    "pair": "+ Zip Lines",
    "first": "White Water Rafting",
    "group": "Start with rafting",
    "title": "White Water Rafting + Zip Lines",
    "short": "White Water Rafting + Zip Lines",
    "lead": "White Water Rafting and Zip Lines in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
-   "card": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
+   "hero": "img/zipline.webp",
+   "card": "img/zipline.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 168,
@@ -720,9 +727,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
-    "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/rafting-rapids.webp",
+    "img/zipline.webp",
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
    "departs": "8:15 a.m."
@@ -730,15 +737,15 @@
   {
    "slug": "tour-rafting-canyoning",
    "product": "tour-rafting-canyoning",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "group_img": "img/rafting-rapids.webp",
    "pair": "+ Waterfall Rappelling (Canyoning)",
    "first": "White Water Rafting",
    "group": "Start with rafting",
    "title": "White Water Rafting + Waterfall Rappelling (Canyoning)",
    "short": "White Water Rafting + Waterfall Rappelling (Canyoning)",
    "lead": "White Water Rafting and Waterfall Rappelling (Canyoning) in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
-   "card": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
+   "hero": "img/rappel.webp",
+   "card": "img/rappel.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 172,
@@ -768,9 +775,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
-    "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/rafting-rapids.webp",
+    "img/rappel.webp",
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
    "departs": "8:15 a.m."
@@ -778,15 +785,15 @@
   {
    "slug": "tour-rafting-atv",
    "product": "tour-rafting-atv",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "group_img": "img/rafting-rapids.webp",
    "pair": "+ ATV Adventure",
    "first": "White Water Rafting",
    "group": "Start with rafting",
    "title": "White Water Rafting + ATV Adventure",
    "short": "White Water Rafting + ATV Adventure",
    "lead": "White Water Rafting and ATV Adventure in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
-   "card": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
+   "hero": "img/atv.webp",
+   "card": "img/atv.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 185,
@@ -815,9 +822,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/rafting-rapids.webp",
+    "img/atv.webp",
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "group",
    "departs": "8:15 a.m.",
@@ -826,7 +833,7 @@
   {
    "slug": "tour-rafting-la-fortuna-waterfall",
    "product": "tour-rafting-la-fortuna-waterfall",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "group_img": "img/rafting-rapids.webp",
    "pair": "+ La Fortuna Waterfall",
    "first": "White Water Rafting",
    "group": "Start with rafting",
@@ -863,9 +870,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+    "img/rafting-rapids.webp",
     "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
    "departs": "8:15 a.m."
@@ -873,15 +880,15 @@
   {
    "slug": "tour-safari-float-zip-lines",
    "product": "tour-safari-float-zip-lines",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "group_img": "img/safari-float.webp",
    "pair": "+ Zip Lines",
    "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + Zip Lines",
    "short": "Safari Float + Zip Lines",
    "lead": "Safari Float and Zip Lines in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
-   "card": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
+   "hero": "img/zipline.webp",
+   "card": "img/zipline.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 158,
@@ -911,9 +918,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/safari-float.webp",
+    "img/zipline.webp",
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
    "departs": "8:00 a.m."
@@ -921,15 +928,15 @@
   {
    "slug": "tour-safari-float-canyoning",
    "product": "tour-safari-float-canyoning",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "group_img": "img/safari-float.webp",
    "pair": "+ Waterfall Rappelling (Canyoning)",
    "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + Waterfall Rappelling (Canyoning)",
    "short": "Safari Float + Waterfall Rappelling (Canyoning)",
    "lead": "Safari Float and Waterfall Rappelling (Canyoning) in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
-   "card": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
+   "hero": "img/rappel.webp",
+   "card": "img/rappel.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 172,
@@ -959,9 +966,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/safari-float.webp",
+    "img/rappel.webp",
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
    "departs": "8:00 a.m."
@@ -969,15 +976,15 @@
   {
    "slug": "tour-safari-float-atv",
    "product": "tour-safari-float-atv",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "group_img": "img/safari-float.webp",
    "pair": "+ ATV Adventure",
    "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + ATV Adventure",
    "short": "Safari Float + ATV Adventure",
    "lead": "Safari Float and ATV Adventure in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
-   "card": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
+   "hero": "img/atv.webp",
+   "card": "img/atv.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 165,
@@ -1006,9 +1013,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/safari-float.webp",
+    "img/atv.webp",
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "group",
    "departs": "8:00 a.m.",
@@ -1017,15 +1024,15 @@
   {
    "slug": "tour-safari-float-arenal-volcano",
    "product": "tour-safari-float-arenal-volcano",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "group_img": "img/safari-float.webp",
    "pair": "+ Arenal Volcano",
    "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + Arenal Volcano",
    "short": "Safari Float + Arenal Volcano",
    "lead": "Safari Float and Arenal Volcano in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
-   "card": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
+   "hero": "img/arenal-volcano-lake.webp",
+   "card": "img/arenal-volcano-lake.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 160,
@@ -1054,9 +1061,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/safari-float.webp",
+    "img/arenal-volcano-lake.webp",
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
    "departs": "8:00 a.m."
@@ -1064,15 +1071,15 @@
   {
    "slug": "tour-safari-float-hanging-bridges",
    "product": "tour-safari-float-hanging-bridges",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "group_img": "img/safari-float.webp",
    "pair": "+ Hanging Bridges",
    "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + Hanging Bridges",
    "short": "Safari Float + Hanging Bridges",
    "lead": "Safari Float and Hanging Bridges in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
-   "card": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
+   "hero": "img/hanging-bridges.webp",
+   "card": "img/hanging-bridges.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 165,
@@ -1100,9 +1107,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/safari-float.webp",
+    "img/hanging-bridges.webp",
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
    "departs": "8:00 a.m."
@@ -1110,15 +1117,15 @@
   {
    "slug": "tour-safari-float-rainforest-wildlife-walk",
    "product": "tour-safari-float-rainforest-wildlife-walk",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "group_img": "img/safari-float.webp",
    "pair": "+ Rainforest Wildlife Walk",
    "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + Rainforest Wildlife Walk",
    "short": "Safari Float + Rainforest Wildlife Walk",
    "lead": "Safari Float and Rainforest Wildlife Walk in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
-   "card": "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
+   "hero": "img/sloth.webp",
+   "card": "img/sloth.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 160,
@@ -1147,9 +1154,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/safari-float.webp",
+    "img/sloth.webp",
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
    "departs": "8:00 a.m."
@@ -1157,7 +1164,7 @@
   {
    "slug": "tour-safari-float-la-fortuna-waterfall",
    "product": "tour-safari-float-la-fortuna-waterfall",
-   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "group_img": "img/safari-float.webp",
    "pair": "+ La Fortuna Waterfall",
    "first": "Safari Float",
    "group": "Start with the safari float",
@@ -1194,9 +1201,9 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+    "img/safari-float.webp",
     "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
-    "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+    "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
    "departs": "8:00 a.m."

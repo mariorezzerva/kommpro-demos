@@ -22,8 +22,12 @@ BY = {t["slug"]: t for t in ALL}
 OUT = os.path.dirname(ROOT) if os.path.basename(ROOT) == "plantilla" else os.path.join(ROOT, "dist")
 
 def e(s): return html.escape(str(s if s is not None else ""), quote=True)
+ASSET = "/"  # raíz de las fotos propias (img/...); en los bloques de WordPress apunta al dominio de la demo
+DEMO_URL = "https://activearenal-demo.pages.dev/"
+def absimg(u): return (DEMO_URL + u) if u.startswith("img/") else img(u, 1600)
 def img(u, w=1400):
     if not u: return ""
+    if u.startswith("img/"): return ASSET + u
     if "i0.wp.com" in u: return re.sub(r"\?.*$", "", u) + f"?w={w}&ssl=1"
     m = re.match(r"https?://(.+)$", u)
     return f"https://i0.wp.com/{m.group(1)}?w={w}&ssl=1" if m else u
@@ -759,7 +763,7 @@ def tour_body(t, base):
     sec = lambda title, inner: f'<div class="blk rv"><h2>{title}</h2>{inner}</div>' if inner else ""
 
     return f'''
-<section class="thero" style="background-image:url('{hero}')"><div class="w">
+<section class="thero" style="background-image:url('{hero}');background-position:{t.get('hero_pos','center')}"><div class="w">
 <div class="crumb"><a href="{base}index.html">Home</a> &nbsp;/&nbsp; <a href="{base}index.html#{'combos' if crumb_cat=='Combos' else 'tours'}">{crumb_cat}</a></div>
 {ta_badge(B['ta_rating'] + ' · ' + str(B['ta_count']) + ' Tripadvisor reviews')}
 <h1>{e(t['title'])}</h1>
@@ -787,7 +791,7 @@ def tour_body(t, base):
 '''
 
 def schema_tour(t):
-    o = {"@context": "https://schema.org", "@type": "TouristTrip", "name": t["title"], "description": t["lead"], "image": img(t["hero"], 1600),
+    o = {"@context": "https://schema.org", "@type": "TouristTrip", "name": t["title"], "description": t["lead"], "image": absimg(t["hero"]),
          "touristType": "Adventure", "provider": {"@type": "TravelAgency", "name": B["name"], "telephone": B["phone"], "url": B["url"]}}
     if t.get("price"): o["offers"] = {"@type": "Offer", "price": t["price"], "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": f'{B["url"]}/tours/{t["slug"]}/'}
     return '<script type="application/ld+json">' + json.dumps(o, ensure_ascii=False) + "</script>"
@@ -837,11 +841,14 @@ def build():
     fab = f'<button class="fab" id="fab">{ic("chat")} Plan my day</button>'
     # home
     hb = home_body("", True) + fab
-    open(os.path.join(OUT, "index.html"), "w").write(page(B["seo_title"], B["seo_desc"], hb, "", js_home(""), og=img(B["hero_images"][0], 1200)))
+    open(os.path.join(OUT, "index.html"), "w").write(page(B["seo_title"], B["seo_desc"], hb, "", js_home(""), og=absimg(B["hero_images"][0])))
     # wp home: las rutas apuntan a las paginas reales de WordPress (/tour-xxx/)
+    global ASSET
+    ASSET = DEMO_URL
     wb = home_body("/", False).replace('href="/tours/', 'href="/').replace(fab, "") + sister_band() + fab
     wjs = js_home("/").replace("BASE+'tours/'+s+'/", "BASE+s+'/").replace("BASE+'tours/'+t.s+'/", "BASE+t.s+'/")
     open(os.path.join(OUT, "wp", "home.html"), "w").write(wp_block(wb, wjs))
+    ASSET = "/"
     # tours
     for t in ALL:
         d = os.path.join(OUT, "tours", t["slug"]); os.makedirs(d)
@@ -849,9 +856,11 @@ def build():
         tb += f'<a class="fab" href="{wa("Hi! I have a question about " + t["title"] + ".")}" target="_blank" rel="noopener">{ic("chat")} WhatsApp</a>'
         rz = '<script src="https://app.rezzerva.com/w/assets/embed.js" async></script>'
         open(os.path.join(d, "index.html"), "w").write(
-            page(f'{t["title"]} · {B["name"]}', t["lead"], tb + schema_tour(t) + rz, "../../", "", cls=" has-mbar", og=img(t["hero"], 1200)))
+            page(f'{t["title"]} · {B["name"]}', t["lead"], tb + schema_tour(t) + rz, "../../", "", cls=" has-mbar", og=absimg(t["hero"])))
+        ASSET = DEMO_URL
         wtb = tour_body(t, "/").replace('href="/tours/', 'href="/')
         open(os.path.join(OUT, "wp", f"{t['slug']}.html"), "w").write(wp_block(wtb + schema_tour(t) + rz, "", cls=" has-mbar"))
+        ASSET = "/"
     # Precios en vivo: /rz/<tenant>/products/<slug> lo atiende una Pages Function de Cloudflare
     # que consulta la API publica del widget de Rezzerva (solo esa ruta, con cache de 5 min).
     fdir = os.path.join(OUT, "functions", "rz"); os.makedirs(fdir, exist_ok=True)

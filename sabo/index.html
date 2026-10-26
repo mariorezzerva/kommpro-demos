@@ -627,7 +627,7 @@ var root = document.getElementById('dlcx'); if (!root) return;
 var $ = function (k) { return root.querySelector('[data-dlc="' + k + '"]'); };
 var $$ = function (k) { return root.querySelectorAll('[data-dlc="' + k + '"]'); };
 $$('cart').forEach(function (a) { a.href = CFG.cart; });
-$('account') && ($('account').href = CFG.account);
+$('account') && $('account').addEventListener('click', function (e) { e.preventDefault(); toast('La cuenta empresa se activa cuando la tienda esté en línea'); });
 var ic = function (n, c) { return 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="' + c + '" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' + ICP[n] + '</svg>'); };
 var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]; }); };
 var dec = function (s) { var t = document.createElement('textarea'); t.innerHTML = s; return t.value; };

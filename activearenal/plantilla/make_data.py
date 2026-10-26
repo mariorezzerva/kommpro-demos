@@ -75,6 +75,16 @@ PH={
  'tour-jungle-river-safari':('img/safari-float.webp','img/safari-float.webp',['img/safari-float.webp','img/safari-float-river.webp','img/crocodiles.webp']),
  'tour-night-walk':('img/frog-night.webp','img/frog-night.webp',['img/frog-night.webp','img/frog.webp',U+'2026/09/jungle-night-walk.jpg']),
 }
+# Volcán: Leo lo vende como "Arenal Volcano Hike" (no amarrado al Parque Nacional, por si un día cierra)
+for t in tours:
+    if t['slug']=='tour-arenal-volcano':
+        t['title']='Arenal Volcano Hike'; t['short']='Arenal Volcano Hike'
+        t['lead']='Hike the lava trails at the foot of an iconic volcano.'
+        t['overview']=["Stand in the shadow of one of the world's most perfectly shaped volcanoes. This guided hike follows trails across old lava flows from Arenal's active years, through regenerating forest alive with wildlife, to viewpoints that frame the volcano and Lake Arenal.",
+                       "Your guide brings the landscape to life with the geology, history and ecology of the volcano and the forest around it."]
+        t['highlights']=['Short drive to the volcano trails','Guided hike across lava fields and rainforest trails','Panoramic volcano and lake viewpoints','Bilingual guide (English / Spanish)']
+        t['steps']=['Hotel pickup','Short drive to the volcano trails','Guided hike across lava fields and rainforest trails','Panoramic volcano and lake viewpoints','Return to your hotel']
+        t['included']=['Round-trip transportation','Naturalist guide','Trail entrance']
 POS={'tour-sloth':'center 45%','tour-white-water-rafting':'center 35%','tour-rio-celeste':'center 60%','tour-night-walk':'center 32%'}
 for t in tours:
     t['hero_pos']=POS.get(t['slug'],'center')

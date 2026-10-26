@@ -838,7 +838,7 @@ $('ckmain').addEventListener('click', function (e) {
   if (a === 'back') { ck.step--; renderCk(); }
   if (a === 'pay' && !ck.paying) { ck.paying = true; renderCk(); setTimeout(function () {
     lastOrder = Object.keys(CART).map(function (id) { var p = byId[id], s0 = stockOf(p), s1 = Math.max(0, s0 - CART[id]); stock[id] = s1; logs.unshift({ t: now(), m: 'Compra web · ' + p.name + ' · ' + s0 + ' → ' + s1, r: 'Caja actualizada en ' + (1 + Math.random() * .6).toFixed(1).replace('.', ',') + ' s', k: 'web' }); return { n: p.name, a: s0, b: s1 }; });
-    PAID = Object.assign({}, CART); Object.keys(CART).forEach(function (k) { delete CART[k]; }); sync(); ck.paying = false; ck.step = 3; renderCk(); }, 1600); }
+    sales[1]++; PAID = Object.assign({}, CART); Object.keys(CART).forEach(function (k) { delete CART[k]; }); sync(); ck.paying = false; ck.step = 3; renderCk(); }, 1600); }
 });
 var now = function () { var d = new Date(); return [d.getHours(), d.getMinutes(), d.getSeconds()].map(function (n) { return String(n).padStart(2, '0'); }).join(':'); };
 

@@ -813,6 +813,26 @@ def wp_block(body, js, extra_head="", cls=""):
 {extra_head}<div class="aax{cls}">{body}</div>
 <script>{js_common()}{js}{js_prices("https://app.rezzerva.com/v1/widget/")}</script>'''
 
+import hashlib
+def _ver():
+    # cambia solo cuando cambian el CSS o el JS comun: los navegadores bajan la version nueva
+    return hashlib.sha1((CSS + js_common() + js_prices("x")).encode()).hexdigest()[:8]
+
+def wpfix(h):
+    # rutas del sitio estatico -> paginas reales de WordPress (/tour-xxx/, /#combos)
+    return (h.replace('href="/index.html#', 'href="/#').replace('href="/index.html"', 'href="/"')
+             .replace('href="/tours/', 'href="/'))
+
+def wp_full(body, home=False, cls=""):
+    # Pagina completa para WordPress (plantilla Elementor Canvas): header, cuerpo, franja de Driver y footer propios.
+    # CSS y JS comunes viven en /assets/ del proyecto de Pages (un solo lugar, cache del navegador).
+    a = DEMO_URL + "assets/"
+    js = f'<script src="{a}aa.js?v={_ver()}" defer></script>' + (f'<script src="{a}aa-home.js?v={_ver()}" defer></script>' if home else "")
+    return wpfix(f'''<!-- Active Arenal · pagina completa · bloque HTML con plantilla Elementor Canvas · generado por plantilla/build.py -->
+{FONTS}<link rel="stylesheet" href="{a}aa.css?v={_ver()}">
+<div class="aax{cls}">{header("/")}{body}{footer("/")}</div>
+{js}''')
+
 RZ_FUNCTION = """// Cloudflare Pages Function: proxy de solo lectura a la API publica del widget de Rezzerva.
 // Sirve /rz/<tenant>/products/<slug> para que el sitio muestre los precios del panel.
 export async function onRequestGet({ params }) {
@@ -828,6 +848,7 @@ export async function onRequestGet({ params }) {
     headers: {
       "content-type": r.headers.get("content-type") || "application/json",
       "cache-control": "public, max-age=300",
+      "access-control-allow-origin": "*",
     },
   });
 }
@@ -848,6 +869,12 @@ def build():
     wb = home_body("/", False).replace('href="/tours/', 'href="/').replace(fab, "") + sister_band() + fab
     wjs = js_home("/").replace("BASE+'tours/'+s+'/", "BASE+s+'/").replace("BASE+'tours/'+t.s+'/", "BASE+t.s+'/")
     open(os.path.join(OUT, "wp", "home.html"), "w").write(wp_block(wb, wjs))
+    os.makedirs(os.path.join(OUT, "wp", "full"), exist_ok=True)
+    ad = os.path.join(OUT, "assets"); os.makedirs(ad, exist_ok=True)
+    open(os.path.join(ad, "aa.css"), "w").write("html,body{margin:0;background:#f4f1e8}" + CSS)
+    open(os.path.join(ad, "aa.js"), "w").write(js_common() + js_prices(DEMO_URL + "rz/"))
+    open(os.path.join(ad, "aa-home.js"), "w").write(wjs)
+    open(os.path.join(OUT, "wp", "full", "home.html"), "w").write(wp_full(home_body("/", False).replace(fab, "") + fab, home=True))
     ASSET = "/"
     # tours
     for t in ALL:
@@ -860,6 +887,8 @@ def build():
         ASSET = DEMO_URL
         wtb = tour_body(t, "/").replace('href="/tours/', 'href="/')
         open(os.path.join(OUT, "wp", f"{t['slug']}.html"), "w").write(wp_block(wtb + schema_tour(t) + rz, "", cls=" has-mbar"))
+        wfab = f'<a class="fab" href="{wa("Hi! I have a question about " + t["title"] + ".")}" target="_blank" rel="noopener">{ic("chat")} WhatsApp</a>'
+        open(os.path.join(OUT, "wp", "full", f"{t['slug']}.html"), "w").write(wp_full(wtb + wfab + schema_tour(t) + rz, cls=" has-mbar"))
         ASSET = "/"
     # Precios en vivo: /rz/<tenant>/products/<slug> lo atiende una Pages Function de Cloudflare
     # que consulta la API publica del widget de Rezzerva (solo esa ruta, con cache de 5 min).

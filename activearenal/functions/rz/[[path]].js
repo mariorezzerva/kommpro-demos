@@ -13,6 +13,7 @@ export async function onRequestGet({ params }) {
     headers: {
       "content-type": r.headers.get("content-type") || "application/json",
       "cache-control": "public, max-age=300",
+      "access-control-allow-origin": "*",
     },
   });
 }

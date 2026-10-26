@@ -631,7 +631,7 @@ def home_body(base, standalone=True):
 </div>
 </div></section>
 
-<section class="band"><div class="bimg" style="background-image:url('{img(B['band_image'],2000)}')"></div><div class="w"><div class="bcard rv"><div class="eyb">From La Fortuna</div><h2>{B['band_title']}</h2><p>{e(B['band_text'])}</p></div></div></section>
+<section class="band"><div class="bimg" style="background-image:url('{img(B['band_image'],2000)}');background-position:{B.get('band_pos','center')}"></div><div class="w"><div class="bcard rv"><div class="eyb">From La Fortuna</div><h2>{B['band_title']}</h2><p>{e(B['band_text'])}</p></div></div></section>
 
 <section class="sec dk" id="reviews"><div class="w revs">
 <div class="score rv"><div class="talogo">{ta_icon("tai lg")}<span>Tripadvisor</span></div><div class="big">{e(B['ta_rating'])}</div>{bubbles(5,'bub lg')}<p class="cnt">Based on <b>{B['ta_count']} reviews</b></p><p>{e(B['reviews_note'])}</p><a class="btn btn-gold" href="{e(B['tripadvisor'])}" target="_blank" rel="noopener">Read all on Tripadvisor {ic("arrow")}</a></div>

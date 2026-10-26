@@ -682,6 +682,26 @@ def wp_block(body, js, extra_head="", cls=""):
 {extra_head}<div class="aax{cls}">{body}</div>
 <script>{js_common()}{js}{js_prices("https://app.rezzerva.com/v1/widget/")}</script>'''
 
+RZ_FUNCTION = """// Cloudflare Pages Function: proxy de solo lectura a la API publica del widget de Rezzerva.
+// Sirve /rz/<tenant>/products/<slug> para que el sitio muestre los precios del panel.
+export async function onRequestGet({ params }) {
+  const path = [].concat(params.path || []).join("/");
+  if (!/^[a-z0-9-]+\\/products\\/[a-z0-9-]+$/.test(path)) {
+    return new Response("Not found", { status: 404 });
+  }
+  const r = await fetch("https://app.rezzerva.com/v1/widget/" + path, {
+    cf: { cacheTtl: 300, cacheEverything: true },
+  });
+  return new Response(r.body, {
+    status: r.status,
+    headers: {
+      "content-type": r.headers.get("content-type") || "application/json",
+      "cache-control": "public, max-age=300",
+    },
+  });
+}
+"""
+
 def build():
     # solo borra lo que genera (index.html, tours/, wp/); nunca la plantilla ni otros archivos
     for x in ("tours", "wp"):
@@ -705,8 +725,13 @@ def build():
             page(f'{t["title"]} · {B["name"]}', t["lead"], tb + schema_tour(t) + rz, "../../", "", cls=" has-mbar", og=img(t["hero"], 1200)))
         wtb = tour_body(t, "/").replace('href="/tours/', 'href="/')
         open(os.path.join(OUT, "wp", f"{t['slug']}.html"), "w").write(wp_block(wtb + schema_tour(t) + rz, "", cls=" has-mbar"))
-    with open(os.path.join(OUT, "_redirects"), "w") as f:
-        f.write("# Precios en vivo: el sitio consulta /rz/... y Netlify lo pasa a la API publica del widget de Rezzerva\n/rz/*  https://app.rezzerva.com/v1/widget/:splat  200\n")
+    # Precios en vivo: /rz/<tenant>/products/<slug> lo atiende una Pages Function de Cloudflare
+    # que consulta la API publica del widget de Rezzerva (solo esa ruta, con cache de 5 min).
+    fdir = os.path.join(OUT, "functions", "rz"); os.makedirs(fdir, exist_ok=True)
+    with open(os.path.join(fdir, "[[path]].js"), "w") as f:
+        f.write(RZ_FUNCTION)
+    rd = os.path.join(OUT, "_redirects")
+    if os.path.exists(rd): os.remove(rd)
     print("ok:", len(ALL), "tours ->", OUT)
 
 if __name__ == "__main__":

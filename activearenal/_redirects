@@ -1,2 +1,0 @@
-# Precios en vivo: el sitio consulta /rz/... y Netlify lo pasa a la API publica del widget de Rezzerva
-/rz/*  https://app.rezzerva.com/v1/widget/:splat  200

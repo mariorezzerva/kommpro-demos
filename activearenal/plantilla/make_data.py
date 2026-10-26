@@ -103,5 +103,14 @@ base['brand']['band_image']='img/kayak-volcano.webp'
 CAT={'water':'img/rio-celeste-trail.webp','wildlife':'img/sloth-mother.webp','volcano':'img/hanging-bridges-aerial.webp','night':'img/frog-night.webp','combo':'img/rafting-rapids.webp'}
 for cat in base['categories']: cat['image']=CAT.get(cat['id'],cat['image'])
 base['tours']=tours;base['combos']=combos
+# Como en Driver: el agua no se menciona en los tours (ni incluida ni en "que traer")
+def _nowater(txt):
+    parts=[x.strip() for x in re.split(r',(?![^()]*\))',txt.rstrip('.'))]
+    parts=[x for x in parts if x.lower() not in ('water','bottled water','drinking water')]
+    return ', '.join(parts)+'.'
+for _t in base['tours']:
+    if isinstance(_t.get('bring'),str): _t['bring']=_nowater(_t['bring'])
+    for _k in ('included','highlights'):
+        if isinstance(_t.get(_k),list): _t[_k]=[x for x in _t[_k] if 'water' not in x.lower() or 'waterfall' in x.lower() or 'white water' in x.lower()]
 json.dump(base,open('data.json','w'),ensure_ascii=False,indent=1)
 print(len(tours),len(combos))

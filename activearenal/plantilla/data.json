@@ -234,7 +234,9 @@
     "catarata",
     "full day",
     "lunch"
-   ]
+   ],
+   "departs": "7:30 a.m.",
+   "unit": "adult"
   },
   {
    "slug": "tour-white-water-rafting",
@@ -298,7 +300,9 @@
     "rafting",
     "rapidos",
     "adrenalina"
-   ]
+   ],
+   "departs": "8:15 a.m.",
+   "unit": "adult"
   },
   {
    "slug": "tour-sloth",
@@ -358,7 +362,9 @@
     "toucan",
     "ninos",
     "familia"
-   ]
+   ],
+   "departs": "8:00 a.m. or 1:30 p.m.",
+   "unit": "adult"
   },
   {
    "slug": "tour-arenal-hanging-bridges",
@@ -416,7 +422,9 @@
     "colgantes",
     "birds",
     "aves"
-   ]
+   ],
+   "departs": "8:00 a.m. or 1:30 p.m.",
+   "unit": "adult"
   },
   {
    "slug": "tour-arenal-volcano",
@@ -475,7 +483,9 @@
     "caminata",
     "lake",
     "lago"
-   ]
+   ],
+   "departs": "8:00 a.m. or 1:30 p.m.",
+   "unit": "adult"
   },
   {
    "slug": "tour-jungle-river-safari",
@@ -540,7 +550,9 @@
     "tranquilo",
     "abuel",
     "papas"
-   ]
+   ],
+   "departs": "8:00 a.m. or 1:30 p.m.",
+   "unit": "adult"
   },
   {
    "slug": "tour-night-walk",
@@ -596,7 +608,9 @@
     "ranas",
     "evening",
     "tonight"
-   ]
+   ],
+   "departs": "5:30 p.m.",
+   "unit": "adult"
   }
  ],
  "combos": [
@@ -611,7 +625,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 168,
    "cats": [
     "combo",
     "water"
@@ -641,7 +655,9 @@
     "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
     "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "person",
+   "departs": "8:15 a.m."
   },
   {
    "slug": "tour-rafting-canyoning",
@@ -654,7 +670,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 172,
    "cats": [
     "combo",
     "water"
@@ -684,7 +700,9 @@
     "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
     "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "person",
+   "departs": "8:15 a.m."
   },
   {
    "slug": "tour-rafting-atv",
@@ -697,7 +715,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 185,
    "cats": [
     "combo",
     "water"
@@ -726,7 +744,10 @@
     "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "group",
+   "departs": "8:15 a.m.",
+   "price_note": "Price per group"
   },
   {
    "slug": "tour-rafting-la-fortuna-waterfall",
@@ -739,7 +760,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 154,
    "cats": [
     "combo",
     "water"
@@ -768,7 +789,9 @@
     "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
     "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "person",
+   "departs": "8:15 a.m."
   },
   {
    "slug": "tour-safari-float-zip-lines",
@@ -781,7 +804,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 158,
    "cats": [
     "combo",
     "wildlife"
@@ -811,7 +834,9 @@
     "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
     "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "person",
+   "departs": "8:00 a.m."
   },
   {
    "slug": "tour-safari-float-canyoning",
@@ -824,7 +849,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 172,
    "cats": [
     "combo",
     "wildlife"
@@ -854,7 +879,9 @@
     "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
     "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "person",
+   "departs": "8:00 a.m."
   },
   {
    "slug": "tour-safari-float-atv",
@@ -867,7 +894,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 165,
    "cats": [
     "combo",
     "wildlife"
@@ -896,7 +923,10 @@
     "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "group",
+   "departs": "8:00 a.m.",
+   "price_note": "Price per group"
   },
   {
    "slug": "tour-safari-float-arenal-volcano",
@@ -909,7 +939,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 160,
    "cats": [
     "combo",
     "wildlife"
@@ -938,7 +968,9 @@
     "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "person",
+   "departs": "8:00 a.m."
   },
   {
    "slug": "tour-safari-float-hanging-bridges",
@@ -951,7 +983,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 165,
    "cats": [
     "combo",
     "wildlife"
@@ -979,7 +1011,9 @@
     "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
     "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "person",
+   "departs": "8:00 a.m."
   },
   {
    "slug": "tour-safari-float-rainforest-wildlife-walk",
@@ -992,7 +1026,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 160,
    "cats": [
     "combo",
     "wildlife"
@@ -1021,7 +1055,9 @@
     "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
     "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "person",
+   "departs": "8:00 a.m."
   },
   {
    "slug": "tour-safari-float-la-fortuna-waterfall",
@@ -1034,7 +1070,7 @@
    "card": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
    "duration": "Two tours, one day",
    "difficulty": null,
-   "price": null,
+   "price": 145,
    "cats": [
     "combo",
     "wildlife"
@@ -1063,7 +1099,9 @@
     "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
     "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
     "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
-   ]
+   ],
+   "unit": "person",
+   "departs": "8:00 a.m."
   }
  ]
 }

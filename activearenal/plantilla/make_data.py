@@ -53,6 +53,18 @@ for g,pre,first,img0,cat,kw in [('Rafting +','tour-rafting-','White Water Raftin
           duration='Two tours, one day',difficulty=None,price=None,cats=['combo',cat],keywords=kw+extra+['combo','two','dos'],
           overview=[f'Start with {first.lower()} and keep the day going with {s2.lower()}. One booking, one pickup, and a guide who connects both parts of the day so you are not waiting around.'],
           highlights=[first,s2,'Hotel pickup in La Fortuna and the Arenal area','Bilingual guide (English / Spanish)'],gallery=[img0,IMG[s2],U+'2026/10/arenal-volcano.jpg']))
+# Precios y salidas del panel de Rezzerva (Mis tours), 25 oct 2026
+CP={'tour-rafting-canyoning':172,'tour-rafting-la-fortuna-waterfall':154,'tour-rafting-atv':(185,'group'),'tour-rafting-zip-lines':168,
+ 'tour-safari-float-canyoning':172,'tour-safari-float-la-fortuna-waterfall':145,'tour-safari-float-atv':(165,'group'),'tour-safari-float-hanging-bridges':165,
+ 'tour-safari-float-zip-lines':158,'tour-safari-float-rainforest-wildlife-walk':160,'tour-safari-float-arenal-volcano':160}
+for c in combos:
+    v=CP[c['slug']]
+    c['price'],c['unit']=(v if isinstance(v,tuple) else (v,'person'))
+    c['departs']='8:15 a.m.' if 'rafting' in c['slug'] else '8:00 a.m.'
+    if c['unit']=='group': c['price_note']='Price per group'
+DEP={'tour-night-walk':'5:30 p.m.','tour-arenal-volcano':'8:00 a.m. or 1:30 p.m.','tour-rio-celeste':'7:30 a.m.','tour-arenal-hanging-bridges':'8:00 a.m. or 1:30 p.m.',
+ 'tour-white-water-rafting':'8:15 a.m.','tour-jungle-river-safari':'8:00 a.m. or 1:30 p.m.','tour-sloth':'8:00 a.m. or 1:30 p.m.'}
+for t in tours: t['departs']=DEP[t['slug']];t['unit']='adult'
 base['tours']=tours;base['combos']=combos
 json.dump(base,open('data.json','w'),ensure_ascii=False,indent=1)
 print(len(tours),len(combos))

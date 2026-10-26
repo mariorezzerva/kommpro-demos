@@ -422,7 +422,7 @@ def tour_card(t, big=False):
     return f'''<a class="tc rv{' big' if big else ''}" data-cats="{cats}" href="{{base}}tours/{t['slug']}/">
 <div class="ph"><img src="{img(t['card'] or t['hero'],900)}" alt="{e(t['title'])}" loading="lazy">{tag}<div class="meta">{meta}</div></div>
 <div class="bd"><h3>{e(t['title'])}</h3><p>{e(t['lead'])}</p>
-<div class="ft"><div class="pr"><small>From</small><b>{money(t['price'])}</b> <span>/ adult</span></div><span class="go">See dates {ic("arrow")}</span></div></div></a>'''
+<div class="ft"><div class="pr"><small>From</small><b>{money(t['price'])}</b> <span>/ {t.get('unit','adult')}</span></div><span class="go">See dates {ic("arrow")}</span></div></div></a>'''
 
 def rezzerva(t, inline_script=True):
     s = f'<div data-rezzerva data-tenant="{e(B["rezzerva_tenant"])}" data-product="{e(t["product"])}" data-title="{e(t["title"])}" data-lang="en" data-accent="{e(B["accent"])}"></div>'
@@ -452,7 +452,7 @@ def home_body(base, standalone=True):
     for c in COMBOS: groups.setdefault(c["group"], []).append(c)
     acc = ""
     for gi, (g, items) in enumerate(groups.items()):
-        rows = "".join(f'''<a class="crow" href="{base}tours/{c['slug']}/"><img src="{img(c['card'] or c['hero'],200)}" alt="" loading="lazy"><span><b>{e(c['title'])}</b><small>{e(c['duration'])}</small></span><span class="pr2">{('from ' + money(c['price'])) if c.get('price') else 'See dates'}<small>{'/ adult' if c.get('price') else ''}</small></span></a>''' for c in items)
+        rows = "".join(f'''<a class="crow" href="{base}tours/{c['slug']}/"><img src="{img(c['card'] or c['hero'],200)}" alt="" loading="lazy"><span><b>{e(c['title'])}</b><small>{e(c['duration'])}</small></span><span class="pr2">{('from ' + money(c['price'])) if c.get('price') else 'See dates'}<small>{('/ ' + c.get('unit','person')) if c.get('price') else ''}</small></span></a>''' for c in items)
         lo = min([c["price"] for c in items if c.get("price")] or [0])
         acc += f'<details{" open" if gi==0 else ""}><summary><span class="pl">{ic("plus")}</span>{e(g)}<small>{len(items)} pairings{(" · from " + money(lo)) if lo else ""}</small></summary><div class="rows">{rows}</div></details>'
 
@@ -534,7 +534,7 @@ var h=document.getElementById('hdr');if(h){var f=function(){h.classList.toggle('
 """
 
 def js_home(base):
-    tours = [{"s": t["slug"], "t": t["title"], "p": t.get("price"), "d": t["duration"], "img": img(t["card"] or t["hero"], 240), "c": t["cats"], "k": t.get("keywords", [])} for t in ALL]
+    tours = [{"s": t["slug"], "t": t["title"], "p": t.get("price"), "u": t.get("unit", "adult"), "d": t["duration"], "img": img(t["card"] or t["hero"], 240), "c": t["cats"], "k": t.get("keywords", [])} for t in ALL]
     A = D["assistant"]
     return "var BASE=" + json.dumps(base) + ";var T=" + json.dumps(tours, ensure_ascii=False) + ";var WA=" + json.dumps(wa()) + ";var CAT=" + json.dumps({c["id"]: c["keywords"] for c in D["categories"]}, ensure_ascii=False) + ";" + r"""
 (function(){
@@ -557,7 +557,7 @@ function tm(){var n=new Date();return n.getHours()+':'+('0'+n.getMinutes()).slic
 function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function add(cls,html){var e=document.getElementById('empty');if(e)e.remove();var m=document.createElement('div');m.className='msg '+cls;m.innerHTML=html+'<span class="tm">'+tm()+'</span>';log.appendChild(m);log.scrollTop=log.scrollHeight;return m}
 function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
-function sug(t){return '<div class="sug"><img src="'+t.img+'" alt=""><span><b>'+esc(t.t)+'</b><small>'+esc(t.d)+(t.p?' · from $'+t.p:'')+'</small></span><a href="'+BASE+'tours/'+t.s+'/#book">See dates</a></div>'}
+function sug(t){return '<div class="sug"><img src="'+t.img+'" alt=""><span><b>'+esc(t.t)+'</b><small>'+esc(t.d)+(t.p?' · from $'+t.p+(t.u==='group'?' / group':''):'')+'</small></span><a href="'+BASE+'tours/'+t.s+'/#book">See dates</a></div>'}
 function think(q){
  var n=norm(q),score={};
  T.forEach(function(t){var s=0;t.k.forEach(function(w){if(n.indexOf(norm(w))>-1)s+=3});t.c.forEach(function(c){(CAT[c]||[]).forEach(function(w){if(n.indexOf(norm(w))>-1)s+=1})});if(s)score[t.s]=s});
@@ -586,7 +586,7 @@ FAQ_BASE = [
 
 def tour_body(t, base):
     hero = img(t["hero"], 2000)
-    facts = [("clock", "Duration", t["duration"]), ("flag", "Difficulty", t.get("difficulty") or "Easy"), ("globe", "Guide", t.get("guide") or "English / Spanish"), ("pin", "Pickup", t.get("pickup") or "La Fortuna / Arenal")]
+    facts = [("clock", "Duration", t["duration"]), ("flag", "Difficulty", t.get("difficulty") or "Easy"), (("cal", "Departs", t["departs"]) if t.get("departs") else ("globe", "Guide", t.get("guide") or "English / Spanish")), ("pin", "Pickup", t.get("pickup") or "La Fortuna / Arenal")]
     fx = "".join(f'<div class="fact">{ic(a)}<span><small>{b}</small><b>{e(c)}</b></span></div>' for a, b, c in facts)
     ov = "".join(f"<p>{e(p)}</p>" for p in (t.get("overview") or [t["lead"]]))
     hl = "".join(f'<li>{ic("check")}<span>{e(x)}</span></li>' for x in (t.get("highlights") or []))
@@ -603,8 +603,9 @@ def tour_body(t, base):
     rel = (rel + [x for x in TOURS if x not in rel and x["slug"] != t["slug"]])[:3]
     relh = "".join(tour_card(x) for x in rel).replace("{base}", base)
     crumb_cat = "Combos" if "combo" in t["cats"] else "Tours"
-    price = f'<small>From</small><div class="amt">{money(t["price"])} <span>/ adult</span></div>' if t.get("price") else '<small>Book online</small><div class="amt" style="font-size:2rem">Live prices</div>'
+    price = f'<small>From</small><div class="amt">{money(t["price"])} <span>/ {t.get("unit","adult")}</span></div>' if t.get("price") else '<small>Book online</small><div class="amt" style="font-size:2rem">Live prices</div>'
     child = f'<div class="ch">{e(t["child"])}</div>' if t.get("child") else ""
+    if t.get("price_note"): child += f'<div class="ch">{e(t["price_note"])}</div>'
     sec = lambda title, inner: f'<div class="blk rv"><h2>{title}</h2>{inner}</div>' if inner else ""
 
     return f'''
@@ -632,7 +633,7 @@ def tour_body(t, base):
 </aside>
 </div>
 <section class="sec rel"><div class="w"><div class="shd rv"><div><div class="eyb">Keep exploring</div><h2>Pairs well <em>with this.</em></h2></div></div><div class="grid">{relh}</div></div></section>
-<div class="mbar"><span><small>From</small> <b>{money(t.get("price")) or ""}</b></span><a class="btn btn-gold" href="#book">Check dates {ic("arrow")}</a></div>
+<div class="mbar"><span><small>From</small> <b>{money(t.get("price")) or ""}</b> <small>/ {t.get("unit","adult")}</small></span><a class="btn btn-gold" href="#book">Check dates {ic("arrow")}</a></div>
 '''
 
 def schema_tour(t):

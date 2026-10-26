@@ -422,7 +422,7 @@ def tour_card(t, big=False):
     return f'''<a class="tc rv{' big' if big else ''}" data-cats="{cats}" href="{{base}}tours/{t['slug']}/">
 <div class="ph"><img src="{img(t['card'] or t['hero'],900)}" alt="{e(t['title'])}" loading="lazy">{tag}<div class="meta">{meta}</div></div>
 <div class="bd"><h3>{e(t['title'])}</h3><p>{e(t['lead'])}</p>
-<div class="ft"><div class="pr"><small>From</small><b>{money(t['price'])}</b> <span>/ {t.get('unit','adult')}</span></div><span class="go">See dates {ic("arrow")}</span></div></div></a>'''
+<div class="ft"><div class="pr"><small>From</small><b data-rz="{e(t['product'])}">{money(t['price'])}</b> <span>/ {t.get('unit','adult')}</span></div><span class="go">See dates {ic("arrow")}</span></div></div></a>'''
 
 def rezzerva(t, inline_script=True):
     s = f'<div data-rezzerva data-tenant="{e(B["rezzerva_tenant"])}" data-product="{e(t["product"])}" data-title="{e(t["title"])}" data-lang="en" data-accent="{e(B["accent"])}"></div>'
@@ -434,7 +434,7 @@ def rezzerva(t, inline_script=True):
 def home_body(base, standalone=True):
     heroes = "".join(f'<div class="sl{" on" if i==0 else ""}" style="background-image:url(\'{img(u,2000)}\')"></div>' for i, u in enumerate(B["hero_images"]))
     dots = "".join(f'<i class="{"on" if i==0 else ""}"></i>' for i in range(len(B["hero_images"])))
-    opts = "".join(f'<option value="{t["slug"]}">{e(t["short"])} · from {money(t["price"])}</option>' for t in TOURS)
+    opts = "".join(f'<option value="{t["slug"]}" data-rzopt="{e(t["product"])}" data-short="{e(t["short"])}">{e(t["short"])} · from {money(t["price"])}</option>' for t in TOURS)
     copts = "".join(f'<option value="{t["slug"]}">{e(t["title"])}</option>' for t in COMBOS)
     pills = "".join(f'<button class="pill" data-go="{c["id"]}">{ic(c["icon"])}{e(c["pill"])}</button>' for c in D["categories"])
     tape = "".join(f"<span>{e(x)}</span>" for x in B["tape"]) * 2
@@ -452,9 +452,9 @@ def home_body(base, standalone=True):
     for c in COMBOS: groups.setdefault(c["group"], []).append(c)
     acc = ""
     for gi, (g, items) in enumerate(groups.items()):
-        rows = "".join(f'''<a class="crow" href="{base}tours/{c['slug']}/"><img src="{img(c['card'] or c['hero'],200)}" alt="" loading="lazy"><span><b>{e(c['title'])}</b><small>{e(c['duration'])}</small></span><span class="pr2">{('from ' + money(c['price'])) if c.get('price') else 'See dates'}<small>{('/ ' + c.get('unit','person')) if c.get('price') else ''}</small></span></a>''' for c in items)
+        rows = "".join(f'''<a class="crow" href="{base}tours/{c['slug']}/"><img src="{img(c['card'] or c['hero'],200)}" alt="" loading="lazy"><span><b>{e(c['title'])}</b><small>{e(c['duration'])}</small></span><span class="pr2">{('from <b data-rz="' + e(c['product']) + '" style="font-weight:inherit">' + money(c['price']) + '</b>') if c.get('price') else 'See dates'}<small>{('/ ' + c.get('unit','person')) if c.get('price') else ''}</small></span></a>''' for c in items)
         lo = min([c["price"] for c in items if c.get("price")] or [0])
-        acc += f'<details{" open" if gi==0 else ""}><summary><span class="pl">{ic("plus")}</span>{e(g)}<small>{len(items)} pairings{(" · from " + money(lo)) if lo else ""}</small></summary><div class="rows">{rows}</div></details>'
+        acc += f'<details{" open" if gi==0 else ""}><summary><span class="pl">{ic("plus")}</span>{e(g)}<small>{len(items)} pairings{(' · from <span data-rzmin="' + ",".join(e(c["product"]) for c in items) + '">' + money(lo) + '</span>') if lo else ""}</small></summary><div class="rows">{rows}</div></details>'
 
     revs = "".join(f'''<figure class="rc rv" style="margin:0">{stars()}<q>{e(r['text'])}</q><figcaption class="who"><i>{e(r['name'][0])}</i><span><b>{e(r['name'])}</b><small>{e(r['from'])}</small></span></figcaption></figure>''' for r in D["reviews"])
     hints = "".join(f'<button type="button" data-say="{e(h)}">{e(h)}</button>' for h in D["assistant"]["hints"])
@@ -522,6 +522,29 @@ def home_body(base, standalone=True):
     return body
 
 # ---------------------------------------------------------------- JS
+def js_prices(api):
+    """Precios en vivo desde Rezzerva. Lo generado queda de respaldo si Rezzerva no responde."""
+    return "var RZ_API=" + json.dumps(api) + ",RZ_TEN=" + json.dumps(B["rezzerva_tenant"]) + ";" + r"""
+(function(){
+var sel='[data-rz],[data-rzchild],[data-rztiers],[data-rzmin],[data-rzopt]',els=document.querySelectorAll(sel);if(!els.length)return;
+var slugs={};els.forEach(function(el){['rz','rzchild','rztiers','rzopt'].forEach(function(k){if(el.dataset[k])slugs[el.dataset[k]]=1});if(el.dataset.rzmin)el.dataset.rzmin.split(',').forEach(function(s){slugs[s]=1})});
+function $m(n){var v=n/100;return '$'+(v%1?v.toFixed(2):v.toLocaleString('en-US'))}
+function calc(j){var o={};if(j.passenger_types&&j.passenger_types.length){var a=j.passenger_types.filter(function(p){return p.code==='adult'})[0]||j.passenger_types[0],c=j.passenger_types.filter(function(p){return p.code==='child'})[0];o.from=a.price_minor;if(c)o.child=$m(c.price_minor)+' per child, ages '+c.min_age+' to '+c.max_age}
+ else if(j.tiers&&j.tiers.length){o.from=Math.min.apply(null,j.tiers.map(function(t){return t.amount_minor}));o.tiers=j.tiers.map(function(t){var n=t.min===t.max?t.min:t.min+'-'+t.max;return n+(n===1?' person ':' people ')+$m(t.amount_minor)}).join(' · ')}
+ return o}
+function get(s){var k='rz:'+RZ_TEN+':'+s;try{var c=JSON.parse(sessionStorage.getItem(k)||'null');if(c&&Date.now()-c.t<6e5)return Promise.resolve(c.v)}catch(_){}
+ return fetch(RZ_API+encodeURIComponent(RZ_TEN)+'/products/'+encodeURIComponent(s)).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){var v=calc(j);try{sessionStorage.setItem(k,JSON.stringify({t:Date.now(),v:v}))}catch(_){}return v})}
+var P={};Promise.all(Object.keys(slugs).map(function(s){return get(s).then(function(v){P[s]=v},function(){})})).then(function(){
+ document.querySelectorAll('[data-rz]').forEach(function(el){var v=P[el.dataset.rz];if(v&&v.from)el.textContent=$m(v.from)});
+ document.querySelectorAll('[data-rzchild]').forEach(function(el){var v=P[el.dataset.rzchild];if(v&&v.child)el.textContent=v.child});
+ document.querySelectorAll('[data-rztiers]').forEach(function(el){var v=P[el.dataset.rztiers];if(v&&v.tiers)el.textContent=v.tiers});
+ document.querySelectorAll('[data-rzmin]').forEach(function(el){var m=el.dataset.rzmin.split(',').map(function(s){return P[s]&&P[s].from}).filter(Boolean);if(m.length)el.textContent=$m(Math.min.apply(null,m))});
+ document.querySelectorAll('[data-rzopt]').forEach(function(el){var v=P[el.dataset.rzopt];if(v&&v.from)el.textContent=el.dataset.short+' · from '+$m(v.from)});
+ if(window.T)T.forEach(function(t){var v=P[t.s];if(v&&v.from)t.p=v.from/100});
+});
+})();
+"""
+
 def js_common():
     return r"""
 (function(){
@@ -536,7 +559,7 @@ var h=document.getElementById('hdr');if(h){var f=function(){h.classList.toggle('
 def js_home(base):
     tours = [{"s": t["slug"], "t": t["title"], "p": t.get("price"), "u": t.get("unit", "adult"), "d": t["duration"], "img": img(t["card"] or t["hero"], 240), "c": t["cats"], "k": t.get("keywords", [])} for t in ALL]
     A = D["assistant"]
-    return "var BASE=" + json.dumps(base) + ";var T=" + json.dumps(tours, ensure_ascii=False) + ";var WA=" + json.dumps(wa()) + ";var CAT=" + json.dumps({c["id"]: c["keywords"] for c in D["categories"]}, ensure_ascii=False) + ";" + r"""
+    return "var BASE=" + json.dumps(base) + ";var T=window.T=" + json.dumps(tours, ensure_ascii=False) + ";var WA=" + json.dumps(wa()) + ";var CAT=" + json.dumps({c["id"]: c["keywords"] for c in D["categories"]}, ensure_ascii=False) + ";" + r"""
 (function(){
 /* hero carrusel */
 var sl=document.querySelectorAll('.hero .sl'),dt=document.querySelectorAll('.dots i'),k=0;
@@ -603,9 +626,9 @@ def tour_body(t, base):
     rel = (rel + [x for x in TOURS if x not in rel and x["slug"] != t["slug"]])[:3]
     relh = "".join(tour_card(x) for x in rel).replace("{base}", base)
     crumb_cat = "Combos" if "combo" in t["cats"] else "Tours"
-    price = f'<small>From</small><div class="amt">{money(t["price"])} <span>/ {t.get("unit","adult")}</span></div>' if t.get("price") else '<small>Book online</small><div class="amt" style="font-size:2rem">Live prices</div>'
-    child = f'<div class="ch">{e(t["child"])}</div>' if t.get("child") else ""
-    if t.get("price_note"): child += f'<div class="ch">{e(t["price_note"])}</div>'
+    price = f'<small>From</small><div class="amt"><span data-rz="{e(t["product"])}" style="font:inherit;color:inherit">{money(t["price"])}</span> <span>/ {t.get("unit","adult")}</span></div>' if t.get("price") else '<small>Book online</small><div class="amt" style="font-size:2rem">Live prices</div>'
+    child = f'<div class="ch" data-rzchild="{e(t["product"])}">{e(t["child"])}</div>' if t.get("child") else ""
+    if t.get("price_note"): child += f'<div class="ch" data-rztiers="{e(t["product"])}">{e(t["price_note"])}</div>'
     sec = lambda title, inner: f'<div class="blk rv"><h2>{title}</h2>{inner}</div>' if inner else ""
 
     return f'''
@@ -633,7 +656,7 @@ def tour_body(t, base):
 </aside>
 </div>
 <section class="sec rel"><div class="w"><div class="shd rv"><div><div class="eyb">Keep exploring</div><h2>Pairs well <em>with this.</em></h2></div></div><div class="grid">{relh}</div></div></section>
-<div class="mbar"><span><small>From</small> <b>{money(t.get("price")) or ""}</b> <small>/ {t.get("unit","adult")}</small></span><a class="btn btn-gold" href="#book">Check dates {ic("arrow")}</a></div>
+<div class="mbar"><span><small>From</small> <b data-rz="{e(t["product"])}">{money(t.get("price")) or ""}</b> <small>/ {t.get("unit","adult")}</small></span><a class="btn btn-gold" href="#book">Check dates {ic("arrow")}</a></div>
 '''
 
 def schema_tour(t):
@@ -649,7 +672,7 @@ def page(title, desc, body, base, js, cls="", og=""):
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:image" content="{og}">
 <link rel="icon" href="{img(B['logo'],64)}">{FONTS}<style>html,body{{margin:0;background:#f4f1e8}}{CSS}</style></head>
 <body><div class="aax{cls}">{header(base)}{body}{footer(base)}</div>
-<script>{js_common()}{js}</script></body></html>'''
+<script>{js_common()}{js}{js_prices("/rz/")}</script></body></html>'''
 
 def wp_block(body, js, extra_head="", cls=""):
     # Para el widget HTML de Elementor: sin header/footer (los pone el tema), mismo CSS con alcance .aax
@@ -657,7 +680,7 @@ def wp_block(body, js, extra_head="", cls=""):
 {FONTS}<style>{CSS}
 .aax .hero .w,.aax .thero .w{{padding-top:110px}}</style>
 {extra_head}<div class="aax{cls}">{body}</div>
-<script>{js_common()}{js}</script>'''
+<script>{js_common()}{js}{js_prices("https://app.rezzerva.com/v1/widget/")}</script>'''
 
 def build():
     # solo borra lo que genera (index.html, tours/, wp/); nunca la plantilla ni otros archivos
@@ -682,6 +705,8 @@ def build():
             page(f'{t["title"]} · {B["name"]}', t["lead"], tb + schema_tour(t) + rz, "../../", "", cls=" has-mbar", og=img(t["hero"], 1200)))
         wtb = tour_body(t, "/").replace('href="/tours/', 'href="/')
         open(os.path.join(OUT, "wp", f"{t['slug']}.html"), "w").write(wp_block(wtb + schema_tour(t) + rz, "", cls=" has-mbar"))
+    with open(os.path.join(OUT, "_redirects"), "w") as f:
+        f.write("# Precios en vivo: el sitio consulta /rz/... y Netlify lo pasa a la API publica del widget de Rezzerva\n/rz/*  https://app.rezzerva.com/v1/widget/:splat  200\n")
     print("ok:", len(ALL), "tours ->", OUT)
 
 if __name__ == "__main__":

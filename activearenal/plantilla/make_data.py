@@ -61,7 +61,7 @@ for c in combos:
     v=CP[c['slug']]
     c['price'],c['unit']=(v if isinstance(v,tuple) else (v,'person'))
     c['departs']='8:15 a.m.' if 'rafting' in c['slug'] else '8:00 a.m.'
-    if c['unit']=='group': c['price_note']='Price per group'
+    if c['unit']=='group': c['price_note']={'tour-rafting-atv':'1 person $185 · 2 people $290','tour-safari-float-atv':'1 person $165 · 2 people $260'}[c['slug']]
 DEP={'tour-night-walk':'5:30 p.m.','tour-arenal-volcano':'8:00 a.m. or 1:30 p.m.','tour-rio-celeste':'7:30 a.m.','tour-arenal-hanging-bridges':'8:00 a.m. or 1:30 p.m.',
  'tour-white-water-rafting':'8:15 a.m.','tour-jungle-river-safari':'8:00 a.m. or 1:30 p.m.','tour-sloth':'8:00 a.m. or 1:30 p.m.'}
 for t in tours: t['departs']=DEP[t['slug']];t['unit']='adult'

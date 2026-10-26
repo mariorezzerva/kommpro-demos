@@ -747,7 +747,7 @@
    ],
    "unit": "group",
    "departs": "8:15 a.m.",
-   "price_note": "Price per group"
+   "price_note": "1 person $185 · 2 people $290"
   },
   {
    "slug": "tour-rafting-la-fortuna-waterfall",
@@ -926,7 +926,7 @@
    ],
    "unit": "group",
    "departs": "8:00 a.m.",
-   "price_note": "Price per group"
+   "price_note": "1 person $165 · 2 people $260"
   },
   {
    "slug": "tour-safari-float-arenal-volcano",

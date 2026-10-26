@@ -108,7 +108,7 @@
    "title": "After dark",
    "icon": "moon",
    "blurb": "The rainforest changes shift at night.",
-   "image": "img/frog.webp",
+   "image": "img/frog-night.webp",
    "keywords": [
     "night",
     "dark",
@@ -631,8 +631,8 @@
    "short": "Jungle Night Walk",
    "title": "Jungle Night Walk",
    "lead": "The rainforest wakes up when the sun goes down.",
-   "hero": "https://activearenal.com/wp-content/uploads/2026/09/jungle-night-walk.jpg",
-   "card": "img/frog.webp",
+   "hero": "img/frog-night.webp",
+   "card": "img/frog-night.webp",
    "duration": "~2 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
@@ -662,9 +662,9 @@
    ],
    "bring": "Closed shoes, long pants, insect repellent, a light rain jacket, camera.",
    "gallery": [
-    "https://activearenal.com/wp-content/uploads/2026/09/jungle-night-walk.jpg",
+    "img/frog-night.webp",
     "img/frog.webp",
-    "img/owl.webp"
+    "https://activearenal.com/wp-content/uploads/2026/09/jungle-night-walk.jpg"
    ],
    "cats": [
     "night",
@@ -682,7 +682,7 @@
    ],
    "departs": "5:30 p.m.",
    "unit": "adult",
-   "hero_pos": "center"
+   "hero_pos": "center 32%"
   }
  ],
  "combos": [

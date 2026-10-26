@@ -73,9 +73,9 @@ PH={
  'tour-arenal-hanging-bridges':('img/hanging-bridges.webp','img/hanging-bridges.webp',['img/hanging-bridges.webp','img/hanging-bridges-family.webp','img/motmot.webp']),
  'tour-arenal-volcano':('img/arenal-volcano-lake.webp','img/arenal-volcano-lake.webp',['img/arenal-volcano-lake.webp','img/volcano-hiker.webp','img/kayak-volcano.webp']),
  'tour-jungle-river-safari':('img/safari-float.webp','img/safari-float.webp',['img/safari-float.webp','img/safari-float-river.webp','img/crocodiles.webp']),
- 'tour-night-walk':(None,'img/frog.webp',[U+'2026/09/jungle-night-walk.jpg','img/frog.webp','img/owl.webp']),
+ 'tour-night-walk':('img/frog-night.webp','img/frog-night.webp',['img/frog-night.webp','img/frog.webp',U+'2026/09/jungle-night-walk.jpg']),
 }
-POS={'tour-sloth':'center 80%','tour-white-water-rafting':'center 35%','tour-arenal-hanging-bridges':'center 18%','tour-rio-celeste':'center 60%'}
+POS={'tour-sloth':'center 80%','tour-white-water-rafting':'center 35%','tour-arenal-hanging-bridges':'center 18%','tour-rio-celeste':'center 60%','tour-night-walk':'center 32%'}
 for t in tours:
     t['hero_pos']=POS.get(t['slug'],'center')
     h,c,g=PH[t['slug']]
@@ -90,7 +90,7 @@ for c in combos:
     c['gallery']=[c['group_img'],c['hero'],'img/arenal-volcano-lake.webp']
 base['brand']['hero_images']=['img/arenal-volcano-lake.webp','img/rio-celeste-wide.webp']
 base['brand']['band_image']='img/kayak-volcano.webp'
-CAT={'water':'img/rio-celeste-trail.webp','wildlife':'img/sloth.webp','volcano':'img/hanging-bridges.webp','night':'img/frog.webp','combo':'img/rafting-rapids.webp'}
+CAT={'water':'img/rio-celeste-trail.webp','wildlife':'img/sloth.webp','volcano':'img/hanging-bridges.webp','night':'img/frog-night.webp','combo':'img/rafting-rapids.webp'}
 for cat in base['categories']: cat['image']=CAT.get(cat['id'],cat['image'])
 base['tours']=tours;base['combos']=combos
 json.dump(base,open('data.json','w'),ensure_ascii=False,indent=1)

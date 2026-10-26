@@ -88,7 +88,7 @@
    "title": "Volcano and forest",
    "icon": "mountain",
    "blurb": "Lava trails and bridges above the canopy.",
-   "image": "img/hanging-bridges.webp",
+   "image": "img/hanging-bridges-aerial.webp",
    "keywords": [
     "volcano",
     "lava",
@@ -439,8 +439,8 @@
    "product": "tour-arenal-hanging-bridges",
    "title": "Arenal Hanging Bridges",
    "lead": "Walk the treetops on suspended bridges above the rainforest.",
-   "hero": "img/hanging-bridges.webp",
-   "card": "img/hanging-bridges.webp",
+   "hero": "img/hanging-bridges-aerial.webp",
+   "card": "img/hanging-bridges-aerial.webp",
    "duration": "2–3 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
@@ -473,8 +473,8 @@
    ],
    "bring": "Walking shoes, rain jacket, camera, water.",
    "gallery": [
+    "img/hanging-bridges-aerial.webp",
     "img/hanging-bridges.webp",
-    "img/hanging-bridges-family.webp",
     "img/motmot.webp"
    ],
    "short": "Hanging Bridges",
@@ -493,7 +493,7 @@
    ],
    "departs": "8:00 a.m. or 1:30 p.m.",
    "unit": "adult",
-   "hero_pos": "center 18%"
+   "hero_pos": "center"
   },
   {
    "slug": "tour-arenal-volcano",
@@ -1078,8 +1078,8 @@
    "title": "Safari Float + Hanging Bridges",
    "short": "Safari Float + Hanging Bridges",
    "lead": "Safari Float and Hanging Bridges in one day, with a single hotel pickup in La Fortuna.",
-   "hero": "img/hanging-bridges.webp",
-   "card": "img/hanging-bridges.webp",
+   "hero": "img/hanging-bridges-aerial.webp",
+   "card": "img/hanging-bridges-aerial.webp",
    "duration": "Two tours, one day",
    "difficulty": null,
    "price": 165,
@@ -1108,7 +1108,7 @@
    ],
    "gallery": [
     "img/safari-float.webp",
-    "img/hanging-bridges.webp",
+    "img/hanging-bridges-aerial.webp",
     "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",

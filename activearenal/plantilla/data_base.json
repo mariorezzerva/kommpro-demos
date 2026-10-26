@@ -1,0 +1,172 @@
+{
+ "brand": {
+  "name": "Active Arenal",
+  "url": "https://activearenal.com",
+  "logo": "https://activearenal.com/wp-content/uploads/2026/08/active-arenal-logo.png",
+  "phone": "+506 8378 0001",
+  "whatsapp": "50683780001",
+  "email": "info@drivercostarica.com",
+  "location": "La Fortuna, Arenal, Costa Rica",
+  "rezzerva_tenant": "active-arenal",
+  "accent": "12491d",
+  "tripadvisor": "https://www.tripadvisor.com/Search?q=Costa%20Rica%20Driver%20and%20Adventure",
+  "seo_title": "Active Arenal · Local tours in La Fortuna and Arenal Volcano",
+  "seo_desc": "Small-group tours around La Fortuna and Arenal: Río Celeste, rafting, sloths, hanging bridges, volcano hikes and river safari. Hotel pickup, local guides, book online.",
+  "rating_line": "Excellent on Tripadvisor · 331 reviews",
+  "rating_short": "Excellent · 331 Tripadvisor reviews",
+  "h1": "Real adventure in the <em>heart of Arenal.</em>",
+  "sub": "Local guides, small groups and pickup at your hotel in La Fortuna. Choose your day, see real availability and pay securely by card.",
+  "hero_images": [
+   "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
+   "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg"
+  ],
+  "tape": [
+   "Free cancellation up to 24 h",
+   "Pickup at your hotel in La Fortuna",
+   "Leo's local team, guiding since 2002",
+   "Small groups",
+   "English and Spanish",
+   "Secure card payment",
+   "Instant confirmation"
+  ],
+  "moods_lead": "Every tour leaves from La Fortuna with pickup at your door. Start with the kind of day you want, we take care of the rest.",
+  "combos_lead": "Pair a river morning with an afternoon on the volcano, the bridges or a waterfall. One pickup, one booking, a full day well spent.",
+  "reviews_note": "Rated Excellent by 331 travelers on Tripadvisor. Same owner, same guides: Leo Rodríguez and the team behind Costa Rica Driver & Adventure, now focused on tours from La Fortuna.",
+  "footer_blurb": "Tours from La Fortuna with the local team of Leo Rodríguez. Small groups, real guides, a day you will keep talking about.",
+  "legal_note": "Part of Costa Rica Driver & Adventure, serving travelers since 2002.",
+  "band_image": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
+  "band_title": "Nothing here rushes. <em>The river, the sloth, the volcano.</em>",
+  "band_text": "We leave from La Fortuna, the town we know best. Small groups, guides who grew up here, and time to actually look around."
+ },
+ "categories": [
+  {
+   "id": "water",
+   "pill": "Waterfalls & rivers",
+   "title": "Water days",
+   "icon": "drop",
+   "blurb": "Turquoise waterfalls, rapids and slow river floats.",
+   "image": "https://activearenal.com/wp-content/uploads/2026/08/rio-celeste-waterfall.png",
+   "keywords": [
+    "water",
+    "waterfall",
+    "river",
+    "swim",
+    "raft",
+    "float",
+    "cascada",
+    "rio",
+    "agua"
+   ]
+  },
+  {
+   "id": "wildlife",
+   "pill": "Wildlife",
+   "title": "Wildlife up close",
+   "icon": "leaf",
+   "blurb": "Sloths, toucans, frogs. Guides who know where to look.",
+   "image": "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
+   "keywords": [
+    "animal",
+    "wildlife",
+    "sloth",
+    "bird",
+    "toucan",
+    "monkey",
+    "frog",
+    "perezoso",
+    "animales",
+    "aves",
+    "mono"
+   ]
+  },
+  {
+   "id": "volcano",
+   "pill": "Volcano & forest",
+   "title": "Volcano and forest",
+   "icon": "mountain",
+   "blurb": "Lava trails and bridges above the canopy.",
+   "image": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
+   "keywords": [
+    "volcano",
+    "lava",
+    "hike",
+    "forest",
+    "bridge",
+    "canopy",
+    "volcan",
+    "caminata",
+    "bosque",
+    "puente"
+   ]
+  },
+  {
+   "id": "night",
+   "pill": "After dark",
+   "title": "After dark",
+   "icon": "moon",
+   "blurb": "The rainforest changes shift at night.",
+   "image": "https://activearenal.com/wp-content/uploads/2026/09/jungle-night-walk.jpg",
+   "keywords": [
+    "night",
+    "dark",
+    "evening",
+    "frog",
+    "snake",
+    "noche",
+    "nocturno"
+   ]
+  },
+  {
+   "id": "combo",
+   "pill": "Combos",
+   "title": "Two in one day",
+   "icon": "spark",
+   "blurb": "Eleven pairings, one pickup.",
+   "image": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "keywords": [
+    "combo",
+    "two",
+    "both",
+    "full day",
+    "dos",
+    "dia completo"
+   ]
+  }
+ ],
+ "assistant": {
+  "lead": "Dates, ages, energy level, what you already saw. Write it like a message to a friend in La Fortuna and get the right tours with real dates to book.",
+  "hints": [
+   "We have 2 kids and one free afternoon",
+   "Something with adrenaline",
+   "We want to see sloths",
+   "Algo tranquilo con mis papás"
+  ]
+ },
+ "reviews": [
+  {
+   "name": "Kay L",
+   "from": "Family of 12 · Tripadvisor",
+   "text": "Every excursion was excellent... We will never forget the magical time we had there."
+  },
+  {
+   "name": "Alberto G",
+   "from": "Tripadvisor",
+   "text": "Leo, Pablo, and Roy were friendly, reliable, knowledgeable, and great tour guides!"
+  },
+  {
+   "name": "Diego C",
+   "from": "Costa Rica · Tripadvisor",
+   "text": "Muy buena experiencia, muy amables y siempre con muy buena actitud. Siempre puntuales y dispuestos para todos los tours."
+  },
+  {
+   "name": "Vigo T",
+   "from": "Tripadvisor",
+   "text": "Leo is a nice guy who has a lot of knowledge about Costa Rica, especially about La Fortuna."
+  },
+  {
+   "name": "Marie0558",
+   "from": "Two trips · Tripadvisor",
+   "text": "Leo and his drivers and guides are great! They make the tour interesting, memorable and fun!"
+  }
+ ]
+}

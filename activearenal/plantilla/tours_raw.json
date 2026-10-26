@@ -1,0 +1,278 @@
+[
+ {
+  "id": 337,
+  "slug": "tour-rio-celeste",
+  "title": "Río Celeste Waterfall",
+  "lead": "Chase the impossible blue of Costa Rica’s most famous waterfall.",
+  "hero": "https://activearenal.com/wp-content/uploads/2026/08/rio-celeste-waterfall.png",
+  "duration": "~8 hours",
+  "difficulty": "Moderate",
+  "guide": "English / Spanish",
+  "pickup": "La Fortuna / Arenal",
+  "price_adult": 125,
+  "price_child_text": "$110 / child (ages 5–11)",
+  "overview": [
+   "Deep inside Tenorio Volcano National Park, two ordinary rivers meet and turn a surreal shade of turquoise — a natural phenomenon found in only a handful of places on Earth.",
+   "On this full-day escape you’ll hike through pristine rainforest to the legendary Río Celeste Waterfall, pass steaming volcanic vents and bubbling blue lagoons, and learn the science and folklore behind the color from your naturalist guide. It’s nature, photography, and pure wonder in one unforgettable day."
+  ],
+  "highlights": [
+   "Morning pickup at your hotel",
+   "Scenic drive to Tenorio Volcano National Park",
+   "Guided rainforest hike to the waterfall, natural pools & volcanic features",
+   "Traditional Costa Rican lunch",
+   "Bilingual guide (English / Spanish)"
+  ],
+  "steps": [
+   "Morning pickup at your hotel",
+   "Scenic drive to Tenorio Volcano National Park",
+   "Guided rainforest hike to the waterfall, natural pools & volcanic features",
+   "Traditional Costa Rican lunch",
+   "Return to your hotel"
+  ],
+  "included": [
+   "Round-trip transportation",
+   "Professional naturalist guide",
+   "Park safety equipment",
+   "Traditional Costa Rican lunch"
+  ],
+  "not_included": [
+   "Personal expenses",
+   "Gratuities (optional)",
+   "Park entrance fee"
+  ],
+  "bring": "Hiking shoes, rain jacket, water, sunscreen, camera, cash for extras.",
+  "gallery": [
+   "https://activearenal.com/wp-content/uploads/2026/08/rio-celeste-waterfall.png",
+   "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg"
+  ],
+  "rezzerva_product": "tour-rio-celeste"
+ },
+ {
+  "id": 340,
+  "slug": "tour-white-water-rafting",
+  "title": "White Water Rafting",
+  "lead": "Paddle through jungle rapids on one of Costa Rica’s best rivers.",
+  "hero": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+  "duration": "½ day",
+  "difficulty": "Moderate–High",
+  "guide": "English / Spanish",
+  "pickup": "La Fortuna / Arenal",
+  "price_adult": 85,
+  "price_child_text": "$79 / child (ages 5–11)",
+  "overview": [
+   "Grab a paddle and hit the whitewater. Winding through lush rainforest canyons, this river run mixes heart-pounding rapids with calm stretches where you can soak in the scenery and spot toucans, herons, and monkeys along the banks.",
+   "Certified guides lead every raft, so first-timers and thrill-seekers alike get the perfect balance of adrenaline and safety. A riverside snack caps off the ride."
+  ],
+  "highlights": [
+   "Safety briefing and gear fitting",
+   "The river run through rapids and calm pools",
+   "Riverside snack",
+   "Bilingual guide (English / Spanish)"
+  ],
+  "steps": [
+   "Hotel pickup",
+   "Safety briefing and gear fitting",
+   "The river run through rapids and calm pools",
+   "Riverside snack",
+   "Return to your hotel"
+  ],
+  "included": [
+   "Round-trip transportation",
+   "Certified rafting guide",
+   "All safety gear (helmet, vest, paddle)",
+   "Riverside snack"
+  ],
+  "not_included": [
+   "Gratuities",
+   "Personal expenses"
+  ],
+  "bring": "Quick-dry clothes, secured sandals or water shoes, sunscreen, a change of clothes, waterproof camera.",
+  "gallery": [
+   "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "https://activearenal.com/wp-content/uploads/2026/08/RaftingDriver.png",
+   "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg"
+  ],
+  "rezzerva_product": "tour-white-water-rafting"
+ },
+ {
+  "id": 341,
+  "slug": "tour-sloth",
+  "title": "Sloth Tour – Rain Forest Walk",
+  "lead": "Meet Costa Rica’s most beloved local — the sloth — in the wild.",
+  "hero": "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
+  "duration": "2–3 hours",
+  "difficulty": "Easy",
+  "guide": "English / Spanish",
+  "pickup": "La Fortuna / Arenal",
+  "price_adult": 79,
+  "price_child_text": "$55 / child (ages 5–11)",
+  "overview": [
+   "Slow down and see the rainforest through a naturalist’s eyes. On this gentle guided walk you’ll search the canopy for two- and three-toed sloths in their natural habitat — plus the toucans, frogs, lizards, and colorful birds that share their world.",
+   "Our guides carry professional scopes so you get a close-up look and that perfect photo. Easy pace, big rewards — ideal for families."
+  ],
+  "highlights": [
+   "Guided walk through private rainforest trails",
+   "Wildlife spotting with professional scopes",
+   "Bilingual guide (English / Spanish)"
+  ],
+  "steps": [
+   "Hotel pickup",
+   "Guided walk through private rainforest trails",
+   "Wildlife spotting with professional scopes",
+   "Return to your hotel"
+  ],
+  "included": [
+   "Round-trip transportation",
+   "Naturalist guide",
+   "Spotting scope",
+   "Trail entrance"
+  ],
+  "not_included": [
+   "Gratuities",
+   "Personal expenses"
+  ],
+  "bring": "Comfortable walking shoes, insect repellent, camera, water.",
+  "gallery": [
+   "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
+   "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png"
+  ],
+  "rezzerva_product": "tour-sloth"
+ },
+ {
+  "id": 342,
+  "slug": "tour-arenal-hanging-bridges",
+  "title": "Arenal Hanging Bridges",
+  "lead": "Walk the treetops on suspended bridges above the rainforest.",
+  "hero": "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
+  "duration": "2–3 hours",
+  "difficulty": "Easy",
+  "guide": "English / Spanish",
+  "pickup": "La Fortuna / Arenal",
+  "price_adult": 77,
+  "price_child_text": "$68 / child (ages 5–11)",
+  "overview": [
+   "Experience the rainforest from a whole new angle — eye-level with the canopy. A network of trails and suspension bridges carries you over ravines and through primary forest, with sweeping views of the Arenal Volcano along the way.",
+   "Your guide reveals the wildlife most visitors miss: birds, snakes, frogs, and the intricate ecosystem thriving above and below you. Awe-inspiring and accessible for all ages."
+  ],
+  "highlights": [
+   "Guided walk across the hanging bridges and forest trails",
+   "Volcano viewpoints and wildlife stops",
+   "Bilingual guide (English / Spanish)"
+  ],
+  "steps": [
+   "Hotel pickup",
+   "Guided walk across the hanging bridges and forest trails",
+   "Volcano viewpoints and wildlife stops",
+   "Return to your hotel"
+  ],
+  "included": [
+   "Round-trip transportation",
+   "Naturalist guide",
+   "Park/reserve entrance"
+  ],
+  "not_included": [
+   "Gratuities",
+   "Personal expenses"
+  ],
+  "bring": "Walking shoes, rain jacket, camera, water.",
+  "gallery": [
+   "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
+   "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
+   "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg"
+  ],
+  "rezzerva_product": "tour-arenal-hanging-bridges"
+ },
+ {
+  "id": 343,
+  "slug": "tour-arenal-volcano",
+  "title": "Arenal Volcano National Park",
+  "lead": "Hike the lava trails at the foot of an iconic volcano.",
+  "hero": "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
+  "duration": "3–4 hours",
+  "difficulty": "Easy–Moderate",
+  "guide": "English / Spanish",
+  "pickup": "La Fortuna / Arenal",
+  "price_adult": 77,
+  "price_child_text": "$65 / child (ages 5–11)",
+  "overview": [
+   "Stand in the shadow of one of the world’s most perfectly shaped volcanoes. This guided hike follows trails across old lava flows from Arenal’s active years, through regenerating forest alive with wildlife, to viewpoints that frame the volcano and Lake Arenal.",
+   "Your guide brings the landscape to life with the geology, history, and ecology of this legendary national park."
+  ],
+  "highlights": [
+   "Drive to Arenal Volcano National Park",
+   "Guided hike along lava-flow and forest trails",
+   "Panoramic volcano and lake viewpoints",
+   "Bilingual guide (English / Spanish)"
+  ],
+  "steps": [
+   "Hotel pickup",
+   "Drive to Arenal Volcano National Park",
+   "Guided hike along lava-flow and forest trails",
+   "Panoramic volcano and lake viewpoints",
+   "Return to your hotel"
+  ],
+  "included": [
+   "Round-trip transportation",
+   "Naturalist guide",
+   "Park entrance"
+  ],
+  "not_included": [
+   "Gratuities",
+   "Personal expenses"
+  ],
+  "bring": "Hiking shoes, hat, sunscreen, rain jacket, water, camera.",
+  "gallery": [
+   "https://activearenal.com/wp-content/uploads/2026/10/arenal-volcano.jpg",
+   "https://activearenal.com/wp-content/uploads/2026/08/arenal-hanging-bridges.png",
+   "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg"
+  ],
+  "rezzerva_product": "tour-arenal-volcano"
+ },
+ {
+  "id": 344,
+  "slug": "tour-jungle-river-safari",
+  "title": "Jungle River Safari Float",
+  "lead": "Drift downriver and let the wildlife come to you.",
+  "hero": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+  "duration": "~3 hours",
+  "difficulty": "Easy",
+  "guide": "English / Spanish",
+  "pickup": "La Fortuna / Arenal",
+  "price_adult": 75,
+  "price_child_text": "$63 / child (ages 5–11)",
+  "overview": [
+   "Trade the trail for the water on this peaceful float down a wildlife-rich river. From a safe, stable boat you’ll glide past riverbanks teeming with life — caimans, iguanas, monkeys, sloths, and dozens of bird species — while your naturalist guide points out creatures you’d never spot on your own.",
+   "No paddling, no rapids, just nature at its own gentle pace. Perfect for families and photographers."
+  ],
+  "highlights": [
+   "Riverside safety briefing",
+   "Guided wildlife float",
+   "Bilingual guide (English / Spanish)"
+  ],
+  "steps": [
+   "Hotel pickup",
+   "Riverside safety briefing",
+   "Guided wildlife float",
+   "Return to your hotel"
+  ],
+  "included": [
+   "Round-trip transportation",
+   "Naturalist guide",
+   "Boat and safety gear",
+   "Fresh fruit"
+  ],
+  "not_included": [
+   "Gratuities",
+   "Personal expenses"
+  ],
+  "bring": "Sunscreen, hat, binoculars, camera, water.",
+  "gallery": [
+   "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "https://activearenal.com/wp-content/uploads/2026/08/sloth-tour.png",
+   "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg"
+  ],
+  "rezzerva_product": "tour-jungle-river-safari"
+ }
+]

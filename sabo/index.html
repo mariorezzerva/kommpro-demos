@@ -768,7 +768,27 @@ var runScen = function (si, freeText) {
   var STOP = { para: 1, con: 1, que: 1, los: 1, las: 1, del: 1, una: 1, unos: 1, unas: 1, algo: 1, ocupo: 1, quiero: 1, necesito: 1, somos: 1, hay: 1, tienen: 1, mil: 1, por: 1, favor: 1, the: 1 };
   var stem = function (w) { return w.replace(/es$/, '').replace(/s$/, ''); };
   var terms = freeText ? freeText.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z0-9ñ]+/).filter(function (w) { return w.length > 2 && !STOP[w] && !/^\d+$/.test(w); }).map(stem).slice(0, 4) : [];
-  var s = SCEN[si] || { q: terms.length ? terms.map(function (t) { return [t, 1]; }) : [[freeText, 1]] };
+  var INTENTS = [
+    { k: ['computador', 'compu', 'laptop', 'teclado', 'pantalla', 'monitor', 'impresora', 'servidor', 'electronic', 'cpu', 'mouse', 'celular', 'tablet', 'circuito', 'tarjeta'], q: [['contact cleaner', 2], ['glass multisuperficie', 2], ['penetrante', 1]], t: 'Para equipos de cómputo esto es lo que más se usa. El Contact Cleaner limpia tarjetas, teclados y conectores sin conducir electricidad y se seca al instante. El multisuperficie deja pantallas y carcasas sin marcas.' },
+    { k: ['bano', 'sanitario', 'inodoro', 'orinal', 'lavamano'], q: [['jabon espuma', 2], ['jumbo', 6], ['center pull', 4], ['sabotech', 1]], t: 'Para baños te armé lo básico del mes: jabón, papel, toalla y desinfectante.' },
+    { k: ['cocina', 'grasa', 'horno', 'plancha', 'parrilla', 'freidora', 'restaurante', 'soda', 'comedor', 'campana'], q: [['super degreaser', 2], ['oven', 1], ['dish', 2], ['crema desengrasante', 1]], t: 'Para cocina: el Super Degreaser corta la grasa pesada y el Oven & Grill deja hornos y planchas como nuevos.' },
+    { k: ['piso', 'cera', 'trapear', 'brillo', 'porcelanato', 'mopa'], q: [['white wax', 2], ['palo de piso', 1], ['balde', 1], ['aviso de piso', 1]], t: 'Para pisos: cera, equipo y el aviso de piso mojado para cumplir con seguridad.' },
+    { k: ['carro', 'auto', 'vehiculo', 'flotilla', 'moto', 'camion', 'llanta', 'carroceria'], q: [['car wax', 2], ['shampoo car', 2], ['glass multisuperficie', 2]], t: 'Para la flotilla: shampoo, cera y limpiador de vidrios.' },
+    { k: ['mano'], q: [['jabon espuma', 2], ['alcohol gel', 2], ['crema desengrasante', 1]], t: 'Para manos: jabón espuma, alcohol en gel y crema desengrasante para talleres.' },
+    { k: ['olor', 'aroma', 'ambiente', 'fresco', 'perfum'], q: [['air fresh', 3], ['total release', 1]], t: 'Para dejar los espacios oliendo bien te recomiendo la línea Air Fresh.' },
+    { k: ['plaga', 'cucaracha', 'zancudo', 'mosca', 'insecto', 'hormiga', 'fumig'], q: [['insecticida', 3]], t: 'El Insecticida SABO profesional es el que usan las empresas para control de plagas.' },
+    { k: ['desinfect', 'virus', 'bacteria', 'germen', 'sanitiz', 'clinica', 'hospital'], q: [['cloro', 3], ['sabotech', 2], ['alcohol gel', 2]], t: 'Para desinfectar: cloro, desinfectante concentrado SABOTECH y alcohol en gel.' },
+    { k: ['vidrio', 'ventana', 'espejo', 'vitrina'], q: [['glass multisuperficie', 3]], t: 'Para vidrios y espejos, el Cleaner Glass no deja marcas.' },
+    { k: ['motor', 'oxido', 'tuerca', 'tornillo', 'bisagra', 'maquina', 'mantenimiento', 'electric'], q: [['penetrante', 2], ['contact cleaner', 2], ['degreaser orange', 1]], t: 'Para mantenimiento: el Super Penetrante afloja y protege del óxido, y el Contact Cleaner limpia contactos eléctricos.' },
+    { k: ['papel', 'dispensador', 'toalla'], q: [['jumbo', 6], ['center pull', 4], ['dispensador', 1]], t: 'Papel y dispensadores para baños de oficina o planta.' }
+  ];
+  var hit = [], intro = [], seen = {};
+  if (freeText) INTENTS.forEach(function (it) {
+    if (terms.some(function (t) { return it.k.some(function (k) { return t.indexOf(k) === 0 || k.indexOf(t) === 0 && t.length > 3; }); })) {
+      intro.push(it.t); it.q.forEach(function (x) { if (!seen[x[0]]) { seen[x[0]] = 1; hit.push(x); } });
+    }
+  });
+  var s = SCEN[si] || (hit.length ? { q: hit.slice(0, 6), intro: intro.slice(0, 2).join(' ') } : { q: terms.length ? terms.map(function (t) { return [t, 1]; }) : [[freeText, 1]] });
   bubble('me', esc(freeText || s.msg));
   var typing = bubble('bot', '<span class="dots"><i></i><i></i><i></i></span>');
   var used = {};
@@ -778,8 +798,8 @@ var runScen = function (si, freeText) {
       res.forEach(function (r) { var p = r[0].filter(function (p) { return !used[p.id]; })[0]; if (p) { used[p.id] = 1; lines.push({ id: p.id, q: r[1], n: tcase(p.name), pr: priceOf(p), img: imgOf(p) }); } });
       var tot = lines.reduce(function (a, l) { return a + l.pr * l.q; }, 0);
       typing.remove();
-      if (!lines.length) { bubble('bot', 'No encontré productos para eso. Probá con otras palabras o escribinos por WhatsApp.'); return; }
-      bubble('bot', 'Listo. Te armé el pedido del mes con presentaciones de planta:');
+      if (!lines.length) { bubble('bot', 'Contame un poco más: ¿qué tenés que limpiar? Por ejemplo baños, cocina, pisos, equipos de cómputo o la flotilla. También podés escribirnos por WhatsApp y un asesor te ayuda.'); return; }
+      bubble('bot', s.intro ? esc(s.intro) : 'Listo. Te armé el pedido del mes con presentaciones de planta:');
       var box = bubble('pl', lines.map(function (l, i) { return '<div class="line" style="animation-delay:' + (i * 0.08) + 's">' + (l.img ? '<img src="' + esc(l.img) + '" alt="">' : '') + '<span class="ln"><strong>' + l.q + '×</strong> ' + esc(l.n) + '</span><strong style="font-size:13px;white-space:nowrap">' + fmt(l.pr * l.q) + '</strong></div>'; }).join('') +
         '<div class="tot"><span style="font-size:14px;color:var(--mu)">Total</span><strong class="bal" style="font-size:24px">' + fmt(tot) + '</strong></div>' +
         '<button type="button" class="btn btn-r" style="width:100%;margin-top:6px">Agregar todo al carrito</button>');

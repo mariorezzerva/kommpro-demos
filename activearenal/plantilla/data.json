@@ -31,9 +31,9 @@
   ],
   "moods_lead": "Every tour leaves from La Fortuna with pickup at your door. Start with the kind of day you want, we take care of the rest.",
   "combos_lead": "Pair a river morning with an afternoon on the volcano, the bridges or a waterfall. One pickup, one booking, a full day well spent.",
-  "reviews_note": "Same owner, same guides: Leo Rodríguez and the team behind Costa Rica Driver & Adventure, now focused on tours from La Fortuna.",
+  "reviews_note": "Same owner, same guides: Leo Rodríguez and the team behind Driver Costa Rica, now focused on tours from La Fortuna.",
   "footer_blurb": "Tours from La Fortuna with the local team of Leo Rodríguez. Small groups, real guides, a day you will keep talking about.",
-  "legal_note": "Part of Costa Rica Driver & Adventure, serving travelers since 2002.",
+  "legal_note": "Part of Driver Costa Rica, serving travelers since 2002.",
   "band_image": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
   "band_title": "Nothing here rushes. <em>The river, the sloth, the volcano.</em>",
   "band_text": "We leave from La Fortuna, the town we know best. Small groups, guides who grew up here, and time to actually look around.",
@@ -196,6 +196,44 @@
    "text": "Leo and his drivers and guides are great! They make the drive /tour interesting, memorable and fun! We have used them on two separate trips and I have recommended them to several friends who have been very happy with them. Highly recommend !"
   }
  ],
+ "sister": {
+  "name": "Driver Costa Rica",
+  "url": "https://drivercostarica.com/",
+  "all": "https://drivercostarica.com/#transportation",
+  "logo": "https://drivercostarica.com/wp-content/uploads/2025/11/DRIVER_CostaRica-11-scaled.png",
+  "image": "https://drivercostarica.com/wp-content/uploads/2025/11/MockupDRIVERCR-e1765324151940.png",
+  "eyebrow": "Getting here, and onward",
+  "h1": "Private transfers, door to door.",
+  "h2": "All over Costa Rica.",
+  "text": "Our sister company drives you to La Fortuna and on to your next stop. Same family, same care, a quiet ride with a local driver.",
+  "note": "Up to 5 passengers · Nissan Urvan or similar · Additional seat US$20",
+  "routes": [
+   {
+    "from": "San José (SJO)",
+    "to": "La Fortuna, Arenal",
+    "price": 200,
+    "url": "https://drivercostarica.com/book-sjo-la-fortuna/"
+   },
+   {
+    "from": "Liberia (LIR)",
+    "to": "La Fortuna, Arenal",
+    "price": 200,
+    "url": "https://drivercostarica.com/book-liberia-la-fortuna/"
+   },
+   {
+    "from": "La Fortuna, Arenal",
+    "to": "Tamarindo / Papagayo",
+    "price": 300,
+    "url": "https://drivercostarica.com/book-la-fortuna-tamarindo-papagayo/"
+   },
+   {
+    "from": "La Fortuna, Arenal",
+    "to": "Manuel Antonio",
+    "price": 365,
+    "url": "https://drivercostarica.com/book-la-fortuna-manuel-antonio/"
+   }
+  ]
+ },
  "tours": [
   {
    "slug": "tour-rio-celeste",

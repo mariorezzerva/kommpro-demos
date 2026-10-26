@@ -332,6 +332,28 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .rcount{font-size:.82rem;font-weight:700;color:rgba(238,245,238,.6);white-space:nowrap}
 .aax .rbtn.nudge{animation:nudge 1.6s ease-in-out 2}
 @keyframes nudge{0%,100%{transform:none}50%{transform:translateX(6px)}}
+/* franja Driver Costa Rica (colores de Driver) */
+.aax .drv{--dg:#3D590E;--dl:#D0EDA2;--dp:#F0F3E4;background:var(--dl);color:var(--dg);padding:clamp(56px,7vw,88px) 0;position:relative;overflow:hidden}
+.aax .drv::before{content:"";position:absolute;right:-120px;top:-140px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.35)}
+.aax .dgrid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.aax .dlogo img{height:58px;width:auto;margin-bottom:22px}
+.aax .deyb{font-family:Poppins,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.aax .dh{font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.08;letter-spacing:-.02em;color:var(--dg);margin:10px 0 0;font-variation-settings:normal}
+.aax .dh span{display:block;color:#fff;text-shadow:0 1px 0 rgba(61,89,14,.08)}
+.aax .dcopy p{font-family:Poppins,sans-serif;font-size:1.02rem;line-height:1.6;max-width:46ch;margin:16px 0 0;color:var(--dg)}
+.aax .dbtn{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:14px 24px;border-radius:999px;background:var(--dg);color:#fff;font-family:Poppins,sans-serif;font-weight:600;font-size:.95rem;transition:transform .2s}
+.aax .dbtn:hover{transform:translateY(-2px)}
+.aax .dbtn .ic{width:17px;height:17px;stroke-width:2}
+.aax .droutes{display:grid;gap:10px;padding:14px;border-radius:24px;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.aax .drow{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:16px;padding:14px 18px;border-radius:16px;background:var(--dp);transition:transform .2s,background .2s;font-family:Poppins,sans-serif}
+.aax .drow:hover{transform:translateX(4px);background:#fff}
+.aax .dft small,.aax .dpr small{display:block;font-size:.72rem;font-weight:500;opacity:.75}
+.aax .dft b{font-weight:600;font-size:1rem}
+.aax .dsw{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--dl)}
+.aax .dsw .ic{width:16px;height:16px;stroke-width:2}
+.aax .dpr{text-align:right}.aax .dpr b{font-weight:700;font-size:1.15rem}
+.aax .dnote{display:flex;align-items:center;gap:8px;padding:6px 6px 2px;font-family:Poppins,sans-serif;font-size:.8rem;font-weight:500}
+@media(max-width:860px){.aax .dgrid{grid-template-columns:1fr}.aax .drv::before{display:none}}
 /* franja foto real */
 .aax .band{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;color:#fff;background:var(--f)}
 .aax .band .bimg{position:absolute;inset:-8% 0;background-size:cover;background-position:center;will-change:transform}
@@ -446,7 +468,7 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .rel{background:var(--paper2)}
 """
 
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Mulish:wght@400;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">'
 
 PAY = ('<div class="pay" aria-label="Visa, Mastercard, American Express">'
  '<svg viewBox="0 0 48 30"><rect width="48" height="30" fill="#fff"/><path fill="#1a1f71" d="M20.3 20.5h-3l1.9-11.1h3zm10.6-10.8a7.6 7.6 0 00-2.7-.5c-3 0-5.1 1.5-5.1 3.7 0 1.6 1.5 2.5 2.7 3 1.2.6 1.6.9 1.6 1.4 0 .8-.9 1.1-1.8 1.1a6 6 0 01-2.8-.6l-.4-.2-.4 2.4c.7.3 2 .6 3.3.6 3.2 0 5.2-1.5 5.3-3.8 0-1.3-.8-2.2-2.5-3-1-.5-1.7-.9-1.7-1.4s.6-1 1.7-1c.9 0 1.6.2 2.1.4l.3.1zm7.7-.3h-2.3c-.7 0-1.3.2-1.6.9L30.3 20.5h3.2l.6-1.7h3.9l.4 1.7H41zm-3.8 7.2l1.2-3.1.4-1.1.2 1 .7 3.2zm-17.4-7.2l-3 7.6-.3-1.6a9.1 9.1 0 00-4.3-4.9l2.7 9.9h3.2l4.8-11z"/><path fill="#f7a600" d="M11.7 9.4H6.8v.2c3.8 1 6.3 3.3 7.3 6.1l-1.1-5.3c-.2-.7-.7-1-1.3-1z"/></svg>'
@@ -471,9 +493,20 @@ def header(base):
 <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">{ic("menu")}</button>
 </div></header>'''
 
+def sister_band():
+    S = D.get("sister")
+    if not S: return ""
+    rows = "".join(f'''<a class="drow" href="{e(r['url'])}" target="_blank" rel="noopener"><span class="dft"><small>{e(r['from'])}</small><b>{e(r['to'])}</b></span><span class="dsw">{ic("arrow")}</span><span class="dpr"><small>From</small><b>US${r['price']}</b></span></a>''' for r in S["routes"])
+    return f'''<section class="drv"><div class="w dgrid">
+<div class="dcopy rv"><a href="{e(S['url'])}" target="_blank" rel="noopener" class="dlogo"><img src="{img(S['logo'],400)}" alt="{e(S['name'])}" loading="lazy"></a>
+<div class="deyb">{e(S['eyebrow'])}</div><h2 class="dh">{e(S['h1'])}<span>{e(S['h2'])}</span></h2><p>{e(S['text'])}</p>
+<a class="dbtn" href="{e(S['all'])}" target="_blank" rel="noopener">See all transfers {ic("arrow")}</a></div>
+<div class="droutes rv">{rows}<div class="dnote">{ic("bus")}{e(S['note'])}</div></div>
+</div></section>'''
+
 def footer(base):
     tl = "".join(f'<li><a href="{base}tours/{t["slug"]}/">{e(t["short"])}</a></li>' for t in TOURS)
-    return f'''<footer class="foot"><div class="w">
+    return sister_band() + f'''<footer class="foot"><div class="w">
 <div class="cols">
 <div class="fl"><img src="{img(B['logo'],300)}" alt="{e(B['name'])}"><p>{e(B['footer_blurb'])}</p></div>
 <div><h4>Tours</h4><ul>{tl}</ul></div>
@@ -806,7 +839,7 @@ def build():
     hb = home_body("", True) + fab
     open(os.path.join(OUT, "index.html"), "w").write(page(B["seo_title"], B["seo_desc"], hb, "", js_home(""), og=img(B["hero_images"][0], 1200)))
     # wp home: las rutas apuntan a las paginas reales de WordPress (/tour-xxx/)
-    wb = home_body("/", False).replace('href="/tours/', 'href="/').replace(fab, "") + fab
+    wb = home_body("/", False).replace('href="/tours/', 'href="/').replace(fab, "") + sister_band() + fab
     wjs = js_home("/").replace("BASE+'tours/'+s+'/", "BASE+s+'/").replace("BASE+'tours/'+t.s+'/", "BASE+t.s+'/")
     open(os.path.join(OUT, "wp", "home.html"), "w").write(wp_block(wb, wjs))
     # tours

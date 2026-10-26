@@ -895,6 +895,8 @@ def build():
     fdir = os.path.join(OUT, "functions", "rz"); os.makedirs(fdir, exist_ok=True)
     with open(os.path.join(fdir, "[[path]].js"), "w") as f:
         f.write(RZ_FUNCTION)
+    # CORS solo para los bloques de WordPress y los assets (los lee el admin de activearenal.com al publicar)
+    open(os.path.join(OUT, "_headers"), "w").write("/wp/*\n  Access-Control-Allow-Origin: *\n/assets/*\n  Access-Control-Allow-Origin: *\n")
     rd = os.path.join(OUT, "_redirects")
     if os.path.exists(rd): os.remove(rd)
     print("ok:", len(ALL), "tours ->", OUT)

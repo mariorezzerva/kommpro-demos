@@ -821,7 +821,7 @@ def _ver():
 def wpfix(h):
     # rutas del sitio estatico -> paginas reales de WordPress (/tour-xxx/, /#combos)
     return (h.replace('href="/index.html#', 'href="/#').replace('href="/index.html"', 'href="/"')
-             .replace('href="/tours/', 'href="/'))
+             .replace('href="/tours/', 'href="/').replace('activearenal.com/tours/', 'activearenal.com/'))
 
 def wp_full(body, home=False, cls=""):
     # Pagina completa para WordPress (plantilla Elementor Canvas): header, cuerpo, franja de Driver y footer propios.

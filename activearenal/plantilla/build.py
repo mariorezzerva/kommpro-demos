@@ -108,11 +108,11 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .nav.open{display:flex;flex-direction:column;position:absolute;top:100%;left:12px;right:12px;background:rgba(10,46,19,.96);backdrop-filter:blur(16px);border:1px solid var(--gbrd);border-radius:18px;padding:18px 22px;gap:14px}}
 
 /* hero */
-.aax .hero{position:relative;min-height:min(100svh,920px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--f)}
+.aax .hero{position:relative;min-height:min(100svh,920px);display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--f)}
 .aax .hero .sl{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity 2.4s ease,transform 9s ease-out}
 .aax .hero .sl.on{opacity:1;transform:scale(1)}
 .aax .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,22,10,.55) 0%,rgba(6,22,10,.12) 32%,rgba(6,22,10,.35) 62%,rgba(6,22,10,.88) 100%),linear-gradient(90deg,rgba(6,22,10,.55),transparent 60%)}
-.aax .hero .w{position:relative;z-index:2;padding-top:140px;padding-bottom:56px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:48px;align-items:end}
+.aax .hero .w{position:relative;z-index:2;padding-top:118px;padding-bottom:84px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:48px;align-items:center}
 .aax .hbadge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.26);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-weight:700;font-size:.84rem;margin-bottom:22px}
 .aax .stars{display:inline-flex;gap:1px;color:var(--gold)}
 .aax .stars .ic{width:14px;height:14px;fill:currentColor;stroke:none}
@@ -248,7 +248,7 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 @media(max-width:640px){.aax .grid{grid-template-columns:1fr}.aax .tc.big{grid-column:auto;flex-direction:column}.aax .tc.big .ph{aspect-ratio:4/3}.aax .tc.big .bd{padding:20px}.aax .tc.big h3{font-size:1.5rem}}
 
 /* combos (acordeon) */
-.aax .combos{margin-top:56px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,70px);align-items:start}
+.aax .combos{margin-top:72px}
 .aax .acc{border-top:1px solid var(--line)}
 .aax .acc details{border-bottom:1px solid var(--line)}
 .aax .acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:20px 4px;font-family:var(--disp);font-size:1.45rem;font-weight:600}
@@ -266,6 +266,51 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .crow .pr2 small{display:block;font-weight:700}
 @media(max-width:860px){.aax .combos{grid-template-columns:1fr}}
 
+/* combos visibles */
+.aax .chead{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:30px}
+.aax .chead .lead{margin:0}
+.aax .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.aax .cgrp{border-radius:24px;background:#fff;border:1px solid var(--line);padding:12px}
+.aax .cgh{display:flex;align-items:center;gap:14px;padding:6px 8px 14px}
+.aax .cgh img{width:54px;height:54px;border-radius:14px;object-fit:cover}
+.aax .cgh b{display:block;font-family:var(--disp);font-size:1.45rem;font-weight:600;line-height:1.1}
+.aax .cgh small{font-size:.82rem;color:var(--mut);font-weight:700}
+.aax .cgrp .rows{display:grid;gap:6px}
+.aax .cgrp .crow{background:var(--paper);border-color:transparent;padding:8px 12px}
+.aax .cgrp .crow img{width:46px;height:38px}
+.aax .cgrp .crow b{font-size:.92rem}
+.aax .cask{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:center;margin-top:12px;padding:16px 18px;border-radius:16px;background:var(--f2);color:#fff;transition:transform .2s}
+.aax .cask:hover{transform:translateY(-2px)}
+.aax .cask span{grid-row:span 2;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.1);color:var(--gold)}
+.aax .cask small{color:rgba(255,255,255,.75);font-size:.84rem}
+@media(max-width:860px){.aax .chead,.aax .cgrid{grid-template-columns:1fr}}
+.aax .cgrp .crow .pr2 b{display:inline}
+.aax .cgrp .crow b{font-size:1rem}
+/* card grande */
+.aax .bhl{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.aax .bhl li{display:flex;gap:10px;font-size:.93rem;color:#2c3b30}
+.aax .bhl .ic{color:var(--leaf);margin-top:2px}
+.aax .bch{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.aax .bch span{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;padding:6px 11px;border-radius:999px;background:var(--paper);color:var(--f2)}
+.aax .bch .ic{width:14px;height:14px}
+/* Tripadvisor */
+.aax .hbadge.ta{text-decoration:none}
+.aax .hbadge.ta:hover{background:rgba(255,255,255,.18)}
+.aax .tai{width:18px;height:18px;flex:none}
+.aax .bub{display:inline-flex;gap:2px}.aax .bub img{width:15px;height:15px}
+.aax .bub.sm img{width:14px;height:14px}.aax .bub.lg img{width:22px;height:22px}
+.aax .score .talogo{height:26px;width:auto;filter:brightness(0) invert(1);margin-bottom:14px}
+.aax .score .big{font-size:clamp(2.2rem,3.4vw,2.8rem);line-height:1;margin-bottom:8px}
+.aax .score .cnt{margin:10px 0 6px;color:#fff}
+.aax .rc .rh{display:flex;align-items:center;gap:11px}
+.aax .rc .rh .av{width:40px;height:40px;border-radius:50%;object-fit:cover;background:#fff}
+.aax .rc .rh b{display:block;font-size:.93rem}.aax .rc .rh small{color:rgba(238,245,238,.6);font-size:.78rem}
+.aax .rc .rh .tai{margin-left:auto;width:22px;height:22px;background:#fff;border-radius:50%;padding:2px}
+.aax .rc .rt{font-family:var(--disp);font-weight:600;font-size:1.15rem;line-height:1.25;color:#fff}
+.aax .rc .rx{margin:0;font-size:.93rem;line-height:1.55;color:rgba(238,245,238,.85);display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.aax .rc.open .rx{-webkit-line-clamp:unset;display:block}
+.aax .rc .more{align-self:flex-start;background:none;border:0;padding:0;color:var(--gold);font-weight:800;font-size:.84rem;cursor:pointer}
+.aax .rc .vr{margin-top:auto;font-size:.76rem;font-weight:700;color:var(--mint)}
 /* franja foto real */
 .aax .band{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;color:#fff;background:var(--f)}
 .aax .band .bimg{position:absolute;inset:-8% 0;background-size:cover;background-position:center;will-change:transform}
@@ -389,6 +434,12 @@ PAY = ('<div class="pay" aria-label="Visa, Mastercard, American Express">'
  '</div>')
 
 def stars(n=5): return '<span class="stars">' + ic("star") * n + '</span>'
+TA_BUB = "https://cdn.trustindex.io/assets/platform/Tripadvisor/star/f.svg"
+TA_ICON = "https://cdn.trustindex.io/assets/platform/Tripadvisor/icon.svg"
+TA_LOGO = "https://cdn.trustindex.io/assets/platform/Tripadvisor/logo.svg"
+def bubbles(n=5, cls="bub"): return f'<span class="{cls}">' + f'<img src="{TA_BUB}" alt="" width="16" height="16">' * n + '</span>'
+def ta_badge(text):
+    return f'<a class="hbadge ta" href="{e(B["tripadvisor"])}" target="_blank" rel="noopener"><img class="tai" src="{TA_ICON}" alt="Tripadvisor" width="18" height="18">{bubbles()} {e(text)}</a>'
 
 # ---------------------------------------------------------------- piezas
 def header(base):
@@ -415,13 +466,18 @@ def footer(base):
 <div class="legal"><span>&copy; 2026 {e(B['name'])}. {e(B['legal_note'])}</span><span>Online booking by Rezzerva</span></div>
 </div></footer>'''
 
+def big_extra(t):
+    hl = "".join(f'<li>{ic("check")}<span>{e(x)}</span></li>' for x in (t.get("highlights") or [])[1:5])
+    chips = "".join(f'<span>{ic(i)}{e(v)}</span>' for i, v in [("cal", "Departs " + t["departs"]) if t.get("departs") else (None, None), ("pin", "Hotel pickup in La Fortuna"), ("user", t.get("child"))] if i and v)
+    return f'<ul class="bhl">{hl}</ul><div class="bch">{chips}</div>'
+
 def tour_card(t, big=False):
     cats = " ".join(t["cats"])
     tag = f'<span class="tag">{e(t["badge"])}</span>' if t.get("badge") else ""
     meta = f'<span>{ic("clock")}{e(t["duration"])}</span>' + (f'<span>{ic("flag")}{e(t["difficulty"])}</span>' if t.get("difficulty") else "")
     return f'''<a class="tc rv{' big' if big else ''}" data-cats="{cats}" href="{{base}}tours/{t['slug']}/">
 <div class="ph"><img src="{img(t['card'] or t['hero'],900)}" alt="{e(t['title'])}" loading="lazy">{tag}<div class="meta">{meta}</div></div>
-<div class="bd"><h3>{e(t['title'])}</h3><p>{e(t['lead'])}</p>
+<div class="bd"><h3>{e(t['title'])}</h3><p>{e(t['lead'])}</p>{big_extra(t) if big else ""}
 <div class="ft"><div class="pr"><small>From</small><b data-rz="{e(t['product'])}">{money(t['price'])}</b> <span>/ {t.get('unit','adult')}</span></div><span class="go">See dates {ic("arrow")}</span></div></div></a>'''
 
 def rezzerva(t, inline_script=True):
@@ -452,18 +508,24 @@ def home_body(base, standalone=True):
     for c in COMBOS: groups.setdefault(c["group"], []).append(c)
     acc = ""
     for gi, (g, items) in enumerate(groups.items()):
-        rows = "".join(f'''<a class="crow" href="{base}tours/{c['slug']}/"><img src="{img(c['card'] or c['hero'],200)}" alt="" loading="lazy"><span><b>{e(c['title'])}</b><small>{e(c['duration'])}</small></span><span class="pr2">{('from <b data-rz="' + e(c['product']) + '" style="font-weight:inherit">' + money(c['price']) + '</b>') if c.get('price') else 'See dates'}<small>{('/ ' + c.get('unit','person')) if c.get('price') else ''}</small></span></a>''' for c in items)
+        rows = "".join(f'''<a class="crow" href="{base}tours/{c['slug']}/"><img src="{img(c['card'] or c['hero'],200)}" alt="" loading="lazy"><span><b>{e(c.get('pair') or c['title'])}</b><small>{e(('with ' + c['first'] + ' · ') if c.get('pair') else '')}{e(c['duration'])}</small></span><span class="pr2">{('from <b data-rz="' + e(c['product']) + '" style="font-weight:inherit">' + money(c['price']) + '</b>') if c.get('price') else 'See dates'}<small>{('/ ' + c.get('unit','person')) if c.get('price') else ''}</small></span></a>''' for c in items)
         lo = min([c["price"] for c in items if c.get("price")] or [0])
-        acc += f'<details{" open" if gi==0 else ""}><summary><span class="pl">{ic("plus")}</span>{e(g)}<small>{len(items)} pairings{(' · from <span data-rzmin="' + ",".join(e(c["product"]) for c in items) + '">' + money(lo) + '</span>') if lo else ""}</small></summary><div class="rows">{rows}</div></details>'
+        gimg = img(items[0].get("group_img") or "", 400)
+        cta = f'''<a class="cask" href="{wa('Hi! I would like help choosing a combo tour.')}" target="_blank" rel="noopener"><span>{ic("chat")}</span><b>Not sure which pair?</b><small>Tell us your day and we pick the combo with you on WhatsApp.</small></a>''' if gi == 0 else ""
+        acc += f'''<div class="cgrp rv"><div class="cgh"><img src="{gimg}" alt="" loading="lazy"><span><b>{e(g)}</b><small>{e(items[0].get("departs",""))} pickup · {len(items)} pairings{(' · from <span data-rzmin="' + ",".join(e(c["product"]) for c in items) + '">' + money(lo) + '</span>') if lo else ""}</small></span></div><div class="rows">{rows}</div>{cta}</div>'''
 
-    revs = "".join(f'''<figure class="rc rv" style="margin:0">{stars()}<q>{e(r['text'])}</q><figcaption class="who"><i>{e(r['name'][0])}</i><span><b>{e(r['name'])}</b><small>{e(r['from'])}</small></span></figcaption></figure>''' for r in D["reviews"])
+    import datetime
+    def rdate(ts): return datetime.datetime.fromtimestamp(ts, datetime.timezone.utc).strftime("%B %Y")
+    revs = "".join(f'''<figure class="rc rv" style="margin:0"><div class="rh"><img class="av" src="{e(r['avatar'])}" alt="" loading="lazy" width="40" height="40"><span><b>{e(r['name'])}</b><small>{rdate(r['time'])}</small></span><img class="tai" src="{TA_ICON}" alt="Tripadvisor" width="20" height="20"></div>{bubbles(5,'bub sm')}<b class="rt">{e(r['title'])}</b><p class="rx">{e(r['text'])}</p><button class="more" type="button" hidden>Read more</button><a class="vr" href="{e(B['tripadvisor'])}" target="_blank" rel="noopener">Verified on Tripadvisor</a></figure>''' for r in sorted(D["reviews"], key=lambda r: -len(r["text"]) if False else 0))
+    if B.get("trustindex_id"):
+        revs = f"<script defer async src='https://cdn.trustindex.io/loader.js?{e(B['trustindex_id'])}'></script>"
     hints = "".join(f'<button type="button" data-say="{e(h)}">{e(h)}</button>' for h in D["assistant"]["hints"])
 
     body = f'''
 <section class="hero" id="top">{heroes}
 <div class="w">
 <div>
-<div class="hbadge">{stars()} {e(B['rating_line'])}</div>
+{ta_badge(B['ta_rating'] + ' · ' + str(B['ta_count']) + ' reviews on Tripadvisor')}
 <h1>{B['h1']}</h1>
 <p class="sub">{e(B['sub'])}</p>
 <div class="pills">{pills}</div>
@@ -506,16 +568,15 @@ def home_body(base, standalone=True):
 <div class="grid" id="grid">{cards}</div>
 
 <div class="combos" id="combos">
-<div class="rv"><div class="eyb">Two-in-one combos</div><h2>Two adventures, <em>one day.</em></h2><p class="lead">{e(B['combos_lead'])}</p>
-<a class="btn btn-ink" style="margin-top:26px" href="{wa('Hi! I would like help choosing a combo tour.')}" target="_blank" rel="noopener">{ic("chat")} Ask which combo fits</a></div>
-<div class="acc rv">{acc}</div>
+<div class="chead rv"><div><div class="eyb">Two-in-one combos</div><h2>Two adventures, <em>one day.</em></h2></div><p class="lead">{e(B['combos_lead'])}</p></div>
+<div class="cgrid">{acc}</div>
 </div>
 </div></section>
 
 <section class="band"><div class="bimg" style="background-image:url('{img(B['band_image'],2000)}')"></div><div class="w"><div class="bcard rv"><div class="eyb">From La Fortuna</div><h2>{B['band_title']}</h2><p>{e(B['band_text'])}</p></div></div></section>
 
 <section class="sec dk" id="reviews"><div class="w revs">
-<div class="score rv"><div class="eyb">Reviews</div><div class="big">5.0</div>{stars()}<p>{e(B['reviews_note'])}</p><a class="btn btn-ghost" href="{e(B['tripadvisor'])}" target="_blank" rel="noopener">Read them on Tripadvisor {ic("arrow")}</a></div>
+<div class="score rv"><img class="talogo" src="{TA_LOGO}" alt="Tripadvisor" width="150" height="25"><div class="big">{e(B['ta_rating'])}</div>{bubbles(5,'bub lg')}<p class="cnt">Based on <b>{B['ta_count']} reviews</b></p><p>{e(B['reviews_note'])}</p><a class="btn btn-gold" href="{e(B['tripadvisor'])}" target="_blank" rel="noopener">Read all on Tripadvisor {ic("arrow")}</a></div>
 <div class="rtrack">{revs}</div>
 </div></section>
 '''
@@ -552,6 +613,7 @@ var root=document.querySelector('.aax');
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.aax .rv').forEach(function(el){io.observe(el)});
 var bi=document.querySelector('.aax .band .bimg');if(bi&&!matchMedia('(prefers-reduced-motion:reduce)').matches){var pf=function(){var r=bi.parentNode.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)bi.style.transform='translateY('+((r.top+r.height/2-innerHeight/2)*-.08)+'px)'};addEventListener('scroll',pf,{passive:true});pf()}
+document.querySelectorAll('.aax .rc').forEach(function(c){var x=c.querySelector('.rx'),m=c.querySelector('.more');if(x&&m&&x.scrollHeight>x.clientHeight+4){m.hidden=false;m.onclick=function(){c.classList.toggle('open');m.textContent=c.classList.contains('open')?'Show less':'Read more'}}});
 var h=document.getElementById('hdr');if(h){var f=function(){h.classList.toggle('sc',scrollY>40)};f();addEventListener('scroll',f,{passive:true})}
 })();
 """
@@ -634,7 +696,7 @@ def tour_body(t, base):
     return f'''
 <section class="thero" style="background-image:url('{hero}')"><div class="w">
 <div class="crumb"><a href="{base}index.html">Home</a> &nbsp;/&nbsp; <a href="{base}index.html#{'combos' if crumb_cat=='Combos' else 'tours'}">{crumb_cat}</a></div>
-<div class="hbadge">{stars()} {e(B['rating_short'])}</div>
+{ta_badge(B['ta_rating'] + ' · ' + str(B['ta_count']) + ' Tripadvisor reviews')}
 <h1>{e(t['title'])}</h1>
 <p class="sub">{e(t['lead'])}</p>
 </div></section>

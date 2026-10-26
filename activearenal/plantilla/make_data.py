@@ -48,7 +48,7 @@ for g,pre,first,img0,cat,kw in [('Rafting +','tour-rafting-','White Water Raftin
     for s2 in seconds:
         slug=pre+SL[s2];title=f'{first} + {s2}'
         extra=['zip','canopy','tirolesa','canopy'] if 'Zip' in s2 else ['rappel','canyon','cascada','waterfall'] if 'Rappel' in s2 else ['atv','quad','cuadra'] if 'ATV' in s2 else ['waterfall','catarata','fortuna'] if 'Fortuna' in s2 else ['volcano','volcan','lava'] if 'Volcano' in s2 else ['bridge','puentes'] if 'Bridges' in s2 else ['sloth','wildlife','perezoso']
-        combos.append(dict(slug=slug,product=slug,group=('Start with rafting' if g.startswith('Raft') else 'Start with the safari float'),title=title,short=title,
+        combos.append(dict(slug=slug,product=slug,group_img=img0,pair='+ '+s2,first=first,group=('Start with rafting' if g.startswith('Raft') else 'Start with the safari float'),title=title,short=title,
           lead=f'{first} and {s2} in one day, with a single hotel pickup in La Fortuna.',hero=IMG[s2],card=IMG[s2],
           duration='Two tours, one day',difficulty=None,price=None,cats=['combo',cat],keywords=kw+extra+['combo','two','dos'],
           overview=[f'Start with {first.lower()} and keep the day going with {s2.lower()}. One booking, one pickup, and a guide who connects both parts of the day so you are not waiting around.'],

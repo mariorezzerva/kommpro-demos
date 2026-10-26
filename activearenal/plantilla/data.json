@@ -9,7 +9,7 @@
   "location": "La Fortuna, Arenal, Costa Rica",
   "rezzerva_tenant": "active-arenal",
   "accent": "12491d",
-  "tripadvisor": "https://www.tripadvisor.com/Search?q=Costa%20Rica%20Driver%20and%20Adventure",
+  "tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g309226-d10592767-Reviews-Costa_Rica_Driver_and_Adventure-La_Fortuna_de_San_Carlos_Arenal_Volcano_National.html",
   "seo_title": "Active Arenal · Local tours in La Fortuna and Arenal Volcano",
   "seo_desc": "Small-group tours around La Fortuna and Arenal: Río Celeste, rafting, sloths, hanging bridges, volcano hikes and river safari. Hotel pickup, local guides, book online.",
   "rating_line": "Excellent on Tripadvisor · 331 reviews",
@@ -31,12 +31,15 @@
   ],
   "moods_lead": "Every tour leaves from La Fortuna with pickup at your door. Start with the kind of day you want, we take care of the rest.",
   "combos_lead": "Pair a river morning with an afternoon on the volcano, the bridges or a waterfall. One pickup, one booking, a full day well spent.",
-  "reviews_note": "Rated Excellent by 331 travelers on Tripadvisor. Same owner, same guides: Leo Rodríguez and the team behind Costa Rica Driver & Adventure, now focused on tours from La Fortuna.",
+  "reviews_note": "Same owner, same guides: Leo Rodríguez and the team behind Costa Rica Driver & Adventure, now focused on tours from La Fortuna.",
   "footer_blurb": "Tours from La Fortuna with the local team of Leo Rodríguez. Small groups, real guides, a day you will keep talking about.",
   "legal_note": "Part of Costa Rica Driver & Adventure, serving travelers since 2002.",
   "band_image": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
   "band_title": "Nothing here rushes. <em>The river, the sloth, the volcano.</em>",
-  "band_text": "We leave from La Fortuna, the town we know best. Small groups, guides who grew up here, and time to actually look around."
+  "band_text": "We leave from La Fortuna, the town we know best. Small groups, guides who grew up here, and time to actually look around.",
+  "ta_rating": "Excellent",
+  "ta_count": 331,
+  "trustindex_id": ""
  },
  "categories": [
   {
@@ -145,28 +148,52 @@
  "reviews": [
   {
    "name": "Kay L",
-   "from": "Family of 12 · Tripadvisor",
-   "text": "Every excursion was excellent... We will never forget the magical time we had there."
+   "time": 1782432000,
+   "avatar": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/eb/a3/default-avatar-2020-38.jpg",
+   "title": "PERFECT COSTA RICA EXPERIENCE",
+   "text": "We just returned from a once in a lifetime 10 day family vacation to Costa Rica. 6 adults and 6 children, ages 4-14. We used Costa Rica Drivers for our entire experience...transport and excursions. Setting up the actual plan for our stay was effortless because of Leo who worked closely with us to make sure we had the best adventures and tours possible. Our driver/guide, Pablo was absolutely wonderful. He was a wealth of information and enriched every aspect of our trip. Every excursion was excellent and the cost was less than had I set everything up myself. The vehicles were in excellent condition and we felt extremely safe in every aspect of our experience. We will never forget the magical time we had there."
+  },
+  {
+   "name": "mjc258",
+   "time": 1785542400,
+   "avatar": "https://cdn.trustindex.io/assets/default-avatar/noprofile-01.svg",
+   "title": "Private guide / driver only way to go",
+   "text": "We started our trip using Leo to set things up. Our friends had used him many years ago and weren’t sure he was still in the business. We spoke to Leo and right away we knew we could work with him. His suggestions saved us from wasting three travel days of our ten day trip just going from one location to another. We were able to have excursions on our travel days as opposed to just getting transfers from one spot to another. Our guide / driver was Roy and he was so knowledgeable about the whole country. Any subject we bought up he was able to expound on and make it interesting. Roy pointed out things in the forest that we would have never found. Roy was easygoing and flexible with what we wanted to do. He also has a good sense of humor. Our days were full and fun thanks to both Leo and Roy."
   },
   {
    "name": "Alberto G",
-   "from": "Tripadvisor",
-   "text": "Leo, Pablo, and Roy were friendly, reliable, knowledgeable, and great tour guides!"
+   "time": 1783382400,
+   "avatar": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/f3/23/default-avatar-2020-28.jpg",
+   "title": "Great Costa Rican Experience!",
+   "text": "Leo, Pablo, and Roy were Friendly, reliable, knowledgeable, and great tour guides!"
+  },
+  {
+   "name": "Maps757511",
+   "time": 1781481600,
+   "avatar": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e5/66/default-avatar-2020-53.jpg",
+   "title": "Amazing Tours",
+   "text": "Spent 3 full days touring Costa Rica with the best driver, Israel. We visited beaches, Hot Springs, hikes to waterfalls and had delicious meals. Totally recommend Driver Costa Rica for your trip! Very knowledgeable, reliable, friendly and professional."
   },
   {
    "name": "Diego C",
-   "from": "Costa Rica · Tripadvisor",
-   "text": "Muy buena experiencia, muy amables y siempre con muy buena actitud. Siempre puntuales y dispuestos para todos los tours."
+   "time": 1783641600,
+   "avatar": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e4/2d/default-avatar-2020-48.jpg",
+   "title": "Recomendados",
+   "text": "Muy buena experiencia, muy amables y siempre con muy buena actitud. Siempre puntuales y dispuestos para todos los tours y resolver dudas. Muy recomendables"
   },
   {
    "name": "Vigo T",
-   "from": "Tripadvisor",
-   "text": "Leo is a nice guy who has a lot of knowledge about Costa Rica, especially about La Fortuna."
+   "time": 1784592000,
+   "avatar": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f6/e8/24/default-avatar-2020-60.jpg",
+   "title": "Great service!",
+   "text": "Great service. Leo is a nice guy who has a lot of knowledge about Costa Rica, especially about La Fortuna. Highly recommend this organization. Also good prices."
   },
   {
    "name": "Marie0558",
-   "from": "Two trips · Tripadvisor",
-   "text": "Leo and his drivers and guides are great! They make the tour interesting, memorable and fun!"
+   "time": 1780704000,
+   "avatar": "https://cdn.trustindex.io/assets/default-avatar/noprofile-10.svg",
+   "title": "Best drivers and tour guides !",
+   "text": "Leo and his drivers and guides are great! They make the drive /tour interesting, memorable and fun! We have used them on two separate trips and I have recommended them to several friends who have been very happy with them. Highly recommend !"
   }
  ],
  "tours": [
@@ -617,6 +644,9 @@
   {
    "slug": "tour-rafting-zip-lines",
    "product": "tour-rafting-zip-lines",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "pair": "+ Zip Lines",
+   "first": "White Water Rafting",
    "group": "Start with rafting",
    "title": "White Water Rafting + Zip Lines",
    "short": "White Water Rafting + Zip Lines",
@@ -662,6 +692,9 @@
   {
    "slug": "tour-rafting-canyoning",
    "product": "tour-rafting-canyoning",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "pair": "+ Waterfall Rappelling (Canyoning)",
+   "first": "White Water Rafting",
    "group": "Start with rafting",
    "title": "White Water Rafting + Waterfall Rappelling (Canyoning)",
    "short": "White Water Rafting + Waterfall Rappelling (Canyoning)",
@@ -707,6 +740,9 @@
   {
    "slug": "tour-rafting-atv",
    "product": "tour-rafting-atv",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "pair": "+ ATV Adventure",
+   "first": "White Water Rafting",
    "group": "Start with rafting",
    "title": "White Water Rafting + ATV Adventure",
    "short": "White Water Rafting + ATV Adventure",
@@ -752,6 +788,9 @@
   {
    "slug": "tour-rafting-la-fortuna-waterfall",
    "product": "tour-rafting-la-fortuna-waterfall",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/white-water-rafting.png",
+   "pair": "+ La Fortuna Waterfall",
+   "first": "White Water Rafting",
    "group": "Start with rafting",
    "title": "White Water Rafting + La Fortuna Waterfall",
    "short": "White Water Rafting + La Fortuna Waterfall",
@@ -796,6 +835,9 @@
   {
    "slug": "tour-safari-float-zip-lines",
    "product": "tour-safari-float-zip-lines",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "pair": "+ Zip Lines",
+   "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + Zip Lines",
    "short": "Safari Float + Zip Lines",
@@ -841,6 +883,9 @@
   {
    "slug": "tour-safari-float-canyoning",
    "product": "tour-safari-float-canyoning",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "pair": "+ Waterfall Rappelling (Canyoning)",
+   "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + Waterfall Rappelling (Canyoning)",
    "short": "Safari Float + Waterfall Rappelling (Canyoning)",
@@ -886,6 +931,9 @@
   {
    "slug": "tour-safari-float-atv",
    "product": "tour-safari-float-atv",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "pair": "+ ATV Adventure",
+   "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + ATV Adventure",
    "short": "Safari Float + ATV Adventure",
@@ -931,6 +979,9 @@
   {
    "slug": "tour-safari-float-arenal-volcano",
    "product": "tour-safari-float-arenal-volcano",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "pair": "+ Arenal Volcano",
+   "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + Arenal Volcano",
    "short": "Safari Float + Arenal Volcano",
@@ -975,6 +1026,9 @@
   {
    "slug": "tour-safari-float-hanging-bridges",
    "product": "tour-safari-float-hanging-bridges",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "pair": "+ Hanging Bridges",
+   "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + Hanging Bridges",
    "short": "Safari Float + Hanging Bridges",
@@ -1018,6 +1072,9 @@
   {
    "slug": "tour-safari-float-rainforest-wildlife-walk",
    "product": "tour-safari-float-rainforest-wildlife-walk",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "pair": "+ Rainforest Wildlife Walk",
+   "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + Rainforest Wildlife Walk",
    "short": "Safari Float + Rainforest Wildlife Walk",
@@ -1062,6 +1119,9 @@
   {
    "slug": "tour-safari-float-la-fortuna-waterfall",
    "product": "tour-safari-float-la-fortuna-waterfall",
+   "group_img": "https://activearenal.com/wp-content/uploads/2026/08/jungle-river-safari-float.jpg",
+   "pair": "+ La Fortuna Waterfall",
+   "first": "Safari Float",
    "group": "Start with the safari float",
    "title": "Safari Float + La Fortuna Waterfall",
    "short": "Safari Float + La Fortuna Waterfall",

@@ -290,6 +290,24 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .cask small{color:rgba(255,255,255,.75);font-size:.84rem}
 @media(max-width:860px){.aax .chead,.aax .cgrid{grid-template-columns:1fr}}
 .aax .cgrp .crow .pr2 b{display:inline}
+.aax .cgrp .crow.cmb{display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:18px}
+.aax .cgrp .crow.cmb:hover{border-color:var(--f);transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(18,73,29,.45)}
+.aax .cgrp .rows{gap:10px}
+.aax .cimgs{position:relative;width:104px;height:72px;flex:none}
+.aax .cgrp .cimgs img{position:absolute;width:64px;height:64px;border-radius:14px;object-fit:cover;border:2px solid #fff;box-shadow:0 6px 14px -6px rgba(0,0,0,.35)}
+.aax .cgrp .cimgs img:first-child{left:0;top:0}
+.aax .cgrp .cimgs img:last-child{left:40px;top:8px}
+.aax .crow.cmb .cn{font-family:var(--disp);font-weight:600;font-size:1.18rem;line-height:1.2;display:block;color:var(--ink)}
+.aax .crow.cmb .cn i{font-style:normal;color:var(--leaf);padding:0 2px}
+.aax .crow.cmb .ct small{display:block;margin-top:5px;font-size:.8rem;color:var(--mut);font-weight:700}
+.aax .crow.cmb .pr2{display:flex;flex-direction:column;align-items:flex-end;line-height:1.1;margin:0}
+.aax .crow.cmb .pr2 .fr{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);font-weight:800}
+.aax .crow.cmb .pr2 .pv{font-family:var(--disp);font-size:1.5rem;font-weight:600;display:block;margin:2px 0}
+.aax .crow.cmb .pr2 small{font-size:.74rem;color:var(--mut);font-weight:700}
+.aax .crow.cmb .cgo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--f);color:#fff;transition:background .2s}
+.aax .crow.cmb:hover .cgo{background:var(--gold);color:var(--onGold)}
+@media(max-width:560px){.aax .cgrp .crow.cmb{grid-template-columns:auto 1fr auto;gap:12px;padding:12px}.aax .crow.cmb .cgo{display:none}.aax .cimgs{width:84px;height:60px}.aax .cgrp .cimgs img{width:52px;height:52px}.aax .cgrp .cimgs img:last-child{left:32px;top:8px}.aax .crow.cmb .cn{font-size:1.02rem}.aax .crow.cmb .pr2 .pv{font-size:1.25rem}}
+
 .aax .cgrp .crow b{font-size:1rem}
 /* card grande */
 .aax .bhl{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
@@ -581,7 +599,8 @@ def home_body(base, standalone=True):
     for c in COMBOS: groups.setdefault(c["group"], []).append(c)
     acc = ""
     for gi, (g, items) in enumerate(groups.items()):
-        rows = "".join(f'''<a class="crow" href="{base}tours/{c['slug']}/"><img src="{img(c['card'] or c['hero'],200)}" alt="" loading="lazy"><span><b>{e(c.get('pair') or c['title'])}</b><small>{e(('with ' + c['first'] + ' · ') if c.get('pair') else '')}{e(c['duration'])}</small></span><span class="pr2">{('from <b data-rz="' + e(c['product']) + '" style="font-weight:inherit">' + money(c['price']) + '</b>') if c.get('price') else 'See dates'}<small>{('/ ' + c.get('unit','person')) if c.get('price') else ''}</small></span></a>''' for c in items)
+        gim = img(items[0].get("group_img") or "", 240)
+        rows = "".join(f'''<a class="crow cmb" href="{base}tours/{c['slug']}/"><span class="cimgs"><img src="{gim}" alt="" loading="lazy"><img src="{img(c['card'] or c['hero'],240)}" alt="" loading="lazy"></span><span class="ct"><b class="cn">{e(c['first'])} <i>+</i> {e((c.get('pair') or c['title']).lstrip('+ ').strip())}</b><small>Full day · two tours · one hotel pickup</small></span><span class="pr2"><small class="fr">From</small><b data-rz="{e(c['product'])}" class="pv">{money(c['price']) if c.get('price') else ''}</b><small>/ {e(c.get('unit','person'))}</small></span><span class="cgo">{ic("arrow")}</span></a>''' for c in items)
         lo = min([c["price"] for c in items if c.get("price")] or [0])
         gimg = img(items[0].get("group_img") or "", 400)
         cta = f'''<a class="cask" href="{wa('Hi! I would like help choosing a combo tour.')}" target="_blank" rel="noopener"><span>{ic("chat")}</span><b>Not sure which pair?</b><small>Tell us your day and we pick the combo with you on WhatsApp.</small></a>''' if gi == 0 else ""

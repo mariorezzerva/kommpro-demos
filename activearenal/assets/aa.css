@@ -323,6 +323,10 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .foot .fl img{height:64px;width:auto}
 .aax .foot .fl p{color:var(--mut);font-size:.92rem;max-width:34ch;margin:14px 0 0}
 .aax .foot li{display:flex;align-items:center;gap:9px}
+.aax .foot .soc{display:flex;gap:10px;margin-top:20px}
+.aax .foot .soc a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--f);background:rgba(255,255,255,.5);transition:background .2s,color .2s,border-color .2s}
+.aax .foot .soc a:hover{background:var(--f);color:var(--mint);border-color:var(--f)}
+.aax .foot .soc .ic{width:18px;height:18px}
 .aax .foot li .ic{color:var(--leaf)}
 .aax .pay{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
 .aax .pay svg{height:28px;width:auto;border-radius:5px;box-shadow:0 0 0 1px var(--line)}

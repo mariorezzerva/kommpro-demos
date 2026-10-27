@@ -390,6 +390,10 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .foot .fl img{height:64px;width:auto}
 .aax .foot .fl p{color:var(--mut);font-size:.92rem;max-width:34ch;margin:14px 0 0}
 .aax .foot li{display:flex;align-items:center;gap:9px}
+.aax .foot .soc{display:flex;gap:10px;margin-top:20px}
+.aax .foot .soc a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--f);background:rgba(255,255,255,.5);transition:background .2s,color .2s,border-color .2s}
+.aax .foot .soc a:hover{background:var(--f);color:var(--mint);border-color:var(--f)}
+.aax .foot .soc .ic{width:18px;height:18px}
 .aax .foot li .ic{color:var(--leaf)}
 .aax .pay{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
 .aax .pay svg{height:28px;width:auto;border-radius:5px;box-shadow:0 0 0 1px var(--line)}
@@ -508,11 +512,22 @@ def sister_band():
 <div class="droutes rv">{rows}<div class="dnote">{ic("bus")}{e(S['note'])}</div></div>
 </div></section>'''
 
+SOC = {
+ "Instagram": '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/>',
+ "Facebook": '<path d="M14 21v-7.5h2.6l.4-3H14V8.7c0-.9.3-1.5 1.6-1.5H17V4.5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.2H8.3v3H11V21"/>',
+ "TikTok": '<path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5M14 3c.4 2.6 2.1 4.2 5 4.5"/>',
+ "YouTube": '<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.3v5.4l4.6-2.7z"/>',
+}
+def socials():
+    L = B.get("social") or []
+    if not L: return ""
+    return '<div class="soc">' + "".join(f'<a href="{e(x["url"])}" aria-label="{e(x["name"])}"' + ('' if x["url"] == "#" else ' target="_blank" rel="noopener"') + f'><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">{SOC.get(x["name"], "")}</svg></a>' for x in L) + '</div>'
+
 def footer(base):
     tl = "".join(f'<li><a href="{base}tours/{t["slug"]}/">{e(t["short"])}</a></li>' for t in TOURS)
     return sister_band() + f'''<footer class="foot"><div class="w">
 <div class="cols">
-<div class="fl"><img src="{img(B['logo'],300)}" alt="{e(B['name'])}"><p>{e(B['footer_blurb'])}</p></div>
+<div class="fl"><img src="{img(B['logo'],300)}" alt="{e(B['name'])}"><p>{e(B['footer_blurb'])}</p>{socials()}</div>
 <div><h4>Tours</h4><ul>{tl}</ul></div>
 <div><h4>Plan</h4><ul><li><a href="{base}index.html#combos">Two-in-one combos</a></li><li><a href="{base}index.html#plan">Help me choose</a></li><li><a href="{base}index.html#reviews">Reviews</a></li><li><a href="{wa('Hi! I would like a custom plan for my days in Arenal.')}" target="_blank" rel="noopener">Private or custom days</a></li></ul></div>
 <div><h4>Talk to us</h4><ul>

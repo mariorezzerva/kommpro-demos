@@ -5,7 +5,7 @@
   "logo": "https://activearenal.com/wp-content/uploads/2026/08/active-arenal-logo.png",
   "phone": "+506 8378 0001",
   "whatsapp": "50683780001",
-  "email": "info@drivercostarica.com",
+  "email": "info@activearenal.com",
   "location": "La Fortuna, Arenal, Costa Rica",
   "rezzerva_tenant": "active-arenal",
   "accent": "12491d",
@@ -40,6 +40,24 @@
   "ta_rating": "Excellent",
   "ta_count": 331,
   "trustindex_id": "",
+  "social": [
+   {
+    "name": "Instagram",
+    "url": "#"
+   },
+   {
+    "name": "Facebook",
+    "url": "#"
+   },
+   {
+    "name": "TikTok",
+    "url": "#"
+   },
+   {
+    "name": "YouTube",
+    "url": "#"
+   }
+  ],
   "band_pos": "center 62%"
  },
  "categories": [

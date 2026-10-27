@@ -261,6 +261,10 @@
 .dlcx [data-dlc=plink]{height:38px;padding:0 14px;font-size:13px;border-radius:12px}
 .dlcx .pay img{width:160px !important}
 @media (max-width:820px){.dlcx .tape{font-size:15px;padding:11px 0}.dlcx .tape span.t{padding:0 18px}}
+.dlcx .qr{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start;animation:dlcx-fade .4s ease both}
+.dlcx .qr button{height:32px;padding:0 12px;border-radius:999px;border:1px solid rgba(215,38,43,.3);background:#fff;color:var(--r);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.dlcx .qr button:hover{background:#FDE3E2}
+.dlcx .line .noimg{width:40px;height:40px;border-radius:12px;background:#F6F3EE;flex:none}
 @media (max-width:820px){.dlcx .scen.xs{display:flex !important}.dlcx .stage2{margin:8px auto 0}
 .dlcx .hchip{top:12px;right:10px;gap:10px;padding:8px 12px 8px 8px;border-radius:14px}.dlcx .hchip>span:first-child{width:32px !important;height:32px !important;border-radius:10px !important}.dlcx .hchip>span:last-child{font-size:12.5px !important}}
 @media (prefers-reduced-motion:reduce){.dlcx *{animation:none !important;transition:none !important}}
@@ -657,32 +661,127 @@ $('closechat').addEventListener('click', closeChat);
 $('openchat').addEventListener('click', openChat);
 document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeChat(); });
 var bubble = function (cls, html) { var d = document.createElement('div'); d.className = cls; d.innerHTML = html; body.appendChild(d); body.scrollTop = body.scrollHeight; return d; };
+var KCTX = { last: null };
+var KN = function (s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); };
+var KFAQ = [
+  { k: ['hola', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches', 'pura vida', 'que tal', 'upe'], only: true, t: '¡Hola, pura vida! Soy Kike, de La Cruz. Contame para qué es (una piñata, el café de la oficina, surtir la pulpe) o qué productos ocupás, y te armo el pedido con lo que hay hoy en la tienda.', qr: ['Piñata para 20 niños', 'Fiesta de Halloween', 'Surtir la pulpe'] },
+  { k: ['gracias', 'muchas gracias', 'perfecto', 'genial', 'excelente', 'tuanis', 'buenisimo'], only: true, t: '¡Con mucho gusto! Cuando estés listo, abrí el carrito arriba a la derecha y pagás con tarjeta. ¿Te ayudo con algo más?', qr: ['¿Hacen envíos?', 'Agregale desechables'] },
+  { k: ['envio', 'entrega', 'domicilio', 'llevan', 'mandan', 'express', 'a la casa', 'despacho'], t: 'Sí. Hacemos envíos en el GAM: si pedís hoy, te llega mañana antes de las 5 p. m. por ₡2.500. Si preferís, lo recogés en la tienda de Barrio La Cruz, listo en una hora y sin costo.' },
+  { k: ['sinpe'], t: 'En la tienda en línea por ahora solo recibimos tarjeta: Visa, Mastercard o American Express. Es rápido y el pedido queda confirmado al instante.' },
+  { k: ['pago', 'pagar', 'tarjeta', 'efectivo', 'transferencia', 'como se paga'], t: 'Se paga en línea con tarjeta (Visa, Mastercard o American Express), procesado por Onvo. Es seguro: la tienda nunca ve ni guarda los datos de tu tarjeta.' },
+  { k: ['horario', 'abren', 'cierran', 'que hora', 'domingo', 'sabado'], t: 'Abrimos de lunes a sábado, de 8:00 a. m. a 6:00 p. m. En línea podés pedir a cualquier hora.' },
+  { k: ['donde', 'direccion', 'ubicacion', 'ubicados', 'queda', 'como llego', 'waze'], t: 'Estamos en Barrio La Cruz, 400 m sur del MOPT. Si pedís en línea con retiro, te avisamos cuando esté listo para pasar.' },
+  { k: ['minimo', 'mayoreo', 'por mayor', 'al por mayor', 'descuento', 'precio de distribuidora'], t: 'No hay compra mínima: el precio es de distribuidora aunque lleves una sola unidad. Si comprás seguido para tu negocio, abrí una cuenta de negocio y repetís tu pedido de la semana en un toque.' }
+];
+var KINT = [
+  { id: 'halloween', k: ['halloween', 'dulce o truco', 'bruja', 'disfraz', 'terror', 'zombie', 'calabaza', 'miedo', 'brujas'], base: 20, q: [['halloween', 2], ['calabaza', 1], ['bruja', 1], ['terror zone', 1], ['zombie', 1], ['bolsita surtida', 2]],
+    t: 'Para Halloween tenemos dulces de temporada: los chocolates Trululu de Halloween, chicles con forma de calabaza y de varita de bruja, los ojos rellenos Terror Zone y los Nucita Zombie, que siempre asustan a alguien. Te sumé bolsitas para repartir el dulce o truco.',
+    f: '¿Para cuántos chiquitos es? Decime el número y te ajusto las cantidades.', qr: ['Para 30 niños', 'Agregale platos y vasos', 'Algo para decorar'] },
+  { id: 'pinata', k: ['pinata', 'cumple', 'cumpleanos', 'fiesta infantil', 'kinder', 'fiesta de ninos'], base: 20, q: [['surtido para pinata', 1], ['bolsa fiesta', 1], ['gomita', 2], ['paleta', 2], ['chicle', 1]],
+    t: 'Para la piñata lo que más se lleva es el surtido ya listo de Jogaimex (1,25 kilos), y lo completo con una bolsa fiesta, gomitas, paletas y chicles. Así ningún chiquito se queda con las manos vacías.',
+    f: '¿Te sumo platos, vasos y globos para la fiesta?', qr: ['Agregale platos y vasos', 'Algo para decorar', 'Bolsitas para las sorpresas'] },
+  { id: 'desechables', k: ['plato', 'vaso', 'cuchara', 'tenedor', 'desechable', 'servilleta', 'cubierto'], base: 24, q: [['plato polipak oxo #7', 2], ['vaso polipak oxo #7', 2], ['cuchara polipak', 2], ['tenedor polipak', 2], ['servilleta', 2]],
+    t: 'Desechables para la fiesta: platos y vasos Polipak, cucharas, tenedores y servilletas. Te puse dos paquetes de cada uno.',
+    f: 'Si son más personas, decime cuántas y te subo los paquetes.', qr: ['Somos 50 personas', 'Algo para decorar'] },
+  { id: 'deco', k: ['globo', 'decoracion', 'decorar', 'adorno', 'sombrero', 'crepe'], base: 20, q: [['globo #12 estandar rojo', 1], ['globo #12 estandar amarillo', 1], ['globo #12 estandar azul', 1], ['sombrero', 1], ['papel crepe', 2]],
+    t: 'Para decorar: globos #12 en rojo, amarillo y azul (25 por paquete), sombreritos de fiesta y papel crepé para las guirnaldas.',
+    f: '¿De qué color es la fiesta? Tenemos globos en varios colores.', qr: ['Agregale platos y vasos', 'Bolsitas para las sorpresas'] },
+  { id: 'sorpresas', k: ['sorpresa', 'bolsita', 'recuerdo'], base: 20, q: [['bolsita surtida', 3], ['pinata mix', 1], ['chicle', 1]],
+    t: 'Para las bolsitas de sorpresa: bolsitas surtidas listas y un Piñata Mix para rellenar las que hagás vos.' },
+  { id: 'oficina', k: ['oficina', 'cafe', 'reunion', 'trabajo', 'companeros', 'coffee', 'cafecito'], base: 12, q: [['galleta best', 2], ['te verde', 1], ['chocolate', 2], ['mani', 1], ['bolsa p/chorrear', 1]],
+    t: 'Para el café de la oficina: galletas Best (las de crema de maní vuelan), té verde, un chocolatito y maní para picar. Te puse también una bolsa para chorrear café.',
+    f: '¿Lo querés para toda la semana? Decime y te duplico las cantidades.', qr: ['Para toda la semana', 'Agregale vasos'] },
+  { id: 'pulpe', k: ['pulpe', 'pulperia', 'soda', 'reventa', 'revender', 'negocio', 'surtir', 'abastecer', 'minisuper'], base: 1, q: [['papa sofi', 2], ['galleta', 3], ['confite', 2], ['chicle', 2], ['refrescos 200ml', 2], ['palomita', 2]],
+    t: 'Para surtir la pulpe te armé con lo que más rota en la tienda: papas Sofi, galletas, confites, chicles, refrescos y palomitas. El precio es de distribuidora y no hay compra mínima.',
+    f: 'Si comprás cada semana, con una cuenta de negocio repetís este pedido en un toque.', qr: ['¿Hacen envíos?', '¿Cómo pago?'] },
+  { id: 'escuela', k: ['escuela', 'colegio', 'utiles', 'cuaderno', 'lapicero', 'marcador', 'regreso a clases', 'tarea', 'manualidad', 'plasticina', 'tempera', 'libreria'], base: 1, q: [['cuaderno cosido', 3], ['lapicero paper mate', 1], ['marcadores', 1], ['plasticina', 1]],
+    t: 'Para la escuela: cuadernos cosidos, lapiceros Paper Mate, marcadores y plasticina para las manualidades.',
+    f: 'Si me pasás la lista de útiles, te busco cada cosa.' },
+  { id: 'peli', k: ['pelicula', 'netflix', 'antojo', 'picar', 'snack', 'partido', 'mejenga', 'boca', 'bocas'], base: 6, q: [['palomita', 2], ['papa kryzpo', 2], ['mani', 1], ['chocolate', 1], ['refrescos 200ml', 1]],
+    t: 'Para la película o el partido: palomitas, papas Kryzpo, maní, un chocolate y refrescos. Lo clásico que no falla.' },
+  { id: 'limpieza', k: ['limpieza', 'limpiar', 'detergente', 'cloro', 'papel higienico', 'suavizante', 'lavar'], base: 1, q: [['detergente liquido 1 galon', 1], ['cloro', 1], ['desinfectante', 1], ['suavizante', 1], ['papel higienico', 1]],
+    t: 'Para la limpieza de la casa: detergente, cloro, desinfectante, suavizante y papel higiénico. Todo Oso Blanco y Encanto, marcas que ya conocés.' },
+  { id: 'despensa', k: ['despensa', 'comida', 'almuerzo', 'abarrote', 'cocinar', 'sopa', 'atun', 'frijol', 'arroz', 'aceite'], base: 1, q: [['sopa instantanea', 3], ['atun', 2], ['frijoles', 1], ['aceite doral', 1], ['consome', 1]],
+    t: 'Para la despensa: sopas instantáneas, atún, frijoles, aceite y consomé. Lo básico para salir de apuro.' },
+  { id: 'navidad', k: ['navidad', 'diciembre', 'fin de ano', 'posada', 'intercambio', 'aguinaldo'], base: 20, q: [['navidad', 2], ['chocolate', 2], ['bolsita surtida', 2], ['galleta best', 1]],
+    t: 'Para Navidad: malvaviscos y dulces de temporada, chocolates y bolsitas para regalar.' }
+];
+var kDelay = function (ms) { return new Promise(function (ok) { setTimeout(ok, ms); }); };
+var kQR = function (list) {
+  if (!list || !list.length) return;
+  var d = bubble('qr', list.map(function (x) { return '<button type="button">' + esc(x) + '</button>'; }).join(''));
+  d.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { d.remove(); runScen(-1, b.textContent); }); });
+};
 var runScen = function (si, freeText) {
-  var STOP = { para: 1, con: 1, que: 1, los: 1, las: 1, del: 1, una: 1, unos: 1, unas: 1, algo: 1, ocupo: 1, quiero: 1, necesito: 1, somos: 1, hay: 1, tienen: 1, mil: 1, por: 1, favor: 1, the: 1 };
-  var stem = function (w) { return w.replace(/es$/, '').replace(/s$/, ''); };
-  var terms = freeText ? freeText.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z0-9ñ]+/).filter(function (w) { return w.length > 2 && !STOP[w] && !/^\d+$/.test(w); }).map(stem).slice(0, 4) : [];
-  var s = SCEN[si] || { q: terms.length ? terms.map(function (t) { return [t, 1]; }) : [[freeText, 1]] };
-  bubble('me', esc(freeText || s.msg));
+  if (si >= 0 && SCEN[si]) freeText = SCEN[si].msg;
+  var t = KN(freeText);
+  root.querySelectorAll('.qr').forEach(function (q) { q.remove(); });
+  bubble('me', esc(freeText));
   var typing = bubble('bot', '<span class="dots"><i></i><i></i><i></i></span>');
-  var used = {};
-  Promise.all(s.q.map(function (x) { return api('/products?per_page=6&orderby=popularity&order=desc&stock_status=instock&search=' + encodeURIComponent(x[0])).then(function (ps) { return [ps, x[1]]; }).catch(function () { return [[], x[1]]; }); }))
-    .then(function (res) {
-      var lines = [];
-      res.forEach(function (r) { var p = r[0].filter(function (p) { return !used[p.id]; })[0]; if (p) { used[p.id] = 1; lines.push({ id: p.id, q: r[1], n: tcase(p.name), pr: priceOf(p), img: imgOf(p) }); } });
-      var tot = lines.reduce(function (a, l) { return a + l.pr * l.q; }, 0);
-      typing.remove();
-      if (!lines.length) { bubble('bot', 'No encontré productos para eso. Probá con otras palabras o escribinos por WhatsApp.'); return; }
-      bubble('bot', 'Te armé esto con lo que más sale y que hay hoy en la tienda:');
-      var box = bubble('pl', lines.map(function (l, i) { return '<div class="line" style="animation-delay:' + (i * 0.08) + 's">' + (l.img ? '<img src="' + esc(l.img) + '" alt="">' : '') + '<span class="ln"><strong>' + l.q + '×</strong> ' + esc(l.n) + '</span><strong style="font-size:13px;white-space:nowrap">' + fmt(l.pr * l.q) + '</strong></div>'; }).join('') +
-        '<div class="tot"><span style="font-size:14px;color:var(--mu)">Total</span><strong class="bal" style="font-size:24px">' + fmt(tot) + '</strong></div>' +
-        '<button type="button" class="btn btn-r" style="width:100%;margin-top:6px">Agregar todo al carrito</button>');
-      box.querySelector('button').addEventListener('click', function () {
-        var b = this; b.disabled = true; b.textContent = 'Agregando…';
-        addItems(lines.map(function (l) { return { id: l.id, q: l.q }; })).then(function () { b.textContent = 'Listo, está en tu carrito'; b.style.background = '#1E9E5A'; toast('Pedido agregado al carrito'); })
-          .catch(function () { b.disabled = false; b.textContent = 'Agregar todo al carrito'; toast('No se pudo agregar. Probá de nuevo.'); });
+  var has = function (k) { return (' ' + t + ' ').indexOf(k) > -1 || (k.length > 4 && t.indexOf(k) > -1); };
+  var people = (t.match(/(\d+)\s*(ninos|nino|chiquitos|personas|invitados|companeros|compas|gente|carajillos|chamacos)/) || t.match(/somos\s*(\d+)/) || t.match(/para\s*(\d+)/) || [])[1];
+  people = people ? +people : 0;
+  var budget = (t.match(/(\d+)\s*mil/) || [])[1]; budget = budget ? +budget * 1000 : 0;
+  var week = /semana|toda la semana|doble|duplic/.test(t);
+  var faqs = KFAQ.filter(function (f) { return f.k.some(has); });
+  var ints = KINT.filter(function (it) { return it.k.some(function (k) { return t.indexOf(k) > -1; }); });
+  if (ints.length > 1) ints = [ints[0]].concat(ints.slice(1).filter(function (i) { return ['desechables', 'deco', 'sorpresas'].indexOf(i.id) > -1 && i.id !== ints[0].id; }));
+  var follow = false;
+  if (!ints.length && (people || week) && KCTX.last) { ints = [KCTX.last]; follow = true; }
+  if (faqs.some(function (f) { return f.k[0] === 'sinpe'; })) faqs = faqs.filter(function (f) { return f.k[0] !== 'pago'; });
+  var faqWords = {}; KFAQ.forEach(function (f) { if (f.only) f.k.forEach(function (k) { faqWords[k] = 1; }); });
+  var plain = !ints.length && !faqs.some(function (f) { return !f.only; }) ? t.split(/[^a-z0-9ñ#]+/).filter(function (w) { return w.length > 2 && !/^(para|con|que|los|las|del|una|unos|unas|algo|ocupo|quiero|necesito|somos|hay|tienen|tenes|mil|por|favor|me|recomiendas|recomendas|recomienda|tienes|busco|dame|quisiera|venden|precio|cuanto|cuesta|cuestan|como|hola|buenas|kike)$/.test(w) && !/^\d+$/.test(w) && !faqWords[w]; }).slice(0, 4) : [];
+  var greetOnly = faqs.length && faqs.every(function (f) { return f.only; }) && !ints.length && !plain.length;
+  var go = function () {
+    if (greetOnly || (faqs.length && !ints.length && !plain.length)) {
+      return kDelay(650).then(function () { typing.remove(); faqs.slice(0, 2).forEach(function (f) { bubble('bot', esc(f.t)); }); kQR((faqs[0] || {}).qr); });
+    }
+    if (faqs.length) faqs = faqs.filter(function (f) { return !f.only; });
+    var lead = ints[0], scale = 1;
+    if (lead && people && lead.base > 1) scale = Math.max(1, Math.round(people / lead.base));
+    if (lead && week) scale = Math.max(scale, 2);
+    var q = [], seen = {};
+    if (ints.length) ints.slice(0, 2).forEach(function (it) { it.q.forEach(function (x) { if (!seen[x[0]]) { seen[x[0]] = 1; q.push([x[0], x[1] * scale]); } }); });
+    else q = plain.map(function (w) { return [w.replace(/es$/, '').replace(/s$/, ''), 1]; });
+    return Promise.all([kDelay(700)].concat(q.map(function (x) { return api('/products?per_page=6&orderby=popularity&order=desc&stock_status=instock&search=' + encodeURIComponent(x[0])).then(function (ps) { return [ps, x[1]]; }).catch(function () { return [[], x[1]]; }); })))
+      .then(function (res) {
+        res.shift();
+        var used = {}, lines = [];
+        res.forEach(function (r) { var p = r[0].filter(function (p) { return !used[p.id]; })[0]; if (p) { used[p.id] = 1; lines.push({ id: p.id, q: r[1], n: tcase(p.name), pr: priceOf(p), img: imgOf(p) }); } });
+        var tot = function () { return lines.reduce(function (a, l) { return a + l.pr * l.q; }, 0); };
+        var trimmed = false;
+        if (budget) { var guard = 60; while (tot() > budget && guard--) { var big = lines.filter(function (l) { return l.q > 1; }).sort(function (a, b) { return b.pr - a.pr; })[0]; if (big) { big.q--; trimmed = true; } else { lines.pop(); trimmed = true; } } }
+        typing.remove();
+        faqs.slice(0, 1).forEach(function (f) { bubble('bot', esc(f.t)); });
+        if (!lines.length) { bubble('bot', 'Mmm, eso no lo encontré hoy en la tienda. Probá con otras palabras o contame para qué es: una piñata, el café de la oficina, surtir la pulpe, la escuela… y yo te armo el pedido.'); kQR(['Piñata para 20 niños', 'Café de la oficina', 'Surtir la pulpe']); return; }
+        var intro;
+        if (follow) intro = people ? 'Listo, para ' + people + ' te ajusté las cantidades:' : 'Listo, te dupliqué las cantidades para que te alcance:';
+        else if (ints.length) {
+          intro = ints.slice(0, 2).map(function (i) { return i.t; }).join(' ');
+          if (scale > 1 && people) intro += ' Como son ' + people + ', te subí las cantidades.';
+          else if (scale > 1) intro += ' Te dupliqué las cantidades para que te alcance.';
+        } else intro = lines.length === 1 ? 'Esto es lo que más se lleva de eso:' : 'Esto encontré en la tienda:';
+        bubble('bot', esc(intro));
+        var box = bubble('pl', lines.map(function (l, i) { return '<div class="line" style="animation-delay:' + (i * 0.08) + 's">' + (l.img ? '<img src="' + esc(l.img) + '" alt="">' : '<span class="noimg"></span>') + '<span class="ln"><strong>' + l.q + '×</strong> ' + esc(l.n) + '</span><strong style="font-size:13px;white-space:nowrap">' + fmt(l.pr * l.q) + '</strong></div>'; }).join('') +
+          '<div class="tot"><span style="font-size:14px;color:var(--mu)">Total</span><strong class="bal" style="font-size:22px">' + fmt(tot()) + '</strong></div>' +
+          '<button type="button" class="btn btn-r" style="width:100%;margin-top:6px">Agregar todo al carrito</button>');
+        box.querySelector('button').addEventListener('click', function () {
+          var b = this; b.disabled = true; b.textContent = 'Agregando…';
+          addItems(lines.map(function (l) { return { id: l.id, q: l.q }; })).then(function () { b.textContent = 'Listo, está en tu carrito'; b.style.background = '#1E9E5A'; toast('Pedido agregado al carrito'); })
+            .catch(function () { b.disabled = false; b.textContent = 'Agregar todo al carrito'; toast('No se pudo agregar. Probá de nuevo.'); });
+        });
+        var after = [];
+        if (budget) after.push('Te lo dejé en ' + fmt(tot()) + (trimmed ? ', ajustando cantidades para no pasarnos de los ' : ', dentro de los ') + fmt(budget) + '.');
+        var lf = lead && KN(lead.f); if (lead && lead.f && !(people && /cuantos|cuantas/.test(lf)) && !(week && /semana/.test(lf))) after.push(lead.f);
+        else if (follow) after.push('¿Te ayudo con algo más?');
+        else if (!lead) after.push('¿Algo más? También te puedo armar pedidos completos: decime para qué es.');
+        if (after.length) bubble('bot', esc(after.join(' ')));
+        kQR(lead ? (lead.qr || []).filter(function (x) { return KN(x) !== t; }) : ['Piñata para 20 niños', 'Café de la oficina']);
+        if (lead) KCTX.last = lead;
+        body.scrollTop = body.scrollHeight;
       });
-      body.scrollTop = body.scrollHeight;
-    });
+  };
+  go();
 };
 var scenBtns = function (el, open) {
   el.innerHTML = SCEN.map(function (s) { return '<button type="button"><img src="' + ic(s.i, '#D7262B') + '" alt="" width="16" height="16">' + esc(s.n) + '</button>'; }).join('');

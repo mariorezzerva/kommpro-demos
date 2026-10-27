@@ -352,6 +352,8 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .foot .secure{color:var(--f2)}
 .aax .foot ul a:hover{color:var(--f);text-decoration:underline;text-underline-offset:3px}
 .aax .foot .legal{border-top-color:rgba(18,73,29,.22)}
+.aax .legal .rzl{font-weight:800;color:var(--f);text-decoration:underline;text-decoration-color:rgba(18,73,29,.35);text-underline-offset:3px}
+.aax .legal .rzl:hover{text-decoration-color:var(--f)}
 .aax .foot .soc a{border-color:rgba(18,73,29,.25);background:rgba(255,255,255,.4)}
 .aax .pay{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
 .aax .pay svg{height:28px;width:auto;border-radius:5px;box-shadow:0 0 0 1px var(--line)}

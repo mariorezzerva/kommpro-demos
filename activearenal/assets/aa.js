@@ -1,6 +1,7 @@
 
 (function(){
 var root=document.querySelector('.aax');
+document.querySelectorAll('.aax .legal span').forEach(function(sp){if(!sp.querySelector('a')&&/Rezzerva/.test(sp.textContent)){sp.innerHTML=sp.innerHTML.replace('Rezzerva','<a class="rzl" href="https://rezzerva.com/" target="_blank" rel="noopener">Rezzerva</a>')}});
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.aax .rv').forEach(function(el){io.observe(el)});
 var bi=document.querySelector('.aax .band .bimg');if(bi&&!matchMedia('(prefers-reduced-motion:reduce)').matches){var pf=function(){var r=bi.parentNode.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)bi.style.transform='translateY('+((r.top+r.height/2-innerHeight/2)*-.08)+'px)'};addEventListener('scroll',pf,{passive:true});pf()}

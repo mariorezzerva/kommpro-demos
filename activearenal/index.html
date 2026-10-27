@@ -355,6 +355,8 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .foot .secure{color:var(--f2)}
 .aax .foot ul a:hover{color:var(--f);text-decoration:underline;text-underline-offset:3px}
 .aax .foot .legal{border-top-color:rgba(18,73,29,.22)}
+.aax .legal .rzl{font-weight:800;color:var(--f);text-decoration:underline;text-decoration-color:rgba(18,73,29,.35);text-underline-offset:3px}
+.aax .legal .rzl:hover{text-decoration-color:var(--f)}
 .aax .foot .soc a{border-color:rgba(18,73,29,.25);background:rgba(255,255,255,.4)}
 .aax .pay{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
 .aax .pay svg{height:28px;width:auto;border-radius:5px;box-shadow:0 0 0 1px var(--line)}
@@ -536,11 +538,12 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0114 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>La Fortuna, Arenal, Costa Rica</li></ul>
 <div style="margin-top:22px"><div class="secure"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg> Secure card payment</div><div class="pay" aria-label="Visa, Mastercard, American Express"><svg viewBox="0 0 48 30"><rect width="48" height="30" fill="#fff"/><path fill="#1a1f71" d="M20.3 20.5h-3l1.9-11.1h3zm10.6-10.8a7.6 7.6 0 00-2.7-.5c-3 0-5.1 1.5-5.1 3.7 0 1.6 1.5 2.5 2.7 3 1.2.6 1.6.9 1.6 1.4 0 .8-.9 1.1-1.8 1.1a6 6 0 01-2.8-.6l-.4-.2-.4 2.4c.7.3 2 .6 3.3.6 3.2 0 5.2-1.5 5.3-3.8 0-1.3-.8-2.2-2.5-3-1-.5-1.7-.9-1.7-1.4s.6-1 1.7-1c.9 0 1.6.2 2.1.4l.3.1zm7.7-.3h-2.3c-.7 0-1.3.2-1.6.9L30.3 20.5h3.2l.6-1.7h3.9l.4 1.7H41zm-3.8 7.2l1.2-3.1.4-1.1.2 1 .7 3.2zm-17.4-7.2l-3 7.6-.3-1.6a9.1 9.1 0 00-4.3-4.9l2.7 9.9h3.2l4.8-11z"/><path fill="#f7a600" d="M11.7 9.4H6.8v.2c3.8 1 6.3 3.3 7.3 6.1l-1.1-5.3c-.2-.7-.7-1-1.3-1z"/></svg><svg viewBox="0 0 48 30"><rect width="48" height="30" fill="#fff"/><circle cx="19.5" cy="15" r="8" fill="#eb001b"/><circle cx="28.5" cy="15" r="8" fill="#f79e1b"/><path fill="#ff5f00" d="M24 8.4a8 8 0 010 13.2 8 8 0 010-13.2z"/></svg><svg viewBox="0 0 48 30"><rect width="48" height="30" fill="#1f72cd"/><text x="24" y="19" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="8.5" fill="#fff" letter-spacing=".4">AMEX</text></svg></div></div></div>
 </div>
-<div class="legal"><span>&copy; 2026 Active Arenal. Part of Driver Costa Rica, serving travelers since 2002.</span><span>Online booking by Rezzerva</span></div>
+<div class="legal"><span>&copy; 2026 Active Arenal. Part of Driver Costa Rica, serving travelers since 2002.</span><span>Online booking by <a class="rzl" href="https://rezzerva.com/" target="_blank" rel="noopener">Rezzerva</a></span></div>
 </div></footer></div>
 <script>
 (function(){
 var root=document.querySelector('.aax');
+document.querySelectorAll('.aax .legal span').forEach(function(sp){if(!sp.querySelector('a')&&/Rezzerva/.test(sp.textContent)){sp.innerHTML=sp.innerHTML.replace('Rezzerva','<a class="rzl" href="https://rezzerva.com/" target="_blank" rel="noopener">Rezzerva</a>')}});
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.aax .rv').forEach(function(el){io.observe(el)});
 var bi=document.querySelector('.aax .band .bimg');if(bi&&!matchMedia('(prefers-reduced-motion:reduce)').matches){var pf=function(){var r=bi.parentNode.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)bi.style.transform='translateY('+((r.top+r.height/2-innerHeight/2)*-.08)+'px)'};addEventListener('scroll',pf,{passive:true});pf()}

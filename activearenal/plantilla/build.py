@@ -419,6 +419,8 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .foot .secure{color:var(--f2)}
 .aax .foot ul a:hover{color:var(--f);text-decoration:underline;text-underline-offset:3px}
 .aax .foot .legal{border-top-color:rgba(18,73,29,.22)}
+.aax .legal .rzl{font-weight:800;color:var(--f);text-decoration:underline;text-decoration-color:rgba(18,73,29,.35);text-underline-offset:3px}
+.aax .legal .rzl:hover{text-decoration-color:var(--f)}
 .aax .foot .soc a{border-color:rgba(18,73,29,.25);background:rgba(255,255,255,.4)}
 .aax .pay{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
 .aax .pay svg{height:28px;width:auto;border-radius:5px;box-shadow:0 0 0 1px var(--line)}
@@ -561,7 +563,7 @@ def footer(base):
 <li>{ic("pin")}{e(B['location'])}</li></ul>
 <div style="margin-top:22px"><div class="secure">{ic("lock")} Secure card payment</div>{PAY}</div></div>
 </div>
-<div class="legal"><span>&copy; 2026 {e(B['name'])}. {e(B['legal_note'])}</span><span>Online booking by Rezzerva</span></div>
+<div class="legal"><span>&copy; 2026 {e(B['name'])}. {e(B['legal_note'])}</span><span>Online booking by <a class="rzl" href="https://rezzerva.com/" target="_blank" rel="noopener">Rezzerva</a></span></div>
 </div></footer>'''
 
 def big_extra(t):
@@ -709,6 +711,7 @@ def js_common():
     return r"""
 (function(){
 var root=document.querySelector('.aax');
+document.querySelectorAll('.aax .legal span').forEach(function(sp){if(!sp.querySelector('a')&&/Rezzerva/.test(sp.textContent)){sp.innerHTML=sp.innerHTML.replace('Rezzerva','<a class="rzl" href="https://rezzerva.com/" target="_blank" rel="noopener">Rezzerva</a>')}});
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.aax .rv').forEach(function(el){io.observe(el)});
 var bi=document.querySelector('.aax .band .bimg');if(bi&&!matchMedia('(prefers-reduced-motion:reduce)').matches){var pf=function(){var r=bi.parentNode.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)bi.style.transform='translateY('+((r.top+r.height/2-innerHeight/2)*-.08)+'px)'};addEventListener('scroll',pf,{passive:true});pf()}

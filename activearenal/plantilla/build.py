@@ -219,6 +219,16 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .chat input{flex:1;min-width:0;border-radius:999px;border:1px solid rgba(160,224,160,.25);background:rgba(255,255,255,.95);color:#14241a;padding:12px 16px;font:600 .95rem var(--body);outline:0}
 .aax .chat form button{width:46px;height:46px;border-radius:50%;border:0;background:var(--gold);color:var(--onGold);display:grid;place-items:center;cursor:pointer;flex:none}
 @media(max-width:900px){.aax .asst{grid-template-columns:1fr}.aax .chat{height:420px}}
+.aax .plan{position:relative;overflow:hidden;isolation:isolate;background:var(--f2)}
+.aax .plan .pbg{position:absolute;inset:0;z-index:-1;background-size:cover;background-position:30% 55%}
+.aax .plan .pbg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,48,19,.94) 0%,rgba(11,48,19,.84) 42%,rgba(11,48,19,.55) 100%)}
+.aax .plan .who{display:flex;align-items:center;gap:12px;margin-top:28px;padding:10px 16px 10px 10px;border-radius:999px;width:max-content;max-width:100%;background:rgba(255,255,255,.08);border:1px solid var(--gbrd);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.aax .plan .wav{width:46px;height:46px;border-radius:50%;flex:none;background-size:520%;background-position:53% 44%;border:2px solid var(--mint)}
+.aax .plan .who b{display:block;font-size:.92rem}
+.aax .plan .who small{display:block;font-size:.78rem;color:var(--mint)}
+.aax .chat .hello{margin-top:2px}
+@media(max-width:900px){.aax .plan .pbg{background-position:55% 40%}.aax .plan .pbg::after{background:linear-gradient(180deg,rgba(11,48,19,.9) 0%,rgba(11,48,19,.8) 55%,rgba(11,48,19,.7) 100%)}.aax .chat{height:400px}}
+
 
 /* tours */
 .aax .filt{display:flex;flex-wrap:wrap;gap:8px}
@@ -658,13 +668,14 @@ def home_body(base, standalone=True):
 <div class="moods">{moods}</div>
 </div></section>
 
-<section class="sec dk" id="plan" style="background:radial-gradient(900px 520px at 10% 10%,rgba(160,224,160,.10),transparent 60%),radial-gradient(700px 500px at 100% 100%,rgba(242,210,107,.08),transparent 60%),var(--f)"><div class="w asst">
+<section class="sec dk plan" id="plan"><div class="pbg" style="background-image:url('{e(B.get('plan_image',''))}')"></div><div class="w asst">
 <div class="copy rv"><div class="eyb">Plan my day</div><h2>What are you looking for? <em>Tell me and I'll plan your day.</em></h2>
 <p class="lead">{e(D['assistant']['lead'])}</p>
-<div class="hint">{hints}</div></div>
+<div class="hint">{hints}</div>
+<div class="who"><span class="wav" style="background-image:url('{e(B.get('plan_image',''))}')"></span><span><b>{e(B.get('plan_who',''))}</b><small>{e(B.get('plan_who_sub',''))}</small></span></div></div>
 <div class="chat rv" id="chat">
 <div class="top"><span class="av"><img src="{img(B['logo'],120)}" alt=""></span><span><b>{e(B['name'])}</b><small><i></i>Online · replies in seconds</small></span></div>
-<div class="log" id="log" aria-live="polite"><div class="empty" id="empty">{ic("chat")}Write it like you would on WhatsApp. Dates, kids, energy level, anything.</div></div>
+<div class="log" id="log" aria-live="polite"><div class="msg bot hello">{e(B.get('plan_hello',''))}<span class="tm">{e(B['name'])}</span></div></div>
 <form id="cf"><input id="ci" placeholder="Write here..." aria-label="Your message" autocomplete="off"><button aria-label="Send">{ic("send")}</button></form>
 </div>
 </div></section>
@@ -776,7 +787,7 @@ function think(q){
 function send(q){q=q.trim();if(!q)return;add('me',esc(q));hist.push(q);ci.value='';var ty=document.createElement('div');ty.className='typing';ty.innerHTML='<i></i><i></i><i></i>';log.appendChild(ty);log.scrollTop=log.scrollHeight;setTimeout(function(){ty.remove();add('bot',think(q))},650+Math.random()*500)}
 document.getElementById('cf').onsubmit=function(e){e.preventDefault();send(ci.value)};
 document.querySelectorAll('[data-say]').forEach(function(b){b.onclick=function(){send(b.dataset.say)}});
-var fab=document.getElementById('fab');if(fab)fab.onclick=function(){document.getElementById('plan').scrollIntoView({behavior:'smooth'});setTimeout(function(){ci.focus({preventScroll:true})},700)};
+var fab=document.getElementById('fab');if(fab&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(x){fab.style.opacity=x.isIntersecting?'0':'';fab.style.pointerEvents=x.isIntersecting?'none':''})},{threshold:.15}).observe(document.getElementById('plan'))}if(fab)fab.onclick=function(){document.getElementById('plan').scrollIntoView({behavior:'smooth'});setTimeout(function(){ci.focus({preventScroll:true})},700)};
 })();
 """
 

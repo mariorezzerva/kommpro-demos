@@ -152,6 +152,16 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .chat input{flex:1;min-width:0;border-radius:999px;border:1px solid rgba(160,224,160,.25);background:rgba(255,255,255,.95);color:#14241a;padding:12px 16px;font:600 .95rem var(--body);outline:0}
 .aax .chat form button{width:46px;height:46px;border-radius:50%;border:0;background:var(--gold);color:var(--onGold);display:grid;place-items:center;cursor:pointer;flex:none}
 @media(max-width:900px){.aax .asst{grid-template-columns:1fr}.aax .chat{height:420px}}
+.aax .plan{position:relative;overflow:hidden;isolation:isolate;background:var(--f2)}
+.aax .plan .pbg{position:absolute;inset:0;z-index:-1;background-size:cover;background-position:30% 55%}
+.aax .plan .pbg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,48,19,.94) 0%,rgba(11,48,19,.84) 42%,rgba(11,48,19,.55) 100%)}
+.aax .plan .who{display:flex;align-items:center;gap:12px;margin-top:28px;padding:10px 16px 10px 10px;border-radius:999px;width:max-content;max-width:100%;background:rgba(255,255,255,.08);border:1px solid var(--gbrd);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.aax .plan .wav{width:46px;height:46px;border-radius:50%;flex:none;background-size:520%;background-position:53% 44%;border:2px solid var(--mint)}
+.aax .plan .who b{display:block;font-size:.92rem}
+.aax .plan .who small{display:block;font-size:.78rem;color:var(--mint)}
+.aax .chat .hello{margin-top:2px}
+@media(max-width:900px){.aax .plan .pbg{background-position:55% 40%}.aax .plan .pbg::after{background:linear-gradient(180deg,rgba(11,48,19,.9) 0%,rgba(11,48,19,.8) 55%,rgba(11,48,19,.7) 100%)}.aax .chat{height:400px}}
+
 
 /* tours */
 .aax .filt{display:flex;flex-wrap:wrap;gap:8px}

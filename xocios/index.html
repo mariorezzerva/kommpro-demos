@@ -120,18 +120,27 @@ section.blk{padding-block:80px}
 .reveal{transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .8s}
 .reveal.pre{transform:translateY(18px);opacity:.01}
 
-/* Pasillos: tarjeta oscura con el producto en un plato blanco */
-.aisles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.aisle{position:relative;background:linear-gradient(170deg,var(--night-3),var(--night-2));border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 14px;text-align:left;display:flex;flex-direction:column;gap:3px;min-height:220px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
-.aisle:hover{transform:translateY(-3px);border-color:rgba(245,195,59,.5);box-shadow:0 20px 40px -24px rgba(106,34,240,.9)}
-.aisle .plate{position:absolute;right:-26px;bottom:-30px;width:150px;height:150px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;box-shadow:0 0 0 6px rgba(255,255,255,.08)}
-.aisle .plate img{height:96px;width:auto;max-width:90px;object-fit:contain;transform:translate(-16px,-18px);transition:transform .5s;}
-.aisle:hover .plate img{transform:translate(-18px,-28px) rotate(-6deg)}
-.aisle b{font:800 17px/1.15 var(--display);position:relative;max-width:12ch}
-.aisle small{color:var(--muted);font-size:12.5px;position:relative;max-width:15ch;line-height:1.35}
-.aisle .count{margin-top:auto;font-size:12px;font-weight:600;color:var(--gold);position:relative;display:flex;align-items:center;gap:4px}
-@media (max-width:1000px){.aisles{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:640px){.aisles{grid-template-columns:repeat(2,1fr)}.aisle{min-height:200px}.aisle .plate{width:110px;height:110px;right:-18px;bottom:-22px}.aisle .plate img{height:84px;max-width:80px;transform:translate(-12px,-14px)}.aisle .count{font-size:11px}.aisle .count .ic{display:none}}
+/* Pasillos: lista a la izquierda, lo que más sale del pasillo a la derecha (como DLC y SABO) */
+.aisles{display:grid;grid-template-columns:300px 1fr;gap:22px;align-items:start}
+.aisles>*{min-width:0}
+.atabs{display:flex;flex-direction:column;gap:4px}
+.atab{width:100%;display:flex;align-items:center;gap:12px;padding:9px 12px;border:1px solid transparent;border-radius:16px;background:none;text-align:left;transition:background .25s,border-color .25s}
+.atab:hover{background:rgba(255,255,255,.05)}
+.atab[aria-selected=true]{background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border-color:rgba(255,255,255,.18)}
+.atab .ti{width:44px;height:44px;border-radius:12px;background:#fff;display:grid;place-items:center;flex:none;overflow:hidden}
+.atab .ti img{width:84%;height:84%;object-fit:contain}
+.atab .tn{flex:1;font:800 15px var(--display);white-space:nowrap}
+.atab .tc{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.atab[aria-selected=true] .tc{color:var(--gold)}
+.apanel{border-radius:28px;padding:24px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.aphead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.aphead h3{font-size:30px;font-weight:900}
+.aphead p{margin:6px 0 0;color:var(--muted);font-size:14.5px}
+.aphead .morebtn{margin:0;padding:10px 18px}
+.apanel .shelf{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.apanel .prod .row{flex-wrap:wrap}
+@media (max-width:1000px){.aisles{grid-template-columns:1fr}.atabs{flex-direction:row;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}.atab{width:auto;flex:none}.apanel .shelf{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.apanel{padding:14px}.aphead h3{font-size:24px}}
 
 /* Promo ₡700 */
 .promo{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:center;border:1px solid var(--line);border-radius:30px;padding:18px;background:linear-gradient(160deg,#24104f,#150a34)}
@@ -465,7 +474,7 @@ form.co{display:grid;gap:14px}
         <div><div class="eyebrow">Pasillos</div><h2>Todo lo de la lico, a un toque</h2></div>
         <p>Las mismas refris y estantes de Heredia y Tibás, ordenados para que encontrés rápido lo que andás buscando.</p>
       </div>
-      <div class="aisles" id="aisles"></div>
+      <div class="aisles"><div class="atabs" role="tablist" aria-label="Pasillos" id="atabs"></div><div class="apanel" role="tabpanel" id="apanel"></div></div>
     </div>
   </section>
 
@@ -659,8 +668,11 @@ const visible = p => !p.season || (SEASON && p.season===SEASON.key);
 const find = (txt,cat) => P.filter(p=>visible(p)&&(!cat||p.cat===cat) && norm(p.name+" "+p.pres).includes(norm(txt)));
 
 /* Pasillos (el conteo de combos depende de la temporada) */
+let aisleCur="cervezas";
 function renderAisles(){
-  $("#aisles").innerHTML = CATS.map(c=>`<button class="aisle reveal" data-open="cat:${c.id}"><span class="plate"><img src="img/${c.img}" alt=""></span><b>${c.name}</b><small>${c.note}</small><span class="count">${P.filter(p=>p.cat===c.id&&visible(p)).length} productos <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></button>`).join("");
+  $("#atabs").innerHTML = CATS.map(c=>`<button class="atab" role="tab" aria-selected="${c.id===aisleCur}" data-aisle="${c.id}"><span class="ti"><img src="img/${c.img}" alt=""></span><span class="tn">${c.name}</span><span class="tc">${P.filter(p=>p.cat===c.id&&visible(p)).length}</span></button>`).join("");
+  const c=CATS.find(x=>x.id===aisleCur), list=P.filter(p=>p.cat===c.id&&visible(p)&&stockOf(p)>0).sort((a,b)=>stockOf(b)-stockOf(a)).slice(0,8);
+  $("#apanel").innerHTML = `<div class="aphead"><div><h3>${c.name}</h3><p>${c.note}</p></div><button class="morebtn" data-open="cat:${c.id}">Ver todo <svg class="ic"><use href="#i-arrow"/></svg></button></div><div class="shelf">${list.map(card).join("")}</div>`;
 }
 $("#footCats").innerHTML = CATS.map(c=>`<li><button class="lnk" data-open="cat:${c.id}">${c.name}</button></li>`).join("");
 
@@ -873,6 +885,7 @@ function openCatalog(cat="all",q="",more){
 $("#heroSearch").onsubmit=e=>{ e.preventDefault(); const v=$("#q").value.trim(); if(v) openCatalog("all",v); };
 
 document.addEventListener("click",e=>{
+  const at=e.target.closest("[data-aisle]"); if(at){ aisleCur=at.dataset.aisle; renderAisles(); return; }
   const say=e.target.closest("[data-say]"); if(say){ if(!say.closest("#chatBody")){ closeAll(); $("#asistente").scrollIntoView({behavior:"smooth"}); } sendChat(say.dataset.say); return; }
   const t=e.target.closest("[data-add],[data-open],[data-scroll],[data-q],[data-tab],[data-close],[data-addall]");
   if(!t) return;

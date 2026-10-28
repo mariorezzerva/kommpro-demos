@@ -8,7 +8,7 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax *,.aax *::before,.aax *::after{box-sizing:border-box}
 .aax img{max-width:100%;display:block}
 .aax a{color:inherit;text-decoration:none}
-.aax button{font:inherit;color:inherit}
+.aax button{font:inherit;color:inherit;white-space:normal;text-transform:none;letter-spacing:normal}
 .aax .ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .aax .w{width:100%;max-width:1240px;margin:0 auto;padding-inline:clamp(18px,4vw,40px)}
 .aax .eyb{font-size:.74rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf)}
@@ -82,7 +82,10 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .frow{display:grid;grid-template-columns:1.25fr 1fr;gap:10px}
 .aax .frow .fld{margin-bottom:0}
 .aax .pax{display:flex;align-items:center;justify-content:space-between}
-.aax .pax button{width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:none;color:#fff;cursor:pointer;line-height:1;font-weight:800}
+.aax .pax button{width:28px;height:28px;min-width:0;min-height:0;padding:0;margin:0;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:none;color:#fff;cursor:pointer;display:grid;place-items:center;flex:none;box-shadow:none}
+.aax .pax button:hover,.aax .pax button:focus{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.6)}
+.aax .pax button .ic{width:14px;height:14px;stroke-width:2.2}
+.aax .pax output{min-width:2ch;text-align:center}
 .aax .pax output{font-weight:800}
 .aax .finder .btn{width:100%;margin-top:14px}
 .aax .fnote{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:12px;font-size:.76rem;color:rgba(255,255,255,.7)}
@@ -108,13 +111,15 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .mood .bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:-2;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
 .aax .mood::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgba(9,38,15,.85))}
 .aax .mood:hover .bg{transform:scale(1.07)}
+.aax .mood:hover,.aax .mood:focus{background:var(--f);color:#fff}
 .aax .mood b{display:block;font-family:var(--disp);font-weight:600;font-size:1.55rem;line-height:1.05}
 .aax .mood small{display:block;font-size:.84rem;color:rgba(255,255,255,.82);margin-top:5px;max-width:30ch}
 .aax .mood .ct{position:absolute;top:16px;right:16px;font-size:.72rem;font-weight:800;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .aax .mood .mi{position:absolute;top:16px;left:16px;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .aax .m1{grid-column:span 5;grid-row:span 3}.aax .m2{grid-column:span 4;grid-row:span 2}.aax .m3{grid-column:span 3;grid-row:span 2}
 .aax .m4{grid-column:span 3;grid-row:span 1}.aax .m5{grid-column:span 4;grid-row:span 1}
-@media(max-width:860px){.aax .moods{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.aax .m1{grid-column:span 2;grid-row:span 2}.aax .m2,.aax .m3,.aax .m4,.aax .m5{grid-column:span 1;grid-row:span 1}.aax .m5{grid-column:span 2}}
+@media(max-width:860px){.aax .moods{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.aax .m1{grid-column:span 2;grid-row:span 2}.aax .m2,.aax .m3,.aax .m4,.aax .m5{grid-column:span 1;grid-row:span 1}.aax .m4,.aax .m5{grid-column:span 1}.aax .mood b{font-size:1.25rem}.aax .mood small{font-size:.78rem}.aax .mood{padding:16px}}
+@media(max-width:420px){.aax .moods{grid-auto-rows:150px}.aax .mood b{font-size:1.12rem}.aax .mood small{display:none}.aax .m1 small{display:block}}
 
 /* asistente */
 .aax .asst{display:grid;grid-template-columns:1fr minmax(0,520px);gap:clamp(30px,6vw,90px);align-items:center}

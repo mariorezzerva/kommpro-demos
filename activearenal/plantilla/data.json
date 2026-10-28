@@ -333,7 +333,7 @@
    "title": "White Water Rafting",
    "lead": "Paddle through jungle rapids on one of Costa Rica's best rivers.",
    "hero": "img/rafting-green-wide.webp",
-   "card": "img/rafting-green-vertical.webp",
+   "card": "img/rafting-green-card.webp",
    "duration": "½ day",
    "difficulty": "Moderate–High",
    "guide": "English / Spanish",
@@ -370,8 +370,8 @@
    "bring": "Quick-dry clothes, secured sandals or water shoes, sunscreen, a change of clothes, waterproof camera.",
    "gallery": [
     "img/rafting-green-wide.webp",
-    "img/rafting-green-vertical.webp",
-    "img/rafting-rapids.webp"
+    "img/rafting-rapids.webp",
+    "img/rafting-river.webp"
    ],
    "short": "White Water Rafting",
    "cats": [
@@ -392,7 +392,7 @@
    ],
    "departs": "8:15 a.m.",
    "unit": "adult",
-   "hero_pos": "center 45%"
+   "hero_pos": "center 40%"
   },
   {
    "slug": "tour-sloth",
@@ -712,7 +712,7 @@
   {
    "slug": "tour-rafting-zip-lines",
    "product": "tour-rafting-zip-lines",
-   "group_img": "img/rafting-green-vertical.webp",
+   "group_img": "img/rafting-green-card.webp",
    "pair": "+ Zip Lines",
    "first": "White Water Rafting",
    "group": "Start with rafting",
@@ -750,7 +750,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/rafting-green-vertical.webp",
+    "img/rafting-green-card.webp",
     "img/zipline.webp",
     "img/arenal-volcano-lake.webp"
    ],
@@ -760,7 +760,7 @@
   {
    "slug": "tour-rafting-canyoning",
    "product": "tour-rafting-canyoning",
-   "group_img": "img/rafting-green-vertical.webp",
+   "group_img": "img/rafting-green-card.webp",
    "pair": "+ Waterfall Rappelling (Canyoning)",
    "first": "White Water Rafting",
    "group": "Start with rafting",
@@ -798,7 +798,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/rafting-green-vertical.webp",
+    "img/rafting-green-card.webp",
     "img/rappel.webp",
     "img/arenal-volcano-lake.webp"
    ],
@@ -808,7 +808,7 @@
   {
    "slug": "tour-rafting-atv",
    "product": "tour-rafting-atv",
-   "group_img": "img/rafting-green-vertical.webp",
+   "group_img": "img/rafting-green-card.webp",
    "pair": "+ ATV Adventure",
    "first": "White Water Rafting",
    "group": "Start with rafting",
@@ -845,7 +845,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/rafting-green-vertical.webp",
+    "img/rafting-green-card.webp",
     "img/atv.webp",
     "img/arenal-volcano-lake.webp"
    ],
@@ -856,7 +856,7 @@
   {
    "slug": "tour-rafting-la-fortuna-waterfall",
    "product": "tour-rafting-la-fortuna-waterfall",
-   "group_img": "img/rafting-green-vertical.webp",
+   "group_img": "img/rafting-green-card.webp",
    "pair": "+ La Fortuna Waterfall",
    "first": "White Water Rafting",
    "group": "Start with rafting",
@@ -893,7 +893,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/rafting-green-vertical.webp",
+    "img/rafting-green-card.webp",
     "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
     "img/arenal-volcano-lake.webp"
    ],

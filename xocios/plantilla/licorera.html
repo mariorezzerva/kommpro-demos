@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Xocios Licorera en línea</title>
+<meta name="description" content="Licores nacionales e importados, cervezas bien frías y combos. Pagá con tarjeta y recibí por Uber Flash desde Xocios Heredia o Xocios Tibás. Venta solo a mayores de 18.">
+<meta name="theme-color" content="#14082f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Xocios Licorera: noche violeta, amarillo de marca, neón hexagonal como el de la tienda. */
+:root{
+  --night:#14082f;        /* fondo principal */
+  --night-2:#1d0d45;
+  --night-3:#271259;
+  --violet:#6a22f0;       /* violeta de marca */
+  --violet-d:#5418d2;
+  --lilac:#b9a2ff;
+  --yellow:#ffc93c;       /* amarillo de la X */
+  --yellow-d:#f2b21b;
+  --text:#f4f1ff;
+  --muted:#b3a8d6;
+  --line:rgba(185,162,255,.18);
+  --glass:rgba(255,255,255,.06);
+  --display:"Montserrat",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:20px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--text);font:16px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.04;margin:0;text-wrap:balance}
+.eyebrow{font:700 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--yellow)}
+.ic{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+.demo-ribbon{background:#0b0420;color:#9a8fc0;font-size:12px;text-align:center;padding:6px 16px}
+.demo-ribbon b{color:var(--yellow);font-weight:600}
+.demo-ribbon button{background:none;border:1px solid #3a2b6e;color:#cfc4f2;border-radius:999px;padding:1px 9px;margin-left:5px;font-size:11.5px}
+.demo-ribbon button.on{background:var(--yellow);color:#2a1700;border-color:var(--yellow)}
+
+/* Header */
+header.top{position:sticky;top:0;z-index:40;background:rgba(20,8,47,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:70px}
+.logo img{height:42px;width:auto}
+.nav{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nav button,.nav a{background:none;border:0;color:#ded6ff;padding:8px 12px;border-radius:999px;font-size:14px;font-weight:500;text-decoration:none}
+.nav button:hover,.nav a:hover{background:rgba(255,255,255,.07)}
+.nav a.lab{border:1px solid rgba(214,178,106,.45);color:#e8cf98;margin-left:6px;display:flex;align-items:center;gap:6px}
+.cartbtn{display:flex;align-items:center;gap:8px;background:var(--yellow);color:#241400;border:0;border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px}
+.cartbtn:hover{background:var(--yellow-d)}
+.cartbtn .n{background:var(--night);color:var(--yellow);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;font-weight:800;padding:0 6px}
+@media (max-width:860px){.nav button{display:none}.nav a.lab{margin-left:0}.cartbtn .lbl{display:none}}
+@media (max-width:420px){.nav a.lab span{display:none}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 78% 30%,#3d17a6 0%,transparent 60%),radial-gradient(800px 500px at 10% 100%,#2a0f73 0%,transparent 60%),var(--night)}
+.hero .hex{position:absolute;inset:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='96' viewBox='0 0 84 96'%3E%3Cpath d='M42 2 80 24v48L42 94 4 72V24Z' fill='none' stroke='%23b9a2ff' stroke-opacity='.10' stroke-width='1.2'/%3E%3C/svg%3E");background-size:84px 96px;mask-image:radial-gradient(70% 80% at 70% 40%,#000,transparent)}
+.hero .xmark{position:absolute;width:520px;height:520px;right:-140px;top:-120px;opacity:.10;transform:rotate(12deg)}
+.hero .wrap>*{min-width:0}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-block:70px 64px}
+.hero h1{font-size:clamp(40px,5.8vw,76px);font-weight:900;letter-spacing:-.025em;max-width:13ch}
+.hero h1 em{font-style:italic;color:var(--yellow)}
+.hero p.lead{max-width:46ch;font-size:18px;color:#d6ccf6;margin:18px 0 26px}
+.search{display:flex;align-items:center;gap:10px;max-width:560px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:999px;padding:6px 6px 6px 18px}
+.search input{flex:1;min-width:0;background:none;border:0;color:#fff;font:16px var(--body);outline:none}
+.search input::placeholder{color:#a99ccf}
+.search button{background:var(--yellow);color:#241400;border:0;border-radius:999px;padding:11px 18px;font-weight:700}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{height:32px;font-size:13px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);color:#fff;display:inline-flex;align-items:center}
+.pill:hover{background:rgba(255,201,60,.16);border-color:rgba(255,201,60,.5)}
+.notes{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:26px;font-size:13px;color:#c9bff0}
+.notes span{display:flex;align-items:center;gap:7px}
+.notes .ic{width:15px;height:15px;color:var(--yellow)}
+.stage{position:relative;min-height:470px}
+.polaroid{position:absolute;left:0;top:30px;width:52%;border-radius:18px;overflow:hidden;transform:rotate(-6deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.18)}
+.polaroid img{aspect-ratio:3/4;object-fit:cover;width:100%}
+.polaroid span{position:absolute;left:10px;bottom:10px;font-size:12px;font-weight:600;background:rgba(20,8,47,.7);backdrop-filter:blur(8px);border-radius:999px;padding:5px 10px}
+.combo-glass{position:absolute;right:0;top:0;width:66%;background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:26px;padding:16px;box-shadow:0 40px 80px -30px rgba(10,0,40,.9)}
+.combo-glass .ph{border-radius:18px;overflow:hidden;background:#0b0618;aspect-ratio:4/5;position:relative}
+.combo-glass .ph img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.combo-glass .chip{position:absolute;top:10px;left:10px;font:700 11px var(--body);letter-spacing:.1em;text-transform:uppercase;background:var(--yellow);color:#241400;border-radius:999px;padding:6px 10px}
+.combo-glass .frio{position:absolute;right:10px;bottom:10px;font-size:11.5px;font-weight:600;background:rgba(20,8,47,.65);border:1px solid rgba(185,162,255,.4);border-radius:999px;padding:5px 9px;display:flex;gap:5px;align-items:center}
+.combo-glass h3{font-size:18px;font-weight:800;margin:14px 4px 2px}
+.combo-glass .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:6px 4px 2px}
+.combo-glass .big{font:900 30px var(--display);color:var(--yellow);letter-spacing:-.02em}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:28px;padding-block:44px 48px}.stage{min-height:auto;display:grid;grid-template-columns:1fr;max-width:420px}.polaroid{display:none}.combo-glass{position:relative;width:100%}}
+
+/* Cinta */
+.ticker{background:var(--yellow);color:#1d0d45;overflow:hidden;white-space:nowrap}
+.ticker .lane{display:flex;width:max-content}
+.ticker .track{display:flex;flex:none;padding-block:12px;animation:tick 34s linear infinite}
+.ticker span{font:800 14px var(--display);letter-spacing:.02em;text-transform:uppercase;padding:0 20px;display:inline-flex;align-items:center;gap:20px}
+.ticker span::after{content:"";width:12px;height:12px;background:var(--violet);clip-path:polygon(20% 0,50% 30%,80% 0,100% 20%,70% 50%,100% 80%,80% 100%,50% 70%,20% 100%,0 80%,30% 50%,0 20%)}
+@keyframes tick{to{transform:translateX(-100%)}}
+
+/* Secciones */
+section.blk{padding-block:80px}
+.head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.head h2{font-size:clamp(30px,4vw,48px);font-weight:900;letter-spacing:-.02em;margin-top:10px}
+.head p{color:var(--muted);max-width:42ch;margin:0}
+.reveal{transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .8s}
+.reveal.pre{transform:translateY(18px);opacity:.01}
+
+/* Pasillos: estante de neón */
+.aisles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.aisle{position:relative;background:linear-gradient(170deg,var(--night-3),var(--night-2));border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 14px;text-align:left;display:flex;flex-direction:column;gap:3px;min-height:200px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.aisle:hover{transform:translateY(-3px);border-color:rgba(255,201,60,.5);box-shadow:0 20px 40px -24px rgba(106,34,240,.9)}
+.aisle .glow{position:absolute;right:-30px;bottom:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,var(--tint),transparent 68%);opacity:.55}
+.aisle svg.bt{position:absolute;right:4px;bottom:6px;width:96px;height:122px;transition:transform .5s}
+.aisle:hover svg.bt{transform:rotate(-7deg) translateY(-4px)}
+.aisle b{font:800 18px var(--display);position:relative}
+.aisle small{color:var(--muted);font-size:12.5px;position:relative;max-width:14ch;line-height:1.35}
+.aisle .count{margin-top:auto;font-size:12px;font-weight:600;color:var(--yellow);position:relative;display:flex;align-items:center;gap:4px}
+.aisle.combos{grid-column:span 2;background:linear-gradient(120deg,var(--violet) 0%,#3c12a8 100%);border-color:rgba(255,255,255,.2)}
+.aisle.combos small{color:#e5dcff;max-width:24ch}
+.aisle.combos img{position:absolute;right:0;bottom:0;height:100%;width:46%;object-fit:cover;object-position:center 20%;mask-image:linear-gradient(90deg,transparent,#000 40%)}
+.aisle.wide{grid-column:span 2}
+.aisle.wide svg.bt{right:24px}
+@media (max-width:1000px){.aisles{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.aisles{grid-template-columns:repeat(2,1fr)}.aisle{min-height:178px}.aisle svg.bt{width:80px;height:100px}}
+
+/* Asistente */
+.assist{background:linear-gradient(140deg,#24104f,#160a36);border:1px solid var(--line);border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1fr 1.1fr;position:relative}
+.assist .copy{padding:48px 44px;display:flex;flex-direction:column;gap:16px;position:relative;z-index:1}
+.assist h2{font-size:clamp(32px,4vw,48px);font-weight:900}
+.assist h2 span{color:var(--yellow)}
+.assist .copy p{color:#c8bdee;margin:0;max-width:40ch}
+.assist ul{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:10px;font-size:15px}
+.assist li{display:flex;gap:10px;align-items:flex-start;color:#e5dcff}
+.assist li .ic{color:var(--yellow);margin-top:3px}
+.assist .halo{position:absolute;left:-120px;bottom:-160px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(255,201,60,.16),transparent 65%)}
+.chatcard{margin:22px;background:#efeae2;border-radius:22px;display:flex;flex-direction:column;overflow:hidden;color:#1d1a24;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.chathead{display:flex;align-items:center;gap:12px;background:var(--violet-d);color:#fff;padding:12px 16px}
+.avx{width:40px;height:40px;border-radius:50%;background:var(--night);display:grid;place-items:center;flex:none;border:2px solid var(--yellow)}
+.avx svg{width:22px;height:22px}
+.chathead b{display:block;font-size:15px}
+.chathead small{color:#e3d8ff;font-size:12px}
+.chatbody{padding:16px;display:flex;flex-direction:column;gap:8px;overflow-y:auto;height:340px;background-color:#efeae2;background-image:radial-gradient(rgba(84,24,210,.07) 1px,transparent 1px);background-size:14px 14px;transition:height .3s}
+.chatbody.grow{height:440px}
+.chatbody .empty{margin:auto;text-align:center;color:#6b6478;font-size:14px;max-width:30ch}
+.chatbody .empty b{display:block;font:800 18px var(--display);color:#1d1a24;margin-bottom:6px}
+.msg{max-width:86%;padding:8px 11px 6px;border-radius:12px;font-size:14.5px;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.msg.me{align-self:flex-end;background:#d9fdd3;border-top-right-radius:3px}
+.msg.bot{align-self:flex-start;background:#fff;border-top-left-radius:3px}
+.msg time{display:block;text-align:right;font-size:11px;color:#8a8496;margin-top:2px}
+.msg .lines{margin:8px 0 4px;display:grid;gap:6px}
+.msg .ln{display:flex;align-items:center;gap:8px;font-size:13.5px}
+.msg .ln .th{width:34px;height:34px;border-radius:8px;background:#1d0d45;flex:none;display:grid;place-items:center;overflow:hidden}
+.msg .ln .th svg{width:30px;height:32px}.msg .ln .th img{width:100%;height:100%;object-fit:cover}
+.msg .ln span{flex:1;min-width:0}
+.msg .ln em{font-style:normal;color:#6b6478;font-size:12.5px;white-space:nowrap}
+.msg .why{color:#5b5468;font-size:13px;margin-top:4px}
+.msg .addall{margin-top:6px;width:100%;background:var(--violet);color:#fff;border:0;border-radius:9px;padding:9px;font-weight:600;font-size:13.5px}
+.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.quick button{border:1px solid #cfc4f2;background:#f6f2ff;color:#3c1aa0;border-radius:999px;padding:5px 10px;font-size:12.5px;font-weight:600}
+.quick button:hover{background:#ece4ff}
+.quick a{border:1px solid #bfe6c9;background:#effaf2;color:#17733a;border-radius:999px;padding:5px 10px;font-size:12.5px;font-weight:600;text-decoration:none}
+.typing{align-self:flex-start;background:#fff;border-radius:12px;padding:10px 14px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#9a93a8;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+.chatin{display:flex;gap:8px;padding:10px;background:#f0f0f0;border-top:1px solid #e1e1e1}
+.chatin input{flex:1;min-width:0;border:0;border-radius:999px;padding:11px 16px;font:16px var(--body);background:#fff;outline:none;color:#1d1a24}
+.chatin button{width:44px;height:44px;border-radius:50%;border:0;background:var(--violet);color:#fff;display:grid;place-items:center}
+@media (max-width:900px){.assist{grid-template-columns:1fr}.assist .copy{padding:36px 24px 0}.chatcard{margin:18px}}
+
+/* Vitrina */
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.prod{background:linear-gradient(175deg,#211049,#190b3b);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;gap:4px;position:relative;transition:box-shadow .3s,transform .3s,border-color .3s}
+.prod:hover{box-shadow:0 22px 44px -28px rgba(106,34,240,1);transform:translateY(-2px);border-color:rgba(185,162,255,.35)}
+.prod .ph{aspect-ratio:1/1;border-radius:14px;background:radial-gradient(circle at 50% 70%,var(--tint,#3d1c8f) 0%,#120728 72%);display:grid;place-items:center;overflow:hidden;position:relative}
+.prod .ph svg{width:62%;height:82%;transition:transform .5s;filter:drop-shadow(0 14px 14px rgba(0,0,0,.45))}
+.prod .ph img{width:100%;height:100%;object-fit:cover}
+.prod:hover .ph svg{transform:translateY(-4px) rotate(-3deg)}
+.prod .tag{position:absolute;top:20px;left:20px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:var(--yellow);color:#241400;z-index:1}
+.prod h3{font:800 15.5px/1.22 var(--display);margin-top:8px}
+.prod .pres{font-size:12.5px;color:var(--muted)}
+.prod .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:8px}
+.price{font:900 19px var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.add{display:flex;align-items:center;gap:6px;background:rgba(255,201,60,.12);color:var(--yellow);border:1px solid rgba(255,201,60,.45);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700}
+.add:hover{background:var(--yellow);color:#241400}
+.add.ok{background:#2fbf71;border-color:#2fbf71;color:#fff}
+.stock{font-size:12px;color:#8fe3b4;display:flex;align-items:center;gap:6px}
+.stock::before{content:"";width:7px;height:7px;border-radius:50%;background:#2fbf71}
+.stock.low{color:#ffc28a}.stock.low::before{background:#ff9a3c}
+.feat{grid-column:span 2;grid-row:span 2;border-radius:var(--r);overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;min-height:460px;border:1px solid rgba(255,255,255,.14)}
+.feat.photo{background:#0b0618 center 25%/cover no-repeat}
+.feat.photo::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,5,34,.95) 0%,rgba(14,5,34,.2) 55%,transparent 75%)}
+.feat .gl{position:relative;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:16px;display:grid;gap:10px}
+.feat .kick{font:700 11.5px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--yellow)}
+.feat h3{font:900 28px/1.02 var(--display)}
+.feat p{margin:0;color:#d6ccf6;font-size:14.5px;max-width:44ch}
+.feat .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.season{background:radial-gradient(400px 300px at 80% 10%,rgba(255,201,60,.18),transparent 60%),linear-gradient(160deg,#4a17c9,#1d0d45)}
+.season .minis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.season .mini{background:rgba(10,4,26,.45);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:8px;display:grid;gap:4px;text-align:center;font-size:12px;font-weight:600}
+.season .stage3{position:relative;flex:1;display:flex;align-items:flex-end;justify-content:center;gap:4px;margin-bottom:14px;min-height:180px}
+.season .stage3 svg{height:min(250px,100%);width:auto;filter:drop-shadow(0 18px 18px rgba(0,0,0,.5))}
+.season .stage3 svg:nth-child(2){height:min(290px,100%)}
+.season .mini button{background:var(--yellow);color:#241400;border:0;border-radius:999px;padding:6px 8px;font-size:12px;font-weight:700}
+.season .xbg{position:absolute;right:-60px;top:-40px;width:300px;height:300px;opacity:.12}
+@media (max-width:1000px){.shelf{grid-template-columns:repeat(2,1fr)}.feat{grid-row:auto;min-height:420px}}
+@media (max-width:420px){.prod .row{flex-wrap:wrap}.feat h3{font-size:24px}}
+.morebtn{margin:34px auto 0;display:flex;align-items:center;gap:8px;background:none;border:1.5px solid rgba(255,255,255,.5);border-radius:999px;padding:12px 22px;font-weight:600;color:#fff}
+.morebtn:hover{background:#fff;color:var(--night)}
+
+/* Franja foto real */
+.band{position:relative;border-radius:30px;overflow:hidden;min-height:400px;display:flex;align-items:center;justify-content:flex-end;background:#0b0618 center/cover no-repeat}
+.band::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,5,34,.1) 0%,rgba(14,5,34,.35) 45%,rgba(14,5,34,.85) 100%)}
+.band .gl{position:relative;margin:28px;max-width:440px;background:rgba(20,8,47,.5);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.2);border-radius:22px;padding:26px;display:grid;gap:12px}
+.band h2{font-size:clamp(28px,3.4vw,40px);font-weight:900}
+.band h2 em{color:var(--yellow);font-style:italic}
+.band p{margin:0;color:#d6ccf6}
+.sedes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.sede{border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px;font-size:13.5px;display:grid;gap:2px}
+.sede b{font:800 15px var(--display)}
+@media (max-width:700px){.band{min-height:auto;align-items:flex-end;padding-top:200px;background-position:30% center}.band .gl{margin:14px}}
+
+/* Footer */
+footer{background:#0d0522;color:#bdb2e3;margin-top:60px;border-top:1px solid var(--line)}
+footer .wrap{padding-block:56px 28px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:30px}
+footer img.flogo{height:46px;width:auto;margin-bottom:14px}
+footer h4{font:800 14px var(--display);color:#fff;margin:0 0 12px;letter-spacing:.04em}
+footer p,footer li{font-size:14px;margin:0}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer button.lnk{background:none;border:0;padding:0;text-align:left}
+footer button.lnk:hover,footer a:hover{color:#fff}
+.pay{display:flex;gap:8px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.card-badge{height:30px;min-width:48px;border-radius:6px;background:#fff;display:grid;place-items:center;padding:0 8px}
+.card-badge svg{height:18px;width:auto}
+.secure{display:flex;align-items:center;gap:8px;font-size:13px;color:#ded6ff;margin-top:10px}
+.secure .ic{color:var(--yellow)}
+.legal{margin-top:34px;border:1px solid rgba(255,201,60,.3);background:rgba(255,201,60,.06);border-radius:14px;padding:12px 16px;font-size:13px;color:#ead9a6;display:flex;gap:10px;align-items:center}
+.legal b{color:var(--yellow);font:900 16px var(--display);border:2px solid var(--yellow);border-radius:50%;width:38px;height:38px;display:grid;place-items:center;flex:none}
+.fbase{border-top:1px solid rgba(255,255,255,.08);margin-top:28px;padding-top:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#8a7fb4}
+@media (max-width:860px){.fgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.fgrid{grid-template-columns:1fr}}
+
+/* Botón flotante */
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:45;display:flex;align-items:center;gap:10px;background:var(--violet);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:7px 18px 7px 7px;box-shadow:0 14px 30px -10px rgba(0,0,0,.6);font-weight:600;font-size:14px}
+.fab .avx{width:38px;height:38px}
+@media (max-width:520px){.fab span{display:none}.fab{padding:7px}}
+
+/* Overlays (claros, para leer bien formularios) */
+.scrim{position:fixed;inset:0;background:rgba(8,2,22,.7);z-index:60;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:#1a0b3d;z-index:70;transform:translateX(102%);transition:transform .4s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);border-left:1px solid var(--line)}
+.drawer.on{transform:none}
+.dhead{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dhead h3{font-size:22px;font-weight:900}
+.x{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.06);display:grid;place-items:center}
+.dbody{flex:1;overflow-y:auto;padding:16px 20px}
+.citem{display:grid;grid-template-columns:58px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line)}
+.citem .th{width:58px;height:58px;border-radius:12px;background:var(--night-3);display:grid;place-items:center;overflow:hidden}
+.citem .th svg{width:44px;height:52px}.citem .th img{width:100%;height:100%;object-fit:cover}
+.citem b{font:800 14.5px/1.2 var(--display);display:block}
+.citem small{color:var(--muted);font-size:12.5px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05)}
+.qty button{width:30px;height:30px;border:0;background:none;font-size:16px}
+.qty span{min-width:22px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.dfoot{padding:16px 20px;border-top:1px solid var(--line);background:#150832;display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums;font-size:14.5px}
+.tot.big{font:900 22px var(--display)}
+.primary{background:var(--yellow);color:#241400;border:0;border-radius:14px;padding:15px;font-weight:800;font-size:16px;display:flex;justify-content:center;align-items:center;gap:8px}
+.primary:hover{background:var(--yellow-d)}
+.primary:disabled{opacity:.45;cursor:not-allowed}
+.emptycart{text-align:center;color:var(--muted);padding:60px 10px}
+.agehint{font-size:12px;color:var(--muted);text-align:center}
+
+.modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal.on{opacity:1;pointer-events:auto}
+.mbox{background:#1a0b3d;border:1px solid var(--line);border-radius:24px;width:min(980px,100%);max-height:92vh;overflow:auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.mbox.sm{width:min(560px,100%)}
+.mhead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#1a0b3d;z-index:2}
+.mhead h3{font-size:22px;font-weight:900}
+.mbody{padding:20px 22px 24px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px;scrollbar-width:thin}
+.tabs button{white-space:nowrap;height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13.5px;font-weight:600}
+.tabs button.on{background:var(--yellow);color:#241400;border-color:var(--yellow)}
+.mbody .shelf{grid-template-columns:repeat(4,1fr)}
+@media (max-width:860px){.mbody .shelf{grid-template-columns:repeat(2,1fr)}}
+.sub{font:800 13px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--lilac);margin:20px 0 10px}
+
+form.co{display:grid;gap:14px}
+.fld{display:grid;gap:6px}
+.fld label{font-size:13px;font-weight:600;color:#ded6ff}
+.fld input,.fld select{border:1px solid rgba(185,162,255,.3);border-radius:12px;padding:12px 14px;font:16px var(--body);background:#0f0626;color:#fff;width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){.two{grid-template-columns:1fr}}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg label{border:1.5px solid var(--line);border-radius:14px;padding:12px;background:rgba(255,255,255,.04);display:grid;gap:2px;cursor:pointer;font-size:12.5px;color:var(--muted);position:relative}
+.seg label b{color:#fff;font-size:15px}
+.seg input{position:absolute;opacity:0}
+.seg label:has(input:checked){border-color:var(--yellow);box-shadow:0 0 0 3px rgba(255,201,60,.22)}
+.uber{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#d6ccf6;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.uber .u{background:#000;color:#fff;font:800 11px var(--body);border-radius:6px;padding:4px 7px;letter-spacing:.02em}
+.check18{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#e8e0ff;background:rgba(255,201,60,.07);border:1px solid rgba(255,201,60,.35);border-radius:12px;padding:12px}
+.check18 input{width:20px;height:20px;accent-color:var(--yellow);flex:none;margin-top:1px}
+.cardbox{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.04);padding:14px;display:grid;gap:10px}
+.cardbox .top2{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600}
+.onvo{font:800 13px var(--display);letter-spacing:.02em;color:#fff}
+.testnote{font-size:12.5px;color:#ffe3a3;background:rgba(255,201,60,.1);border:1px dashed rgba(255,201,60,.45);border-radius:10px;padding:8px 10px}
+.summary{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:6px}
+.done{text-align:center;padding:10px 0 4px}
+.done .check{width:74px;height:74px;border-radius:50%;background:#2fbf71;color:#fff;display:grid;place-items:center;margin:0 auto 14px}
+.done .check .ic{width:34px;height:34px;stroke-width:2.2}
+.done h3{font-size:26px;font-weight:900}
+.done p{color:var(--muted);max-width:42ch;margin:10px auto}
+
+/* Panel */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.kpi small{color:var(--muted);font-size:12px}
+.kpi b{display:block;font:900 22px var(--display);font-variant-numeric:tabular-nums}
+@media (max-width:700px){.kpis{grid-template-columns:1fr 1fr}}
+.sync{display:flex;align-items:center;gap:8px;font-size:13px;color:#8fe3b4;margin-bottom:12px;flex-wrap:wrap}
+.sync i{width:8px;height:8px;border-radius:50%;background:#2fbf71;box-shadow:0 0 0 4px rgba(47,191,113,.2)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:620px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(185,162,255,.1)}
+th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;background:rgba(255,255,255,.03)}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.flash td{animation:fl 1.8s}
+@keyframes fl{0%{background:rgba(255,201,60,.25)}100%{background:transparent}}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;border-radius:999px;padding:3px 9px;background:rgba(255,201,60,.14);color:var(--yellow)}
+.st.go{background:rgba(47,191,113,.15);color:#8fe3b4}
+
+/* Aviso de edad */
+.gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:radial-gradient(900px 600px at 50% 30%,#3d17a6,transparent 70%),rgba(12,4,30,.97)}
+.gate[hidden]{display:none}
+.gate .box{max-width:440px;text-align:center;display:grid;gap:16px;justify-items:center}
+.gate img{height:64px;width:auto}
+.gate h2{font-size:32px;font-weight:900}
+.gate p{margin:0;color:#cfc4f2}
+.gate .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.gate .btns button{border-radius:14px;padding:14px;font-weight:800;font-size:16px;border:1px solid rgba(255,255,255,.3);background:none}
+.gate .btns .yes{background:var(--yellow);color:#241400;border-color:var(--yellow)}
+.gate small{color:#8a7fb4;font-size:12px}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:#fff;color:#1d0d45;padding:11px 18px;border-radius:999px;font-size:14px;font-weight:600;z-index:110;opacity:0;transition:all .35s;pointer-events:none;display:flex;gap:8px;align-items:center;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.toast .ic{color:#2fbf71}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal.pre{transform:none;opacity:1}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></symbol>
+  <symbol id="i-moto" viewBox="0 0 24 24"><circle cx="5.5" cy="16.5" r="3"/><circle cx="18.5" cy="16.5" r="3"/><path d="M8.5 16.5h6l2-5h-4l-2-3H8M16.5 11.5l2 5M13 6h3l1 2"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12 20 4l-6 16-2.5-6.5L4 12Z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5M4 9.5h16M4 9.5V20h16V9.5M9.5 20v-6h5v6"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.6 4.6 2.4 6.4 7 7-4.6.6-6.4 2.4-7 7-.6-4.6-2.4-6.4-7-7 4.6-.6 6.4-2.4 7-7Z"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.5 16.5c.8-1.7 2-2.5 3.5-2.5s2.7.8 3.5 2.5M14.5 10h4M14.5 13.5h3"/></symbol>
+  <symbol id="xmark" viewBox="0 0 100 100"><path d="M8 4h22l20 30L70 4h22L61 50l31 46H70L50 66 30 96H8l31-46Z"/></symbol>
+</svg>
+
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateT">
+  <div class="box">
+    <img src="{{logo}}" alt="Xocio's Licorera">
+    <h2 id="gateT">¿Sos mayor de 18 años?</h2>
+    <p>Para entrar a la tienda de Xocios tenés que ser mayor de edad. Al recibir tu pedido te vamos a pedir la cédula.</p>
+    <div class="btns"><button class="yes" id="gateYes">Sí, tengo 18 o más</button><button id="gateNo">No todavía</button></div>
+    <small>Prohibida la venta de bebidas alcohólicas a menores de edad. Ley 9047.</small>
+  </div>
+</div>
+
+<div class="demo-ribbon">Demo de tienda en línea <b>KommPro</b> · pagos en modo prueba · temporada: <b id="seasonName">Halloween</b> · ver <button data-season="halloween">Halloween</button><button data-season="navidad">Navidad</button><button data-season="regular">Todo el año</button></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Xocios Licorera, inicio"><img src="{{logo}}" alt="Xocio's Licorera"></a>
+    <nav class="nav" aria-label="Principal">
+      <button data-open="all">Tienda</button>
+      <button data-scroll="#pasillos">Pasillos</button>
+      <button data-open="cat:combos">Combos</button>
+      <button data-scroll="#asistente">Asistente</button>
+      <a class="lab" href="lab/"><svg class="ic" style="width:15px;height:15px"><use href="#i-spark"/></svg><span>Xocios Lab</span></a>
+    </nav>
+    <button class="cartbtn" id="cartBtn" aria-label="Abrir carrito"><svg class="ic"><use href="#i-bag"/></svg><span class="lbl">Carrito</span><span class="n" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-label="Xocios Licorera en línea">
+    <div class="hex"></div>
+    <svg class="xmark" fill="#ffc93c" aria-hidden="true"><use href="#xmark"/></svg>
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Xocios Heredia &amp; Xocios Tibás</div>
+        <h1 style="margin-top:14px">Pedí la <em>fría</em> sin salir de la casa.</h1>
+        <p class="lead">Licores nacionales e importados, birras heladas y combos para compartir. Pagás con tarjeta y Xocios te lo manda por Uber Flash desde la sede más cercana.</p>
+        <form class="search" id="heroSearch" role="search">
+          <svg class="ic" style="color:#a99ccf"><use href="#i-search"/></svg>
+          <input id="q" type="search" placeholder="Buscá Imperial, Centenario, Buchanan's..." aria-label="Buscar en la tienda" autocomplete="off">
+          <button type="submit">Buscar</button>
+        </form>
+        <div class="pills" id="pills"></div>
+        <div class="notes">
+          <span><svg class="ic"><use href="#i-moto"/></svg>Uber Flash coordinado por Xocios</span>
+          <span><svg class="ic"><use href="#i-store"/></svg>Retiro gratis en Heredia o Tibás</span>
+          <span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro con tarjeta</span>
+        </div>
+      </div>
+      <div class="stage">
+        <figure class="polaroid" style="margin:0"><img src="{{fachada}}" alt="Fachada de Xocios Licorera"><span>Xocios Licorera</span></figure>
+        <div class="combo-glass">
+          <div class="ph"><img src="{{combo}}" alt="Ron Centenario 4 años con Coca-Cola 1,5 L"><span class="chip">Por tiempo limitado</span><span class="frio"><svg class="ic" style="width:13px;height:13px"><use href="#i-snow"/></svg>Sírvelo bien frío</span></div>
+          <h3>Combo Ron Centenario + Coca-Cola 1,5 L</h3>
+          <div class="row"><span class="big">₡12.000</span><button class="add" data-add="combo-centenario"><svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>Agregar</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="lane"><div class="track" id="tk1"></div><div class="track" id="tk2"></div></div></div>
+
+  <section class="blk" id="pasillos">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><div class="eyebrow">Pasillos</div><h2>Todo lo de la lico, a un toque</h2></div>
+        <p>Las mismas refris y estantes de Heredia y Tibás, ordenados para que encontrés rápido lo que andás buscando.</p>
+      </div>
+      <div class="aisles" id="aisles"></div>
+    </div>
+  </section>
+
+  <section class="blk" id="asistente" style="padding-top:10px">
+    <div class="wrap">
+      <div class="assist reveal">
+        <div class="halo"></div>
+        <div class="copy">
+          <div class="eyebrow">Asistente de compra</div>
+          <h2>¿Qué estás buscando? <span>Decíme y te lo armo.</span></h2>
+          <p>Contale para qué es, cuántos son y cuánto querés gastar. Te arma el pedido con lo que hay hoy en las refris.</p>
+          <ul>
+            <li><svg class="ic"><use href="#i-check"/></svg>"Fiesta para 15 el sábado"</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>"Algo para la carne asada, somos 8"</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>"Un regalo para mi jefe con 30 mil"</li>
+          </ul>
+        </div>
+        <div class="chatcard" aria-label="Chat con el asistente de Xocios">
+          <div class="chathead">
+            <span class="avx"><svg fill="#ffc93c"><use href="#xmark"/></svg></span>
+            <div><b>Xocio · Licorera</b><small>en línea · responde al toque</small></div>
+          </div>
+          <div class="chatbody" id="chatBody">
+            <div class="empty" id="chatEmpty"><b>Escribí lo que ocupás</b>y te lo armo en un momento.</div>
+          </div>
+          <form class="chatin" id="chatForm">
+            <input id="chatIn" type="text" placeholder="Escribí un mensaje" aria-label="Mensaje para el asistente" autocomplete="off">
+            <button type="submit" aria-label="Enviar"><svg class="ic"><use href="#i-send"/></svg></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="destacados" style="padding-top:20px">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><div class="eyebrow">Lo más pedido</div><h2>Lo que más sale esta semana</h2></div>
+        <p>Precios con IVA incluido. La existencia se actualiza con las cajas de Heredia y Tibás en tiempo real.</p>
+      </div>
+      <div class="shelf" id="featured"></div>
+      <button class="morebtn" data-open="all">Ver toda la tienda <svg class="ic"><use href="#i-arrow"/></svg></button>
+    </div>
+  </section>
+
+  <section class="blk" style="padding-top:10px" id="sedes">
+    <div class="wrap">
+      <div class="band reveal" style="background-image:url('{{interior}}')">
+        <div class="gl">
+          <div class="eyebrow">Dos sedes, el mismo trato</div>
+          <h2>Ambiente relax, <em>amplio stock.</em></h2>
+          <p>Refris llenas, licores nacionales e importados y productos que no encontrás en cualquier lado. Pedí en línea y retirás sin hacer fila, o te lo mandamos.</p>
+          <div class="sedes">
+            <div class="sede"><b>Xocios Heredia</b><span>Retiro y despacho Uber Flash</span></div>
+            <div class="sede"><b>Xocios Tibás</b><span>Retiro y despacho Uber Flash</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <img class="flogo" src="{{logo}}" alt="Xocio's Licorera">
+        <p style="max-width:34ch">Licores nacionales e importados, cervezas bien frías y combos para compartir. Xocios Heredia y Xocios Tibás.</p>
+      </div>
+      <div>
+        <h4>Tienda</h4>
+        <ul id="footCats"></ul>
+      </div>
+      <div>
+        <h4>Sedes y contacto</h4>
+        <ul>
+          <li style="display:flex;gap:8px"><svg class="ic" style="width:16px;margin-top:3px"><use href="#i-pin"/></svg><span>Xocios Heredia<br>Xocios Tibás</span></li>
+          <li>WhatsApp 6298-9825</li>
+          <li>Instagram @xocios.licorera</li>
+          <li><a href="lab/" style="text-decoration:none;color:#e8cf98">Xocios Lab · perfumería</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pago seguro</h4>
+        <p>Pagás en línea con tarjeta de crédito o débito.</p>
+        <div class="pay" aria-label="Tarjetas aceptadas">
+          <span class="card-badge" title="Visa"><svg viewBox="0 0 60 20"><text x="0" y="16" font-family="Arial Black,Arial" font-weight="900" font-style="italic" font-size="18" fill="#1a1f71">VISA</text></svg></span>
+          <span class="card-badge" title="Mastercard"><svg viewBox="0 0 38 24"><circle cx="14" cy="12" r="10" fill="#eb001b"/><circle cx="24" cy="12" r="10" fill="#f79e1b" fill-opacity=".9"/><path d="M19 4.3a10 10 0 0 1 0 15.4 10 10 0 0 1 0-15.4Z" fill="#ff5f00"/></svg></span>
+          <span class="card-badge" title="American Express" style="background:#2e77bc"><svg viewBox="0 0 60 20"><text x="2" y="15" font-family="Arial" font-weight="800" font-size="13" fill="#fff">AMEX</text></svg></span>
+        </div>
+        <div class="secure"><svg class="ic"><use href="#i-lock"/></svg>Transacción cifrada y protegida</div>
+      </div>
+    </div>
+    <div class="legal"><b>18+</b><span>Prohibida la venta de bebidas alcohólicas a menores de edad (Ley 9047). Al entregar, pedimos cédula. Tomá con moderación y si tomás, no manejés.</span></div>
+    <div class="fbase">
+      <span>Xocios Licorera © 2026. Precios con IVA incluido.</span>
+      <button class="lnk" id="panelLink" style="background:none;border:0;color:inherit;padding:0;text-decoration:underline;text-underline-offset:3px">Panel de las sedes (demo)</button>
+    </div>
+  </div>
+</footer>
+
+<button class="fab" id="fab" aria-label="Abrir asistente"><span class="avx"><svg fill="#ffc93c"><use href="#xmark"/></svg></span><span>¿Te armo el pedido?</span></button>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="drawer" aria-label="Carrito">
+  <div class="dhead"><h3>Tu pedido</h3><button class="x" data-close aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+  <div class="dbody" id="cartBody"></div>
+  <div class="dfoot">
+    <div class="tot"><span>Subtotal</span><span id="sub">₡0</span></div>
+    <div class="tot"><span>Entrega</span><span id="ship">Uber Flash o retiro, al pagar</span></div>
+    <div class="tot big"><span>Total</span><span id="tot">₡0</span></div>
+    <button class="primary" id="toCheckout" disabled><svg class="ic"><use href="#i-lock"/></svg>Pagar con tarjeta</button>
+    <div class="agehint">Venta solo a mayores de 18 · cédula al recibir</div>
+  </div>
+</aside>
+
+<div class="modal" id="catModal" role="dialog" aria-modal="true" aria-labelledby="catTitle">
+  <div class="mbox">
+    <div class="mhead"><h3 id="catTitle">Tienda</h3><button class="x" data-close aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div class="mbody"><div class="tabs" id="catTabs"></div><div id="catList"></div></div>
+  </div>
+</div>
+
+<div class="modal" id="coModal" role="dialog" aria-modal="true" aria-labelledby="coTitle">
+  <div class="mbox sm">
+    <div class="mhead"><h3 id="coTitle">Pagar pedido</h3><button class="x" data-close aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div class="mbody" id="coBody"></div>
+  </div>
+</div>
+
+<div class="modal" id="panelModal" role="dialog" aria-modal="true" aria-labelledby="pTitle">
+  <div class="mbox">
+    <div class="mhead"><h3 id="pTitle">Panel · Sedes Xocios</h3><button class="x" data-close aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div class="mbody" id="panelBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><svg class="ic"><use href="#i-check"/></svg><span id="toastT"></span></div>
+
+<script>
+const A = {{ASSETS}};
+const $ = s => document.querySelector(s);
+const fmt = n => "₡" + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,".");
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* Aviso de mayoría de edad */
+(function(){
+  let ok=false; try{ ok = sessionStorage.getItem("xo-18")==="1"; }catch(e){}
+  const g=$("#gate"); if(ok){ g.hidden=true; return; }
+  document.body.style.overflow="hidden";
+  $("#gateYes").onclick=()=>{ try{sessionStorage.setItem("xo-18","1")}catch(e){} g.hidden=true; document.body.style.overflow=""; };
+  $("#gateNo").onclick=()=>{ g.querySelector(".box").innerHTML = `<img src="${A.logo}" alt="Xocio's Licorera"><h2>Te esperamos cuando cumplás 18</h2><p>La venta de bebidas alcohólicas es solo para mayores de edad. Mientras tanto, podés darte una vuelta por Xocios Lab, nuestra perfumería.</p><a class="primary" href="lab/" style="text-decoration:none;padding:14px 22px">Ir a Xocios Lab</a>`; };
+})();
+
+/* Botellas dibujadas: la demo no tiene fotos de catálogo; al montar la tienda real se usan las fotos de la licorera. */
+let gid=0;
+function bottle(s){
+  const id="g"+(gid++);
+  const L=s.l||"#c9822b", B=s.b||"#141414", C=s.c||"#caa349", T=esc(s.tx||""), T2=esc(s.t2||""), F=s.f||"#fff";
+  const shine=`<linearGradient id="${id}s" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".0"/><stop offset=".18" stop-color="#fff" stop-opacity=".42"/><stop offset=".3" stop-color="#fff" stop-opacity=".05"/><stop offset=".85" stop-color="#000" stop-opacity=".0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>`;
+  const liq=`<linearGradient id="${id}l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${L}" stop-opacity=".85"/><stop offset="1" stop-color="${L}"/></linearGradient>`;
+  const lab=(x,y,w,h,fs=9)=>{ fs=Math.min(fs,(w-6)/Math.max(1,(s.tx||"").length*.66)); return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="${B}"/><text x="60" y="${y+h/2+(T2?-1:3)}" text-anchor="middle" font-family="Montserrat,Arial" font-weight="800" font-size="${fs}" fill="${F}" letter-spacing=".3">${T}</text>${T2?`<text x="60" y="${y+h/2+11}" text-anchor="middle" font-family="Montserrat,Arial" font-weight="700" font-size="7.5" fill="${F}" opacity=".85">${T2}</text>`:""}`;};
+  let body="";
+  switch(s.t){
+    case "whisky": body=`<rect x="51" y="8" width="18" height="14" rx="2" fill="${C}"/><path d="M53 22h14v16c0 4 18 6 18 14v86a6 6 0 0 1-6 6H41a6 6 0 0 1-6-6V52c0-8 18-10 18-14Z" fill="url(#${id}l)"/>${lab(37,74,46,40)}<path d="M53 22h14v16c0 4 18 6 18 14v86a6 6 0 0 1-6 6H41a6 6 0 0 1-6-6V52c0-8 18-10 18-14Z" fill="url(#${id}s)"/>`;break;
+    case "ron": body=`<rect x="52" y="6" width="16" height="16" rx="2" fill="${C}"/><path d="M53 22h14v20c0 6 20 10 20 26v70a6 6 0 0 1-6 6H39a6 6 0 0 1-6-6V68c0-16 20-20 20-26Z" fill="url(#${id}l)"/>${lab(35,82,50,38)}<path d="M53 22h14v20c0 6 20 10 20 26v70a6 6 0 0 1-6 6H39a6 6 0 0 1-6-6V68c0-16 20-20 20-26Z" fill="url(#${id}s)"/>`;break;
+    case "tequila": body=`<rect x="53" y="4" width="14" height="18" rx="3" fill="${C}"/><path d="M54 22h12v30c0 4 16 6 16 16v70a6 6 0 0 1-6 6H44a6 6 0 0 1-6-6V68c0-10 16-12 16-16Z" fill="url(#${id}l)"/>${lab(40,88,40,34,8)}<path d="M54 22h12v30c0 4 16 6 16 16v70a6 6 0 0 1-6 6H44a6 6 0 0 1-6-6V68c0-10 16-12 16-16Z" fill="url(#${id}s)"/>`;break;
+    case "vodka": body=`<rect x="53" y="6" width="14" height="14" rx="2" fill="${C}"/><path d="M54 20h12v22c0 6 13 8 13 18v80a5 5 0 0 1-5 5H46a5 5 0 0 1-5-5V60c0-10 13-12 13-18Z" fill="url(#${id}l)"/>${lab(43,80,34,44,8)}<path d="M54 20h12v22c0 6 13 8 13 18v80a5 5 0 0 1-5 5H46a5 5 0 0 1-5-5V60c0-10 13-12 13-18Z" fill="url(#${id}s)"/>`;break;
+    case "vino": case "espumante": body=`<rect x="54" y="4" width="12" height="${s.t==="espumante"?26:18}" rx="2" fill="${C}"/><path d="M55 22h10v30c0 8 14 12 14 26v62a5 5 0 0 1-5 5H46a5 5 0 0 1-5-5V78c0-14 14-18 14-26Z" fill="url(#${id}l)"/>${lab(43,92,34,32,7.5)}<path d="M55 22h10v30c0 8 14 12 14 26v62a5 5 0 0 1-5 5H46a5 5 0 0 1-5-5V78c0-14 14-18 14-26Z" fill="url(#${id}s)"/>`;break;
+    case "licor": body=`<rect x="52" y="24" width="16" height="14" rx="2" fill="${C}"/><path d="M54 38h12v8c0 4 22 8 22 30v58a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8V76c0-22 22-26 22-30Z" fill="url(#${id}l)"/>${lab(36,88,48,34,8)}<path d="M54 38h12v8c0 4 22 8 22 30v58a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8V76c0-22 22-26 22-30Z" fill="url(#${id}s)"/>`;break;
+    case "lata": body=`<path d="M38 30c0-5 44-5 44 0v108c0 5-44 5-44 0Z" fill="${L}"/><ellipse cx="60" cy="30" rx="22" ry="4.5" fill="#d9d9e0"/><ellipse cx="60" cy="30" rx="16" ry="3" fill="#b9b9c4"/>${lab(38,66,44,44,8.5)}<path d="M38 30c0-5 44-5 44 0v108c0 5-44 5-44 0Z" fill="url(#${id}s)"/>${s.x?`<g><circle cx="86" cy="128" r="15" fill="#ffc93c"/><text x="86" y="132.5" text-anchor="middle" font-family="Montserrat,Arial" font-weight="900" font-size="12" fill="#241400">x${s.x}</text></g>`:""}`;break;
+    case "botella": body=`<rect x="54" y="6" width="12" height="10" rx="2" fill="${C}"/><path d="M55 16h10v26c0 8 11 10 11 22v76a5 5 0 0 1-5 5H49a5 5 0 0 1-5-5V64c0-12 11-14 11-22Z" fill="url(#${id}l)"/>${lab(44,84,32,36,7.5)}<path d="M55 16h10v26c0 8 11 10 11 22v76a5 5 0 0 1-5 5H49a5 5 0 0 1-5-5V64c0-12 11-14 11-22Z" fill="url(#${id}s)"/>${s.x?`<g><circle cx="86" cy="128" r="15" fill="#ffc93c"/><text x="86" y="132.5" text-anchor="middle" font-family="Montserrat,Arial" font-weight="900" font-size="12" fill="#241400">x${s.x}</text></g>`:""}`;break;
+    case "pet": body=`<rect x="52" y="6" width="16" height="10" rx="2" fill="${C}"/><path d="M54 16h12v10c0 6 16 10 16 24v8c-3 3-3 7 0 10v62c-3 3-3 7 0 10v4a6 6 0 0 1-6 6H44a6 6 0 0 1-6-6v-4c3-3 3-7 0-10V68c3-3 3-7 0-10v-8c0-14 16-18 16-24Z" fill="url(#${id}l)"/>${lab(38,74,44,30,8)}<path d="M54 16h12v10c0 6 16 10 16 24v8c-3 3-3 7 0 10v62c-3 3-3 7 0 10v4a6 6 0 0 1-6 6H44a6 6 0 0 1-6-6v-4c3-3 3-7 0-10V68c3-3 3-7 0-10v-8c0-14 16-18 16-24Z" fill="url(#${id}s)"/>`;break;
+    case "hielo": body=`<path d="M30 34h60l-4 104a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6Z" fill="#dff3ff" fill-opacity=".85"/><path d="M30 34h60" stroke="#9fd6f5" stroke-width="5" stroke-linecap="round"/><g fill="#fff" stroke="#b6e1f7"><rect x="40" y="96" width="16" height="16" rx="3" transform="rotate(-12 48 104)"/><rect x="60" y="104" width="16" height="16" rx="3" transform="rotate(14 68 112)"/><rect x="48" y="118" width="16" height="16" rx="3"/></g>${lab(36,52,48,30,10)}`;break;
+    case "tubo": body=`<rect x="40" y="18" width="40" height="124" rx="8" fill="${L}"/><ellipse cx="60" cy="20" rx="20" ry="5" fill="#ececf2"/>${lab(40,60,40,44,8)}<rect x="40" y="18" width="40" height="124" rx="8" fill="url(#${id}s)"/>`;break;
+    case "bolsa": body=`<path d="M34 24h52l-3 6 3 6v100l-3 6 3 6H34l3-6-3-6V36l3-6Z" fill="${L}"/>${lab(38,66,44,40,8.5)}<path d="M34 24h52l-3 6 3 6v100l-3 6 3 6H34l3-6-3-6V36l3-6Z" fill="url(#${id}s)"/>`;break;
+    case "vasos": body=`<g fill="${L}"><path d="M40 40h40l-5 100H45Z" opacity=".55"/><path d="M40 52h40l-5 92H45Z" opacity=".8"/><path d="M40 64h40l-5 84H45Z"/></g><path d="M40 64h40l-5 84H45Z" fill="url(#${id}s)"/><text x="60" y="112" text-anchor="middle" font-family="Montserrat,Arial" font-weight="800" font-size="9" fill="#fff">${T}</text>`;break;
+    case "combo": body=`<g transform="translate(-16 6) scale(.9)"><rect x="52" y="6" width="16" height="16" rx="2" fill="${C}"/><path d="M53 22h14v20c0 6 20 10 20 26v70a6 6 0 0 1-6 6H39a6 6 0 0 1-6-6V68c0-16 20-20 20-26Z" fill="${L}"/><rect x="35" y="82" width="50" height="34" rx="3" fill="${B}"/><text x="60" y="102" text-anchor="middle" font-family="Montserrat,Arial" font-weight="800" font-size="9" fill="${F}">${T}</text></g><g transform="translate(36 28) scale(.72)">${s.second||""}</g>`;break;
+  }
+  return `<svg class="bt" viewBox="0 0 120 160" aria-hidden="true"><defs>${shine}${liq}</defs>${body}</svg>`;
+}
+const can2 = (L,tx,B="#fff",F="#111")=>`<path d="M38 30c0-5 44-5 44 0v108c0 5-44 5-44 0Z" fill="${L}"/><ellipse cx="60" cy="30" rx="22" ry="4.5" fill="#d9d9e0"/><rect x="38" y="66" width="44" height="40" rx="3" fill="${B}"/><text x="60" y="90" text-anchor="middle" font-family="Montserrat,Arial" font-weight="800" font-size="9" fill="${F}">${tx}</text>`;
+const pet2 = (L,tx)=>`<rect x="52" y="6" width="16" height="10" rx="2" fill="#d6001c"/><path d="M54 16h12v10c0 6 16 10 16 24v94a6 6 0 0 1-6 6H44a6 6 0 0 1-6-6V50c0-14 16-18 16-24Z" fill="${L}"/><rect x="38" y="74" width="44" height="30" rx="3" fill="#d6001c"/><text x="60" y="93" text-anchor="middle" font-family="Montserrat,Arial" font-weight="800" font-size="8" fill="#fff">${tx}</text>`;
+
+const CATS = [
+  {id:"combos", name:"Combos", note:"Para compartir y ahorrar", tint:"#ffc93c", combo:true},
+  {id:"cervezas", name:"Cervezas", note:"Nacionales e importadas, bien frías", tint:"#f5b400", s:{t:"lata",l:"#c8102e",tx:"IMPERIAL",b:"#ffcf3a",f:"#1a1a1a"}},
+  {id:"rones", name:"Rones", note:"Centenario, Flor de Caña, Zacapa", tint:"#c9822b", s:{t:"ron",l:"#b4621b",tx:"RON",t2:"AÑEJO",b:"#1b1208"}},
+  {id:"whisky", name:"Whisky", note:"Escocés y Tennessee", tint:"#d39b45", s:{t:"whisky",l:"#c4802a",tx:"WHISKY",t2:"12 AÑOS",b:"#0e0e0e"}},
+  {id:"tequila", name:"Tequila", note:"Blanco y reposado", tint:"#e3c26a", s:{t:"tequila",l:"#e8cf8a",tx:"TEQUILA",b:"#123a2a"}},
+  {id:"vodka-gin", name:"Vodka y ginebra", note:"Para coctelear", tint:"#7fb7ff", s:{t:"vodka",l:"#cfe3ff",tx:"VODKA",b:"#b3122a"}},
+  {id:"guaro", name:"Guaro y licores", note:"Cacique, Baileys, Jäger", tint:"#ff8c5a", s:{t:"licor",l:"#5a3a22",tx:"LICOR",b:"#e8dcc4",f:"#3a2412"}},
+  {id:"vinos", name:"Vinos y espumantes", note:"Tintos, blancos y para brindar", tint:"#b8306a", s:{t:"vino",l:"#4a0d22",tx:"TINTO",b:"#efe6d2",f:"#4a0d22"}},
+  {id:"fiesta", name:"Para la fiesta", note:"Bocas, vasos y más", tint:"#ff5fa2", s:{t:"tubo",l:"#d6001c",tx:"PAPAS",b:"#fff",f:"#d6001c"}},
+  {id:"mezcladores", wide:true, name:"Mezcladores y hielo", note:"Coca, ginger ale, tónica, Red Bull y hielo para que nada llegue tibio", tint:"#4fc3ff", s:{t:"hielo",tx:"HIELO",b:"#1f6fb8"}}
+];
+
+// precio de lista al público en colones (estimados para la demo)
+const P = [
+  ["combo-centenario","Combo Ron Centenario 4 + Coca-Cola 1,5 L","combos","Ron 750 ml + Coca 1,5 L",12000,{img:"combo"},40,"Combo"],
+  ["combo-birra","Combo mejenga: 12 Imperial + hielo","combos","2 six-pack lata 350 ml + bolsa de hielo",11500,{t:"lata",l:"#c8102e",tx:"IMPERIAL",b:"#ffcf3a",f:"#1a1a1a",x:12},30,"Combo"],
+  ["combo-flor","Combo Flor de Caña 4 + 2 ginger ale","combos","Ron 750 ml + 2 latas ginger ale",10900,{t:"combo",l:"#9a4f16",tx:"FLOR DE CAÑA",b:"#f1e6cf",f:"#5a2e0c",second:can2("#1e7f3e","GINGER","#f2f2f2","#1e7f3e")},22,"Combo"],
+  ["imperial6","Imperial lata","cervezas","Six-pack 350 ml",5400,{t:"lata",l:"#c8102e",tx:"IMPERIAL",b:"#ffcf3a",f:"#1a1a1a",x:6},90],
+  ["silver6","Imperial Silver lata","cervezas","Six-pack 350 ml",5700,{t:"lata",l:"#9aa3ad",tx:"SILVER",b:"#1d2b4a",x:6},64],
+  ["ultra6","Imperial Ultra lata","cervezas","Six-pack 350 ml",5900,{t:"lata",l:"#e9edf2",tx:"ULTRA",b:"#0e2a5c",x:6},40],
+  ["pilsen6","Pilsen lata","cervezas","Six-pack 350 ml",5400,{t:"lata",l:"#e8b500",tx:"PILSEN",b:"#0f2f7a",x:6},70],
+  ["bavaria6","Bavaria Gold lata","cervezas","Six-pack 350 ml",6300,{t:"lata",l:"#d4af37",tx:"BAVARIA",b:"#0b0b0b",f:"#d4af37",x:6},38],
+  ["corona6","Corona Extra botella","cervezas","Six-pack 355 ml",7800,{t:"botella",l:"#f2d27a",tx:"CORONA",b:"#f7f7f7",f:"#1a3b8f",c:"#e8c440",x:6},34],
+  ["modelo6","Modelo Especial botella","cervezas","Six-pack 355 ml",8400,{t:"botella",l:"#d29b2f",tx:"MODELO",b:"#f0e2c0",f:"#0d2a5c",c:"#c9a646",x:6},26],
+  ["heineken6","Heineken botella","cervezas","Six-pack 330 ml",7500,{t:"botella",l:"#1d6b2f",tx:"HEINEKEN",b:"#f4f4f4",f:"#1d6b2f",c:"#1d6b2f",x:6},30],
+  ["centenario4","Ron Centenario Añejo 4 años","rones","Botella 750 ml",6900,{t:"ron",l:"#b4621b",tx:"CENTENARIO",t2:"Nº4 ORO",b:"#16120c",f:"#e3c27a"},48],
+  ["centenario7","Ron Centenario 7 años","rones","Botella 750 ml",9900,{t:"ron",l:"#8f4512",tx:"CENTENARIO",t2:"7 AÑOS",b:"#16120c",f:"#e3c27a"},26],
+  ["flor4","Ron Flor de Caña 4 años Extra Seco","rones","Botella 750 ml",7500,{t:"ron",l:"#f0dcae",tx:"FLOR DE CAÑA",t2:"4 AÑOS",b:"#f4ead6",f:"#5a2e0c"},30],
+  ["flor12","Ron Flor de Caña 12 años","rones","Botella 750 ml",18900,{t:"ron",l:"#7a3810",tx:"FLOR DE CAÑA",t2:"12 AÑOS",b:"#0f0f0f",f:"#d9b56a"},12],
+  ["bacardi","Ron Bacardí Blanco","rones","Botella 750 ml",8900,{t:"ron",l:"#eef2f5",tx:"BACARDÍ",t2:"BLANCO",b:"#f7f7f7",f:"#b8001f",c:"#e2e2e2"},24],
+  ["zacapa23","Ron Zacapa 23","rones","Botella 750 ml",34900,{t:"ron",l:"#6a2c0c",tx:"ZACAPA",t2:"23",b:"#2a1a0c",f:"#d9b56a"},8,"Premium"],
+  ["buchanans12","Whisky Buchanan's 12 años","whisky","Botella 750 ml",24900,{t:"whisky",l:"#b8742a",tx:"BUCHANAN'S",t2:"12 AÑOS",b:"#0e0e0e",f:"#d9b56a"},18],
+  ["buchananscoco","Buchanan's Coconut","whisky","Botella 750 ml",22900,{t:"whisky",l:"#c58a3c",tx:"BUCHANAN'S",t2:"COCONUT",b:"#f0eadc",f:"#5a3a1a"},14,"Nuevo"],
+  ["jwblack","Johnnie Walker Black Label","whisky","Botella 750 ml",26900,{t:"whisky",l:"#a5641f",tx:"BLACK LABEL",b:"#0b0b0b",f:"#d9b56a"},15],
+  ["jack7","Jack Daniel's Old No. 7","whisky","Botella 750 ml",21900,{t:"whisky",l:"#9c5a1a",tx:"JACK DANIEL'S",t2:"OLD No.7",b:"#0b0b0b"},20],
+  ["jackapple","Jack Daniel's Tennessee Apple","whisky","Botella 1 L",24900,{t:"whisky",l:"#c8742a",tx:"JACK DANIEL'S",t2:"APPLE",b:"#2f7d32"},11,"Exclusivo"],
+  ["oldparr","Whisky Old Parr 12 años","whisky","Botella 750 ml",23900,{t:"whisky",l:"#8a4a14",tx:"OLD PARR",t2:"12 AÑOS",b:"#e9dcc0",f:"#3a2412"},10],
+  ["cuervo","Tequila José Cuervo Especial","tequila","Botella 750 ml",13900,{t:"tequila",l:"#e5b85a",tx:"CUERVO",t2:"ESPECIAL",b:"#7a1018"},22],
+  ["donjulio","Tequila Don Julio Blanco","tequila","Botella 750 ml",32900,{t:"tequila",l:"#eef2f2",tx:"DON JULIO",t2:"BLANCO",b:"#f2efe8",f:"#1b1b1b"},7,"Premium"],
+  ["1800repo","Tequila 1800 Reposado","tequila","Botella 750 ml",27900,{t:"tequila",l:"#d8a24a",tx:"1800",t2:"REPOSADO",b:"#1b1b1b",f:"#e3c27a"},9],
+  ["smirnoff","Vodka Smirnoff","vodka-gin","Botella 750 ml",8900,{t:"vodka",l:"#e8eef6",tx:"SMIRNOFF",b:"#b3122a"},26],
+  ["absolut","Vodka Absolut","vodka-gin","Botella 750 ml",12900,{t:"vodka",l:"#dfe8f2",tx:"ABSOLUT",b:"#1f4fa8"},18],
+  ["tanqueray","Ginebra Tanqueray","vodka-gin","Botella 750 ml",19900,{t:"vodka",l:"#1f6b46",tx:"TANQUERAY",b:"#c8102e"},12],
+  ["bombay","Ginebra Bombay Sapphire","vodka-gin","Botella 750 ml",19900,{t:"vodka",l:"#3c8ad6",tx:"BOMBAY",t2:"SAPPHIRE",b:"#0e2a5c"},10],
+  ["cacique","Guaro Cacique","guaro","Botella 750 ml",5200,{t:"vodka",l:"#f2f6f8",tx:"CACIQUE",t2:"GUARO",b:"#b8001f",c:"#b8001f"},60],
+  ["cacique1l","Guaro Cacique","guaro","Botella 1 L",6600,{t:"vodka",l:"#f2f6f8",tx:"CACIQUE",t2:"1 LITRO",b:"#b8001f",c:"#b8001f"},40],
+  ["baileys","Baileys Original","guaro","Botella 750 ml",15900,{t:"licor",l:"#5a3a22",tx:"BAILEYS",b:"#e8dcc4",f:"#3a2412"},14],
+  ["jager","Jägermeister","guaro","Botella 700 ml",18900,{t:"licor",l:"#1d4a22",tx:"JÄGER",b:"#e86d1f",c:"#e86d1f"},12],
+  ["caferica","Licor Café Rica","guaro","Botella 750 ml",7900,{t:"licor",l:"#2a160c",tx:"CAFÉ RICA",b:"#c8a26a",f:"#2a160c"},20],
+  ["casillero","Casillero del Diablo Cabernet Sauvignon","vinos","Botella 750 ml",7900,{t:"vino",l:"#3a0a18",tx:"CASILLERO",t2:"CABERNET",b:"#0e0e0e",f:"#d9b56a"},24],
+  ["gatonegro","Gato Negro Merlot","vinos","Botella 750 ml",4900,{t:"vino",l:"#4a0d22",tx:"GATO NEGRO",b:"#efe6d2",f:"#4a0d22"},30],
+  ["freixenet","Espumante Freixenet Carta Nevada","vinos","Botella 750 ml",11900,{t:"espumante",l:"#2a3a2a",tx:"FREIXENET",b:"#f2f2f2",f:"#1b1b1b",c:"#d9d9d9"},16],
+  ["coca15","Coca-Cola","mezcladores","Botella 1,5 L",1600,{t:"pet",l:"#2a0d06",tx:"Coca-Cola",b:"#d6001c",c:"#d6001c"},80],
+  ["ginger6","Canada Dry Ginger Ale","mezcladores","Six-pack lata 355 ml",3900,{t:"lata",l:"#1e7f3e",tx:"GINGER ALE",b:"#f2f2f2",f:"#1e7f3e",x:6},28],
+  ["tonica","Agua tónica Schweppes","mezcladores","Botella 1,5 L",1500,{t:"pet",l:"#e4eef2",tx:"TÓNICA",b:"#f2c200",c:"#f2c200",f:"#1b1b1b"},34],
+  ["redbull4","Red Bull","mezcladores","4-pack lata 250 ml",5200,{t:"lata",l:"#1f3f8f",tx:"RED BULL",b:"#c0c6d0",f:"#c8102e",x:4},26],
+  ["hielo","Hielo en bolsa","mezcladores","Bolsa 2 kg",1200,{t:"hielo",tx:"HIELO",b:"#1f6fb8"},100],
+  ["pringles","Papas Pringles Original","fiesta","Tubo 124 g",2900,{t:"tubo",l:"#d6001c",tx:"PAPAS",t2:"ORIGINAL",b:"#fff",f:"#d6001c"},40],
+  ["mani","Maní salado","fiesta","Bolsa 200 g",1500,{t:"bolsa",l:"#c98a2a",tx:"MANÍ",t2:"SALADO",b:"#5a2e0c"},50],
+  ["vasos","Vasos desechables","fiesta","Paquete de 25",1300,{t:"vasos",l:"#c8102e",tx:"x25"},60]
+].map(r=>({id:r[0],name:r[1],cat:r[2],pres:r[3],price:r[4],s:r[5],stockH:Math.ceil(r[6]*.55),stockT:Math.floor(r[6]*.45),tag:r[7]||""}));
+P.forEach(p=>Object.defineProperty(p,"stock",{get(){return this.stockH+this.stockT}}));
+const byId = Object.fromEntries(P.map(p=>[p.id,p]));
+const tintOf = p => (CATS.find(c=>c.id===p.cat)||{}).tint||"#3d1c8f";
+const art = (p,small) => p.s.img ? `<img src="${A[p.s.img]}" alt="${esc(p.name)}">` : bottle(p.s);
+
+/* Pills y cinta */
+const PILLS = [["Combos","combo"],["Imperial","imperial"],["Centenario","centenario"],["Buchanan's","buchanan"],["Hielo","hielo"]];
+$("#pills").innerHTML = PILLS.map(([l,q])=>`<button type="button" class="pill" data-q="${q}">${l}</button>`).join("");
+const TK = ["Licores nacionales e importados","Bien frías","Uber Flash coordinado por Xocios","Xocios Heredia","Xocios Tibás","Productos exclusivos","Solo mayores de 18","Tomá con moderación"].map(t=>`<span>${t}</span>`).join("");
+$("#tk1").innerHTML = TK; $("#tk2").innerHTML = TK;
+
+/* Pasillos */
+$("#aisles").innerHTML = CATS.map(c=>{
+  const n = P.filter(p=>p.cat===c.id).length;
+  if(c.combo) return `<button class="aisle combos reveal" data-open="cat:${c.id}"><img src="${A.combo}" alt=""><b style="font-size:24px">Combos</b><small>Ron con Coca, birras con hielo. Armados para compartir y pagar menos.</small><span class="count">${n} combos <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></button>`;
+  return `<button class="aisle reveal ${c.wide?"wide":""}" style="--tint:${c.tint}" data-open="cat:${c.id}"><span class="glow"></span>${bottle(c.s)}<b>${c.name}</b><small>${c.note}</small><span class="count">${n} productos <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></button>`;
+}).join("");
+$("#footCats").innerHTML = CATS.map(c=>`<li><button class="lnk" data-open="cat:${c.id}">${c.name}</button></li>`).join("");
+
+/* Tarjeta de producto */
+function stockTxt(p){ const low=p.stock<=12; return {low, t: low?`Quedan ${p.stock}`:`${p.stock} disponibles`}; }
+function card(p){
+  const st = stockTxt(p);
+  return `<article class="prod">${p.tag?`<span class="tag">${p.tag}</span>`:""}
+    <div class="ph" style="--tint:${tintOf(p)}66">${art(p)}</div>
+    <h3>${esc(p.name)}</h3><div class="pres">${p.pres}</div>
+    <div class="stock ${st.low?'low':''}" data-stock="${p.id}">${st.t}</div>
+    <div class="row"><span class="price">${fmt(p.price)}</span>
+    <button class="add" data-add="${p.id}" aria-label="Agregar ${esc(p.name)}"><svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>Agregar</button></div>
+  </article>`;
+}
+const SEASONS = {
+  halloween:{key:"halloween",label:"Halloween",kick:"Temporada de Halloween",title:"¿Miedo? Miedo da que te lleve el coco.",copy:"Pero que sea Buchanan's. Para la fiesta de disfraces del sábado, lo que más se está llevando la gente.",items:["buchananscoco","jager","redbull4"],ids:["imperial6","centenario4","cacique","coca15","buchanans12","hielo","corona6","cuervo"]},
+  navidad:{key:"navidad",label:"Navidad",kick:"Temporada navideña",title:"Brindis de diciembre",copy:"El espumante de la cena, el Baileys del rompope y el whisky para regalar. Pedí con tiempo y retirás sin fila.",items:["freixenet","baileys","buchanans12"],ids:["imperial6","centenario7","flor12","jwblack","coca15","hielo","casillero","cacique"]},
+  regular:{key:"regular",label:"Todo el año",kick:"Para el partido",title:"Mejenga en la casa",copy:"Birras heladas, algo de picar y hielo. Lo armás en un minuto y lo tenés antes del pitazo.",items:["imperial6","pringles","hielo"],ids:["centenario4","pilsen6","cacique","coca15","buchanans12","corona6","cuervo","bavaria6"]}
+};
+let seasonOverride=null;
+function currentSeason(){ if(seasonOverride) return SEASONS[seasonOverride]; const m=new Date().getMonth()+1; return m===10?SEASONS.halloween:(m>=11?SEASONS.navidad:SEASONS.regular); }
+function renderFeatured(){
+  const s=currentSeason(), c=byId["combo-centenario"];
+  const combo = `<article class="feat photo" style="background-image:url(${A.combo})"><div class="gl"><span class="kick">El combo del mes</span><h3>Ron Centenario + Coca-Cola 1,5 L</h3><p>La combinación de siempre para compartir y disfrutar. Pedila bien fría.</p><div class="row"><span class="price" style="font-size:28px;color:var(--yellow)">${fmt(c.price)}</span><button class="add" data-add="${c.id}"><svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>Agregar</button></div></div></article>`;
+  const stage3 = `<div class="stage3">${s.items.map(id=>bottle(byId[id].s)).join("")}</div>`;
+  const minis = s.items.map(id=>{const p=byId[id];return `<div class="mini"><span>${esc(p.name.replace("Whisky ",""))}</span><span>${fmt(p.price)}</span><button data-add="${id}">Agregar</button></div>`}).join("");
+  const season = `<article class="feat season"><svg class="xbg" fill="#ffc93c"><use href="#xmark"/></svg>${stage3}<div class="gl"><span class="kick">${s.kick}</span><h3>${s.title}</h3><p>${s.copy}</p><div class="minis">${minis}</div></div></article>`;
+  $("#seasonName").textContent=s.label;
+  document.querySelectorAll("[data-season]").forEach(b=>b.classList.toggle("on",b.dataset.season===s.key));
+  const ids=s.ids;
+  $("#featured").innerHTML = combo + ids.slice(0,4).map(id=>card(byId[id])).join("") + season + ids.slice(4).map(id=>card(byId[id])).join("");
+}
+renderFeatured();
+
+/* Carrito */
+let cart={};
+try{ cart=JSON.parse(localStorage.getItem("xo-cart")||"{}"); Object.keys(cart).forEach(k=>{ if(!byId[k]) delete cart[k]; }); }catch(e){}
+function save(){ try{localStorage.setItem("xo-cart",JSON.stringify(cart))}catch(e){} }
+function addToCart(id,q=1,silent){
+  const p=byId[id]; if(!p) return;
+  const cur=cart[id]||0;
+  if(cur+q>p.stock){ toast(`Solo quedan ${p.stock} de ${p.name}`); return; }
+  cart[id]=cur+q; save(); renderCart();
+  if(!silent) toast(`${p.name} al carrito`);
+  document.querySelectorAll(`[data-add="${id}"]`).forEach(b=>{ if(!b.classList.contains("add")) return; b.classList.add("ok"); b.innerHTML=`<svg class="ic" style="width:15px;height:15px"><use href="#i-check"/></svg>Listo`; setTimeout(()=>{b.classList.remove("ok"); b.innerHTML=`<svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>Agregar`},1300); });
+}
+function setQty(id,q){ if(q<=0) delete cart[id]; else cart[id]=Math.min(q,byId[id].stock); save(); renderCart(); }
+function subtotal(){ return Object.entries(cart).reduce((s,[id,q])=>s+byId[id].price*q,0); }
+function thumb(p){ return `<span class="th">${art(p)}</span>`; }
+function renderCart(){
+  const items=Object.entries(cart);
+  $("#cartCount").textContent=items.reduce((s,[,q])=>s+q,0);
+  $("#cartBody").innerHTML = items.length ? items.map(([id,q])=>{const p=byId[id];return `<div class="citem">${thumb(p)}<div><b>${esc(p.name)}</b><small>${p.pres} · ${fmt(p.price)}</small></div>
+    <div class="qty"><button data-q="${id}" data-d="-1" aria-label="Quitar uno">−</button><span>${q}</span><button data-q="${id}" data-d="1" aria-label="Agregar uno">+</button></div></div>`}).join("")
+    : `<div class="emptycart"><svg class="ic" style="width:40px;height:40px;margin:0 auto 10px;color:var(--yellow)"><use href="#i-bag"/></svg>Tu pedido está vacío.<br>Pedile al asistente o date una vuelta por los pasillos.</div>`;
+  const s=subtotal(); $("#sub").textContent=fmt(s); $("#tot").textContent=fmt(s);
+  $("#toCheckout").disabled=!items.length;
+}
+renderCart();
+
+/* Overlays */
+const scrim=$("#scrim"); let openEl=null;
+function openOverlay(el){ closeAll(); el.classList.add("on"); scrim.classList.add("on"); openEl=el; document.body.style.overflow="hidden"; }
+function closeAll(){ document.querySelectorAll(".drawer.on,.modal.on").forEach(e=>e.classList.remove("on")); scrim.classList.remove("on"); document.body.style.overflow=""; openEl=null; }
+scrim.onclick=closeAll;
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeAll(); });
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{ if(e.target===m) closeAll(); }));
+$("#cartBtn").onclick=()=>openOverlay($("#drawer"));
+
+/* Catálogo */
+function openCatalog(cat="all",q=""){
+  $("#catTabs").innerHTML=[`<button data-tab="all" class="${cat==='all'&&!q?'on':''}">Todo</button>`].concat(CATS.map(c=>`<button data-tab="${c.id}" class="${c.id===cat&&!q?'on':''}">${c.name}</button>`)).join("");
+  let list=P, title="Toda la tienda";
+  if(q){ const t=norm(q); list=P.filter(p=>{const h=norm(p.name+" "+p.cat+" "+p.pres); return h.includes(t)||t.split(/\s+/).every(w=>h.includes(w));}); title=`Resultados para "${q}"`; }
+  else if(cat!=="all"){ list=P.filter(p=>p.cat===cat); title=CATS.find(c=>c.id===cat).name; }
+  $("#catTitle").textContent=title;
+  if(!list.length) $("#catList").innerHTML=`<p style="color:var(--muted)">No encontramos "${esc(q)}" hoy. Probá con otra marca o pedíselo al asistente. También podés escribirnos al WhatsApp 6298-9825.</p>`;
+  else if(cat==="all"&&!q) $("#catList").innerHTML=CATS.map(c=>`<div class="sub">${c.name}</div><div class="shelf">${P.filter(p=>p.cat===c.id).map(card).join("")}</div>`).join("");
+  else $("#catList").innerHTML=`<div class="shelf">${list.map(card).join("")}</div>`;
+  if(openEl!==$("#catModal")) openOverlay($("#catModal"));
+  $("#catModal .mbox").scrollTop=0;
+}
+$("#heroSearch").onsubmit=e=>{ e.preventDefault(); const v=$("#q").value.trim(); if(v) openCatalog("all",v); };
+
+document.addEventListener("click",e=>{
+  const sb=e.target.closest("[data-season]"); if(sb){ seasonOverride=sb.dataset.season; renderFeatured(); return; }
+  const say=e.target.closest("[data-say]"); if(say){ sendChat(say.dataset.say); return; }
+  const t=e.target.closest("[data-add],[data-open],[data-scroll],[data-q],[data-tab],[data-close],[data-addall]");
+  if(!t) return;
+  if(t.dataset.add) addToCart(t.dataset.add);
+  else if(t.dataset.open){ const v=t.dataset.open; openCatalog(v.startsWith("cat:")?v.slice(4):"all"); }
+  else if(t.dataset.scroll){ closeAll(); document.querySelector(t.dataset.scroll).scrollIntoView({behavior:"smooth"}); }
+  else if(t.dataset.q && t.dataset.d) setQty(t.dataset.q,(cart[t.dataset.q]||0)+Number(t.dataset.d));
+  else if(t.dataset.q) openCatalog("all",t.dataset.q);
+  else if(t.dataset.tab) openCatalog(t.dataset.tab);
+  else if(t.dataset.close!==undefined) closeAll();
+  else if(t.dataset.addall){ JSON.parse(t.dataset.addall).forEach(([id,q])=>addToCart(id,q,true)); toast("Pedido agregado al carrito"); t.textContent="Agregado al carrito"; t.disabled=true; }
+});
+
+/* Asistente: temas, cantidades por persona, presupuesto y memoria del tema anterior.
+   Al salir en vivo, una función de servidor llama a la IA con el catálogo real; esto queda de respaldo. */
+const WA="https://wa.me/50662989825";
+const ceil=Math.ceil;
+const TOPICS=[
+  {id:"fiesta",k:["fiesta","fiestón","fieston","cumple","cumpleanos","reunion","bacanal","pachanga","party","pari","celebracion","celebrar","despedida"],def:10,
+   build:n=>({say:`Para una fiesta de ${n} te armé esto:`,why:`Calculé unas 4 birras por persona, una botella de ron cada 6, Coca para la mezcla, hielo de sobra y vasos.`,
+     items:[["imperial6",ceil(n*4/6*.6)],["pilsen6",ceil(n*4/6*.4)],["centenario4",ceil(n/6)],["coca15",ceil(n/4)],["hielo",ceil(n/4)],["vasos",ceil(n/25)],["mani",ceil(n/8)]],
+     quick:["Somos más","Más barato","Agregale tequila"]})},
+  {id:"asado",k:["carne asada","asado","parrillada","parrilla","bbq","chuleta","chorizo","costilla"],def:8,
+   build:n=>({say:`Para la carne asada de ${n}, lo clásico:`,why:`Unas 3 birras por cabeza entre Imperial y Bavaria Gold, guaro para el chiliguaro, hielo para mantener todo frío.`,
+     items:[["imperial6",ceil(n*3/6*.6)],["bavaria6",ceil(n*3/6*.4)],["cacique",ceil(n/8)],["hielo",ceil(n/4)],["coca15",ceil(n/6)]],quick:["Para 15","Agregale whisky","Más barato"]})},
+  {id:"partido",k:["partido","futbol","fútbol","mejenga","clasico","clásico","saprissa","liga","herediano","seleccion","mundial","juego"],def:6,
+   build:n=>({say:`Para ver el partido entre ${n}:`,why:`Birras para los 90 minutos y el medio tiempo, algo de picar y una bolsa de hielo.`,
+     items:[["combo-birra",ceil(n*3/12)],["pringles",ceil(n/3)],["mani",ceil(n/4)]],quick:["Somos 10","Con cerveza importada","¿Cuánto dura el envío?"]})},
+  {id:"regalo",k:["regalo","regalar","jefe","papa","papá","suegro","detalle","agradecer","aniversario"],def:1,
+   build:(n,b)=>{ const opts=(mem.teq?["donjulio","1800repo","cuervo"]:["zacapa23","jwblack","buchanans12","oldparr","flor12","jackapple","jack7","centenario7"]).map(i=>byId[i]).filter(p=>!b||p.price<=b).sort((a,c)=>c.price-a.price);
+     const pick=opts[0]||byId["centenario7"];
+     return {say:b?`Con ${fmt(b)} te recomiendo:`:"Para regalar y quedar bien:",why:`${pick.name}: ${pick.id==="zacapa23"?"un ron premium que impresiona a cualquiera.":pick.cat==="whisky"?"un whisky que siempre se agradece.":pick.cat==="tequila"?"un tequila para tomarse despacio, no para shots.":"un ron con presencia."}${opts[1]?` Si querés otra opción: ${opts[1].name} (${fmt(opts[1].price)}).`:""}`,
+       items:[[pick.id,1]],quick:["Otra opción","Algo más barato","Que sea tequila"]};}},
+  {id:"vino",k:["vino","vinito","cena","romantica","romántica","noche de chicas","chicas","pareja","novia","esposa","brindis"],def:2,
+   build:n=>({say:n>2?`Para una noche entre ${n}:`:"Para una noche tranquila:",why:"Un tinto chileno que no falla, un espumante para brindar y Baileys para cerrar con algo dulce.",
+     items:[["casillero",ceil(n/3)],["freixenet",ceil(n/6)],["baileys",n>4?1:0]].filter(i=>i[1]>0),quick:["Más económico","Que sea tequila","¿Hacen envíos hoy?"]})},
+  {id:"tequila",k:["tequila","shots","shot","margarita","caballito"],def:6,
+   build:n=>({say:`Tequila para ${n}:`,why:"José Cuervo para los shots, una botella cada 8 personas, más hielo y vasos.",items:[["cuervo",ceil(n/8)],["hielo",ceil(n/6)],["vasos",ceil(n/25)]],quick:["Uno premium","Somos 15","Agregale birras"]})},
+  {id:"cuba",k:["cuba libre","cubalibre","cuba","ron con coca","roncito"],def:6,
+   build:n=>({say:`Cuba libre para ${n}:`,why:"Una botella de Centenario cada 6 personas y Coca de sobra, que es lo primero que se acaba.",items:[["centenario4",ceil(n/6)],["coca15",ceil(n/3)],["hielo",ceil(n/5)]],quick:["Con Flor de Caña","Somos 20","Más barato"]})},
+  {id:"gin",k:["gin","ginebra","gin tonic","gintonic"],def:6,
+   build:n=>({say:`Gin tonic para ${n}:`,why:"Tanqueray y tónica, una botella de tónica cada 2 personas.",items:[["tanqueray",ceil(n/10)],["tonica",ceil(n/2)],["hielo",ceil(n/5)]],quick:["Con Bombay","Más barato","Somos 12"]})},
+  {id:"playa",k:["playa","paseo","rio","río","piscina","viaje","finca","montaña","hielera"],def:6,
+   build:n=>({say:`Para el paseo de ${n}:`,why:"Todo en lata, que no se quiebra en la hielera, y bastante hielo.",items:[["imperial6",ceil(n*4/6*.5)],["silver6",ceil(n*4/6*.5)],["hielo",ceil(n/3)],["vasos",ceil(n/25)]],quick:["Agregale guaro","Somos 10","Más barato"]})},
+  {id:"halloween",k:["halloween","disfraz","disfraces","brujas","coco"],def:10,
+   build:n=>({say:`Para la fiesta de Halloween de ${n}:`,why:"Buchanan's Coconut, el que está pegando esta temporada, Jäger con Red Bull para los valientes y birras para todos.",items:[["buchananscoco",ceil(n/12)],["jager",ceil(n/15)],["redbull4",ceil(n/6)],["imperial6",ceil(n*3/6)],["hielo",ceil(n/4)]],quick:["Más barato","Somos 20","¿Cómo pago?"]})},
+  {id:"navidad",k:["navidad","diciembre","fin de ano","fin de año","año nuevo","ano nuevo","posada","rompope","aguinaldo"],def:10,
+   build:n=>({say:`Para la celebración de diciembre de ${n}:`,why:"Espumante para el brindis, Baileys para el rompope y whisky para la sobremesa.",items:[["freixenet",ceil(n/6)],["baileys",ceil(n/12)],["buchanans12",ceil(n/15)],["coca15",ceil(n/5)],["hielo",ceil(n/5)]],quick:["Más barato","Para regalar","Somos 25"]})},
+  {id:"guaro",k:["guaro","chiliguaro","cacique","guarito"],def:8,
+   build:n=>({say:`Guaro para ${n}:`,why:"Cacique de litro, uno cada 8 personas, con hielo y vasos.",items:[["cacique1l",ceil(n/8)],["hielo",ceil(n/6)],["vasos",ceil(n/25)]],quick:["Agregale birras","Somos 20","¿Hacen envíos?"]})},
+  {id:"birra",k:["birra","birras","cerveza","cervezas","frias","frías","fria","fría","pilsen","imperial"],def:6,
+   build:n=>({say:`Birras para ${n}:`,why:"Mitad Imperial y mitad Pilsen, unas 3 por persona, con hielo.",items:[["imperial6",ceil(n*3/6/2)],["pilsen6",ceil(n*3/6/2)],["hielo",ceil(n/6)]],quick:["Importadas","Somos 12","Agregale bocas"]})},
+  {id:"barato",k:["barato","economico","económico","poca plata","sin plata","quincena","ahorrar"],def:8,
+   build:n=>({say:`Opción económica para ${n}:`,why:"Guaro, birra nacional y Coca: lo que más rinde por colón.",items:[["cacique1l",ceil(n/10)],["imperial6",ceil(n*2/6)],["coca15",ceil(n/5)],["hielo",ceil(n/6)]],quick:["Somos más","Agregale ron","¿Cuánto cuesta el envío?"]})}
+];
+const ALTS={pilsen6:"imperial6",bavaria6:"imperial6",corona6:"imperial6",heineken6:"imperial6",modelo6:"imperial6",centenario7:"centenario4",flor12:"centenario7",buchanans12:"centenario7",jwblack:"buchanans12",zacapa23:"flor12",casillero:"gatonegro",tanqueray:"smirnoff",bombay:"tanqueray",buchananscoco:"cacique",jager:"cacique",freixenet:"gatonegro",cacique:"cacique",donjulio:"cuervo","1800repo":"cuervo",cuervo:"cacique"};
+const FAQ=[
+  {k:["envio","envío","envios","envíos","domicilio","uber","entrega","llevan","mandan","express","delivery","cuanto dura","cuánto dura","tardan"],a:`Te lo mandamos por <b>Uber Flash</b> desde la sede más cercana, Heredia o Tibás. Xocios coordina el viaje y te pasa el enlace para seguirlo. La tarifa va según la distancia: por ejemplo ${fmt(2200)} en Heredia centro o Tibás. También podés retirar gratis en cualquiera de las dos sedes.`},
+  {k:["pago","pagar","tarjeta","sinpe","efectivo","como pago","cómo pago"],a:"Pagás en línea con tarjeta de crédito o débito (Visa, Mastercard o Amex). El cobro es seguro y te llega la factura electrónica al correo."},
+  {k:["edad","menor","cedula","cédula","18"],a:"Solo vendemos a mayores de 18. Al pagar te pedimos la cédula y quien entrega la revisa al recibir."},
+  {k:["horario","abren","cierran","hora","abierto"],a:`El horario de cada sede te lo confirmamos por WhatsApp. Los pedidos en línea se reciben a cualquier hora y salen en el horario de la sede.`,wa:true},
+  {k:["donde","dónde","ubicacion","ubicación","direccion","dirección","sede","sedes","local","tibas","tibás","heredia"],a:"Estamos en dos sedes: <b>Xocios Heredia</b> y <b>Xocios Tibás</b>. Escogés dónde retirar al pagar, o te lo mandamos por Uber Flash desde la más cercana."},
+  {k:["minimo","mínimo","compra minima"],a:"No hay compra mínima. Para Uber Flash conviene juntar todo en un solo pedido, así pagás un solo viaje."},
+  {k:["frio","frío","helada","heladas","congelada"],a:"Las birras y los mezcladores salen de las refris de la sede. Si el camino es largo, sumá una bolsa de hielo por ₡1.200."}
+];
+const chatBody=$("#chatBody");
+const now=()=>new Date().toLocaleTimeString("es-CR",{hour:"numeric",minute:"2-digit"});
+const mem={topic:null,n:null,b:null,last:null};
+function bubble(html,who){ $("#chatEmpty")?.remove(); chatBody.classList.add("grow"); const d=document.createElement("div"); d.className="msg "+who; d.innerHTML=html+`<time>${now()}</time>`; chatBody.appendChild(d); chatBody.scrollTop=chatBody.scrollHeight; return d; }
+const quick=(arr,wa)=>`<div class="quick">${arr.map(q=>`<button type="button" data-say="${esc(q)}">${q}</button>`).join("")}${wa?`<a href="${WA}" target="_blank" rel="noopener">WhatsApp</a>`:""}</div>`;
+function people(t){
+  const m=t.match(/(?:para|somos|seremos|unos|unas|entre)\s+(\d{1,3})|(\d{1,3})\s*(?:personas|persona|invitados|maes|compas|amigos|carajillos|gente|pax|adultos)/);
+  if(m) return parseInt(m[1]||m[2]);
+  const w={dos:2,tres:3,cuatro:4,cinco:5,seis:6,siete:7,ocho:8,diez:10,doce:12,quince:15,veinte:20,treinta:30};
+  const m2=t.match(/(?:para|somos|unos|entre)\s+(dos|tres|cuatro|cinco|seis|siete|ocho|diez|doce|quince|veinte|treinta)\b/); return m2?w[m2[1]]:null;
+}
+function budget(t){
+  let m=t.match(/(\d{1,3})\s*(?:mil|k)\b/); if(m) return parseInt(m[1])*1000;
+  m=t.match(/(?:₡|c\s?)\s?(\d{1,3}(?:[.,]\d{3})+|\d{4,6})/)||t.match(/(?:con|presupuesto|maximo|máximo|menos de|hasta)\s+(\d{1,3}(?:[.,]\d{3})+|\d{4,6})/);
+  return m?parseInt(m[1].replace(/[.,]/g,"")):null;
+}
+function fit(items,b){
+  let it=items.map(x=>[...x]);
+  const tot=()=>it.reduce((s,[id,q])=>s+byId[id].price*q,0);
+  let g=0;
+  while(tot()>b && g++<20){ const sw=it.find(([id])=>ALTS[id] && ALTS[id]!==id && byId[ALTS[id]].price<byId[id].price); if(!sw) break; sw[0]=ALTS[sw[0]]; }
+  const merged={}; it.forEach(([id,q])=>merged[id]=(merged[id]||0)+q); it=Object.entries(merged);
+  if(tot()>b){ const f=b/tot(); it.forEach(x=>x[1]=Math.max(1,Math.floor(x[1]*f))); }
+  g=0; while(tot()>b && g++<80){ const big=[...it].filter(x=>x[1]>1).sort((x,y)=>byId[y[0]].price-byId[x[0]].price)[0]; if(big) big[1]--; else if(it.length>1) it.pop(); else break; }
+  g=0; let added=true; while(added && g++<40){ added=false; for(const x of it){ if(tot()+byId[x[0]].price<=b && x[1]<byId[x[0]].stock){ x[1]++; added=true; break; } } }
+  return it;
+}
+function offer(r,n,b){
+  let items=r.items.filter(([id,q])=>q>0&&byId[id].stock>0).map(([id,q])=>[id,Math.min(q,byId[id].stock)]);
+  let before=items.reduce((s,[id,q])=>s+byId[id].price*q,0);
+  if(b && n && n>3 && before>b*1.7 && r.items.length>2){
+    const eco=TOPICS.find(x=>x.id==="barato").build(n,b);
+    r={...eco,say:`Para ${n} con ${fmt(b)} la plata queda justa, así que te armé la versión que más rinde:`};
+    items=r.items.filter(([id,q])=>q>0); before=items.reduce((s,[id,q])=>s+byId[id].price*q,0);
+  }
+  if(b) items=fit(items,b);
+  const total=items.reduce((s,[id,q])=>s+byId[id].price*q,0);
+  const lines=items.map(([id,q])=>{const p=byId[id];return `<div class="ln"><span class="th">${art(p)}</span><span>${q} × ${esc(p.name)}<br><em>${p.pres}</em></span><em>${fmt(p.price*q)}</em></div>`}).join("");
+  const note=b?(total<before?` Ajusté marcas y cantidades para que quede en tu presupuesto de ${fmt(b)}.`:` Queda dentro de tus ${fmt(b)}.`):"";
+  bubble(`${r.say}<div class="lines">${lines}</div><b>Total: ${fmt(total)}</b><div class="why">${r.why}${note}</div><button class="addall" data-addall='${JSON.stringify(items)}'>Agregar todo al carrito</button>${quick(r.quick||["Somos más","Más barato"])}`,"bot");
+}
+function answer(txt){
+  const t=norm(txt);
+  if(/^(hola|buenas|pura vida|que tal|qué tal|hey|upe|diay)\b/.test(t) && t.length<22){ return bubble(`¡Pura vida! Contame qué ocupás: para qué es, cuántos son y si tenés un presupuesto. Yo te armo el pedido.`+quick(["Fiesta para 15","Carne asada para 8","Un regalo con 30 mil"]),"bot"); }
+  const n=people(t), b=budget(t);
+  const cheap0=/mas barato|economico|menos plata|mas economica/.test(t);
+  if(mem.topic==="regalo" && /tequila/.test(t) && !/shots|fiesta|para \d|somos/.test(t)){ mem.teq=true; const r=TOPICS.find(x=>x.id==="regalo").build(1,mem.b); r.say="Va, en tequila:"; return offer(r,1,mem.b); }
+  let topic=TOPICS.find(x=>x.k.some(k=>t.includes(norm(k))));
+  if(topic && topic.id==="barato" && mem.topic && mem.topic!=="barato" && cheap0) topic=null;
+  if(topic && topic.id==="regalo" && mem.last!=="regalo") mem.teq=false;
+  const faq=FAQ.find(f=>f.k.some(k=>t.includes(norm(k))));
+  if(faq && !topic){ return bubble(faq.a+quick(["Fiesta para 10","Ver combos","Un regalo"],faq.wa),"bot"); }
+  const cheaper=/mas barato|más barato|economico|menos plata|mas economica|algo mas barato/.test(t);
+  if(topic){
+    mem.topic=topic.id; if(n) mem.n=n; if(b) mem.b=b; else if(!cheaper && topic.id!==mem.last) mem.b=null;
+    mem.last=topic.id;
+    const N=n||mem.n||topic.def;
+    const r=topic.build(N,mem.b);
+    return offer(r,N,mem.b);
+  }
+  if(mem.topic && (n||b||cheaper||/somos mas|somos más|otra opcion|otra opción|agregale|agrégale|con flor|con bombay|importadas|premium/.test(t))){
+    const tp=TOPICS.find(x=>x.id===mem.topic);
+    if(n) mem.n=n;
+    if(b) mem.b=b;
+    if(cheaper){ const cur=offerTotal(tp); mem.b=mem.b?Math.round(mem.b*.8):Math.round(cur*.75); }
+    if(/somos mas|somos más/.test(t) && !n) mem.n=Math.round((mem.n||tp.def)*1.5);
+    let r=tp.build(mem.n||tp.def,mem.b);
+    if(/agregale tequila|agrégale tequila|que sea tequila/.test(t)) r.items.push(["cuervo",1]);
+    if(/agregale whisky|agrégale whisky/.test(t)) r.items.push(["buchanans12",1]);
+    if(/agregale guaro|agrégale guaro/.test(t)) r.items.push(["cacique",1]);
+    if(/agregale ron|agrégale ron/.test(t)) r.items.push(["centenario4",1]);
+    if(/agregale birras|agrégale birras|agregale cerveza/.test(t)) r.items.push(["imperial6",2]);
+    if(/agregale bocas|agrégale bocas/.test(t)) r.items.push(["pringles",2],["mani",2]);
+    if(/con flor/.test(t)) r.items=r.items.map(([id,q])=>[id==="centenario4"?"flor4":id,q]);
+    if(/con bombay/.test(t)) r.items=r.items.map(([id,q])=>[id==="tanqueray"?"bombay":id,q]);
+    if(/importadas/.test(t)) r.items=r.items.map(([id,q])=>[["imperial6","pilsen6","silver6"].includes(id)?"corona6":id,q]);
+    if(/uno premium|premium/.test(t)) r.items=r.items.map(([id,q])=>[id==="cuervo"?"donjulio":id,q]);
+    if(/otra opcion|otra opción/.test(t) && tp.id==="regalo"){ const cur=r.items[0][0]; const alt=["jwblack","buchanans12","oldparr","flor12","jackapple","zacapa23"].find(i=>i!==cur && (!mem.b||byId[i].price<=mem.b)); if(alt){ r.items=[[alt,1]]; r.why=`${byId[alt].name}, otra apuesta segura.`; } }
+    r.say = n?`Listo, recalculado para ${mem.n}:`:(cheaper?"Te lo bajé de precio:":"Va, así queda:");
+    return offer(r,mem.n,mem.b);
+  }
+  if(faq) return bubble(faq.a+quick(["Fiesta para 10","Ver combos"],faq.wa),"bot");
+  // búsqueda por nombre
+  const parts=t.split(/,| y |\+/); const found=[];
+  parts.forEach(part=>{
+    const q=(part.match(/(\d{1,2})\s*(?:botellas|botella|six|sixpack|six-pack|latas|bolsas|tubos|cajas)?/)||[])[1];
+    let hit=null,best=0;
+    P.forEach(p=>{ const ws=norm(p.name).split(/[\s':,+]+/).filter(w=>w.length>3 && !["botella","whisky","tequila","vodka","ginebra","lata","original","especial","combo"].includes(w)); let sc=ws.filter(w=>part.includes(w)).length; if(!sc) return; if(p.cat==="combos") sc-=.6; if(part.includes(norm(p.name).split(" ")[0])) sc+=.5; if(sc>best){best=sc;hit=p;} });
+    if(hit && !found.find(f=>f[0]===hit.id)) found.push([hit.id,q?parseInt(q):1]);
+  });
+  if(found.length) return offer({say:"Esto es lo que tengo hoy en las refris:",why:"Si querés te sumo hielo o algo para mezclar.",items:found,quick:["Agregá hielo","¿Cuánto cuesta el envío?","Ver combos"]},null,b);
+  if(/agrega hielo|agregá hielo|hielo/.test(t)){ addToCart("hielo",1); return bubble("Listo, te sumé una bolsa de hielo de 2 kg al carrito.","bot"); }
+  if(/combo/.test(t)){ openCatalog("combos"); return bubble("Te abrí los combos. El de Centenario con Coca es el que más sale.","bot"); }
+  bubble(`Mmm, no te entendí del todo. Contame para qué es (una fiesta, la carne asada, un regalo), cuántos son y cuánto querés gastar, y te lo armo. Si preferís, escribinos directo.`+quick(["Fiesta para 10","Para el partido","Un regalo con 25 mil"],true),"bot");
+}
+function offerTotal(tp){ const r=tp.build(mem.n||tp.def,null); return r.items.reduce((s,[id,q])=>s+byId[id].price*q,0); }
+function sendChat(v){
+  bubble(esc(v),"me");
+  const ty=document.createElement("div"); ty.className="typing"; ty.innerHTML="<i></i><i></i><i></i>"; chatBody.appendChild(ty); chatBody.scrollTop=chatBody.scrollHeight;
+  setTimeout(()=>{ ty.remove(); answer(v); },850);
+}
+$("#chatForm").onsubmit=e=>{ e.preventDefault(); const v=$("#chatIn").value.trim(); if(!v) return; $("#chatIn").value=""; sendChat(v); };
+$("#fab").onclick=()=>{ closeAll(); $("#asistente").scrollIntoView({behavior:"smooth"}); setTimeout(()=>$("#chatIn").focus({preventScroll:true}),700); };
+
+/* Checkout (Onvo en modo prueba) */
+const ZONES=[
+  ["heredia","Heredia centro, Barva, San Pablo",2200,"Heredia"],
+  ["sdomingo","Santo Domingo, San Isidro, Santa Bárbara",2800,"Heredia"],
+  ["alajuela","Belén, Flores, Alajuela centro",3900,"Heredia"],
+  ["tibas","Tibás, Moravia, Goicoechea",2200,"Tibás"],
+  ["sanjose","San José centro, Montes de Oca",2900,"Tibás"],
+  ["escazu","Escazú, Santa Ana, Curridabat",4300,"Tibás"]
+];
+$("#toCheckout").onclick=()=>{ renderCheckout(); openOverlay($("#coModal")); };
+function renderCheckout(){
+  const s=subtotal();
+  $("#coTitle").textContent="Pagar pedido";
+  $("#coBody").innerHTML=`<form class="co" id="coForm">
+    <div class="seg">
+      <label><input type="radio" name="mode" value="uber" checked><b>Uber Flash</b>Lo coordina Xocios desde la sede más cercana</label>
+      <label><input type="radio" name="mode" value="retiro"><b>Retiro en sede</b>Heredia o Tibás · gratis</label>
+    </div>
+    <div class="fld" id="zoneF"><label for="cz">¿A qué zona va?</label><select id="cz">${ZONES.map(z=>`<option value="${z[0]}">${z[1]} · ${fmt(z[2])}</option>`).join("")}</select></div>
+    <div class="uber" id="uberNote"><span class="u">Uber Flash</span><span id="uberTxt"></span></div>
+    <div class="fld" id="sedeF" hidden><label for="cs">¿En cuál sede retirás?</label><select id="cs"><option>Xocios Heredia</option><option>Xocios Tibás</option></select></div>
+    <div class="two"><div class="fld"><label for="cn">Nombre completo</label><input id="cn" required value="Daniel Mora" autocomplete="name"></div>
+    <div class="fld"><label for="ct">WhatsApp</label><input id="ct" required value="8888-1234" inputmode="tel"></div></div>
+    <div class="fld" id="addrF"><label for="ca">Dirección exacta</label><input id="ca" value="San Francisco de Heredia, 100 m sur del parque, casa portón negro"></div>
+    <div class="two"><div class="fld"><label for="cid">Cédula</label><input id="cid" required value="1-1234-0567" inputmode="numeric"></div>
+    <div class="fld"><label for="ce">Correo para la factura</label><input id="ce" type="email" required value="daniel.mora@correo.cr"></div></div>
+    <label class="check18"><input type="checkbox" id="c18" required><span>Confirmo que soy mayor de 18 años y que voy a mostrar mi cédula al recibir el pedido.</span></label>
+    <div class="cardbox">
+      <div class="top2"><span>Tarjeta de crédito o débito</span><span style="display:flex;gap:6px;align-items:center;color:#8fe3b4"><svg class="ic" style="width:15px"><use href="#i-lock"/></svg>Pago seguro · <span class="onvo">onvo</span></span></div>
+      <div class="fld"><label for="cc">Número de tarjeta</label><input id="cc" required value="4242 4242 4242 4242" inputmode="numeric"></div>
+      <div class="two"><div class="fld"><label for="cx">Vencimiento</label><input id="cx" required value="12/28"></div><div class="fld"><label for="cv">CVV</label><input id="cv" required value="123" inputmode="numeric"></div></div>
+      <div class="testnote">Modo de prueba: no se hace ningún cobro real.</div>
+    </div>
+    <div class="summary">
+      <div class="tot"><span>Subtotal</span><span>${fmt(s)}</span></div>
+      <div class="tot"><span>Entrega</span><span id="coShip"></span></div>
+      <div class="tot big"><span>Total</span><span id="coTot"></span></div>
+    </div>
+    <button class="primary" type="submit"><svg class="ic"><use href="#i-lock"/></svg><span id="payLbl"></span></button>
+  </form>`;
+  const f=$("#coForm");
+  const upd=()=>{
+    const r=f.mode.value==="retiro", z=ZONES.find(z=>z[0]===$("#cz").value), sh=r?0:z[2];
+    $("#zoneF").hidden=r; $("#uberNote").hidden=r; $("#addrF").hidden=r; $("#sedeF").hidden=!r;
+    $("#uberTxt").textContent=`Sale desde Xocios ${z[3]}. Tarifa estimada; te mandamos el enlace para seguir al repartidor.`;
+    $("#coShip").textContent=r?"Gratis":fmt(sh); $("#coTot").textContent=fmt(s+sh); $("#payLbl").textContent=`Pagar ${fmt(s+sh)}`;
+  };
+  upd(); f.addEventListener("change",upd);
+  f.onsubmit=e=>{ e.preventDefault(); if(!$("#c18").checked){ toast("Confirmá que sos mayor de 18"); return; }
+    const r=f.mode.value==="retiro", z=ZONES.find(z=>z[0]===$("#cz").value);
+    const btn=f.querySelector(".primary"); btn.disabled=true; btn.innerHTML="Procesando pago...";
+    setTimeout(()=>confirmOrder(r?"retiro":"uber", r?$("#cs").value.replace("Xocios ",""):z[3], r?0:z[2], r?"":z[1]),1400); };
+}
+let orders=[], lastChanged=[];
+function confirmOrder(mode,sede,ship,zone){
+  const num="XO-"+(2310+orders.length);
+  const lines=Object.entries(cart);
+  lines.forEach(([id,q])=>{ const p=byId[id]; const k=sede==="Heredia"?"stockH":"stockT", o=k==="stockH"?"stockT":"stockH"; const take=Math.min(q,p[k]); p[k]-=take; p[o]-=(q-take); });
+  const o={num,lines,total:subtotal()+ship,mode,sede,zone,time:now(),status:mode==="uber"?"Buscando repartidor":"Alistando"};
+  orders.unshift(o); lastChanged=lines.map(([id])=>id);
+  cart={}; save(); renderCart(); refreshStock();
+  setTimeout(()=>{ o.status=mode==="uber"?"En camino":"Listo para retirar"; if(openEl===$("#panelModal")) openPanel(); },6000);
+  $("#coTitle").textContent="Pedido pagado";
+  $("#coBody").innerHTML=`<div class="done"><div class="check"><svg class="ic"><use href="#i-check"/></svg></div>
+    <h3>¡Pura vida! Pedido ${num}</h3>
+    <p>${mode==="retiro"?`Lo estamos alistando en Xocios ${sede}. Te avisamos por WhatsApp cuando esté listo para retirar.`:`Xocios ya está pidiendo tu Uber Flash desde la sede de ${sede}. Te mandamos el enlace para seguirlo por WhatsApp.`}</p>
+    <p style="font-size:13px">Tené la cédula a mano: la piden al entregar. La existencia de la sede ya se rebajó, miralo en el panel.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
+      <button class="primary" style="padding:12px 18px" id="seePanel">Ver panel de las sedes</button>
+      <button class="morebtn" style="margin:0" data-close>Seguir comprando</button></div></div>`;
+  $("#seePanel").onclick=openPanel;
+}
+function refreshStock(){ document.querySelectorAll("[data-stock]").forEach(el=>{ const st=stockTxt(byId[el.dataset.stock]); el.classList.toggle("low",st.low); el.textContent=st.t; }); }
+
+/* Panel de las sedes */
+function openPanel(){
+  const ventas=orders.reduce((s,o)=>s+o.total,0), low=P.filter(p=>p.stock<=12);
+  const rows=[...P].sort((a,b)=>(lastChanged.includes(b.id)-lastChanged.includes(a.id))||a.stock-b.stock);
+  $("#panelBody").innerHTML=`
+    <div class="sync"><i></i>Sincronizado con el sistema de caja de Heredia y de Tibás · ${new Date().toLocaleTimeString("es-CR")}</div>
+    <div class="kpis">
+      <div class="kpi"><small>Pedidos web hoy</small><b>${orders.length}</b></div>
+      <div class="kpi"><small>Ventas web hoy</small><b>${fmt(ventas)}</b></div>
+      <div class="kpi"><small>Uber Flash activos</small><b>${orders.filter(o=>o.mode==="uber"&&o.status!=="Entregado").length}</b></div>
+      <div class="kpi"><small>Por reponer</small><b>${low.length}</b></div>
+    </div>
+    ${orders.length?`<div class="sub" style="margin-top:0">Pedidos en línea</div><div class="tbl" style="margin-bottom:16px"><table><thead><tr><th>Pedido</th><th>Hora</th><th>Entrega</th><th>Estado</th><th>Productos</th><th style="text-align:right">Total</th></tr></thead><tbody>
+      ${orders.map(o=>`<tr><td><b>${o.num}</b></td><td>${o.time}</td><td>${o.mode==="uber"?`Uber Flash desde ${o.sede}<br><small style="color:var(--muted)">${o.zone}</small>`:`Retiro en ${o.sede}`}</td><td><span class="st ${/camino|Listo/.test(o.status)?'go':''}">${o.status}</span></td><td>${o.lines.map(([id,q])=>q+"× "+esc(byId[id].name)).join(", ")}</td><td class="n">${fmt(o.total)}</td></tr>`).join("")}</tbody></table></div>`:""}
+    <div class="sub" style="margin-top:0">Existencia por sede</div>
+    <div class="tbl"><table><thead><tr><th>Producto</th><th>Pasillo</th><th style="text-align:right">Precio</th><th style="text-align:right">Heredia</th><th style="text-align:right">Tibás</th><th style="text-align:right">En la web</th></tr></thead><tbody>
+      ${rows.map(p=>`<tr class="${lastChanged.includes(p.id)?'flash':''}"><td><b>${esc(p.name)}</b><br><small style="color:var(--muted)">${p.pres}</small></td><td>${CATS.find(c=>c.id===p.cat).name}</td><td class="n">${fmt(p.price)}</td><td class="n">${p.stockH}</td><td class="n">${p.stockT}</td><td class="n" style="color:${p.stock<=12?'#ffc28a':'inherit'};font-weight:700">${p.stock}</td></tr>`).join("")}
+    </tbody></table></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:12px">Una sola existencia para las cajas de las dos sedes y la tienda en línea. El pedido se rebaja de la sede que lo despacha.</p>`;
+  if(openEl!==$("#panelModal")) openOverlay($("#panelModal"));
+}
+$("#panelLink").onclick=openPanel;
+
+let tt; function toast(msg){ $("#toastT").textContent=msg; $("#toast").classList.add("on"); clearTimeout(tt); tt=setTimeout(()=>$("#toast").classList.remove("on"),2000); }
+
+if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+  const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.remove("pre"); io.unobserve(en.target);} }),{rootMargin:"0px 0px -8% 0px"});
+  document.querySelectorAll(".reveal").forEach(el=>{ const r=el.getBoundingClientRect(); if(r.top>innerHeight){ el.classList.add("pre"); io.observe(el);} });
+}
+</script>
+</body>
+</html>

@@ -72,7 +72,7 @@ PH={
  'tour-sloth':('img/sloth-mother.webp','img/sloth-mother.webp',['img/sloth-mother.webp','img/sloth.webp','img/owl.webp']),
  'tour-arenal-hanging-bridges':('img/hanging-bridges-aerial.webp','img/hanging-bridges-aerial.webp',['img/hanging-bridges-aerial.webp','img/hanging-bridges.webp','img/motmot.webp']),
  'tour-arenal-volcano':('img/arenal-volcano-lake.webp','img/arenal-volcano-lake.webp',['img/arenal-volcano-lake.webp','img/volcano-hiker.webp','img/kayak-volcano.webp']),
- 'tour-jungle-river-safari':('img/safari-float.webp','img/safari-float.webp',['img/safari-float.webp','img/safari-float-river.webp','img/crocodiles.webp']),
+ 'tour-jungle-river-safari':('img/safari-green-family.webp','img/safari-green-family.webp',['img/safari-green-family.webp','img/safari-float.webp','img/safari-float-river.webp','img/crocodiles.webp']),
  'tour-night-walk':('img/frog-night.webp','img/frog-night.webp',['img/frog-night.webp','img/frog.webp',U+'2026/09/jungle-night-walk.jpg']),
 }
 # Volcán: Leo lo vende como "Arenal Volcano Hike" (no amarrado al Parque Nacional, por si un día cierra)
@@ -99,8 +99,8 @@ for c in combos:
     c['group_img']='img/rafting-rapids.webp' if 'rafting' in c['slug'] else 'img/safari-float.webp'
     c['gallery']=[c['group_img'],c['hero'],'img/arenal-volcano-lake.webp']
 base['brand']['hero_images']=['img/arenal-volcano-lake.webp','img/rio-celeste-wide.webp']
-base['brand']['band_image']='https://activearenal.com/wp-content/uploads/2026/10/Safari-Float-ActiveArenal.jpg'
-base['brand']['band_pos']='center 55%'
+base['brand']['band_image']='img/safari-green-family.webp'
+base['brand']['band_pos']='center 58%'
 CAT={'water':'img/kayak-green.webp','wildlife':'img/sloth-mother.webp','volcano':'img/hanging-bridges-aerial.webp','night':'img/frog-night.webp','combo':'img/rafting-rapids.webp'}
 for cat in base['categories']: cat['image']=CAT.get(cat['id'],cat['image'])
 base['tours']=tours;base['combos']=combos

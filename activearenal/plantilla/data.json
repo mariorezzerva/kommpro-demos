@@ -34,7 +34,7 @@
   "reviews_note": "Same owner, same guides: Leo Rodríguez and the team behind Driver Costa Rica, now focused on tours from La Fortuna.",
   "footer_blurb": "Tours from La Fortuna with the local team of Leo Rodríguez. Small groups, real guides, a day you will keep talking about.",
   "legal_note": "Part of Driver Costa Rica, serving travelers since 2002.",
-  "band_image": "https://activearenal.com/wp-content/uploads/2026/10/Safari-Float-ActiveArenal.jpg",
+  "band_image": "img/safari-green-family.webp",
   "band_title": "Nothing here rushes. <em>The river, the sloth, the volcano.</em>",
   "band_text": "We leave from La Fortuna, the town we know best. Small groups, guides who grew up here, and time to actually look around.",
   "ta_rating": "Excellent",
@@ -62,7 +62,7 @@
   "plan_hello": "Pura vida! Tell me who is coming, your dates and how much energy you have. I will suggest the right tours, with real dates to book.",
   "plan_who": "Leo Rodríguez and the local team",
   "plan_who_sub": "Guiding around La Fortuna since 2002",
-  "band_pos": "center 55%"
+  "band_pos": "center 58%"
  },
  "categories": [
   {
@@ -585,8 +585,8 @@
    "product": "tour-jungle-river-safari",
    "title": "Jungle River Safari Float",
    "lead": "Drift downriver and let the wildlife come to you.",
-   "hero": "img/safari-float.webp",
-   "card": "img/safari-float.webp",
+   "hero": "img/safari-green-family.webp",
+   "card": "img/safari-green-family.webp",
    "duration": "~3 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
@@ -620,6 +620,7 @@
    ],
    "bring": "Sunscreen, hat, binoculars, camera.",
    "gallery": [
+    "img/safari-green-family.webp",
     "img/safari-float.webp",
     "img/safari-float-river.webp",
     "img/crocodiles.webp"

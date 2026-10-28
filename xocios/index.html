@@ -335,7 +335,7 @@ form.co{display:grid;gap:14px}
   </div>
 </div>
 
-<div class="demo-ribbon">Demo <b>KommPro</b> · pagos en modo prueba · precios de referencia · temporada: <b id="seasonName">Halloween</b> <button data-season="halloween">Halloween</button><button data-season="navidad">Navidad</button><button data-season="regular">Todo el año</button> <a href="panel/?n=lico">Panel de Fabio</a></div>
+<div class="demo-ribbon">Demo <b>KommPro</b> · pagos en modo prueba · precios de referencia · temporada: <b id="seasonName">Halloween</b> <button data-season="halloween">Halloween</button><button data-season="navidad">Navidad</button><button data-season="regular">Todo el año</button> <a href="panel/index.html#lico-resumen">Panel de Fabio</a></div>
 
 <header class="top">
   <div class="wrap">
@@ -345,7 +345,7 @@ form.co{display:grid;gap:14px}
       <button data-scroll="#pasillos">Pasillos</button>
       <button data-open="cat:combos">Combos</button>
       <button data-scroll="#asistente">Asistente</button>
-      <a class="lab" href="lab/">Xocios Lab</a>
+      <a class="lab" href="lab/index.html">Xocios Lab</a>
     </nav>
     <button class="cartbtn" id="cartBtn" aria-label="Abrir carrito"><svg class="ic"><use href="#i-bag"/></svg><span class="lbl">Carrito</span><span class="n" id="cartCount">0</span></button>
   </div>
@@ -461,7 +461,7 @@ form.co{display:grid;gap:14px}
           <li style="display:flex;gap:8px"><svg class="ic" style="width:16px;margin-top:3px"><use href="#i-pin"/></svg><span>Xocios Heredia<br>Xocios Tibás</span></li>
           <li>WhatsApp 6298-9825</li>
           <li>Instagram @xocios.licorera</li>
-          <li><a href="lab/" style="text-decoration:none;color:#e8cf98">Xocios Lab · perfumería</a></li>
+          <li><a href="lab/index.html" style="text-decoration:none;color:#e8cf98">Xocios Lab · perfumería</a></li>
         </ul>
       </div>
       <div>
@@ -476,7 +476,7 @@ form.co{display:grid;gap:14px}
       </div>
     </div>
     <div class="legal"><b>18+</b><span>Prohibida la venta de bebidas alcohólicas a menores de edad (Ley 9047). Al entregar pedimos cédula. Tomá con moderación y si tomás, no manejés.</span></div>
-    <div class="fbase"><span>Xocio's Lico Market © 2026. Precios con IVA incluido.</span><a href="panel/?n=lico">Panel de administración (demo)</a></div>
+    <div class="fbase"><span>Xocio's Lico Market © 2026. Precios con IVA incluido.</span><a href="panel/index.html#lico-resumen">Panel de administración (demo)</a></div>
   </div>
 </footer>
 
@@ -523,7 +523,7 @@ const IMG = p => "img/" + p.img;
   const g=$("#gate"); if(ok){ g.hidden=true; return; }
   document.body.style.overflow="hidden";
   $("#gateYes").onclick=()=>{ try{sessionStorage.setItem("xo-18","1")}catch(e){} g.hidden=true; document.body.style.overflow=""; };
-  $("#gateNo").onclick=()=>{ g.querySelector(".box").innerHTML = `<img src="img/logo-xocios-lm.webp" alt="Xocio's Lico Market"><h2>Te esperamos cuando cumplás 18</h2><p>La venta de bebidas alcohólicas es solo para mayores de edad. Mientras tanto, podés darte una vuelta por Xocios Lab, nuestra perfumería.</p><a class="primary" href="lab/" style="padding:14px 22px">Ir a Xocios Lab</a>`; };
+  $("#gateNo").onclick=()=>{ g.querySelector(".box").innerHTML = `<img src="img/logo-xocios-lm.webp" alt="Xocio's Lico Market"><h2>Te esperamos cuando cumplás 18</h2><p>La venta de bebidas alcohólicas es solo para mayores de edad. Mientras tanto, podés darte una vuelta por Xocios Lab, nuestra perfumería.</p><a class="primary" href="lab/index.html" style="padding:14px 22px">Ir a Xocios Lab</a>`; };
 })();
 
 /* Catálogo y existencia (compartida con el panel de Fabio) */
@@ -824,7 +824,7 @@ function confirmOrder(mode,sede,ship,zone,name){
     <p>${mode==="retiro"?`Lo estamos alistando en Xocios ${sede}. Te avisamos por WhatsApp cuando esté listo para retirar.`:`Xocios ya está pidiendo tu Uber Flash desde la sede de ${sede}. Te mandamos el enlace para seguirlo por WhatsApp.`}</p>
     <p style="font-size:13px">Tené la cédula a mano: la piden al entregar. La venta ya entró al panel de Fabio y se rebajó de la existencia de ${sede}.</p>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
-      <a class="primary" style="padding:12px 18px" href="panel/?n=lico#pedidos" target="_blank" rel="noopener">Ver en el panel</a>
+      <a class="primary" style="padding:12px 18px" href="panel/index.html#lico-pedidos" target="_blank" rel="noopener">Ver en el panel</a>
       <button class="morebtn" style="margin:0" data-close>Seguir comprando</button></div></div>`;
 }
 function refreshStock(){ document.querySelectorAll("[data-stock]").forEach(el=>{ const st=stockTxt(byId[el.dataset.stock]); el.className="stock "+st.c; el.textContent=st.t; }); }

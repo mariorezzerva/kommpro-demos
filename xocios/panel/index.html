@@ -212,8 +212,8 @@ const isToday=d=>new Date(d).toDateString()===new Date().toDateString();
 let tt; const toast=m=>{ const t=$("#toast"); t.textContent=m; t.classList.add("on"); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("on"),2200); };
 
 const BIZ={
-  lico:{name:"Xocio's Lico Market",short:"Lico Market",sub:"Heredia y Tibás",logo:"../img/logo-xocios-lm.webp",lbg:"#231c5c",store:"../",b1:"#6a22f0",b2:"#f5c33b"},
-  lab:{name:"Xocios Lab",short:"Xocios Lab",sub:"Perfumería · Heredia",logo:"../img/logo-lab-brush.webp",lbg:"#0b0910",store:"../lab/",b1:"#0b0910",b2:"#d6b26a"}
+  lico:{name:"Xocio's Lico Market",short:"Lico Market",sub:"Heredia y Tibás",logo:"../img/logo-xocios-lm.webp",lbg:"#231c5c",store:"../index.html",b1:"#6a22f0",b2:"#f5c33b"},
+  lab:{name:"Xocios Lab",short:"Xocios Lab",sub:"Perfumería · Heredia",logo:"../img/logo-lab-brush.webp",lbg:"#0b0910",store:"../lab/index.html",b1:"#0b0910",b2:"#d6b26a"}
 };
 const LP=XO_LICO.products, LPid=Object.fromEntries(LP.map(p=>[p.id,p]));
 const labProducts=()=>XO.get("xo-lab-new",[]).concat(XO_LAB.products);
@@ -253,12 +253,14 @@ const pName=(biz,id)=>biz==="lico"?(LPid[id]?LPid[id].name:id):(labProducts().fi
 const pImg=(biz,id)=>{ if(biz==="lico") return LPid[id]?"../img/"+LPid[id].img:""; const p=labProducts().find(p=>p.id===id); return p?(labPh[id]||labImg(p)):""; };
 
 /* Ruteo */
-const params=new URLSearchParams(location.search);
-let biz=params.get("n"); if(!BIZ[biz]) biz=null;
-let view=(location.hash||"#resumen").slice(1);
+/* Ruta en el hash: #lico-resumen, #lab-pedidos... (también acepta ?n=lico) */
+let biz=null, view="resumen";
+function readRoute(){ const h=location.hash.slice(1), m=h.match(/^(lico|lab)-([a-z]+)$/);
+  if(m){ biz=m[1]; view=m[2]; } else { const q=new URLSearchParams(location.search).get("n"); if(BIZ[q]){ biz=q; view=h||"resumen"; } else if(!h) biz=null; } }
+readRoute();
 const VIEWS={lico:[["resumen","Resumen","i-home"],["pedidos","Pedidos","i-bag"],["inventario","Inventario por sede","i-box"],["links","Links de pago","i-link"],["conexiones","Conexiones","i-plug"]],
              lab:[["resumen","Resumen","i-home"],["pedidos","Pedidos","i-bag"],["inventario","Existencias","i-box"],["links","Links de pago","i-link"],["conexiones","Celular y conexiones","i-plug"]]};
-window.addEventListener("hashchange",()=>{ view=(location.hash||"#resumen").slice(1); render(); });
+window.addEventListener("hashchange",()=>{ readRoute(); render(); });
 window.addEventListener("storage",()=>{ if(biz && view!=="links") render(true); });
 
 function render(soft){
@@ -275,13 +277,13 @@ function render(soft){
       <div class="lbl">Negocios</div>
       <div class="bizsw">${Object.entries(BIZ).map(([k,b])=>`<button data-biz="${k}" class="${k===biz?'on':''}"><span class="lg" style="background:${b.lbg}"><img src="${b.logo}" alt=""></span><span><b>${b.short}</b><small>${b.sub}</small></span></button>`).join("")}</div>
       <div class="lbl">${B.short}</div>
-      <nav class="nav">${VIEWS[biz].map(([id,l,ic])=>`<a href="#${id}" class="${id===view?'on':''}"><svg class="ic"><use href="#${ic}"/></svg>${l}${id==="pedidos"&&pend?`<span class="cnt">${pend}</span>`:""}</a>`).join("")}</nav>
+      <nav class="nav">${VIEWS[biz].map(([id,l,ic])=>`<a href="#${biz}-${id}" class="${id===view?'on':''}"><svg class="ic"><use href="#${ic}"/></svg>${l}${id==="pedidos"&&pend?`<span class="cnt">${pend}</span>`:""}</a>`).join("")}</nav>
       <div class="foot"><a href="${B.store}" target="_blank" rel="noopener">Ver tienda en línea</a><span>app.kommpro.com · demo</span><button class="btn sm" id="resetDemo" style="background:none;color:#c5cbe8;border-color:rgba(180,197,255,.2);justify-self:start">Reiniciar demo</button></div>
     </aside>
     <main>
       <div class="top"><span class="bizlogo" style="background:${B.lbg}"><img src="${B.logo}" alt=""></span><div class="grow"><h1>${VIEWS[biz].find(v=>v[0]===view)[1]}</h1><small>${B.name} · ${new Date().toLocaleDateString("es-CR",{weekday:"long",day:"numeric",month:"long"})}</small></div>
-        <div class="acts"><a class="btn" href="${B.store}" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ext"/></svg>Tienda</a>${biz==="lab"?`<a class="btn" href="../lab/#panel" target="_blank" rel="noopener"><svg class="ic"><use href="#i-phone"/></svg>Celular</a>`:""}<a class="btn pri" href="#links"><svg class="ic"><use href="#i-link"/></svg>Nuevo link de pago</a></div></div>
-      <div class="mtabs"><select id="mBiz" aria-label="Negocio">${Object.entries(BIZ).map(([k,b])=>`<option value="${k}" ${k===biz?"selected":""}>${b.short}</option>`).join("")}</select>${VIEWS[biz].map(([id,l])=>`<a href="#${id}" class="${id===view?'on':''}">${l}</a>`).join("")}</div>
+        <div class="acts"><a class="btn" href="${B.store}" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ext"/></svg>Tienda</a>${biz==="lab"?`<a class="btn" href="../lab/index.html#panel" target="_blank" rel="noopener"><svg class="ic"><use href="#i-phone"/></svg>Celular</a>`:""}<a class="btn pri" href="#${biz}-links"><svg class="ic"><use href="#i-link"/></svg>Nuevo link de pago</a></div></div>
+      <div class="mtabs"><select id="mBiz" aria-label="Negocio">${Object.entries(BIZ).map(([k,b])=>`<option value="${k}" ${k===biz?"selected":""}>${b.short}</option>`).join("")}</select>${VIEWS[biz].map(([id,l])=>`<a href="#${biz}-${id}" class="${id===view?'on':''}">${l}</a>`).join("")}</div>
       <div class="content" id="content"></div>
     </main></div>`;
   ({resumen,pedidos,inventario,links,conexiones})[view]();
@@ -290,12 +292,12 @@ function render(soft){
   $("#resetDemo").onclick=()=>{ XO.reset(); ["xo-status-lico","xo-status-lab","xo-lab-photos"].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}}); toast("Demo reiniciada"); setTimeout(()=>location.reload(),500); };
   if(soft) window.scrollTo(0,scroll);
 }
-function go(b){ biz=b; history.replaceState(null,"","?n="+b+"#"+view); render(); }
+function go(b){ location.hash=b+"-"+view; }
 function pickScreen(){
   return `<div class="pick"><div class="box">
     <div class="brand" style="padding:0"><svg style="width:40px;height:40px"><use href="#k"/></svg><span class="word" style="font-size:26px">KOMM<span>pro</span></span></div>
     <div><h1>Hola, Fabio.</h1><p style="margin-top:8px">Tenés dos negocios en KommPro. Cada uno con su tienda, sus pedidos, su existencia y sus links de pago.</p></div>
-    <div class="biz">${Object.entries(BIZ).map(([k,b])=>`<a href="?n=${k}#resumen"><span class="lg" style="background:${b.lbg}"><img src="${b.logo}" alt="${b.name}"></span><span><b>${b.name}</b><br><small>${b.sub}</small></span></a>`).join("")}</div>
+    <div class="biz">${Object.entries(BIZ).map(([k,b])=>`<a href="#${k}-resumen"><span class="lg" style="background:${b.lbg}"><img src="${b.logo}" alt="${b.name}"></span><span><b>${b.name}</b><br><small>${b.sub}</small></span></a>`).join("")}</div>
     <p style="font-size:12.5px">Demo de app.kommpro.com · los datos de ventas anteriores son de ejemplo; lo que compres en las tiendas de demo entra aquí al instante.</p>
   </div></div>`;
 }
@@ -321,13 +323,13 @@ function resumen(){
     kpis=[["Ventas hoy",fmt(ventas),`${n} pedidos`],["Por links de pago",fmt(tL),"lo que se vende por WhatsApp"],["Para regalo",today.filter(o=>o.gift).length,"con empaque y tarjeta"],["Por reponer",low,"3 unidades o menos"]];
     chart=bars(days.map(d=>[d.web,d.link]),days,["Tienda en línea","Links de pago"],["#1f1a28","var(--b2)"]);
     const log=XO.get("xo-lab-log",[]).slice(0,5);
-    side=`<div class="card"><h3>Celular de la tienda <small>últimos cambios</small></h3>${log.length?`<div class="toplist">${log.map(l=>`<div style="grid-template-columns:1fr auto"><span>${esc(l.txt)}</span><small>${hhmm(l.t)}</small></div>`).join("")}</div>`:`<p class="note" style="margin:0">Hoy a las 9:02 a. m. se subió la existencia del día desde el celular (19 productos).</p>`}<p class="note"><a href="../lab/#panel" target="_blank" rel="noopener">Abrir el celular de la tienda</a></p></div>`;
+    side=`<div class="card"><h3>Celular de la tienda <small>últimos cambios</small></h3>${log.length?`<div class="toplist">${log.map(l=>`<div style="grid-template-columns:1fr auto"><span>${esc(l.txt)}</span><small>${hhmm(l.t)}</small></div>`).join("")}</div>`:`<p class="note" style="margin:0">Hoy a las 9:02 a. m. se subió la existencia del día desde el celular (19 productos).</p>`}<p class="note"><a href="../lab/index.html#panel" target="_blank" rel="noopener">Abrir el celular de la tienda</a></p></div>`;
   }
   const top={}; O.filter(o=>new Date(o.time)>Date.now()-7*864e5).forEach(o=>o.lines.forEach(([id,q,pr])=>{ top[id]=top[id]||[0,0]; top[id][0]+=q; top[id][1]+=q*(pr||0); }));
   const topL=Object.entries(top).sort((a,b)=>b[1][1]-a[1][1]).slice(0,5);
   $("#content").innerHTML=`<div class="kpis">${kpis.map(([l,v,e])=>`<div class="kpi"><small>${l}</small><b>${v}</b><em>${e}</em></div>`).join("")}</div>
     <div class="grid2"><div class="card chart"><h3>Ventas en línea <small>últimos 14 días</small></h3>${chart}</div>${side}</div>
-    <div class="grid2"><div class="card"><h3>Pedidos de hoy <a class="btn sm" href="#pedidos">Ver todos</a></h3>${miniOrders(today.slice(0,5))}</div>
+    <div class="grid2"><div class="card"><h3>Pedidos de hoy <a class="btn sm" href="#${biz}-pedidos">Ver todos</a></h3>${miniOrders(today.slice(0,5))}</div>
     <div class="card"><h3>Lo más vendido <small>7 días</small></h3><div class="toplist ${biz==="lab"?"dark":""}">${topL.length?topL.map(([id,[q,v]])=>`<div><img src="${pImg(biz,id)}" alt=""><span><b>${esc(pName(biz,id))}</b><small>${q} unidades</small></span><span>${fmt(v)}</span></div>`).join(""):`<p class="note">Todavía no hay ventas.</p>`}</div></div></div>`;
 }
 function bars(vals,days,names,cols){
@@ -435,7 +437,7 @@ function invLab(){
   const log=XO.get("xo-lab-log",[]);
   $("#content").innerHTML=`<div class="sync"><span class="pill"><i></i><b>Vitrina Heredia</b> · última carga desde el celular ${log.length?hhmm(log[0].t):"9:02 a. m."}</span><span class="pill"><b>${labProducts().length}</b> productos · <b>${L.reduce((s,p)=>s+(st[p.id]??p.stock),0)}</b> unidades</span></div>
     <div class="tools"><label class="search"><svg class="ic" style="color:var(--muted)"><use href="#i-search"/></svg><input id="invQ" type="search" placeholder="Buscar perfume o marca" value="${esc(invQ)}"></label><div class="chips"><button id="invLow" class="${invLow?'on':''}">Por reponer</button></div>
-      <a class="btn pri" style="margin-left:auto" href="../lab/#panel" target="_blank" rel="noopener"><svg class="ic"><use href="#i-phone"/></svg>Abrir el celular de la tienda</a></div>
+      <a class="btn pri" style="margin-left:auto" href="../lab/index.html#panel" target="_blank" rel="noopener"><svg class="ic"><use href="#i-phone"/></svg>Abrir el celular de la tienda</a></div>
     <div class="tbl"><table><thead><tr><th>Producto</th><th>Para</th><th class="n">Precio</th><th class="n">Existencia</th><th>Último cambio</th></tr></thead><tbody>
     ${L.map(p=>{ const v=st[p.id]??p.stock, c=v<=0?"out":v<=3?"low":""; const lc=log.find(l=>l.txt.includes(p.name));
       return `<tr class="${flashId===p.id?'flash':''}"><td><div class="pi dark"><img src="${labPh[p.id]||labImg(p)}" alt=""><span><b>${esc(p.name)}</b><small>${esc(p.brand)} · ${esc(p.ml)}${p.isNew?" · nuevo desde el celular":""}</small></span></div></td><td>${p.g==="m"?"Él":p.g==="f"?"Ella":"Unisex"}</td><td class="n">${fmt(p.price)}</td><td class="n"><span class="${c}">${stepper(p.id,"n",v)}</span></td><td><small class="note">${lc?hhmm(lc.t)+" · "+esc(lc.txt.split(":")[0]):"Carga del día"}</small></td></tr>`; }).join("")}

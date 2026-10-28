@@ -92,8 +92,8 @@ header.top{position:sticky;top:0;z-index:40;background:rgba(18,8,48,.86);backdro
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:28px;padding-block:44px 48px}.stage{min-height:auto;max-width:460px}.polaroid,.stamp{display:none}.combo-glass{position:relative;width:100%;top:0}}
 
 /* Temporadas: cada una tiñe la portada, la cinta y el acento */
-html[data-season=halloween]{--acc:#b6f25a;--tk-bg:#0d0620;--tk-fg:#b6f25a;--tk-x:#8b5cf6}
-html[data-season=halloween] .hero{background:radial-gradient(900px 560px at 85% 25%,rgba(139,92,246,.45) 0%,transparent 60%),radial-gradient(600px 400px at 60% 100%,rgba(182,242,90,.14) 0%,transparent 60%),radial-gradient(800px 500px at 5% 100%,#2a0f73 0%,transparent 60%),var(--night)}
+html[data-season=halloween]{--acc:#f5c33b;--tk-bg:#3a1488;--tk-fg:#f5c33b;--tk-x:#b9a2ff}
+html[data-season=halloween] .hero{background:radial-gradient(900px 560px at 85% 25%,rgba(139,92,246,.45) 0%,transparent 60%),radial-gradient(600px 400px at 60% 100%,rgba(245,195,59,.12) 0%,transparent 60%),radial-gradient(800px 500px at 5% 100%,#2a0f73 0%,transparent 60%),var(--night)}
 html[data-season=black]{--acc:#e9c46a;--tk-bg:#0a0909;--tk-fg:#e9c46a;--tk-x:#e9c46a}
 html[data-season=black] .hero{background:radial-gradient(900px 520px at 80% 30%,rgba(233,196,106,.22) 0%,transparent 60%),linear-gradient(180deg,#0b0a0d,#141018)}
 html[data-season=black] .hero .hex{opacity:.25;filter:grayscale(1)}
@@ -122,7 +122,7 @@ section.blk{padding-block:80px}
 .aisles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
 .aisle{position:relative;background:linear-gradient(170deg,var(--night-3),var(--night-2));border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 14px;text-align:left;display:flex;flex-direction:column;gap:3px;min-height:220px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
 .aisle:hover{transform:translateY(-3px);border-color:rgba(245,195,59,.5);box-shadow:0 20px 40px -24px rgba(106,34,240,.9)}
-.aisle .plate{position:absolute;right:-26px;bottom:-30px;width:150px;height:150px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 6px rgba(255,255,255,.08)}
+.aisle .plate{position:absolute;right:-26px;bottom:-30px;width:150px;height:150px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;box-shadow:0 0 0 6px rgba(255,255,255,.08)}
 .aisle .plate img{height:96px;width:auto;max-width:90px;object-fit:contain;transform:translate(-16px,-18px);transition:transform .5s;}
 .aisle:hover .plate img{transform:translate(-18px,-28px) rotate(-6deg)}
 .aisle b{font:800 17px/1.15 var(--display);position:relative;max-width:12ch}
@@ -141,15 +141,18 @@ section.blk{padding-block:80px}
 .assist li{display:flex;gap:10px;align-items:flex-start;color:#e5dcff}
 .assist li .ic{color:var(--gold);margin-top:3px}
 .assist .halo{position:absolute;left:-120px;bottom:-160px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(245,195,59,.16),transparent 65%)}
-.chatcard{margin:22px;background:#efeae2;border-radius:22px;display:flex;flex-direction:column;overflow:hidden;color:#1d1a24;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.chatcard{align-self:center;margin:22px;background:#efeae2;border-radius:22px;display:flex;flex-direction:column;overflow:hidden;color:#1d1a24;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
 .chathead{display:flex;align-items:center;gap:12px;background:#231c5c;color:#fff;padding:12px 16px}
 .avx{width:40px;height:40px;border-radius:50%;background:#120830;display:grid;place-items:center;flex:none;border:2px solid var(--gold);overflow:hidden}
 .avx img{width:34px;height:auto}
 .chathead b{display:block;font-size:15px}
 .chathead small{color:#e3d8ff;font-size:12px}
-.chatbody{padding:16px;display:flex;flex-direction:column;gap:8px;overflow-y:auto;height:340px;background-color:#efeae2;background-image:radial-gradient(rgba(84,24,210,.07) 1px,transparent 1px);background-size:14px 14px;transition:height .3s}
+.chatbody{padding:16px;display:flex;flex-direction:column;gap:8px;overflow-y:auto;height:auto;min-height:0;background-color:#efeae2;background-image:radial-gradient(rgba(84,24,210,.07) 1px,transparent 1px);background-size:14px 14px;transition:height .3s}
 .chatbody.grow{height:450px}
-.chatbody .empty{margin:auto;text-align:center;color:#6b6478;font-size:14px;max-width:30ch}
+.chatbody .empty{margin:6px auto;text-align:center;color:#6b6478;font-size:14px;display:grid;gap:12px;justify-items:center;padding:8px 0}
+.chatbody .empty .sug{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chatbody .empty .sug button{background:#fff;border:1px solid #ddd5ea;color:#3b2a6e;border-radius:999px;padding:8px 13px;font-size:13.5px;font-weight:600}
+.chatbody .empty .sug button:hover{border-color:var(--violet);color:var(--violet)}
 .chatbody .empty b{display:block;font:800 18px var(--display);color:#1d1a24;margin-bottom:6px}
 .msg{max-width:88%;padding:8px 11px 6px;border-radius:12px;font-size:14.5px;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08)}
 .msg.me{align-self:flex-end;background:#d9fdd3;border-top-right-radius:3px}
@@ -200,7 +203,7 @@ section.blk{padding-block:80px}
 .feat.photo{background:#0b0618 center top/cover no-repeat}
 .feat.photo::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,5,34,.96) 0%,rgba(14,5,34,.25) 50%,transparent 70%)}
 .feat.combo{background:radial-gradient(60% 45% at 50% 38%,color-mix(in srgb,var(--acc) 30%,transparent),transparent 72%),linear-gradient(165deg,#2a1260,#140932)}
-.feat.combo .shot{position:absolute;inset:18px 18px 40% 18px;background:#fff;border-radius:16px}
+.feat.combo .shot{position:relative;flex:1;min-height:260px;margin-bottom:14px;background:#fff;border-radius:16px}
 .feat.combo .shot img{position:absolute;inset:6%;width:88%;height:88%;object-fit:contain}
 .feat.story .ask{margin-top:auto;position:relative;background:var(--acc);color:#1b0c44;border:0;border-radius:14px;padding:13px 16px;font-weight:800;display:flex;gap:8px;align-items:center;justify-content:center}
 .feat.story{background:radial-gradient(500px 300px at 90% 0%,color-mix(in srgb,var(--acc) 26%,transparent),transparent 65%),linear-gradient(165deg,#24104f,#140932);justify-content:flex-start;gap:14px}
@@ -471,7 +474,7 @@ form.co{display:grid;gap:14px}
         </div>
         <div class="chatcard" aria-label="Chat con el asistente de Xocio's">
           <div class="chathead"><span class="avx"><img src="img/logo-xocios-lm.webp" alt=""></span><div><b>Xocio · Lico Market</b><small>en línea · responde al toque</small></div></div>
-          <div class="chatbody" id="chatBody"><div class="empty" id="chatEmpty"><b>Escribí lo que ocupás</b>y te lo armo en un momento.</div></div>
+          <div class="chatbody" id="chatBody"><div class="empty" id="chatEmpty"><div><b>Escribí lo que ocupás</b>y te lo armo en un momento.</div><div class="sug"><button type="button" data-say="Fiesta para 15 el sábado">Fiesta para 15</button><button type="button" data-say="Carne asada para 8">Carne asada para 8</button><button type="button" data-say="Un regalo con 30 mil">Regalo con 30 mil</button><button type="button" data-say="¿Hacen envíos hoy?">¿Envíos hoy?</button></div></div></div>
           <form class="chatin" id="chatForm"><input id="chatIn" type="text" placeholder="Escribí un mensaje" aria-label="Mensaje para el asistente" autocomplete="off"><button type="submit" aria-label="Enviar"><svg class="ic"><use href="#i-send"/></svg></button></form>
         </div>
       </div>
@@ -494,7 +497,7 @@ form.co{display:grid;gap:14px}
       <div class="fiesta reveal">
         <div class="copy">
           <div class="eyebrow">Fiestas privadas y pedidos grandes</div>
-          <h2>¿Fiesta grande? <em>Fabio te la cotiza.</em></h2>
+          <h2>¿Fiesta grande? <em>El Xocio te la cotiza.</em></h2>
           <p>Cumpleaños, bodas, fiestas de empresa o el fiestón en la casa. Para pedidos grandes armamos la lista a la medida, con precio por volumen y la entrega coordinada desde Heredia o Tibás.</p>
           <ul>
             <li><svg class="ic"><use href="#i-check"/></svg>Birras por caja y destilados especiales que no siempre están en línea</li>
@@ -776,9 +779,8 @@ function renderSeason(){
   const c2=byId[s.combos[1]];
   const big=`<article class="feat combo"><div class="shot"><img src="${IMG(c2)}" alt="${esc(c2.name)}"></div><div class="gl"><span class="kick">Combo ${s.label}</span><h3>${esc(c2.name)}</h3><p>${esc(c2.pres)}</p><div class="row">${priceHTML(c2).replace('class="price"','class="price" style="font-size:28px;color:var(--acc)"')}<button class="add" data-add="${c2.id}">${plus}Agregar</button></div></div></article>`;
   const now=SEASON.key==="black"?(()=>{const d=new Date().getDate();return d<=8?0:d<=15?1:d<=22?2:3;})():-1;
-  const story=`<article class="feat story"><div class="gl"><span class="kick">${s.story.kick}</span><h3>${s.story.title}</h3><div class="steps">${s.story.steps.map((x,i)=>`<div class="step${i===now&&new Date().getMonth()===10?" now":""}"><b class="d">${x[0]}</b><div><strong>${x[1]}</strong><span>${x[2]}</span></div></div>`).join("")}</div></div><button class="ask" data-say="${esc(s.ask)}"><svg class="ic"><use href="#i-send"/></svg>${esc(s.askL)}</button></article>`;
   const ids=[s.combos[0],...s.ids.slice(0,3),s.combos[2],...s.ids.slice(3,6)].filter(id=>byId[id]);
-  $("#featured").innerHTML = big + ids.slice(0,4).map(id=>card(byId[id])).join("") + story + ids.slice(4).map(id=>card(byId[id])).join("");
+  $("#featured").innerHTML = big + ids.slice(0,8).map(id=>card(byId[id])).join("");
   renderAisles();
 }
 renderSeason();

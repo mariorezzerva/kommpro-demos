@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Xocio's Lico Market en línea</title>
-<meta name="description" content="Pedidos para fiestas privadas: birras por caja, destilados especiales, hielo y bocas. Pagá con tarjeta y recibí por Uber Flash desde Xocios Heredia o Xocios Tibás. Venta solo a mayores de 18.">
+<meta name="description" content="Licores, birras, combos de temporada y bocas de Xocio's Lico Market. Pagá con tarjeta y recibí por Uber Flash desde Xocios Heredia o Xocios Tibás. Venta solo a mayores de 18.">
 <meta name="theme-color" content="#120830">
 <link rel="icon" href="img/logo-xocios-lm.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Xocio's Lico Market: noche violeta, dorado de la X nueva, neón y fotos reales de producto sobre blanco. */
+/* Xocio's Lico Market: noche violeta, dorado de la X nueva y fotos de producto recortadas, sin fondo. La portada cambia con la temporada. */
 :root{
   --night:#120830; --night-2:#1b0c44; --night-3:#251257;
   --violet:#6a22f0; --violet-d:#5418d2; --lilac:#b9a2ff;
@@ -19,6 +19,7 @@
   --text:#f4f1ff; --muted:#b3a8d6; --line:rgba(185,162,255,.18);
   --display:"Montserrat",system-ui,sans-serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:20px;
+  --acc:#f5c33b; --tk-bg:#f5c33b; --tk-fg:#1b0c44; --tk-x:#6a22f0;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -56,7 +57,8 @@ header.top{position:sticky;top:0;z-index:40;background:rgba(18,8,48,.86);backdro
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-block:66px 64px}
 .hero .wrap>*{min-width:0}
 .hero h1{font-size:clamp(40px,5.6vw,74px);font-weight:900;letter-spacing:-.025em;max-width:13ch}
-.hero h1 em{font-style:italic;color:var(--gold)}
+.hero h1 em{font-style:italic;color:var(--acc)}
+.hero .eyebrow{color:var(--acc)}
 .hero p.lead{max-width:46ch;font-size:18px;color:#d6ccf6;margin:18px 0 26px}
 .search{display:flex;align-items:center;gap:10px;max-width:560px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:999px;padding:6px 6px 6px 18px}
 .search input{flex:1;min-width:0;background:none;border:0;color:#fff;font:16px var(--body);outline:none}
@@ -68,35 +70,45 @@ header.top{position:sticky;top:0;z-index:40;background:rgba(18,8,48,.86);backdro
 .notes{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:26px;font-size:13px;color:#c9bff0}
 .notes span{display:flex;align-items:center;gap:7px}
 .notes .ic{width:15px;height:15px;color:var(--gold)}
-.stage{position:relative;min-height:500px}
-.polaroid{position:absolute;left:0;top:10px;width:50%;border-radius:18px;overflow:hidden;transform:rotate(-5deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.18)}
-.polaroid img{aspect-ratio:1/1;object-fit:cover;width:100%}
+.stage{position:relative;min-height:520px}
+.polaroid{position:absolute;left:0;top:10px;width:50%;border-radius:18px;overflow:hidden;transform:rotate(-5deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.18);margin:0}
+.polaroid img{aspect-ratio:4/5;object-fit:cover;width:100%}
 .polaroid span{position:absolute;left:10px;bottom:10px;font-size:12px;font-weight:600;background:rgba(18,8,48,.7);backdrop-filter:blur(8px);border-radius:999px;padding:5px 10px}
-.combo-glass{position:absolute;right:0;top:40px;width:64%;background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:26px;padding:14px;box-shadow:0 40px 80px -30px rgba(10,0,40,.9)}
-.combo-glass .ph{border-radius:18px;overflow:hidden;background:#fff;aspect-ratio:13/10;position:relative}
-.combo-glass .ph img{width:100%;height:100%;object-fit:contain}
-.combo-glass .chip{position:absolute;top:10px;left:10px;font:700 11px var(--body);letter-spacing:.1em;text-transform:uppercase;background:var(--violet);color:#fff;border-radius:999px;padding:6px 10px}
-.combo-glass h3{font-size:18px;font-weight:800;margin:14px 4px 2px}
-.combo-glass .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:6px 4px 2px}
-.combo-glass .big{font:900 30px var(--display);color:var(--gold);letter-spacing:-.02em}
-.combo-glass .ph{aspect-ratio:16/9}
-.party{display:grid;gap:8px;padding:2px 4px 0}
-.ptop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
-.ptop h3{margin:0!important}
-.pstep{display:flex;border:1px solid rgba(255,255,255,.25);border-radius:999px;overflow:hidden}
-.pstep button{width:34px;height:30px;border:0;background:rgba(255,255,255,.06);font-size:17px}
-.pstep button:hover{background:rgba(245,195,59,.2)}
-.plines{display:grid;gap:3px;font-size:13px;color:#d6ccf6}
-.plines div{display:flex;justify-content:space-between;gap:10px}
-.plines span:last-child{font-variant-numeric:tabular-nums;color:#fff}
-.ptalk{background:none;border:0;color:var(--lilac);font-size:13px;text-decoration:underline;text-underline-offset:3px;justify-self:start;padding:0}
-@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:28px;padding-block:44px 48px}.stage{min-height:auto;max-width:440px}.polaroid{display:none}.combo-glass{position:relative;width:100%;top:0}}
+.stamp{position:absolute;left:0;top:-6px;width:210px;z-index:3;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;transform:rotate(-8deg);border:1px solid rgba(255,255,255,.18);background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.2),rgba(20,8,48,.75) 62%);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 60px -24px rgba(0,0,0,.8)}
+.stamp div{display:grid;gap:4px;padding:16px}
+.stamp small{font:700 11px var(--body);letter-spacing:.24em;text-transform:uppercase;color:#d6ccf6}
+.stamp b{font:900 32px/.95 var(--display);letter-spacing:-.02em;color:var(--acc)}
+.stamp i{font:800 13px var(--display);font-style:normal;letter-spacing:.3em;color:#fff;border-top:1px solid rgba(255,255,255,.25);padding-top:8px;margin-top:4px}
+.combo-glass{position:absolute;right:0;top:40px;width:66%;background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:26px;padding:14px 14px 16px;box-shadow:0 40px 80px -30px rgba(10,0,40,.9)}
+.combo-glass .ph{border-radius:18px;overflow:hidden;aspect-ratio:4/3;position:relative;background:radial-gradient(60% 55% at 50% 70%,color-mix(in srgb,var(--acc) 34%,transparent),transparent 72%),rgba(10,4,26,.35)}
+.combo-glass .ph img{position:absolute;inset:14% 6% 4%;width:88%;height:82%;object-fit:contain;object-position:50% 100%;filter:drop-shadow(0 18px 18px rgba(0,0,0,.55))}
+.combo-glass .chip{position:absolute;top:10px;right:10px;font:700 11px var(--body);letter-spacing:.1em;text-transform:uppercase;background:var(--acc);color:#1b0c44;border-radius:999px;padding:6px 10px}
+.combo-glass h3{font-size:20px;font-weight:900;margin:14px 4px 2px}
+.combo-glass p{margin:0 4px;font-size:13.5px;color:#d6ccf6}
+.combo-glass .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 4px 0;flex-wrap:wrap}
+.combo-glass .big{font:900 30px var(--display);color:var(--acc);letter-spacing:-.02em;display:flex;align-items:baseline;gap:8px}
+.was{font:600 13px var(--body);color:var(--muted);text-decoration:line-through}
+.sep{font:500 12px var(--body);color:var(--muted)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:28px;padding-block:44px 48px}.stage{min-height:auto;max-width:460px}.polaroid,.stamp{display:none}.combo-glass{position:relative;width:100%;top:0}}
 
-.ticker{background:var(--gold);color:#1b0c44;overflow:hidden;white-space:nowrap}
+/* Temporadas: cada una tiñe la portada, la cinta y el acento */
+html[data-season=halloween]{--acc:#ff8a1f;--tk-bg:#ff8a1f;--tk-fg:#1b0c44;--tk-x:#1b0c44}
+html[data-season=halloween] .hero{background:radial-gradient(900px 560px at 85% 25%,rgba(255,122,26,.42) 0%,transparent 60%),radial-gradient(800px 500px at 5% 100%,#2a0f73 0%,transparent 60%),var(--night)}
+html[data-season=black]{--acc:#e9c46a;--tk-bg:#0a0909;--tk-fg:#e9c46a;--tk-x:#e9c46a}
+html[data-season=black] .hero{background:radial-gradient(900px 520px at 80% 30%,rgba(233,196,106,.22) 0%,transparent 60%),linear-gradient(180deg,#0b0a0d,#141018)}
+html[data-season=black] .hero .hex{opacity:.25;filter:grayscale(1)}
+html[data-season=navidad]{--acc:#ffd166;--tk-bg:#c8102e;--tk-fg:#fff;--tk-x:#ffd166}
+html[data-season=navidad] .hero{background:radial-gradient(800px 520px at 85% 25%,rgba(200,16,46,.55) 0%,transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(15,107,58,.6) 0%,transparent 60%),#160a24}
+html[data-season=verano]{--acc:#ffb547;--tk-bg:#12b5c9;--tk-fg:#08283a;--tk-x:#ffb547}
+html[data-season=verano] .hero{background:radial-gradient(900px 560px at 85% 20%,rgba(255,159,67,.45) 0%,transparent 60%),radial-gradient(800px 500px at 0% 100%,rgba(18,181,201,.45) 0%,transparent 60%),#10163a}
+html[data-season=parejas]{--acc:#ff5c8a;--tk-bg:#ff5c8a;--tk-fg:#2a0614;--tk-x:#2a0614}
+html[data-season=parejas] .hero{background:radial-gradient(900px 560px at 85% 25%,rgba(255,61,127,.42) 0%,transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(120,10,50,.6) 0%,transparent 60%),#1a0822}
+
+.ticker{background:var(--tk-bg);color:var(--tk-fg);overflow:hidden;white-space:nowrap}
 .ticker .lane{display:flex;width:max-content}
 .ticker .track{display:flex;flex:none;padding-block:12px;animation:tick 34s linear infinite}
 .ticker span{font:800 14px var(--display);letter-spacing:.02em;text-transform:uppercase;padding:0 20px;display:inline-flex;align-items:center;gap:20px}
-.ticker span::after{content:"";width:12px;height:12px;background:var(--violet);clip-path:polygon(20% 0,50% 30%,80% 0,100% 20%,70% 50%,100% 80%,80% 100%,50% 70%,20% 100%,0 80%,30% 50%,0 20%)}
+.ticker span::after{content:"";width:12px;height:12px;background:var(--tk-x);clip-path:polygon(20% 0,50% 30%,80% 0,100% 20%,70% 50%,100% 80%,80% 100%,50% 70%,20% 100%,0 80%,30% 50%,0 20%)}
 @keyframes tick{to{transform:translateX(-100%)}}
 
 section.blk{padding-block:80px}
@@ -110,14 +122,14 @@ section.blk{padding-block:80px}
 .aisles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
 .aisle{position:relative;background:linear-gradient(170deg,var(--night-3),var(--night-2));border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 14px;text-align:left;display:flex;flex-direction:column;gap:3px;min-height:220px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
 .aisle:hover{transform:translateY(-3px);border-color:rgba(245,195,59,.5);box-shadow:0 20px 40px -24px rgba(106,34,240,.9)}
-.aisle .plate{position:absolute;right:-18px;bottom:-18px;width:132px;height:132px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;box-shadow:0 0 0 6px rgba(255,255,255,.06)}
-.aisle .plate img{width:84px;height:84px;object-fit:contain;transform:translate(-12px,-12px);transition:transform .5s}
-.aisle:hover .plate img{transform:translate(-12px,-16px) rotate(-6deg)}
+.aisle .plate{position:absolute;right:-26px;bottom:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(245,195,59,.28),rgba(106,34,240,.12) 55%,transparent 70%);display:grid;place-items:center}
+.aisle .plate img{height:118px;width:auto;max-width:110px;object-fit:contain;transform:translate(-18px,-22px);transition:transform .5s;filter:drop-shadow(0 10px 12px rgba(0,0,0,.5))}
+.aisle:hover .plate img{transform:translate(-18px,-28px) rotate(-6deg)}
 .aisle b{font:800 17px/1.15 var(--display);position:relative;max-width:12ch}
 .aisle small{color:var(--muted);font-size:12.5px;position:relative;max-width:15ch;line-height:1.35}
 .aisle .count{margin-top:auto;font-size:12px;font-weight:600;color:var(--gold);position:relative;display:flex;align-items:center;gap:4px}
 @media (max-width:1000px){.aisles{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:640px){.aisles{grid-template-columns:repeat(2,1fr)}.aisle{min-height:200px}.aisle .plate{width:92px;height:92px;right:-14px;bottom:-14px}.aisle .plate img{width:60px;height:60px;transform:translate(-8px,-8px)}.aisle .count{font-size:11px}.aisle .count .ic{display:none}}
+@media (max-width:640px){.aisles{grid-template-columns:repeat(2,1fr)}.aisle{min-height:200px}.aisle .plate{width:110px;height:110px;right:-18px;bottom:-22px}.aisle .plate img{height:84px;max-width:80px;transform:translate(-12px,-14px)}.aisle .count{font-size:11px}.aisle .count .ic{display:none}}
 
 /* Asistente */
 .assist{background:linear-gradient(140deg,#24104f,#150a34);border:1px solid var(--line);border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1fr 1.1fr;position:relative}
@@ -162,18 +174,20 @@ section.blk{padding-block:80px}
 .chatin button{width:44px;height:44px;border-radius:50%;border:0;background:var(--violet);color:#fff;display:grid;place-items:center}
 @media (max-width:900px){.assist{grid-template-columns:1fr}.assist .copy{padding:36px 24px 0}.chatcard{margin:18px}}
 
-/* Vitrina: foto real sobre blanco */
+/* Vitrina: producto recortado sobre un brillo suave */
 .shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .prod{background:linear-gradient(175deg,#211049,#190b3b);border:1px solid var(--line);border-radius:var(--r);padding:10px 10px 12px;display:flex;flex-direction:column;gap:4px;position:relative;transition:box-shadow .3s,transform .3s,border-color .3s}
 .prod:hover{box-shadow:0 22px 44px -28px rgba(106,34,240,1);transform:translateY(-2px);border-color:rgba(185,162,255,.35)}
-.prod .ph{aspect-ratio:1/1;border-radius:14px;background:#fff;display:grid;place-items:center;overflow:hidden;position:relative}
-.prod .ph img{width:88%;height:88%;object-fit:contain;transition:transform .5s}
+.prod .ph{aspect-ratio:1/1;border-radius:14px;background:radial-gradient(58% 50% at 50% 62%,rgba(185,162,255,.22),transparent 72%),rgba(255,255,255,.025);display:grid;place-items:center;overflow:hidden;position:relative}
+.prod .ph img{position:absolute;inset:8% 10%;width:80%;height:84%;object-fit:contain;transition:transform .5s;filter:drop-shadow(0 14px 14px rgba(0,0,0,.5))}
 .prod:hover .ph img{transform:scale(1.05)}
+.prod .tag.deal{background:var(--acc);color:#1b0c44}
 .prod .tag{position:absolute;top:18px;left:18px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:var(--violet);color:#fff;z-index:1}
 .prod h3{font:800 15px/1.22 var(--display);margin-top:8px;padding-inline:4px}
 .prod .pres{font-size:12.5px;color:var(--muted);padding-inline:4px}
 .prod .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding:8px 4px 0}
-.price{font:900 19px var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.price{font:900 19px var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.01em;display:grid;line-height:1.1}
+.price .was{font-size:12px}
 .add{display:flex;align-items:center;gap:6px;background:rgba(245,195,59,.12);color:var(--gold);border:1px solid rgba(245,195,59,.45);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700}
 .add:hover{background:var(--gold);color:#241400}
 .add.ok{background:#2fbf71;border-color:#2fbf71;color:#fff}
@@ -185,17 +199,26 @@ section.blk{padding-block:80px}
 .feat{grid-column:span 2;grid-row:span 2;border-radius:var(--r);overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;min-height:480px;border:1px solid rgba(255,255,255,.14)}
 .feat.photo{background:#0b0618 center top/cover no-repeat}
 .feat.photo::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,5,34,.96) 0%,rgba(14,5,34,.25) 50%,transparent 70%)}
-.feat.white{background:#fff}
-.feat.white .shot{position:absolute;inset:0 0 34% 0;display:grid;place-items:center}
-.feat.white .shot img{max-height:92%;width:auto}
+.feat.combo{background:radial-gradient(60% 45% at 50% 38%,color-mix(in srgb,var(--acc) 30%,transparent),transparent 72%),linear-gradient(165deg,#2a1260,#140932)}
+.feat.combo .shot{position:absolute;inset:18px 18px 40% 18px}
+.feat.combo .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;filter:drop-shadow(0 22px 22px rgba(0,0,0,.6))}
+.feat.story .ask{margin-top:auto;position:relative;background:var(--acc);color:#1b0c44;border:0;border-radius:14px;padding:13px 16px;font-weight:800;display:flex;gap:8px;align-items:center;justify-content:center}
+.feat.story{background:radial-gradient(500px 300px at 90% 0%,color-mix(in srgb,var(--acc) 26%,transparent),transparent 65%),linear-gradient(165deg,#24104f,#140932);justify-content:flex-start;gap:14px}
+.feat.story .gl{background:none;border:0;padding:6px;backdrop-filter:none;-webkit-backdrop-filter:none}
+.steps{display:grid;gap:10px;margin-top:4px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);border-radius:14px;padding:12px}
+.step b.d{font:900 13px var(--display);color:#1b0c44;background:var(--acc);border-radius:10px;padding:6px 8px;min-width:64px;text-align:center}
+.step strong{display:block;font:800 15px var(--display)}
+.step span{font-size:13px;color:#cfc4f2}
+.step.now{border-color:var(--acc);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 25%,transparent)}
 .feat .gl{position:relative;background:rgba(27,12,68,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:16px;display:grid;gap:10px}
-.feat .kick{font:700 11.5px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.feat .kick{font:700 11.5px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
 .feat h3{font:900 27px/1.04 var(--display)}
 .feat p{margin:0;color:#d6ccf6;font-size:14.5px;max-width:44ch}
 .feat .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .minis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .mini{background:rgba(10,4,26,.45);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:6px;display:grid;gap:4px;text-align:center;font-size:12px;font-weight:600}
-.mini .w{background:#fff;border-radius:10px;height:92px;display:grid;place-items:center;overflow:hidden}
+.mini .w{background:radial-gradient(circle at 50% 60%,rgba(185,162,255,.2),transparent 70%);border-radius:10px;height:92px;display:grid;place-items:center;overflow:hidden}
 .mini img{max-width:84%;max-height:84px;object-fit:contain}
 .mini button{background:var(--gold);color:#241400;border:0;border-radius:999px;padding:6px 8px;font-size:12px;font-weight:700}
 @media (max-width:1000px){.shelf{grid-template-columns:repeat(2,1fr)}.feat{grid-row:auto;min-height:440px}}
@@ -203,9 +226,38 @@ section.blk{padding-block:80px}
 .morebtn{margin:34px auto 0;display:flex;align-items:center;gap:8px;background:none;border:1.5px solid rgba(255,255,255,.5);border-radius:999px;padding:12px 22px;font-weight:600;color:#fff}
 .morebtn:hover{background:#fff;color:var(--night)}
 
-/* Franja: dos fotos reales recientes */
-.band{display:grid;grid-template-columns:.8fr .8fr 1.2fr;gap:12px;align-items:stretch}
-.band .pic{border-radius:24px;overflow:hidden;min-height:420px;background:#0b0618 center/cover no-repeat;border:1px solid var(--line)}
+/* Fiestas privadas: lo cotiza Fabio aparte */
+.fiesta{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:radial-gradient(700px 400px at 0% 0%,rgba(106,34,240,.45),transparent 60%),linear-gradient(160deg,#1f0d4a,#120830)}
+.fiesta>*{min-width:0}
+.fiesta .copy{padding:44px 40px;display:flex;flex-direction:column;gap:16px}
+.fiesta h2{font-size:clamp(30px,3.8vw,46px);font-weight:900}
+.fiesta h2 em{color:var(--gold);font-style:italic}
+.fiesta .copy p{margin:0;color:#d6ccf6;max-width:44ch}
+.fiesta ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:9px;font-size:15px}
+.fiesta li{display:flex;gap:10px;align-items:flex-start;color:#e5dcff}
+.fiesta li .ic{color:var(--gold);margin-top:3px}
+.fiesta form{margin:18px;padding:22px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:grid;gap:14px;align-content:start}
+.fiesta form h3{font-size:20px;font-weight:900}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative;cursor:pointer}
+.chips input{position:absolute;opacity:0}
+.chips span{display:inline-flex;height:34px;align-items:center;padding:0 13px;border-radius:999px;border:1px solid rgba(255,255,255,.22);font-size:13.5px;background:rgba(255,255,255,.04)}
+.chips input:checked+span{background:var(--gold);border-color:var(--gold);color:#241400;font-weight:700}
+.chips input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.wa{background:#25d366;color:#05220f;border-radius:14px;padding:14px;font-weight:800;text-decoration:none;display:flex;justify-content:center;gap:8px;align-items:center}
+.wa:hover{background:#1fbe5b}
+.fiesta .num{font-size:12.5px;color:var(--muted);text-align:center}
+@media (max-width:900px){.fiesta{grid-template-columns:1fr}.fiesta .copy{padding:34px 22px 6px}.fiesta form{margin:14px}}
+
+/* Franja de sedes: la contrabarra con botellas recortadas */
+.band{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;align-items:stretch}
+.band>*{min-width:0}
+.bar{position:relative;border-radius:24px;overflow:hidden;min-height:400px;border:1px solid var(--line);background:radial-gradient(70% 50% at 50% 80%,rgba(245,195,59,.25),transparent 70%),linear-gradient(180deg,#1b0c44,#0d0526);display:flex;align-items:flex-end;justify-content:center;padding:0 18px 36px}
+.bar::after{content:"";position:absolute;left:0;right:0;bottom:28px;height:10px;background:linear-gradient(90deg,transparent,rgba(245,195,59,.55),transparent);filter:blur(1px)}
+.bar .row{display:flex;align-items:flex-end;justify-content:center;width:100%}
+.bar img{height:clamp(150px,22vw,250px);width:auto;max-width:22%;object-fit:contain;margin:0 -8px;filter:drop-shadow(0 16px 14px rgba(0,0,0,.6));position:relative}
+.bar img:nth-child(even){height:clamp(130px,19vw,215px)}
+.bar img:nth-child(4){z-index:2;height:clamp(170px,25vw,280px)}
 .band .gl{border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.18);padding:30px;display:flex;flex-direction:column;justify-content:center;gap:14px}
 .band h2{font-size:clamp(28px,3.2vw,40px);font-weight:900}
 .band h2 em{color:var(--gold);font-style:italic}
@@ -213,7 +265,7 @@ section.blk{padding-block:80px}
 .sedes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
 .sede{border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px;font-size:13.5px;display:grid;gap:2px}
 .sede b{font:800 15px var(--display)}
-@media (max-width:900px){.band{grid-template-columns:1fr 1fr}.band .gl{grid-column:1/-1;order:-1}.band .pic{min-height:300px}}
+@media (max-width:900px){.band{grid-template-columns:1fr}.bar{min-height:280px;order:2}}
 
 footer{background:#0b0520;color:#bdb2e3;margin-top:60px;border-top:1px solid var(--line)}
 footer .wrap{padding-block:56px 28px}
@@ -249,7 +301,7 @@ footer button.lnk:hover,footer a:hover{color:#fff}
 .x{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.06);display:grid;place-items:center}
 .dbody{flex:1;overflow-y:auto;padding:16px 20px}
 .citem{display:grid;grid-template-columns:58px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line)}
-.citem img{width:58px;height:58px;border-radius:12px;background:#fff;object-fit:contain;padding:3px}
+.citem img{width:58px;height:58px;border-radius:12px;background:rgba(255,255,255,.06);object-fit:contain;padding:4px}
 .citem b{font:800 14.5px/1.2 var(--display);display:block}
 .citem small{color:var(--muted);font-size:12.5px}
 .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05)}
@@ -346,7 +398,7 @@ form.co{display:grid;gap:14px}
   </div>
 </div>
 
-<div class="demo-ribbon">Demo <b>KommPro</b> · pagos en modo prueba · precios de referencia · temporada: <b id="seasonName">Halloween</b> <button data-season="halloween">Halloween</button><button data-season="navidad">Navidad</button><button data-season="regular">Todo el año</button> <a href="panel/index.html#lico-resumen">Panel de Fabio</a></div>
+<div class="demo-ribbon">Demo <b>KommPro</b> · pagos en modo prueba · precios de referencia · temporada: <b id="seasonName">Halloween</b> <button data-tmp="halloween">Halloween · oct</button><button data-tmp="black">Black Month · nov</button><button data-tmp="navidad">Navidad · dic</button><button data-tmp="verano">Verano · ene</button><button data-tmp="parejas">Parejas · feb</button><button data-tmp="regular">Todo el año</button> <a href="panel/index.html#lico-resumen">Panel de Fabio</a></div>
 
 <header class="top">
   <div class="wrap">
@@ -356,6 +408,7 @@ form.co{display:grid;gap:14px}
       <button data-scroll="#pasillos">Pasillos</button>
       <button data-open="cat:combos">Combos</button>
       <button data-scroll="#asistente">Asistente</button>
+      <button data-scroll="#fiestas">Fiestas</button>
       <a class="lab" href="lab/index.html">Xocios Lab</a>
     </nav>
     <button class="cartbtn" id="cartBtn" aria-label="Abrir carrito"><svg class="ic"><use href="#i-bag"/></svg><span class="lbl">Carrito</span><span class="n" id="cartCount">0</span></button>
@@ -367,9 +420,9 @@ form.co{display:grid;gap:14px}
     <div class="hex"></div>
     <div class="wrap">
       <div>
-        <div class="eyebrow">Fiestas privadas · Xocios Heredia &amp; Tibás</div>
-        <h1 style="margin-top:14px">Hacé tu pedido para <em>fiestas privadas.</em></h1>
-        <p class="lead">Birras por caja, destilados especiales, hielo y bocas para 10 o para 100. Decinos cuántos son, lo pagás con tarjeta y Xocios te lo manda por Uber Flash. Y si es solo un six, también te lo llevamos.</p>
+        <div class="eyebrow" id="sEye"></div>
+        <h1 style="margin-top:14px" id="sH1"></h1>
+        <p class="lead" id="sLead"></p>
         <form class="search" id="heroSearch" role="search">
           <svg class="ic" style="color:#a99ccf"><use href="#i-search"/></svg>
           <input id="q" type="search" placeholder="Buscá Buchanan's, Zacapa, six pack, hielo..." aria-label="Buscar en la tienda" autocomplete="off">
@@ -383,16 +436,9 @@ form.co{display:grid;gap:14px}
         </div>
       </div>
       <div class="stage">
-        <figure class="polaroid" style="margin:0"><img src="img/lico-rotulo-plaza.webp" alt="Rótulo de Plaza Xocio's con Xocios Lab y Xocio's Lico Market"><span>Plaza Xocio's</span></figure>
-        <div class="combo-glass" id="partyCard">
-          <div class="ph"><img src="img/p/combo-mejenga.webp" alt="Six pack de Pilsen con hielo"><span class="chip">Fiesta privada</span></div>
-          <div class="party">
-            <div class="ptop"><h3>Fiesta para <span id="pN">20</span></h3><div class="pstep"><button type="button" data-pn="-5" aria-label="Menos personas">−</button><button type="button" data-pn="5" aria-label="Más personas">+</button></div></div>
-            <div class="plines" id="pLines"></div>
-            <div class="row"><span class="big" id="pTot"></span><button class="add" id="pAdd"><svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>Agregar todo</button></div>
-            <button type="button" class="ptalk" data-say="Fiesta para 20">Ajustarla con el asistente</button>
-          </div>
-        </div>
+        <figure class="polaroid" id="sPoster" hidden><img src="img/lico-miedo.webp" alt="Post de Halloween de Xocio's con Buchanan's Coconut"><span>@xocios.licorera</span></figure>
+        <div class="stamp" id="sStamp" hidden><div></div></div>
+        <div class="combo-glass" id="sCard"></div>
       </div>
     </div>
   </section>
@@ -435,28 +481,59 @@ form.co{display:grid;gap:14px}
   <section class="blk" id="destacados" style="padding-top:20px">
     <div class="wrap">
       <div class="head reveal">
-        <div><div class="eyebrow">Lo más pedido</div><h2>Para la fiesta y para el día a día</h2></div>
-        <p>Combos, destilados y también el six de siempre. Precios con IVA incluido; la existencia sale de las cajas de Heredia y Tibás, en vivo.</p>
+        <div><div class="eyebrow" id="fKick"></div><h2 id="fTitle"></h2></div>
+        <p id="fCopy"></p>
       </div>
       <div class="shelf" id="featured"></div>
       <button class="morebtn" data-open="all">Ver toda la tienda <svg class="ic"><use href="#i-arrow"/></svg></button>
     </div>
   </section>
 
+  <section class="blk" style="padding-top:10px" id="fiestas">
+    <div class="wrap">
+      <div class="fiesta reveal">
+        <div class="copy">
+          <div class="eyebrow">Fiestas privadas y pedidos grandes</div>
+          <h2>¿Fiesta grande? <em>Fabio te la cotiza.</em></h2>
+          <p>Cumpleaños, bodas, fiestas de empresa o el fiestón en la casa. Para pedidos grandes armamos la lista a la medida, con precio por volumen y la entrega coordinada desde Heredia o Tibás.</p>
+          <ul>
+            <li><svg class="ic"><use href="#i-check"/></svg>Birras por caja y destilados especiales que no siempre están en línea</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Hielo, mezcladores y bocas calculados para tu gente</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Te respondemos por WhatsApp con la cotización y un link de pago</li>
+          </ul>
+        </div>
+        <form id="fiestaForm" aria-label="Pedir cotización para una fiesta">
+          <h3>Contanos de tu fiesta</h3>
+          <div class="two">
+            <div class="fld"><label for="fTipo">¿Qué celebran?</label><select id="fTipo"><option>Cumpleaños</option><option>Fiesta en la casa</option><option>Fiesta de empresa</option><option>Boda</option><option>Otra</option></select></div>
+            <div class="fld"><label for="fN">¿Cuántos son?</label><input id="fN" type="number" min="10" max="1000" value="40" inputmode="numeric"></div>
+          </div>
+          <div class="two">
+            <div class="fld"><label for="fFecha">Fecha</label><input id="fFecha" type="date"></div>
+            <div class="fld"><label for="fNom">Tu nombre</label><input id="fNom" placeholder="Nombre" autocomplete="name"></div>
+          </div>
+          <div class="fld"><label>¿Qué toman?</label>
+            <div class="chips" id="fChips"></div></div>
+          <a class="wa" id="fWa" href="https://wa.me/50662989825" target="_blank" rel="noopener"><svg class="ic"><use href="#i-send"/></svg>Pedir cotización por WhatsApp</a>
+          <div class="num">O escribí directo al WhatsApp de Xocios: 6298-9825</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <section class="blk" style="padding-top:10px" id="sedes">
     <div class="wrap">
       <div class="band reveal">
-        <div class="pic" style="background-image:url('img/lico-refri.webp')" role="img" aria-label="Refri con el logo de Xocio's Licomarket"></div>
-        <div class="pic" style="background-image:url('img/lico-casadragones.webp');background-position:center 30%" role="img" aria-label="Tequila Casa Dragones edición especial en Xocio's"></div>
         <div class="gl">
           <div class="eyebrow">Dos sedes, el mismo trato</div>
           <h2>De la refri a tu casa, <em>bien fría.</em></h2>
-          <p>Licores nacionales e importados, ediciones especiales y lo de siempre para la mejenga. Pedí en línea y retirás sin hacer fila, o te lo mandamos.</p>
+          <p>Licores nacionales e importados, ediciones especiales y lo de siempre para la mejenga. Pedí en línea y retirás sin hacer fila, o te lo mandamos por Uber Flash.</p>
           <div class="sedes">
             <div class="sede"><b>Xocios Heredia</b><span>Retiro y Uber Flash</span></div>
             <div class="sede"><b>Xocios Tibás</b><span>Retiro y Uber Flash</span></div>
           </div>
         </div>
+        <div class="bar" role="img" aria-label="Botellas de la contrabarra de Xocio's"><div class="row" id="backbar"></div></div>
       </div>
     </div>
   </section>
@@ -531,6 +608,7 @@ const fmt = n => "₡" + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,"
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const IMG = p => "img/" + p.img;
+const WA = "https://wa.me/50662989825";
 
 /* Mayoría de edad */
 (function(){
@@ -548,46 +626,174 @@ const byId = Object.fromEntries(P.map(p=>[p.id,p]));
 function applyStock(){ const ov = XO.get("xo-lico-stock",{}); P.forEach(p=>{ const o=ov[p.id]; if(o){ p.h=o[0]; p.t=o[1]; if(o[2]===false) p.off=true; else delete p.off; } }); }
 applyStock();
 const stockOf = p => p.off ? 0 : p.h + p.t;
-const find = (txt,cat) => P.filter(p=>(!cat||p.cat===cat) && norm(p.name+" "+p.pres).includes(norm(txt)));
+let SEASON=null;
+const visible = p => !p.season || (SEASON && p.season===SEASON.key);
+const find = (txt,cat) => P.filter(p=>visible(p)&&(!cat||p.cat===cat) && norm(p.name+" "+p.pres).includes(norm(txt)));
 
-/* Pills y cinta */
-$("#pills").innerHTML = [["Fiesta para 30","say:Fiesta para 30"],["Carne asada","say:Carne asada para 12"],["Destilados especiales","cat:whisky"],["Combos","cat:combos"],["Six pack","six pack"]].map(([l,q])=>q.startsWith("cat:")?`<button type="button" class="pill" data-open="${q}">${l}</button>`:q.startsWith("say:")?`<button type="button" class="pill" data-say="${q.slice(4)}">${l}</button>`:`<button type="button" class="pill" data-q="${q}">${l}</button>`).join("");
-const TK = ["Fiestas privadas","Birras por caja","Destilados especiales","Hielo y bocas","Uber Flash coordinado por Xocios","Xocios Heredia","Xocios Tibás","Solo mayores de 18"].map(t=>`<span>${t}</span>`).join("");
-$("#tk1").innerHTML = TK; $("#tk2").innerHTML = TK;
-
-/* Pasillos */
-$("#aisles").innerHTML = CATS.map(c=>`<button class="aisle reveal" data-open="cat:${c.id}"><span class="plate"><img src="img/${c.img}" alt=""></span><b>${c.name}</b><small>${c.note}</small><span class="count">${c.count} productos <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></button>`).join("");
+/* Pasillos (el conteo de combos depende de la temporada) */
+function renderAisles(){
+  $("#aisles").innerHTML = CATS.map(c=>`<button class="aisle reveal" data-open="cat:${c.id}"><span class="plate"><img src="img/${c.img}" alt=""></span><b>${c.name}</b><small>${c.note}</small><span class="count">${P.filter(p=>p.cat===c.id&&visible(p)).length} productos <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></button>`).join("");
+}
 $("#footCats").innerHTML = CATS.map(c=>`<li><button class="lnk" data-open="cat:${c.id}">${c.name}</button></li>`).join("");
+$("#backbar").innerHTML = ["tanqueray","centenario7","whisky-fireball-l-1000-ml","buchanans12","t1800a","cuervo","baileys"].map(id=>`<img src="${IMG(byId[id])}" alt="${esc(byId[id].name)}">`).join("");
 
 /* Tarjeta */
+const plus = `<svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>`;
 function stockTxt(p){ const n=stockOf(p); return n<=0?{c:"out",t:"Agotado por hoy"}:n<=6?{c:"low",t:`Quedan ${n}`}:{c:"",t:`${n} disponibles`}; }
+function priceHTML(p){
+  if(p.dealWas) return `<span class="price"><span class="was">${fmt(p.dealWas)}</span>${fmt(p.price)}</span>`;
+  if(p.was && p.was>p.price) return `<span class="price"><span class="was">${fmt(p.was)} por separado</span>${fmt(p.price)}</span>`;
+  return `<span class="price">${fmt(p.price)}</span>`;
+}
 function card(p){
   const st=stockTxt(p), n=stockOf(p);
-  return `<article class="prod">${p.tag?`<span class="tag">${p.tag}</span>`:""}
+  const tag = p.dealWas?`<span class="tag deal">${SEASON.dealTag}</span>`:(p.season?`<span class="tag deal">${SEASON.label}</span>`:(p.tag?`<span class="tag">${p.tag}</span>`:""));
+  return `<article class="prod">${tag}
     <div class="ph"><img src="${IMG(p)}" alt="${esc(p.name)}"></div>
     <h3>${esc(p.name)}</h3><div class="pres">${esc(p.pres)}</div>
     <div class="stock ${st.c}" data-stock="${p.id}">${st.t}</div>
-    <div class="row"><span class="price">${fmt(p.price)}</span>
-    <button class="add" data-add="${p.id}" ${n<=0?"disabled":""} aria-label="Agregar ${esc(p.name)}"><svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>Agregar</button></div>
+    <div class="row">${priceHTML(p)}
+    <button class="add" data-add="${p.id}" ${n<=0?"disabled":""} aria-label="Agregar ${esc(p.name)}">${plus}Agregar</button></div>
   </article>`;
 }
+
+/* Temporadas: la tienda rota de concepto cada mes. Fabio cambia la temporada desde el panel;
+   en la demo se escoge por fecha o con los botones de la cinta de arriba. */
 const SEASONS = {
-  halloween:{key:"halloween",label:"Halloween",kick:"Temporada de Halloween",title:"Llegó Buchanan's Coconut",copy:"Lo nuevo para la fiesta de disfraces. Con Max Energy para los que aguantan hasta tarde.",bg:"img/lico-miedo.webp",items:["buchananscoco","maxenergy","silver6"],ids:["silver6","cacique","combo-mejenga","coca3","buchanans12","hielo","corona","cuervo"]},
-  navidad:{key:"navidad",label:"Navidad",kick:"Temporada navideña",title:"Brindis de diciembre",copy:"El Baileys del rompope, el whisky para regalar y el ron de la cena. Pedí con tiempo y retirás sin fila.",items:["baileys","buchanans18","centenario7"],ids:["silver6","centenario4","zacapa","jwblack","coca3","hielo","combo-buchanans","cacique"]},
-  regular:{key:"regular",label:"Todo el año",kick:"Para el partido",title:"Mejenga en la casa",copy:"Birras heladas, algo de picar y hielo. Lo armás en un minuto y lo tenés antes del pitazo.",items:["pilsen6","pringles","hielo"],ids:["centenario4","silver6","cacique","coca3","buchanans12","corona","cuervo","combo-guaro"]}
+  halloween:{key:"halloween",ask:"Fiesta de Halloween para 20",askL:"Armame la fiesta de Halloween",label:"Halloween",dealTag:"Halloween",
+    eye:"Temporada de Halloween · hasta el 31 de octubre",
+    h1:"¿Miedo? Miedo da <em>quedarse sin hielo.</em>",
+    lead:"Armá la fiesta de disfraces con Buchanan's Coconut, la pócima roja de guaro y birras bien frías. Pagás con tarjeta y te llega por Uber Flash, o retirás en Heredia o Tibás.",
+    poster:true, hero:"combo-coco-highball", chip:"El trago de la noche",
+    pills:[["Coco Highball","add:combo-coco-highball"],["Pócima roja","add:combo-pocima"],["Fiesta de disfraces para 20","say:Fiesta de Halloween para 20"],["Lo picante","q:fire"]],
+    tk:["Halloween en Xocio's","Buchanan's Coconut","Pócima roja","Fiesta de disfraces","Uber Flash coordinado por Xocios","Solo mayores de 18"],
+    fKick:"Temporada de Halloween", fTitle:"Lo que se toma esta semana", fCopy:"Combos armados para la fiesta de disfraces y lo que más sale en las refris. Precios con IVA; la existencia sale de Heredia y Tibás, en vivo.",
+    combos:["combo-coco-highball","combo-pocima","combo-disfraces"],
+    ids:["buchananscoco","whisky-fireball-l-1000-ml","whisky-jack-daniels-fire-l-1000-ml","cacique-ligao-sandia-1-litro","four-loco-purple-473ml","smirnoff-raspberry-crush-350ml","silver6","hielo"],
+    story:{kick:"Recetas de la noche",title:"Tres pócimas fáciles",steps:[
+      ["Coco","Coco Highball","Buchanan's Coconut, Ginger Ale y mucho hielo. Rodaja de limón si hay."],
+      ["Roja","Pócima roja","Cacique Liga'o Sandía con Fresca. Sale en jarra para todo el grupo."],
+      ["Fuego","Shots de Fireball","Bien fríos, directo del congelador. Uno por disfraz."]]}},
+  black:{key:"black",ask:"¿Qué hay en promo?",askL:"¿Qué hay en precio Black hoy?",label:"Black Month",dealTag:"Precio Black",
+    eye:"Xocios Black Month · todo noviembre",
+    h1:"Noviembre se pone <em>negro.</em>",
+    lead:"Un mes entero de precios Black en etiquetas negras, whisky y birras oscuras. Cada semana cambia la promo y el viernes 27 se viene el Black Friday con los combos más bravos.",
+    stamp:["Xocios","Black<br>Month","NOV"], hero:"combo-black-label", chip:"Precio Black",
+    pills:[["Black Label con soda","add:combo-black-label"],["Whisky en promo","cat:whisky"],["Noche negra","add:combo-noche-negra"],["Black Friday","add:combo-duo-black"]],
+    tk:["Xocios Black Month","Precios Black todo noviembre","Black Friday 27 de noviembre","Etiquetas negras","Uber Flash coordinado por Xocios","Solo mayores de 18"],
+    fKick:"Xocios Black Month", fTitle:"Lo negro, a precio Black", fCopy:"Etiquetas negras, whisky y birras oscuras con precio especial todo noviembre, mientras haya existencia en Heredia y Tibás.",
+    combos:["combo-black-label","combo-noche-negra","combo-duo-black"],
+    deals:{jwblack:21900,"whisky-johnnie-walker-double-black-l-1000-ml":25900,zacapa:35900,jack7:19500,"whisky-black-and-white-l-1000-ml":10900,"whisky-old-parr-18-anos-b-750-ml":38900,"smirnoff-black-350ml":1250,"cerveza-modelo-negra-botella-355ml":1100,"cerveza-pilsen-6-0-lata-350ml":1050},
+    ids:["jwblack","whisky-johnnie-walker-double-black-l-1000-ml","zacapa","jack7","whisky-old-parr-18-anos-b-750-ml","whisky-black-and-white-l-1000-ml","cerveza-modelo-negra-botella-355ml","smirnoff-black-350ml"],
+    story:{kick:"Calendario Black",title:"Cada semana, otra promo",steps:[
+      ["2 al 8","Semana del whisky","Etiquetas negras y Old Parr con precio Black."],
+      ["9 al 15","Semana del ron","Zacapa y Centenario 7, para la sobremesa."],
+      ["16 al 22","Birras por caja","Six packs y negras para el fin de semana."],
+      ["27 al 30","Black Friday","Dúo Black y los combos más bravos del año."]]}},
+  navidad:{key:"navidad",ask:"Un regalo con 40 mil",askL:"Ayudame con un regalo",label:"Navidad",dealTag:"Navidad",
+    eye:"Navidad en Xocio's · todo diciembre",
+    h1:"Lo que se regala, <em>se brinda.</em>",
+    lead:"Estuches para quedar bien, el Baileys del rompope y combos para la cena del 24 y el 31. Pedí con tiempo: en diciembre las refris se vacían rápido.",
+    stamp:["Xocio's","Feliz<br>Navidad","DIC"], hero:"combo-cena-24", chip:"Para la cena",
+    pills:[["Cena del 24","add:combo-cena-24"],["Rompope y sobremesa","add:combo-rompope"],["Regalo con 40 mil","say:Un regalo con 40 mil"],["Estuches","q:años"]],
+    tk:["Navidad en Xocio's","Estuches de regalo","Cena del 24","Brindis del 31","Pedí con tiempo","Solo mayores de 18"],
+    fKick:"Combos navideños", fTitle:"Para la cena, el regalo y el brindis", fCopy:"Estuches de whisky, cremas para el rompope y el ron de la cena. Separá tu pedido con tiempo y retirás sin fila.",
+    combos:["combo-cena-24","combo-rompope","combo-brindis-31"],
+    ids:["buchanans18","oldparr12","whisky-jw-gold-label-reserve-750ml","chivas12","baileys","amarula","centenario7","zacapa"],
+    story:{kick:"Pedí con tiempo",title:"Fechas de diciembre",steps:[
+      ["20 dic","Regalos de empresa","Último día para pedidos grandes con estuche."],
+      ["23 dic","Cena del 24","Pedidos hasta las 6 p. m. para recibir el 24."],
+      ["30 dic","Brindis del 31","Pedidos hasta las 6 p. m. para recibir el 31."]]}},
+  verano:{key:"verano",ask:"Paseo a la playa para 10",askL:"Armame la hielera",label:"Verano",dealTag:"Verano",
+    eye:"Combos de verano · todo enero",
+    h1:"Hielera llena, <em>verano completo.</em>",
+    lead:"Todo en lata para la playa, el río o la piscina. Six packs, preparados bien fríos y hielo de sobra, listo para echar al carro.",
+    stamp:["Xocio's","Combos de<br>verano","ENE"], hero:"combo-hielera", chip:"Para la playa",
+    pills:[["Hielera playera","add:combo-hielera"],["Tarde de piscina","add:combo-piscina"],["Paseo para 10","say:Paseo a la playa para 10"],["Listos para tomar","cat:listos"]],
+    tk:["Combos de verano","Todo en lata","Hielo de sobra","Playa, río y piscina","Uber Flash coordinado por Xocios","Si tomás, no manejés"],
+    fKick:"Combos de verano", fTitle:"Lo que cabe en la hielera", fCopy:"Latas que no se quiebran, preparados que solo hay que enfriar y hielo para todo el día.",
+    combos:["combo-hielera","combo-piscina","combo-malibu"],
+    ids:["silver6","ultra6","light6","bamboo-pina-colada-350ml","adan-eva-maracuya-pina-355ml","malibu","cacique-ligao-frutal-1-l","hielo"],
+    story:{kick:"Antes de salir",title:"La hielera bien hecha",steps:[
+      ["1","Hielo abajo","Una bolsa de 2,5 kg por cada 2 six packs."],
+      ["2","Latas, no vidrio","En la playa y el río, mejor todo en lata."],
+      ["3","Quién maneja","Que alguien vuelva sin tomar. Para esa persona, agua y Gatorade."]]}},
+  parejas:{key:"parejas",ask:"Noche para dos",askL:"Armame la noche para dos",label:"Parejas",dealTag:"Para dos",
+    eye:"Mes de parejas · todo febrero",
+    h1:"Una botella, <em>dos copas.</em>",
+    lead:"Para la cena en casa, la peli del sábado o el detalle del 14. Combos para dos, listos para pedir y que te lleguen a la puerta.",
+    stamp:["Xocio's","Mes de<br>parejas","FEB"], hero:"combo-peli", chip:"Noche para dos",
+    pills:[["Noche de peli","add:combo-peli"],["Brindis del 14","add:combo-brindis-14"],["Algo dulce","q:crema"],["Un detalle con 25 mil","say:Un regalo con 25 mil"]],
+    tk:["Mes de parejas","Combos para dos","Brindis del 14","Noche de peli","Uber Flash coordinado por Xocios","Solo mayores de 18"],
+    fKick:"Mes de parejas", fTitle:"Para dos", fCopy:"Cremas, tequila del bueno y sangría para brindar. Todo con entrega coordinada por Xocios.",
+    combos:["combo-peli","combo-brindis-14","combo-para-dos"],
+    ids:["amarula","baileys","t1800a","hennessy","sangria-estiu-botella-330ml","smirnoff-raspberry-crush-350ml","malibu","palomitas-act-ii-caramelo-161-4g"],
+    story:{kick:"Ideas para el 14",title:"Planes que no fallan",steps:[
+      ["Peli","Noche de peli","Amarula con hielo y palomitas. Cero complicación."],
+      ["Cena","Cena en casa","Tequila 1800 Añejo para tomar despacio, después de comer."],
+      ["Brindis","Brindis del 14","Sangría Estiu bien fría y algo de picar."]]}},
+  regular:{key:"regular",ask:"Fiesta para 10",askL:"Armame un pedido",label:"Todo el año",dealTag:"Promo",
+    eye:"Xocios Heredia & Tibás · en línea",
+    h1:"La lico de siempre, <em>ahora en línea.</em>",
+    lead:"Birras bien frías, destilados, combos y bocas. Pagás con tarjeta y te llega por Uber Flash, o retirás sin fila en Heredia o Tibás.",
+    stamp:["Xocio's","Lico<br>Market","24/7 en línea"], hero:"combo-centenario", chip:"El combo de siempre",
+    pills:[["Combos","cat:combos"],["Para el partido","say:Para el partido somos 6"],["Whisky","cat:whisky"],["Six pack","q:six pack"]],
+    tk:["Xocio's Lico Market","Birras bien frías","Combos","Uber Flash coordinado por Xocios","Xocios Heredia","Xocios Tibás","Solo mayores de 18"],
+    fKick:"Lo más pedido", fTitle:"Lo de siempre, a un toque", fCopy:"Combos, destilados y el six de siempre. Precios con IVA; la existencia sale de Heredia y Tibás, en vivo.",
+    combos:["combo-centenario","combo-mejenga","combo-guaro"],
+    ids:["silver6","pilsen6","centenario4","cacique","buchanans12","cuervo","coca3","hielo"],
+    story:{kick:"Cómo funciona",title:"Pedí y relajate",steps:[
+      ["1","Escogé","Por pasillo, por combo o pidiéndole al asistente."],
+      ["2","Pagá con tarjeta","Cobro seguro y factura electrónica al correo."],
+      ["3","Uber Flash o retiro","Xocios coordina el viaje desde la sede más cercana."]]}}
 };
 let seasonOverride=null;
-function currentSeason(){ if(seasonOverride) return SEASONS[seasonOverride]; const m=new Date().getMonth()+1; return m===10?SEASONS.halloween:(m>=11?SEASONS.navidad:SEASONS.regular); }
-function renderFeatured(){
-  const s=currentSeason(), c=byId["combo-centenario"];
-  const combo=`<article class="feat white"><div class="shot"><img src="img/p/combo-centenario.webp" alt="Combo Ron Centenario con Coca-Cola"></div><div class="gl"><span class="kick">El combo del mes</span><h3>Ron Centenario + Coca-Cola 1,5 L</h3><p>La combinación de siempre, para compartir y disfrutar. Pedila bien fría.</p><div class="row"><span class="price" style="font-size:28px;color:var(--gold)">${fmt(c.price)}</span><button class="add" data-add="${c.id}"><svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>Agregar</button></div></div></article>`;
-  const minis=s.items.map(id=>{const p=byId[id];return `<div class="mini"><span class="w"><img src="${IMG(p)}" alt=""></span><span>${esc(p.name)}</span><span>${fmt(p.price)}</span><button data-add="${id}">Agregar</button></div>`}).join("");
-  const season=`<article class="feat ${s.bg?'photo':''}" style="${s.bg?`background-image:url(${s.bg})`:'background:radial-gradient(400px 300px at 80% 10%,rgba(245,195,59,.2),transparent 60%),linear-gradient(160deg,#4a17c9,#1b0c44)'}"><div class="gl"><span class="kick">${s.kick}</span><h3>${s.title}</h3><p>${s.copy}</p><div class="minis">${minis}</div></div></article>`;
-  $("#seasonName").textContent=s.label;
-  document.querySelectorAll("[data-season]").forEach(b=>b.classList.toggle("on",b.dataset.season===s.key));
-  $("#featured").innerHTML = combo + s.ids.slice(0,4).map(id=>card(byId[id])).join("") + season + s.ids.slice(4).map(id=>card(byId[id])).join("");
+try{ const h=location.hash.match(/^#temporada-(\w+)$/); if(h&&SEASONS[h[1]]) seasonOverride=h[1]; }catch(e){}
+addEventListener("hashchange",()=>{ const h=location.hash.match(/^#temporada-(\w+)$/); if(h&&SEASONS[h[1]]){ seasonOverride=h[1]; renderSeason(); } });
+function seasonByDate(d=new Date()){ const m=d.getMonth()+1; return {10:"halloween",11:"black",12:"navidad",1:"verano",2:"parejas"}[m]||"regular"; }
+function applySeason(){
+  SEASON = SEASONS[seasonOverride||seasonByDate()];
+  document.documentElement.dataset.season=SEASON.key;
+  P.forEach(p=>{ if(p.base==null) p.base=p.price; p.price=p.base; delete p.dealWas; });
+  Object.entries(SEASON.deals||{}).forEach(([id,v])=>{ const p=byId[id]; if(p){ p.dealWas=p.base; p.price=v; } });
 }
-renderFeatured();
+function pillHTML([l,q]){ const [k,v]=[q.slice(0,q.indexOf(":")),q.slice(q.indexOf(":")+1)];
+  return k==="cat"?`<button type="button" class="pill" data-open="cat:${v}">${l}</button>`:k==="say"?`<button type="button" class="pill" data-say="${esc(v)}">${l}</button>`:k==="add"?`<button type="button" class="pill" data-add="${v}">${l}</button>`:`<button type="button" class="pill" data-q="${esc(v)}">${l}</button>`; }
+function renderSeason(){
+  applySeason(); const s=SEASON;
+  $("#seasonName").textContent=s.label;
+  document.querySelectorAll("[data-tmp]").forEach(b=>b.classList.toggle("on",b.dataset.tmp===s.key));
+  $("#sEye").textContent=s.eye; $("#sH1").innerHTML=s.h1; $("#sLead").textContent=s.lead;
+  $("#pills").innerHTML=s.pills.map(pillHTML).join("");
+  $("#sPoster").hidden=!s.poster; $("#sStamp").hidden=!!s.poster;
+  if(s.stamp) $("#sStamp div").innerHTML=`<small>${s.stamp[0]}</small><b>${s.stamp[1]}</b><i>${s.stamp[2]}</i>`;
+  const h=byId[s.hero];
+  $("#sCard").innerHTML=`<div class="ph"><img src="${IMG(h)}" alt="${esc(h.name)}"><span class="chip">${s.chip}</span></div>
+    <h3>${esc(h.name)}</h3><p>${esc(h.pres)}</p>
+    <div class="row"><span class="big">${fmt(h.price)}${h.was>h.price?`<span class="was">${fmt(h.was)}</span>`:""}</span><button class="add" data-add="${h.id}">${plus}Agregar</button></div>`;
+  const TK=s.tk.map(t=>`<span>${t}</span>`).join(""); $("#tk1").innerHTML=TK; $("#tk2").innerHTML=TK;
+  $("#fKick").textContent=s.fKick; $("#fTitle").textContent=s.fTitle; $("#fCopy").textContent=s.fCopy;
+  const c2=byId[s.combos[1]];
+  const big=`<article class="feat combo"><div class="shot"><img src="${IMG(c2)}" alt="${esc(c2.name)}"></div><div class="gl"><span class="kick">Combo ${s.label}</span><h3>${esc(c2.name)}</h3><p>${esc(c2.pres)}</p><div class="row">${priceHTML(c2).replace('class="price"','class="price" style="font-size:28px;color:var(--acc)"')}<button class="add" data-add="${c2.id}">${plus}Agregar</button></div></div></article>`;
+  const now=SEASON.key==="black"?(()=>{const d=new Date().getDate();return d<=8?0:d<=15?1:d<=22?2:3;})():-1;
+  const story=`<article class="feat story"><div class="gl"><span class="kick">${s.story.kick}</span><h3>${s.story.title}</h3><div class="steps">${s.story.steps.map((x,i)=>`<div class="step${i===now&&new Date().getMonth()===10?" now":""}"><b class="d">${x[0]}</b><div><strong>${x[1]}</strong><span>${x[2]}</span></div></div>`).join("")}</div></div><button class="ask" data-say="${esc(s.ask)}"><svg class="ic"><use href="#i-send"/></svg>${esc(s.askL)}</button></article>`;
+  const ids=[s.combos[0],...s.ids.slice(0,3),s.combos[2],...s.ids.slice(3,6)].filter(id=>byId[id]);
+  $("#featured").innerHTML = big + ids.slice(0,4).map(id=>card(byId[id])).join("") + story + ids.slice(4).map(id=>card(byId[id])).join("");
+  renderAisles();
+}
+renderSeason();
+
+/* Fiestas privadas: arma el mensaje de WhatsApp para Fabio */
+$("#fChips").innerHTML=["Birra","Whisky","Ron","Tequila","Guaro","Vino y espumante","Sin alcohol"].map((t,i)=>`<label><input type="checkbox" value="${t}" ${i<2?"checked":""}><span>${t}</span></label>`).join("");
+function fiestaMsg(){
+  const tipo=$("#fTipo").value, n=$("#fN").value||"?", f=$("#fFecha").value, nom=$("#fNom").value.trim();
+  const toman=[...document.querySelectorAll("#fChips input:checked")].map(i=>i.value);
+  let fecha=""; if(f){ const [y,m,d]=f.split("-"); fecha=` para el ${Number(d)}/${Number(m)}`; }
+  const t=`Hola Xocio's${nom?`, soy ${nom}`:""}. Quiero cotizar una fiesta: ${tipo.toLowerCase()} de ${n} personas${fecha}.${toman.length?` Toman: ${toman.join(", ").toLowerCase()}.`:""} ¿Me ayudan con la lista y el precio?`;
+  $("#fWa").href=WA+"?text="+encodeURIComponent(t);
+}
+$("#fiestaForm").addEventListener("input",fiestaMsg); $("#fiestaForm").addEventListener("change",fiestaMsg);
+$("#fiestaForm").addEventListener("submit",e=>e.preventDefault());
 
 /* Carrito */
 let cart=XO.get("xo-lico-cart",{}); Object.keys(cart).forEach(k=>{ if(!byId[k]) delete cart[k]; });
@@ -624,9 +830,9 @@ function openCatalog(cat="all",q="",more){
   if(!more) catState={cat,q,n:24}; else catState.n+=24;
   ({cat,q}=catState);
   $("#catTabs").innerHTML=[`<button data-tab="all" class="${cat==='all'&&!q?'on':''}">Todo</button>`].concat(CATS.map(c=>`<button data-tab="${c.id}" class="${c.id===cat&&!q?'on':''}">${c.name}</button>`)).join("");
-  let list=P, title="Toda la tienda";
-  if(q){ const t=norm(q); list=P.filter(p=>{const h=norm(p.name+" "+p.pres+" "+p.cat); return h.includes(t)||t.split(/\s+/).every(w=>h.includes(w));}); title=`Resultados para "${q}"`; }
-  else if(cat!=="all"){ list=P.filter(p=>p.cat===cat); title=CATS.find(c=>c.id===cat).name; }
+  let list=P.filter(visible), title="Toda la tienda";
+  if(q){ const t=norm(q); list=list.filter(p=>{const h=norm(p.name+" "+p.pres+" "+p.cat); return h.includes(t)||t.split(/\s+/).every(w=>h.includes(w));}); title=`Resultados para "${q}"`; }
+  else if(cat!=="all"){ list=list.filter(p=>p.cat===cat); title=CATS.find(c=>c.id===cat).name; }
   list=[...list].sort((a,b)=>(stockOf(b)>0)-(stockOf(a)>0));
   $("#catTitle").textContent=`${title} · ${list.length}`;
   $("#catList").innerHTML=list.length?`<div class="shelf">${list.slice(0,catState.n).map(card).join("")}</div>${list.length>catState.n?`<button class="more" id="moreBtn">Ver más (${list.length-catState.n})</button>`:""}`:`<p style="color:var(--muted)">No encontramos "${esc(q)}" hoy. Pedíselo al asistente o escribinos al WhatsApp 6298-9825.</p>`;
@@ -637,9 +843,8 @@ function openCatalog(cat="all",q="",more){
 $("#heroSearch").onsubmit=e=>{ e.preventDefault(); const v=$("#q").value.trim(); if(v) openCatalog("all",v); };
 
 document.addEventListener("click",e=>{
-  const sb=e.target.closest("[data-season]"); if(sb){ seasonOverride=sb.dataset.season; renderFeatured(); return; }
+  const sb=e.target.closest("[data-tmp]"); if(sb){ seasonOverride=sb.dataset.tmp; renderSeason(); renderCart(); scrollTo({top:0,behavior:"smooth"}); return; }
   const say=e.target.closest("[data-say]"); if(say){ if(!say.closest("#chatBody")){ closeAll(); $("#asistente").scrollIntoView({behavior:"smooth"}); } sendChat(say.dataset.say); return; }
-  const pn=e.target.closest("[data-pn]"); if(pn){ partyN=Math.max(5,Math.min(150,partyN+Number(pn.dataset.pn))); renderParty(); return; }
   const t=e.target.closest("[data-add],[data-open],[data-scroll],[data-q],[data-tab],[data-close],[data-addall]");
   if(!t) return;
   if(t.dataset.add) addToCart(t.dataset.add);
@@ -654,7 +859,7 @@ document.addEventListener("click",e=>{
 
 /* Asistente: temas, cantidades por persona, presupuesto y memoria del tema anterior.
    Al salir en vivo, una función de servidor llama a la IA con el catálogo real; esto queda de respaldo. */
-const WA="https://wa.me/50662989825", ceil=Math.ceil;
+const ceil=Math.ceil;
 const listos = P.filter(p=>p.cat==="listos");
 const pickL = w => (listos.find(p=>norm(p.name).includes(w))||listos[0]).id;
 const TOPICS=[
@@ -686,7 +891,12 @@ const TOPICS=[
   {id:"listos",k:["listo para tomar","bamboo","four loko","smirnoff ice","seltzer","adan","lata preparada","algo listo"],def:4,
    build:n=>({say:`Listos para tomar, para ${n}:`,why:"Bebidas preparadas que solo hay que enfriar. Variadas para que cada quien escoja.",items:[[pickL("bamboo"),ceil(n/2)],[pickL("adan"),ceil(n/2)],[pickL("smirnoff"),ceil(n/2)],["hielo",1]],quick:["Más barato","Somos 10","Agregale bocas"]})},
   {id:"halloween",k:["halloween","disfraz","disfraces","brujas","coco"],def:10,
-   build:n=>({say:`Para la fiesta de Halloween de ${n}:`,why:"Buchanan's Coconut, el que está pegando esta temporada, Max Energy para aguantar y birras para todos.",items:[["buchananscoco",ceil(n/12)],["maxenergy",ceil(n/3)],["silver6",ceil(n*3/6)],["hielo",ceil(n/4)]],quick:["Más barato","Somos 20","¿Cómo pago?"]})},
+   build:n=>({say:`Para la fiesta de Halloween de ${n}:`,why:"Coco Highball con Buchanan's Coconut y Ginger Ale, la pócima roja de Cacique Liga'o con Fresca y birras para todos.",items:[["buchananscoco",ceil(n/12)],["ginger15",ceil(n/6)],["cacique-ligao-sandia-1-litro",ceil(n/10)],["fresca3",ceil(n/10)],["silver6",ceil(n*3/6/2)],["hielo",ceil(n/4)]],quick:["Más barato","Somos 30","¿Cómo pago?"]})},
+  {id:"black",k:["black","black friday","black month","promo","promos","oferta","ofertas","descuento","rebaja"],def:1,
+   build:n=>{ const d=Object.keys(SEASONS.black.deals).filter(id=>byId[id]&&stockOf(byId[id])>0); const top=d.map(id=>byId[id]).sort((a,b)=>((b.dealWas||b.base||b.price)-b.price)-((a.dealWas||a.base||a.price)-a.price)).slice(0,3);
+     return {say:SEASON.key==="black"?"Lo que está en precio Black esta semana:":"Las promos de Black Month arrancan en noviembre. Esto es lo que va a estar en precio Black:",why:"Precio especial mientras haya existencia en Heredia y Tibás.",items:top.map(p=>[p.id,1]),quick:["Black Label con soda","Algo más barato","¿Cuándo es el Black Friday?"]}; }},
+  {id:"parejas",k:["pareja","novia","novio","san valentin","valentin","14 de febrero","cita","para dos","romantic"],def:2,
+   build:n=>({say:"Para una noche de dos:",why:"Amarula con hielo para la peli, Tequila 1800 Añejo para tomar despacio y palomitas.",items:[["amarula",1],["palomitas-act-ii-caramelo-161-4g",1],["t1800a",1]],quick:["Más barato","Algo con sangría","¿Hacen envíos hoy?"]})},
   {id:"navidad",k:["navidad","diciembre","fin de ano","ano nuevo","posada","rompope","aguinaldo"],def:10,
    build:n=>({say:`Para la celebración de diciembre de ${n}:`,why:"Baileys para el rompope, whisky para la sobremesa y ron con Coca para el resto.",items:[["baileys",ceil(n/12)],["buchanans12",ceil(n/15)],["centenario7",ceil(n/8)],["coca3",ceil(n/5)],["hielo",ceil(n/5)]],quick:["Más barato","Para regalar","Somos 25"]})},
   {id:"guaro",k:["guaro","chiliguaro","cacique","guarito"],def:8,
@@ -696,6 +906,7 @@ const TOPICS=[
   {id:"barato",k:["barato","economico","poca plata","sin plata","quincena","ahorrar"],def:8,
    build:n=>({say:`Opción económica para ${n}:`,why:"Guaro, birra nacional y Fresca: lo que más rinde por colón.",items:[["cacique",ceil(n/10)],["pilsen6",ceil(n*2/6)],["fresca3",ceil(n/8)],["hielo",ceil(n/6)]],quick:["Somos más","Agregale ron","¿Cuánto cuesta el envío?"]})}
 ];
+TOPICS.sort((a,b)=>["halloween","black","parejas","navidad"].includes(b.id)-["halloween","black","parejas","navidad"].includes(a.id));
 const ALTS={silver6:"pilsen6",light6:"pilsen6",ultra6:"pilsen6",corona:"imperial",heineken:"imperial",modelo:"imperial",stella:"imperial",centenario7:"centenario4",centenario4:"cacique",buchanans12:"jwred",buchanans18:"buchanans12",jwblack:"jwred",chivas12:"jwred",zacapa:"centenario7",hennessy:"jwblack",tanqueray:"smirnoff",cuervo:"cacique",t1800a:"cuervo",t1800:"cuervo",buchananscoco:"cacique",baileys:"amarula",coca3:"coca15",papiolas:"mani"};
 const FAQ=[
   {k:["envio","envios","domicilio","uber","entrega","llevan","mandan","express","delivery","cuanto dura","tardan"],a:`Te lo mandamos por <b>Uber Flash</b> desde la sede más cercana, Heredia o Tibás. Xocios coordina el viaje y te pasa el enlace para seguirlo. La tarifa va según la distancia: por ejemplo ${fmt(2200)} en Heredia centro o Tibás. También podés retirar gratis en cualquiera de las dos sedes.`},
@@ -845,20 +1056,6 @@ function confirmOrder(mode,sede,ship,zone,name){
 }
 function refreshStock(){ document.querySelectorAll("[data-stock]").forEach(el=>{ const st=stockTxt(byId[el.dataset.stock]); el.className="stock "+st.c; el.textContent=st.t; }); }
 window.addEventListener("storage",e=>{ if(e.key==="xo-lico-stock"){ applyStock(); refreshStock(); } });
-
-/* Tarjeta del hero: la fiesta armada con lo que hay hoy */
-let partyN=20;
-function renderParty(){
-  const r=TOPICS.find(x=>x.id==="fiesta").build(partyN);
-  const items=r.items.filter(([id,q])=>q>0&&byId[id]&&stockOf(byId[id])>0).map(([id,q])=>[id,Math.min(q,stockOf(byId[id]))]);
-  const tot=items.reduce((s,[id,q])=>s+byId[id].price*q,0);
-  $("#pN").textContent=partyN+" personas";
-  $("#pLines").innerHTML=items.map(([id,q])=>`<div><span>${q} × ${esc(byId[id].name)}${/six pack/i.test(byId[id].pres)?" (six)":""}</span><span>${fmt(byId[id].price*q)}</span></div>`).join("");
-  $("#pTot").textContent=fmt(tot);
-  $("#pAdd").onclick=()=>{ items.forEach(([id,q])=>addToCart(id,q,true)); toast(`Fiesta para ${partyN} al carrito`); };
-  document.querySelector("#partyCard .ptalk").dataset.say=`Fiesta para ${partyN}`;
-}
-renderParty();
 
 let tt; function toast(msg){ $("#toastT").textContent=msg; $("#toast").classList.add("on"); clearTimeout(tt); tt=setTimeout(()=>$("#toast").classList.remove("on"),2000); }
 

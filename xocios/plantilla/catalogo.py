@@ -47,7 +47,7 @@ def pretty(name):
              'Limon': 'Limón', 'Jalapena': 'Jalapeña', 'Jalapenos': 'Jalapeños', 'Mani ': 'Maní ', 'Garapinado': 'Garapiñado',
              'Sandia': 'Sandía', 'Maracuya': 'Maracuyá', 'Piña': 'Piña', 'Azucar': 'Azúcar', 'Añejo': 'Añejo', 'Daniels': "Daniel's",
              'Stela ': 'Stella ', 'Courvoiser': 'Courvoisier', 'Cuba Libre': 'Cuba Libre', 'Four Loco': 'Four Loko', 'Antioqueño': 'Antioqueño',
-             'Sminorff': 'Smirnoff', 'Ligth': 'Light', 'Gengibre': 'Jengibre', 'Toña': 'Toña', '2.5.l': '2,5 L', 'Lima Limón': 'Lima limón',
+             'Sminorff': 'Smirnoff', 'Canada Dry Gin': 'Canada Dry Ginger Ale', 'Ligth': 'Light', 'Gengibre': 'Jengibre', 'Toña': 'Toña', '2.5.l': '2,5 L', 'Lima Limón': 'Lima limón',
              'Six Pack': 'six pack', 'Lata': 'lata', 'Botella': 'botella', 'Cerveza ': '', 'Whisky ': '', 'Ron ': 'Ron ', 'Licor Cacique': 'Guaro Cacique', 'J y B': 'J&B', 'Very Especial': 'Very Special', 'Coca Cola': 'Coca-Cola', 'Black And White': 'Black & White', ' Años': ' años', '20cl': '200 ml', '2.5kg': '2,5 kg', 'Hielo Alaska': 'Hielo Alaska'}
     for a, b in fixes.items():
         n = n.replace(a, b)
@@ -127,40 +127,99 @@ for p in src:
     cat = cat_of(p['sec'], p['name'])
     tot = random.choice([6, 8, 10, 12, 14, 18, 22, 26, 30, 36, 48]) if cat != 'whisky' else random.choice([3, 4, 5, 6, 8, 10, 12])
     h = max(0, round(tot * random.uniform(.4, .65)))
-    P.append(dict(id=alias_of.get(p['name'], p['id']), name=nm, pres=pres, price=p['price'], cat=cat, img=p['img'],
+    P.append(dict(id=alias_of.get(p['name'], p['id']), name=nm, pres=pres, price=p['price'], cat=cat, img='p2/' + p['id'] + '.webp',
                   barcode=p['barcode'], h=h, t=max(0, tot - h)))
 
 ids = {p['id'] for p in P}
 by = {p['id']: p for p in P}
 # Productos nuevos que no están en el Excel 2023 (salen del Instagram reciente)
-P.append(dict(id='buchananscoco', name="Buchanan's Coconut", pres='Botella 750 ml', price=22900, cat='whisky', img='p/buchanans-coconut.webp',
+P.append(dict(id='buchananscoco', name="Buchanan's Coconut", pres='Botella 750 ml', price=22900, cat='whisky', img='p2/buchananscoco.webp',
               barcode='', h=6, t=4, tag='Nuevo'))
+by = {p['id']: p for p in P}
 
-# Combos: imagen compuesta de sus productos
+# Combos: imagen compuesta con las fotos recortadas (fondo transparente)
+# (id, nombre, presentación, precio, [(producto, cantidad)], temporada o None)
 COMBOS = [
     ('combo-centenario', 'Combo Ron Centenario + Coca-Cola 1,5 L', 'Ron 1 L + Coca-Cola 1,5 L', 12000, [('centenario4', 1), ('coca15', 1)], None),
     ('combo-mejenga', 'Combo mejenga', '2 six pack Pilsen + hielo', 13900, [('pilsen6', 2), ('hielo', 1)], None),
     ('combo-guaro', 'Guaro con Fresca', 'Cacique 1 L + Fresca 3 L', 10200, [('cacique', 1), ('fresca3', 1)], None),
     ('combo-buchanans', "Buchanan's con soda", "Buchanan's 12 años 1 L + 2 club soda + hielo", 37500, [('buchanans12', 1), ('soda', 2), ('hielo', 1)], None),
+    # Halloween
+    ('combo-coco-highball', 'Coco Highball', "Buchanan's Coconut + 2 Ginger Ale 1,5 L + hielo", 25900, [('buchananscoco', 1), ('ginger15', 2), ('hielo', 1)], 'halloween'),
+    ('combo-pocima', 'Pócima roja', "Cacique Liga'o Sandía + Fresca 3 L + hielo", 11900, [('cacique-ligao-sandia-1-litro', 1), ('fresca3', 1), ('hielo', 1)], 'halloween'),
+    ('combo-disfraces', 'Fiesta de disfraces', '3 six pack Imperial Silver + Fireball + 2 hielos', 42900, [('whisky-fireball-l-1000-ml', 1), ('silver6', 3), ('hielo', 2)], 'halloween'),
+    # Xocios Black Month
+    ('combo-black-label', 'Black Label con soda', 'Johnnie Walker Black 1 L + 2 club soda + hielo', 27900, [('jwblack', 1), ('soda', 2), ('hielo', 1)], 'black'),
+    ('combo-noche-negra', 'Noche negra', '6 Modelo Negra + 6 Pilsen 6.0', 12900, [('cerveza-modelo-negra-botella-355ml', 6), ('cerveza-pilsen-6-0-lata-350ml', 6)], 'black'),
+    ('combo-duo-black', 'Dúo Black Friday', 'JW Double Black + Ron Zacapa 23', 62900, [('whisky-johnnie-walker-double-black-l-1000-ml', 1), ('zacapa', 1)], 'black'),
+    # Navidad
+    ('combo-cena-24', 'Cena del 24', 'Centenario 7 años + 2 Coca-Cola 3 L + hielo', 19900, [('centenario7', 1), ('coca3', 2), ('hielo', 1)], 'navidad'),
+    ('combo-rompope', 'Rompope y sobremesa', 'Baileys + Amarula, de litro', 29500, [('baileys', 1), ('amarula', 1)], 'navidad'),
+    ('combo-brindis-31', 'Brindis del 31', "Buchanan's 18 años + 2 club soda + hielo", 59900, [('buchanans18', 1), ('soda', 2), ('hielo', 1)], 'navidad'),
+    # Verano
+    ('combo-hielera', 'Hielera playera', '2 six pack Silver + 2 six pack Ultra + 2 hielos', 25900, [('silver6', 2), ('ultra6', 2), ('hielo', 2)], 'verano'),
+    ('combo-piscina', 'Tarde de piscina', '6 Adán & Eva + 6 Bamboo Piña Colada + hielo', 15900, [('adan-eva-maracuya-pina-355ml', 3), ('bamboo-pina-colada-350ml', 6), ('adan-eva-coco-limon-355ml', 3), ('hielo', 1)], 'verano'),
+    ('combo-malibu', 'Malibú con Fresca', 'Ron Malibú 1 L + Fresca 3 L + hielo', 19900, [('malibu', 1), ('fresca3', 1), ('hielo', 1)], 'verano'),
+    # Parejas
+    ('combo-peli', 'Noche de peli', 'Amarula + 2 palomitas Act II', 16900, [('amarula', 1), ('palomitas-act-ii-caramelo-161-4g', 1), ('palomitas-act-ii-queso-cheddar-96g', 1)], 'parejas'),
+    ('combo-brindis-14', 'Brindis del 14', '4 Sangría Estiu + 2 Pringles', 9500, [('sangria-estiu-botella-330ml', 4), ('pringles', 2)], 'parejas'),
+    ('combo-para-dos', 'Para dos, del bueno', 'Tequila 1800 Añejo + Fresca 1,5 L + hielo', 22500, [('t1800a', 1), ('fresca15', 1), ('hielo', 1)], 'parejas'),
 ]
 from PIL import Image
-for cid, name, pres, price, items, img in COMBOS:
-    if not img:
-        ims = [Image.open('../img/' + by[i]['img']).convert('RGB') for i, _ in items]
-        W = 520
-        can = Image.new('RGB', (W, 400), 'white')
-        n = len(ims)
-        sizes = {2: [(380, 380), (300, 300)], 3: [(360, 360), (250, 250), (190, 190)]}[n]
-        xs = {2: [10, 215], 3: [0, 190, 335]}[n]
-        ys = {2: [10, 90], 3: [20, 140, 200]}[n]
-        for k, im in enumerate(ims):
-            im = im.resize(sizes[k], Image.LANCZOS)
-            mask = Image.fromarray(((255 - __import__('numpy').asarray(im.convert('L'))) > 10).astype('uint8') * 255)
-            can.paste(im, (xs[k], ys[k]), mask)
-        img = 'p/' + cid + '.webp'
-        can.save('../img/' + img, 'WEBP', quality=82)
-    P.insert(0, dict(id=cid, name=name, pres=pres, price=price, cat='combos', img=img, barcode='', h=random.randint(8, 16), t=random.randint(6, 14),
-                     items=items, tag='Combo'))
+
+
+def rel_h(p):
+    """Alto relativo aproximado para que una lata no salga del tamaño de una botella de litro."""
+    pr = (p['pres'] + ' ' + p['name']).lower()
+    if p['id'] == 'hielo': return .5
+    if 'six pack' in pr: return .42
+    if p['cat'] == 'bocas': return .5 if 'pringles' not in pr else .4
+    if re.search(r'\b3 l|2,5 l|2 l', pr): return .9
+    if '1,5 l' in pr: return .82
+    if p['cat'] in ('cervezas', 'listos', 'mezcladores'): return .6 if 'botella' in pr else .44
+    return 1.0
+
+
+def compose(ids):
+    """Productos en fila sobre la misma base, encimados; el primero al centro y adelante."""
+    H0 = 620
+    ims = []
+    for i in ids[:4]:
+        im = Image.open('../img/' + by[i]['img']).convert('RGBA')
+        h = H0 * rel_h(by[i])
+        s = min(h / im.height, (H0 * (.42 if by[i]['cat'] == 'bocas' else .9)) / im.width)
+        ims.append(im.resize((max(1, round(im.width * s)), max(1, round(im.height * s))), Image.LANCZOS))
+    # orden de izquierda a derecha: los de atrás a los lados del principal
+    hero, rest = ims[0], ims[1:]
+    left = rest[0::2][::-1]
+    right = rest[1::2]
+    row = left + [hero] + right
+    ov = .2
+    xs, x = [], 0
+    for k, im in enumerate(row):
+        if k: x -= round(min(im.width, row[k - 1].width) * ov)
+        xs.append(x); x += im.width
+    W = x; H = max(im.height for im in row)
+    can = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    hi = len(left)
+    order = sorted(range(len(row)), key=lambda k: -abs(k - hi))  # de afuera hacia adentro
+    for k in order:
+        can.alpha_composite(row[k], (xs[k], H - row[k].height))
+    return can
+
+
+for cid, name, pres, price, items, season in COMBOS:
+    miss = [i for i, _ in items if i not in by]
+    assert not miss, (cid, miss)
+    img = 'p2/' + cid + '.webp'
+    order = [i for i, _ in items if i != 'hielo'] + (['hielo'] if any(i == 'hielo' for i, _ in items) else [])
+    compose(order).save('../img/' + img, 'WEBP', quality=86, method=6)
+    full = sum(by[i]['price'] * q for i, q in items)
+    d = dict(id=cid, name=name, pres=pres, price=price, cat='combos', img=img, barcode='', h=random.randint(6, 14), t=random.randint(5, 12),
+             items=items, tag='Combo', was=full)
+    if season:
+        d['season'] = season
+    P.insert(0, d)
 
 CATS = [
     dict(id='combos', name='Combos', note='Armados para compartir y pagar menos'),

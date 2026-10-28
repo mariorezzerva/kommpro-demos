@@ -41,14 +41,8 @@ lg.thumbnail((900, 900), Image.LANCZOS)
 lg.save(O + 'logo-xocios-lm.webp', 'WEBP', quality=92, method=6)
 print('logo-xocios-lm.webp', lg.size)
 
-# Licorera: lo más reciente de @xocios.licorera
-crop('lico-rotulo-plaza.png', (40, 330, 819, 1110), 'lico-rotulo-plaza.webp', 760)
-crop('lico-refri.png', (0, 0, 819, 1300), 'lico-refri.webp', 700)
-crop('lico-casadragones.png', (0, 0, 819, 1340), 'lico-casadragones.webp', 700)
-crop('lico-combo.png', (0, 0, 1092, 1092), 'lico-combo.webp', 900)
+# Licorera: post de Halloween de @xocios.licorera (las fotos de producto salen de recorte.py)
 crop('lico-miedo.png', (0, 0, 980, 1225), 'lico-miedo.webp', 820)
-# Buchanan's Coconut del post de Halloween (producto nuevo, no está en el Excel 2023)
-crop('lico-miedo.png', (0, 390, 560, 950), 'p/buchanans-coconut.webp', 320)
 
 # Xocios Lab: posts de @xocios.lab
 crop('lab-bolsa.png', (0, 300, 819, 1180), 'lab/bolsa.webp', 760)

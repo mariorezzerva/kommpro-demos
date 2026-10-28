@@ -239,7 +239,8 @@ section.blk{padding-block:80px}
 .fiesta ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:9px;font-size:15px}
 .fiesta li{display:flex;gap:10px;align-items:flex-start;color:#e5dcff}
 .fiesta li .ic{color:var(--gold);margin-top:3px}
-.fiesta form{margin:18px;padding:22px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:grid;gap:14px;align-content:start}
+.fiesta .waart{border-radius:18px;margin-top:8px;max-width:420px;width:100%;border:1px solid rgba(255,255,255,.16)}
+.fiesta form{align-self:center;margin:18px;padding:22px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:grid;gap:14px;align-content:start}
 .fiesta form h3{font-size:20px;font-weight:900}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips label{position:relative;cursor:pointer}
@@ -501,6 +502,7 @@ form.co{display:grid;gap:14px}
             <li><svg class="ic"><use href="#i-check"/></svg>Hielo, mezcladores y bocas calculados para tu gente</li>
             <li><svg class="ic"><use href="#i-check"/></svg>Te respondemos por WhatsApp con la cotización y un link de pago</li>
           </ul>
+          <img class="waart" src="img/lico-whatsapp.webp" alt="Escribinos al WhatsApp 6298-9825">
         </div>
         <form id="fiestaForm" aria-label="Pedir cotización para una fiesta">
           <h3>Contanos de tu fiesta</h3>
@@ -664,7 +666,7 @@ const SEASONS = {
     eye:"Temporada de Halloween · hasta el 31 de octubre",
     h1:"¿Miedo? Miedo da <em>quedarse sin hielo.</em>",
     lead:"Armá la fiesta de disfraces con Buchanan's Coconut, la pócima roja de guaro y birras bien frías. Pagás con tarjeta y te llega por Uber Flash, o retirás en Heredia o Tibás.",
-    poster:true, hero:"combo-coco-highball", chip:"El trago de la noche",
+    poster:["img/lico-miedo.webp","Post de Halloween de Xocio's con Buchanan's Coconut"], hero:"combo-coco-highball", chip:"El trago de la noche",
     pills:[["Coco Highball","add:combo-coco-highball"],["Pócima roja","add:combo-pocima"],["Fiesta de disfraces para 20","say:Fiesta de Halloween para 20"],["Lo picante","q:fire"]],
     tk:["Halloween en Xocio's","Buchanan's Coconut","Pócima roja","Fiesta de disfraces","Uber Flash coordinado por Xocios","Solo mayores de 18"],
     fKick:"Temporada de Halloween", fTitle:"Lo que se toma esta semana", fCopy:"Combos armados para la fiesta de disfraces y lo que más sale en las refris. Precios con IVA; la existencia sale de Heredia y Tibás, en vivo.",
@@ -736,7 +738,7 @@ const SEASONS = {
     eye:"Xocios Heredia & Tibás · en línea",
     h1:"La lico de siempre, <em>ahora en línea.</em>",
     lead:"Birras bien frías, destilados, combos y bocas. Pagás con tarjeta y te llega por Uber Flash, o retirás sin fila en Heredia o Tibás.",
-    stamp:["Xocio's","Lico<br>Market","24/7 en línea"], hero:"combo-centenario", chip:"El combo de siempre",
+    poster:["img/lico-whatsapp.webp","Pedidos por WhatsApp al 6298-9825 en Xocio's"], hero:"combo-centenario", chip:"El combo de siempre",
     pills:[["Combos","cat:combos"],["Para el partido","say:Para el partido somos 6"],["Whisky","cat:whisky"],["Six pack","q:six pack"]],
     tk:["Xocio's Lico Market","Birras bien frías","Combos","Uber Flash coordinado por Xocios","Xocios Heredia","Xocios Tibás","Solo mayores de 18"],
     fKick:"Lo más pedido", fTitle:"Lo de siempre, a un toque", fCopy:"Combos, destilados y el six de siempre. Precios con IVA; la existencia sale de Heredia y Tibás, en vivo.",
@@ -765,7 +767,7 @@ function renderSeason(){
   document.querySelectorAll("[data-tmp]").forEach(b=>b.classList.toggle("on",b.dataset.tmp===s.key));
   $("#sEye").textContent=s.eye; $("#sH1").innerHTML=s.h1; $("#sLead").textContent=s.lead;
   $("#pills").innerHTML=s.pills.map(pillHTML).join("");
-  $("#sPoster").hidden=!s.poster; $("#sStamp").hidden=!!s.poster;
+  $("#sPoster").hidden=!s.poster; $("#sStamp").hidden=!!s.poster; if(s.poster){ const pi=$("#sPoster img"); pi.src=s.poster[0]; pi.alt=s.poster[1]; }
   if(s.stamp) $("#sStamp div").innerHTML=`<small>${s.stamp[0]}</small><b>${s.stamp[1]}</b><i>${s.stamp[2]}</i>`;
   const h=byId[s.hero];
   $("#sCard").innerHTML=`<div class="ph"><img src="${IMG(h)}" alt="${esc(h.name)}"><span class="chip">${s.chip}</span></div>

@@ -71,7 +71,7 @@
    "title": "Water days",
    "icon": "drop",
    "blurb": "Turquoise waterfalls, rapids and slow river floats.",
-   "image": "img/rio-celeste-trail.webp",
+   "image": "img/kayak-green.webp",
    "keywords": [
     "water",
     "waterfall",
@@ -333,7 +333,7 @@
    "title": "White Water Rafting",
    "lead": "Paddle through jungle rapids on one of Costa Rica's best rivers.",
    "hero": "img/rafting-rapids.webp",
-   "card": "img/rafting-rapids.webp",
+   "card": "img/rafting-green-vertical.webp",
    "duration": "½ day",
    "difficulty": "Moderate–High",
    "guide": "English / Spanish",
@@ -370,8 +370,8 @@
    "bring": "Quick-dry clothes, secured sandals or water shoes, sunscreen, a change of clothes, waterproof camera.",
    "gallery": [
     "img/rafting-rapids.webp",
-    "img/rafting-river.webp",
-    "img/rafting-crew.webp"
+    "img/rafting-green-vertical.webp",
+    "img/rafting-river.webp"
    ],
    "short": "White Water Rafting",
    "cats": [

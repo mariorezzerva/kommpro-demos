@@ -68,7 +68,7 @@ for t in tours: t['departs']=DEP[t['slug']];t['unit']='adult'
 # Fotos propias en alta (img/), de la carpeta WEBSITE de Driver Costa Rica
 PH={
  'tour-rio-celeste':('img/rio-celeste-wide.webp','img/rio-celeste-trail.webp',['img/rio-celeste-wide.webp','img/rio-celeste-trail.webp','img/rio-celeste-pool.webp']),
- 'tour-white-water-rafting':('img/rafting-rapids.webp','img/rafting-green-vertical.webp',['img/rafting-green-vertical.webp','img/rafting-rapids.webp','img/rafting-river.webp']),
+ 'tour-white-water-rafting':('img/rafting-green-wide.webp','img/rafting-green-vertical.webp',['img/rafting-green-wide.webp','img/rafting-green-vertical.webp','img/rafting-rapids.webp']),
  'tour-sloth':('img/sloth-mother.webp','img/sloth-mother.webp',['img/sloth-mother.webp','img/sloth.webp','img/owl.webp']),
  'tour-arenal-hanging-bridges':('img/hanging-bridges-aerial.webp','img/hanging-bridges-aerial.webp',['img/hanging-bridges-aerial.webp','img/hanging-bridges.webp','img/motmot.webp']),
  'tour-arenal-volcano':('img/arenal-volcano-lake.webp','img/arenal-volcano-lake.webp',['img/arenal-volcano-lake.webp','img/volcano-hiker.webp','img/kayak-volcano.webp']),
@@ -85,7 +85,7 @@ for t in tours:
         t['highlights']=['Short drive to the volcano trails','Guided hike across lava fields and rainforest trails','Panoramic volcano and lake viewpoints','Bilingual guide (English / Spanish)']
         t['steps']=['Hotel pickup','Short drive to the volcano trails','Guided hike across lava fields and rainforest trails','Panoramic volcano and lake viewpoints','Return to your hotel']
         t['included']=['Round-trip transportation','Naturalist guide','Trail entrance']
-POS={'tour-sloth':'center 45%','tour-white-water-rafting':'center 35%','tour-rio-celeste':'center 60%','tour-night-walk':'center 32%'}
+POS={'tour-sloth':'center 45%','tour-white-water-rafting':'center 45%','tour-rio-celeste':'center 60%','tour-night-walk':'center 32%'}
 for t in tours:
     t['hero_pos']=POS.get(t['slug'],'center')
     h,c,g=PH[t['slug']]

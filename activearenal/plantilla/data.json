@@ -332,7 +332,7 @@
    "product": "tour-white-water-rafting",
    "title": "White Water Rafting",
    "lead": "Paddle through jungle rapids on one of Costa Rica's best rivers.",
-   "hero": "img/rafting-rapids.webp",
+   "hero": "img/rafting-green-wide.webp",
    "card": "img/rafting-green-vertical.webp",
    "duration": "½ day",
    "difficulty": "Moderate–High",
@@ -369,9 +369,9 @@
    ],
    "bring": "Quick-dry clothes, secured sandals or water shoes, sunscreen, a change of clothes, waterproof camera.",
    "gallery": [
+    "img/rafting-green-wide.webp",
     "img/rafting-green-vertical.webp",
-    "img/rafting-rapids.webp",
-    "img/rafting-river.webp"
+    "img/rafting-rapids.webp"
    ],
    "short": "White Water Rafting",
    "cats": [
@@ -392,7 +392,7 @@
    ],
    "departs": "8:15 a.m.",
    "unit": "adult",
-   "hero_pos": "center 35%"
+   "hero_pos": "center 45%"
   },
   {
    "slug": "tour-sloth",

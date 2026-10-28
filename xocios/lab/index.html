@@ -162,6 +162,11 @@ section.blk{padding-block:88px}
 .prod .ph{aspect-ratio:4/5;background:#000;overflow:hidden;position:relative;border:1px solid rgba(214,178,106,.14)}
 .prod .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
 .prod:hover .ph img{transform:scale(1.05)}
+/* Fotos oficiales sobre blanco, enmarcadas en dorado */
+.prod .ph:has(img[src*="lab2/"]){background:#fff;border-color:rgba(214,178,106,.45)}
+.prod .ph img[src*="lab2/"]{object-fit:contain;padding:9% 7%}
+.prod .ph:has(img[src*="lab2/"])::after{background:none}
+.citem img[src*="lab2/"],.msg .rec img[src*="lab2/"]{object-fit:contain;background:#fff}
 .prod .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.35),transparent 40%);pointer-events:none}
 .prod .tag{position:absolute;top:10px;left:10px;z-index:1;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:5px 9px;background:rgba(11,9,16,.7);border:1px solid var(--gold);color:var(--gold-2)}
 .prod .quickadd{position:absolute;right:10px;bottom:10px;z-index:1;width:40px;height:40px;border-radius:50%;background:var(--gold);color:#1b1407;border:0;display:grid;place-items:center;box-shadow:0 8px 20px -6px rgba(0,0,0,.6);transition:transform .3s}

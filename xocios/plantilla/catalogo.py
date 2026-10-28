@@ -127,7 +127,7 @@ for p in src:
     cat = cat_of(p['sec'], p['name'])
     tot = random.choice([6, 8, 10, 12, 14, 18, 22, 26, 30, 36, 48]) if cat != 'whisky' else random.choice([3, 4, 5, 6, 8, 10, 12])
     h = max(0, round(tot * random.uniform(.4, .65)))
-    P.append(dict(id=alias_of.get(p['name'], p['id']), name=nm, pres=pres, price=p['price'], cat=cat, img='p2/' + p['id'] + '.webp',
+    P.append(dict(id=alias_of.get(p['name'], p['id']), name=nm, pres=pres, price=p['price'], cat=cat, img=('p3/' if os.path.exists('../img/p3/' + p['id'] + '.webp') else 'p2/') + p['id'] + '.webp',
                   barcode=p['barcode'], h=h, t=max(0, tot - h)))
 
 ids = {p['id'] for p in P}
@@ -186,6 +186,11 @@ def compose(ids):
     ims = []
     for i in ids[:4]:
         im = Image.open('../img/' + by[i]['img']).convert('RGBA')
+        if by[i]['img'].startswith('p3/'):
+            import numpy as _np
+            a = _np.asarray(im).astype(float)
+            al = _np.clip((255 - a[..., :3].min(2)) / 18, 0, 1) * 255
+            im = Image.fromarray(_np.dstack([a[..., :3], al]).astype('uint8'), 'RGBA')
         h = H0 * rel_h(by[i])
         s = min(h / im.height, (H0 * (.42 if by[i]['cat'] == 'bocas' else .9)) / im.width)
         ims.append(im.resize((max(1, round(im.width * s)), max(1, round(im.height * s))), Image.LANCZOS))
@@ -211,9 +216,12 @@ def compose(ids):
 for cid, name, pres, price, items, season in COMBOS:
     miss = [i for i, _ in items if i not in by]
     assert not miss, (cid, miss)
-    img = 'p2/' + cid + '.webp'
+    img = 'p3/' + cid + '.webp'
     order = [i for i, _ in items if i != 'hielo'] + (['hielo'] if any(i == 'hielo' for i, _ in items) else [])
-    compose(order).save('../img/' + img, 'WEBP', quality=86, method=6)
+    cimg = compose(order)
+    bg = Image.new('RGBA', (cimg.width + 40, cimg.height + 30), (255, 255, 255, 255))
+    bg.alpha_composite(cimg, (20, 15))
+    bg.convert('RGB').save('../img/' + img, 'WEBP', quality=88, method=6)
     full = sum(by[i]['price'] * q for i, q in items)
     d = dict(id=cid, name=name, pres=pres, price=price, cat='combos', img=img, barcode='', h=random.randint(6, 14), t=random.randint(5, 12),
              items=items, tag='Combo', was=full)
@@ -262,7 +270,7 @@ LAB = [
     ('bbw-cinderella', 'Cinderella: crema y bruma', 'Bath & Body Works', '226 g + 236 ml', 'f', ['dulce', 'cuidado'], 32000, 5, 'Body cream y fine fragrance mist de la colección Disney Princess.', 'lab/bbw-cinderella.webp'),
     ('bbw-strawberry', 'Strawberry Pound Cake: bruma y loción', 'Bath & Body Works', '236 ml + 236 ml', 'f', ['dulce', 'cuidado'], 29000, 6, 'Para oler a pastelito de fresa todo el día.', 'lab/bbw-strawberry.webp'),
 ]
-LABP = [dict(id=r[0], name=r[1], brand=r[2], ml=r[3], g=r[4], fam=r[5], price=r[6], stock=r[7], story=r[8], img=r[9]) for r in LAB]
+LABP = [dict(id=r[0], name=r[1], brand=r[2], ml=r[3], g=r[4], fam=r[5], price=r[6], stock=r[7], story=r[8], img=('lab2/' + r[0] + '.webp') if os.path.exists('../img/lab2/' + r[0] + '.webp') else r[9]) for r in LAB]
 
 os.makedirs('../data', exist_ok=True)
 with open('../data/catalogo.js', 'w') as f:

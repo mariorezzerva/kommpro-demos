@@ -34,10 +34,12 @@ h1,h2,h3{font-family:var(--display);line-height:1.04;margin:0;text-wrap:balance}
 .eyebrow{font:700 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .ic{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-.demo-ribbon{background:#0a0420;color:#9a8fc0;font-size:12px;text-align:center;padding:6px 16px}
+.demo-ribbon{background:#0a0420;color:#9a8fc0;font-size:12px;padding:6px 16px;display:flex;gap:10px;align-items:center;justify-content:center;white-space:nowrap}
 .demo-ribbon b{color:var(--gold);font-weight:600}
-.demo-ribbon a,.demo-ribbon button{background:none;border:1px solid #3a2b6e;color:#cfc4f2;border-radius:999px;padding:1px 9px;margin-left:5px;font-size:11.5px;text-decoration:none}
-.demo-ribbon button.on{background:var(--gold);color:#2a1700;border-color:var(--gold)}
+.demo-ribbon select,.demo-ribbon a{background:none;border:1px solid #3a2b6e;color:#cfc4f2;border-radius:999px;padding:2px 10px;font:12px var(--body);text-decoration:none}
+.demo-ribbon select{color:var(--gold);cursor:pointer}
+.demo-ribbon option{background:#1b0c44;color:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 header.top{position:sticky;top:0;z-index:40;background:rgba(18,8,48,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;gap:18px;height:72px}
@@ -410,7 +412,7 @@ form.co{display:grid;gap:14px}
   </div>
 </div>
 
-<div class="demo-ribbon">Demo <b>KommPro</b> · pagos en modo prueba · precios de referencia · temporada: <b id="seasonName">Halloween</b> <button data-tmp="halloween">Halloween · oct</button><button data-tmp="black">Black Month · nov</button><button data-tmp="navidad">Navidad · dic</button><button data-tmp="verano">Verano · ene</button><button data-tmp="parejas">Parejas · feb</button><button data-tmp="regular">Todo el año</button> <a href="panel/index.html#lico-resumen">Panel de Fabio</a></div>
+<div class="demo-ribbon"><span>Demo <b>KommPro</b></span><label class="rsel"><span class="sr">Temporada</span><select id="tmpSel" aria-label="Temporada de la demo"><option value="halloween">Halloween</option><option value="black">Black Month</option><option value="navidad">Navidad</option><option value="verano">Verano</option><option value="parejas">Parejas</option><option value="regular">Todo el año</option></select></label><a href="panel/index.html#lico-resumen">Panel</a></div>
 
 <header class="top">
   <div class="wrap">
@@ -789,8 +791,7 @@ function pillHTML([l,q]){ const [k,v]=[q.slice(0,q.indexOf(":")),q.slice(q.index
   return k==="cat"?`<button type="button" class="pill" data-open="cat:${v}">${l}</button>`:k==="say"?`<button type="button" class="pill" data-say="${esc(v)}">${l}</button>`:k==="add"?`<button type="button" class="pill" data-add="${v}">${l}</button>`:`<button type="button" class="pill" data-q="${esc(v)}">${l}</button>`; }
 function renderSeason(){
   applySeason(); const s=SEASON;
-  $("#seasonName").textContent=s.label;
-  document.querySelectorAll("[data-tmp]").forEach(b=>b.classList.toggle("on",b.dataset.tmp===s.key));
+  $("#tmpSel").value=s.key;
   $("#sEye").textContent=s.eye; $("#sH1").innerHTML=s.h1; $("#sLead").textContent=s.lead;
   $("#pills").innerHTML=s.pills.map(pillHTML).join("");
   $("#sPoster").hidden=!s.poster; $("#sStamp").hidden=!!s.poster; if(s.poster){ const pi=$("#sPoster img"); pi.src=s.poster[0]; pi.alt=s.poster[1]; }
@@ -810,6 +811,7 @@ function renderSeason(){
   $("#promoCards").innerHTML=Object.keys(PROMO.deals).filter(id=>byId[id]).map(id=>card(byId[id])).join("");
 }
 renderSeason();
+$("#tmpSel").onchange=e=>{ seasonOverride=e.target.value; renderSeason(); renderCart(); scrollTo({top:0,behavior:"smooth"}); };
 
 /* Fiestas privadas: arma el mensaje de WhatsApp para Fabio */
 $("#fChips").innerHTML=["Birra","Whisky","Ron","Tequila","Guaro","Vino y espumante","Sin alcohol"].map((t,i)=>`<label><input type="checkbox" value="${t}" ${i<2?"checked":""}><span>${t}</span></label>`).join("");
@@ -871,7 +873,6 @@ function openCatalog(cat="all",q="",more){
 $("#heroSearch").onsubmit=e=>{ e.preventDefault(); const v=$("#q").value.trim(); if(v) openCatalog("all",v); };
 
 document.addEventListener("click",e=>{
-  const sb=e.target.closest("[data-tmp]"); if(sb){ seasonOverride=sb.dataset.tmp; renderSeason(); renderCart(); scrollTo({top:0,behavior:"smooth"}); return; }
   const say=e.target.closest("[data-say]"); if(say){ if(!say.closest("#chatBody")){ closeAll(); $("#asistente").scrollIntoView({behavior:"smooth"}); } sendChat(say.dataset.say); return; }
   const t=e.target.closest("[data-add],[data-open],[data-scroll],[data-q],[data-tab],[data-close],[data-addall]");
   if(!t) return;

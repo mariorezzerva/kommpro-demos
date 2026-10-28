@@ -253,14 +253,10 @@ section.blk{padding-block:80px}
 @media (max-width:900px){.fiesta{grid-template-columns:1fr}.fiesta .copy{padding:34px 22px 6px}.fiesta form{margin:14px}}
 
 /* Franja de sedes: la contrabarra con botellas recortadas */
-.band{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;align-items:stretch}
+.band{display:grid;grid-template-columns:.9fr 1.05fr 1.05fr;gap:12px;align-items:stretch}
 .band>*{min-width:0}
-.bar{position:relative;border-radius:24px;overflow:hidden;min-height:400px;border:1px solid var(--line);background:#fff;display:flex;align-items:flex-end;justify-content:center;padding:0 18px 36px}
-.bar::after{content:"";position:absolute;left:0;right:0;bottom:28px;height:6px;background:linear-gradient(90deg,transparent,rgba(27,12,68,.18),transparent)}
-.bar .row{display:flex;align-items:flex-end;justify-content:center;width:100%}
-.bar img{height:clamp(150px,22vw,250px);width:auto;max-width:22%;object-fit:contain;margin:0 -4px;mix-blend-mode:multiply;position:relative}
-.bar img:nth-child(even){height:clamp(130px,19vw,215px)}
-.bar img:nth-child(4){z-index:2;height:clamp(170px,25vw,280px)}
+.bar{position:relative;border-radius:24px;overflow:hidden;min-height:400px;border:1px solid var(--line);background:#0b0618 center/cover no-repeat}
+.bar span{position:absolute;left:14px;bottom:14px;font-size:12px;font-weight:600;background:rgba(18,8,48,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 11px}
 .band .gl{border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.18);padding:30px;display:flex;flex-direction:column;justify-content:center;gap:14px}
 .band h2{font-size:clamp(28px,3.2vw,40px);font-weight:900}
 .band h2 em{color:var(--gold);font-style:italic}
@@ -268,7 +264,8 @@ section.blk{padding-block:80px}
 .sedes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
 .sede{border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px;font-size:13.5px;display:grid;gap:2px}
 .sede b{font:800 15px var(--display)}
-@media (max-width:900px){.band{grid-template-columns:1fr}.bar{min-height:280px;order:2}}
+@media (max-width:900px){.band{grid-template-columns:1fr 1fr}.band .gl{grid-column:1/-1}.bar{min-height:260px}}
+@media (max-width:560px){.band{grid-template-columns:1fr}}
 
 footer{background:#0b0520;color:#bdb2e3;margin-top:60px;border-top:1px solid var(--line)}
 footer .wrap{padding-block:56px 28px}
@@ -536,7 +533,8 @@ form.co{display:grid;gap:14px}
             <div class="sede"><b>Xocios Tibás</b><span>Retiro y Uber Flash</span></div>
           </div>
         </div>
-        <div class="bar" role="img" aria-label="Botellas de la contrabarra de Xocio's"><div class="row" id="backbar"></div></div>
+        <div class="bar" style="background-image:url(img/lico-local-neon.webp);background-position:30% 50%" role="img" aria-label="Refris con luces neón en el local de Xocio's"><span>Las refris, bien frías</span></div>
+        <div class="bar" style="background-image:url(img/lico-local-pasillo.webp);background-position:40% 50%" role="img" aria-label="Bocas, licores y la entrada del local de Xocio's"><span>Así se ve la lico</span></div>
       </div>
     </div>
   </section>
@@ -638,7 +636,6 @@ function renderAisles(){
   $("#aisles").innerHTML = CATS.map(c=>`<button class="aisle reveal" data-open="cat:${c.id}"><span class="plate"><img src="img/${c.img}" alt=""></span><b>${c.name}</b><small>${c.note}</small><span class="count">${P.filter(p=>p.cat===c.id&&visible(p)).length} productos <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></button>`).join("");
 }
 $("#footCats").innerHTML = CATS.map(c=>`<li><button class="lnk" data-open="cat:${c.id}">${c.name}</button></li>`).join("");
-$("#backbar").innerHTML = ["tanqueray","centenario7","whisky-fireball-l-1000-ml","buchanans12","t1800a","cuervo","baileys"].map(id=>`<img src="${IMG(byId[id])}" alt="${esc(byId[id].name)}">`).join("");
 
 /* Tarjeta */
 const plus = `<svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>`;

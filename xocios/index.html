@@ -131,6 +131,17 @@ section.blk{padding-block:80px}
 @media (max-width:1000px){.aisles{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:640px){.aisles{grid-template-columns:repeat(2,1fr)}.aisle{min-height:200px}.aisle .plate{width:110px;height:110px;right:-18px;bottom:-22px}.aisle .plate img{height:84px;max-width:80px;transform:translate(-12px,-14px)}.aisle .count{font-size:11px}.aisle .count .ic{display:none}}
 
+/* Promo ₡700 */
+.promo{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:center;border:1px solid var(--line);border-radius:30px;padding:18px;background:linear-gradient(160deg,#24104f,#150a34)}
+.promo>*{min-width:0}
+.promoart{border-radius:22px;width:100%}
+.promoside{display:grid;gap:18px;padding:6px}
+.promoside h2{font-size:clamp(30px,3.6vw,44px);font-weight:900}
+.promoside h2 em{color:var(--gold);font-style:normal}
+.promoside p{margin:8px 0 0;color:#d6ccf6}
+.promoshelf{grid-template-columns:repeat(3,1fr)!important}
+@media (max-width:900px){.promo{grid-template-columns:1fr}.promoshelf{grid-template-columns:repeat(2,1fr)!important}}
+
 /* Asistente */
 .assist{background:linear-gradient(140deg,#24104f,#150a34);border:1px solid var(--line);border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1fr 1.1fr;position:relative}
 .assist .copy{padding:48px 44px;display:flex;flex-direction:column;gap:16px;position:relative;z-index:1}
@@ -456,6 +467,18 @@ form.co{display:grid;gap:14px}
     </div>
   </section>
 
+  <section class="blk" id="promo" style="padding-top:0">
+    <div class="wrap">
+      <div class="promo reveal">
+        <img class="promoart" src="img/lico-promo-700.webp" alt="Keler, Busch Light y Bohemia a 700 colones la unidad">
+        <div class="promoside">
+          <div><div class="eyebrow">Precio especial por unidad</div><h2>Tres birras a <em>₡700.</em></h2><p>Keler, Busch Light y Bohemia, bien frías. Llevate las que querás.</p></div>
+          <div class="shelf promoshelf" id="promoCards"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="blk" id="asistente" style="padding-top:10px">
     <div class="wrap">
       <div class="assist reveal">
@@ -649,7 +672,7 @@ function priceHTML(p){
 }
 function card(p){
   const st=stockTxt(p), n=stockOf(p);
-  const tag = p.dealWas?`<span class="tag deal">${SEASON.dealTag}</span>`:(p.season?`<span class="tag deal">${SEASON.label}</span>`:(p.tag?`<span class="tag">${p.tag}</span>`:""));
+  const tag = p.dealWas?`<span class="tag deal">${p.dealTag||SEASON.dealTag}</span>`:(p.season?`<span class="tag deal">${SEASON.label}</span>`:(p.tag?`<span class="tag">${p.tag}</span>`:""));
   return `<article class="prod">${tag}
     <div class="ph"><img src="${IMG(p)}" alt="${esc(p.name)}"></div>
     <h3>${esc(p.name)}</h3><div class="pres">${esc(p.pres)}</div>
@@ -749,6 +772,8 @@ const SEASONS = {
       ["2","Pagá con tarjeta","Cobro seguro y factura electrónica al correo."],
       ["3","Uber Flash o retiro","Xocios coordina el viaje desde la sede más cercana."]]}}
 };
+/* Promo vigente de Xocio's (independiente de la temporada) */
+const PROMO={tag:"₡700",deals:{"cerveza-keler-lata-330ml":700,"cerveza-busch-light-lata-355ml":700,"cerveza-bohemia-350ml":700}};
 let seasonOverride=null;
 try{ const h=location.hash.match(/^#temporada-(\w+)$/); if(h&&SEASONS[h[1]]) seasonOverride=h[1]; }catch(e){}
 addEventListener("hashchange",()=>{ const h=location.hash.match(/^#temporada-(\w+)$/); if(h&&SEASONS[h[1]]){ seasonOverride=h[1]; renderSeason(); } });
@@ -756,7 +781,8 @@ function seasonByDate(d=new Date()){ const m=d.getMonth()+1; return {10:"hallowe
 function applySeason(){
   SEASON = SEASONS[seasonOverride||seasonByDate()];
   document.documentElement.dataset.season=SEASON.key;
-  P.forEach(p=>{ if(p.base==null) p.base=p.price; p.price=p.base; delete p.dealWas; });
+  P.forEach(p=>{ if(p.base==null) p.base=p.price; p.price=p.base; delete p.dealWas; delete p.dealTag; });
+  Object.entries(PROMO.deals).forEach(([id,v])=>{ const p=byId[id]; if(p){ p.dealWas=p.base; p.price=v; p.dealTag=PROMO.tag; } });
   Object.entries(SEASON.deals||{}).forEach(([id,v])=>{ const p=byId[id]; if(p){ p.dealWas=p.base; p.price=v; } });
 }
 function pillHTML([l,q]){ const [k,v]=[q.slice(0,q.indexOf(":")),q.slice(q.indexOf(":")+1)];
@@ -781,6 +807,7 @@ function renderSeason(){
   const ids=[s.combos[0],...s.ids.slice(0,3),s.combos[2],...s.ids.slice(3,6)].filter(id=>byId[id]);
   $("#featured").innerHTML = big + ids.slice(0,8).map(id=>card(byId[id])).join("");
   renderAisles();
+  $("#promoCards").innerHTML=Object.keys(PROMO.deals).filter(id=>byId[id]).map(id=>card(byId[id])).join("");
 }
 renderSeason();
 

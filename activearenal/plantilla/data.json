@@ -621,7 +621,6 @@
    "bring": "Sunscreen, hat, binoculars, camera.",
    "gallery": [
     "img/safari-green-family.webp",
-    "img/safari-float.webp",
     "img/safari-float-river.webp",
     "img/crocodiles.webp"
    ],
@@ -904,7 +903,7 @@
   {
    "slug": "tour-safari-float-zip-lines",
    "product": "tour-safari-float-zip-lines",
-   "group_img": "img/safari-float.webp",
+   "group_img": "img/safari-green-family.webp",
    "pair": "+ Zip Lines",
    "first": "Safari Float",
    "group": "Start with the safari float",
@@ -942,7 +941,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/safari-float.webp",
+    "img/safari-green-family.webp",
     "img/zipline.webp",
     "img/arenal-volcano-lake.webp"
    ],
@@ -952,7 +951,7 @@
   {
    "slug": "tour-safari-float-canyoning",
    "product": "tour-safari-float-canyoning",
-   "group_img": "img/safari-float.webp",
+   "group_img": "img/safari-green-family.webp",
    "pair": "+ Waterfall Rappelling (Canyoning)",
    "first": "Safari Float",
    "group": "Start with the safari float",
@@ -990,7 +989,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/safari-float.webp",
+    "img/safari-green-family.webp",
     "img/rappel.webp",
     "img/arenal-volcano-lake.webp"
    ],
@@ -1000,7 +999,7 @@
   {
    "slug": "tour-safari-float-atv",
    "product": "tour-safari-float-atv",
-   "group_img": "img/safari-float.webp",
+   "group_img": "img/safari-green-family.webp",
    "pair": "+ ATV Adventure",
    "first": "Safari Float",
    "group": "Start with the safari float",
@@ -1037,7 +1036,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/safari-float.webp",
+    "img/safari-green-family.webp",
     "img/atv.webp",
     "img/arenal-volcano-lake.webp"
    ],
@@ -1048,7 +1047,7 @@
   {
    "slug": "tour-safari-float-arenal-volcano",
    "product": "tour-safari-float-arenal-volcano",
-   "group_img": "img/safari-float.webp",
+   "group_img": "img/safari-green-family.webp",
    "pair": "+ Arenal Volcano",
    "first": "Safari Float",
    "group": "Start with the safari float",
@@ -1085,7 +1084,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/safari-float.webp",
+    "img/safari-green-family.webp",
     "img/arenal-volcano-lake.webp",
     "img/arenal-volcano-lake.webp"
    ],
@@ -1095,7 +1094,7 @@
   {
    "slug": "tour-safari-float-hanging-bridges",
    "product": "tour-safari-float-hanging-bridges",
-   "group_img": "img/safari-float.webp",
+   "group_img": "img/safari-green-family.webp",
    "pair": "+ Hanging Bridges",
    "first": "Safari Float",
    "group": "Start with the safari float",
@@ -1131,7 +1130,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/safari-float.webp",
+    "img/safari-green-family.webp",
     "img/hanging-bridges-aerial.webp",
     "img/arenal-volcano-lake.webp"
    ],
@@ -1141,7 +1140,7 @@
   {
    "slug": "tour-safari-float-rainforest-wildlife-walk",
    "product": "tour-safari-float-rainforest-wildlife-walk",
-   "group_img": "img/safari-float.webp",
+   "group_img": "img/safari-green-family.webp",
    "pair": "+ Rainforest Wildlife Walk",
    "first": "Safari Float",
    "group": "Start with the safari float",
@@ -1178,7 +1177,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/safari-float.webp",
+    "img/safari-green-family.webp",
     "img/sloth-mother.webp",
     "img/arenal-volcano-lake.webp"
    ],
@@ -1188,7 +1187,7 @@
   {
    "slug": "tour-safari-float-la-fortuna-waterfall",
    "product": "tour-safari-float-la-fortuna-waterfall",
-   "group_img": "img/safari-float.webp",
+   "group_img": "img/safari-green-family.webp",
    "pair": "+ La Fortuna Waterfall",
    "first": "Safari Float",
    "group": "Start with the safari float",
@@ -1225,7 +1224,7 @@
     "Bilingual guide (English / Spanish)"
    ],
    "gallery": [
-    "img/safari-float.webp",
+    "img/safari-green-family.webp",
     "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
     "img/arenal-volcano-lake.webp"
    ],

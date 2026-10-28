@@ -1,0 +1,1818 @@
+[
+{
+"id": "agua-alpina-1000ml",
+"name": "Agua Alpina 1000ml",
+"price": 1140,
+"sec": "AGUA",
+"barcode": "7441003599536",
+"img": "p/agua-alpina-1000ml.webp"
+},
+{
+"id": "agua-monterreal-600ml",
+"name": "Agua Monterreal 600ml",
+"price": 900,
+"sec": "AGUA",
+"barcode": "764283872197",
+"img": "p/agua-monterreal-600ml.webp"
+},
+{
+"id": "agua-tonica-354ml",
+"name": "Agua Tonica 354ml ",
+"price": 1200,
+"sec": "AGUA",
+"barcode": "7441003572232",
+"img": "p/agua-tonica-354ml.webp"
+},
+{
+"id": "agua-alpina-1750ml",
+"name": "Agua Alpina 1750ml",
+"price": 1860,
+"sec": "AGUA",
+"barcode": "7441003590984",
+"img": "p/agua-alpina-1750ml.webp"
+},
+{
+"id": "agua-alpina-600ml",
+"name": "Agua Alpina 600ml",
+"price": 900,
+"sec": "AGUA",
+"barcode": "7441003590489",
+"img": "p/agua-alpina-600ml.webp"
+},
+{
+"id": "h2oh-lima-limon-600ml",
+"name": "H2OH LIMA LIMON 600ML",
+"price": 1140,
+"sec": "AGUA",
+"barcode": "7441009070107",
+"img": "p/h2oh-lima-limon-600ml.webp"
+},
+{
+"id": "h2oh-limonata-600ml",
+"name": "H2OH LIMONATA 600ML",
+"price": 1140,
+"sec": "AGUA",
+"barcode": "764009042866",
+"img": "p/h2oh-limonata-600ml.webp"
+},
+{
+"id": "hielo-alaska-2-5kg",
+"name": "Hielo Alaska 2.5kg",
+"price": 1560,
+"sec": "AGUA",
+"barcode": "7443001620038",
+"img": "p/hielo-alaska-2-5kg.webp"
+},
+{
+"id": "bamboo-ron-con-cola-1-5-litros",
+"name": "BAMBOO RON CON COLA 1.5 LITROS",
+"price": 4200,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009048004",
+"img": "p/bamboo-ron-con-cola-1-5-litros.webp"
+},
+{
+"id": "adan-eva-coco-limon-355ml",
+"name": "Adan & Eva Coco Limon 355ml",
+"price": 1500,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009045591",
+"img": "p/adan-eva-coco-limon-355ml.webp"
+},
+{
+"id": "adan-eva-durazno-rose-con-vodka",
+"name": "Adan & Eva Durazno Rose Con Vodka",
+"price": 1500,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009047847",
+"img": "p/adan-eva-durazno-rose-con-vodka.webp"
+},
+{
+"id": "adan-eva-frutos-rojos-355ml",
+"name": "Adan & Eva Frutos Rojos 355ml",
+"price": 1500,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009045577",
+"img": "p/adan-eva-frutos-rojos-355ml.webp"
+},
+{
+"id": "adan-eva-limon-gengibre-355ml",
+"name": "Adan & Eva Limon Gengibre 355ml",
+"price": 1500,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009045584",
+"img": "p/adan-eva-limon-gengibre-355ml.webp"
+},
+{
+"id": "adan-eva-maracuya-pina-355ml",
+"name": "Adan & Eva Maracuya & Piña 355ml",
+"price": 1500,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009047830",
+"img": "p/adan-eva-maracuya-pina-355ml.webp"
+},
+{
+"id": "adan-eva-pepino-limonada-355ml",
+"name": "Adan & Eva Pepino Limonada 355ml",
+"price": 1560,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009049971",
+"img": "p/adan-eva-pepino-limonada-355ml.webp"
+},
+{
+"id": "adan-eva-toronja-limonada-355ml",
+"name": "Adan & Eva Toronja Limonada 355ml",
+"price": 1560,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009049964",
+"img": "p/adan-eva-toronja-limonada-355ml.webp"
+},
+{
+"id": "cuba-libre-mojito-350-ml",
+"name": "Cuba Libre Mojito 350 ML",
+"price": 1440,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "7500462981051",
+"img": "p/cuba-libre-mojito-350-ml.webp"
+},
+{
+"id": "cuba-pina-colada-350ml",
+"name": "Cuba Piña Colada 350ml ",
+"price": 1440,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "7500462981044",
+"img": "p/cuba-pina-colada-350ml.webp"
+},
+{
+"id": "four-loko-blue",
+"name": "Four Loko Blue",
+"price": 3600,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "849806002319",
+"img": "p/four-loko-blue.webp"
+},
+{
+"id": "four-loko-de-mango-473ml",
+"name": "Four Loko De Mango 473ml",
+"price": 3000,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "849806003859",
+"img": "p/four-loko-de-mango-473ml.webp"
+},
+{
+"id": "four-loko-green",
+"name": "Four Loko Green",
+"price": 3600,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "849806001855",
+"img": "p/four-loko-green.webp"
+},
+{
+"id": "four-loko-sandia-473ml",
+"name": "Four Loko Sandia 473ml",
+"price": 3000,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "849806001206",
+"img": "p/four-loko-sandia-473ml.webp"
+},
+{
+"id": "smirnoff-black-350ml",
+"name": "Smirnoff Black 350ml",
+"price": 1560,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009002327",
+"img": "p/smirnoff-black-350ml.webp"
+},
+{
+"id": "smirnoff-light-350ml",
+"name": "Smirnoff Light 350ml",
+"price": 1560,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009046307",
+"img": "p/smirnoff-light-350ml.webp"
+},
+{
+"id": "smirnoff-raspberry-crush-350ml",
+"name": "Smirnoff Raspberry Crush 350ml",
+"price": 1560,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009014764",
+"img": "p/smirnoff-raspberry-crush-350ml.webp"
+},
+{
+"id": "bamboo-jet-473ml",
+"name": "Bamboo Jet 473ml ",
+"price": 1920,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009045171",
+"img": "p/bamboo-jet-473ml.webp"
+},
+{
+"id": "bamboo-margarita-350ml",
+"name": "Bamboo Margarita 350ml ",
+"price": 1260,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009042682",
+"img": "p/bamboo-margarita-350ml.webp"
+},
+{
+"id": "bamboo-mojito-473ml",
+"name": "Bamboo Mojito 473ml ",
+"price": 1560,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009020499",
+"img": "p/bamboo-mojito-473ml.webp"
+},
+{
+"id": "bamboo-pina-colada-350ml",
+"name": "Bamboo Piña Colada 350ml ",
+"price": 1260,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009047984",
+"img": "p/bamboo-pina-colada-350ml.webp"
+},
+{
+"id": "bamboo-ron-cola-473ml",
+"name": "Bamboo Ron Cola 473ml ",
+"price": 1560,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009020482",
+"img": "p/bamboo-ron-cola-473ml.webp"
+},
+{
+"id": "bamboo-sandia-473ml",
+"name": "Bamboo Sandia 473ml ",
+"price": 1920,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009045188",
+"img": "p/bamboo-sandia-473ml.webp"
+},
+{
+"id": "bamboo-mojito-1-5-litros",
+"name": "BAMBOO MOJITO 1.5 LITROS",
+"price": 4200,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009048011",
+"img": "p/bamboo-mojito-1-5-litros.webp"
+},
+{
+"id": "four-loko-gold-473-ml",
+"name": "FOUR LOKO GOLD 473 ML",
+"price": 3000,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "849806001756",
+"img": "p/four-loko-gold-473-ml.webp"
+},
+{
+"id": "four-loko-ponche-de-frutas-473ml",
+"name": "FOUR LOKO PONCHE DE FRUTAS 473ML",
+"price": 3000,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "849806001220",
+"img": "p/four-loko-ponche-de-frutas-473ml.webp"
+},
+{
+"id": "four-loco-purple-473ml",
+"name": "FOUR LOCO PURPLE 473ML",
+"price": 3000,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "849806002746",
+"img": "p/four-loco-purple-473ml.webp"
+},
+{
+"id": "bamboo-ron-y-cola-lata-350ml",
+"name": "BAMBOO RON Y COLA LATA 350ML",
+"price": 1260,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009820310",
+"img": "p/bamboo-ron-y-cola-lata-350ml.webp"
+},
+{
+"id": "bamboo-daiquiri-fresa-lata-350ml",
+"name": "BAMBOO DAIQUIRI FRESA LATA 350ML",
+"price": 1260,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009024497",
+"img": "p/bamboo-daiquiri-fresa-lata-350ml.webp"
+},
+{
+"id": "smirnoff-verde-lata-350ml",
+"name": "SMIRNOFF VERDE LATA 350ML",
+"price": 1560,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009013118",
+"img": "p/smirnoff-verde-lata-350ml.webp"
+},
+{
+"id": "bamboo-mojito-350ml",
+"name": "BAMBOO MOJITO 350ML",
+"price": 1260,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009011671",
+"img": "p/bamboo-mojito-350ml.webp"
+},
+{
+"id": "cuba-libre-lata-350ml",
+"name": "CUBA LIBRE LATA 350ML",
+"price": 1320,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "7500462981006",
+"img": "p/cuba-libre-lata-350ml.webp"
+},
+{
+"id": "smirnoff-guarana-lata-350ml",
+"name": "SMIRNOFF GUARANA LATA 350ML",
+"price": 1560,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009020468",
+"img": "p/smirnoff-guarana-lata-350ml.webp"
+},
+{
+"id": "smirnoff-original-lata-350ml",
+"name": "SMIRNOFF ORIGINAL LATA 350ML",
+"price": 1560,
+"sec": "BEBIDAS ALCOHOLICAS",
+"barcode": "764009800312",
+"img": "p/smirnoff-original-lata-350ml.webp"
+},
+{
+"id": "cerveza-stella-artois-botella-330ml",
+"name": "CERVEZA STELLA ARTOIS BOTELLA 330ML",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "5410228141266",
+"img": "p/cerveza-stella-artois-botella-330ml.webp"
+},
+{
+"id": "cerveza-keler-lata-330ml",
+"name": "CERVEZA KELER LATA 330ML",
+"price": 840,
+"sec": "CERVEZAS",
+"barcode": "8410793186133",
+"img": "p/cerveza-keler-lata-330ml.webp"
+},
+{
+"id": "cerveza-busch-light-lata-355ml",
+"name": "CERVEZA BUSCH LIGHT LATA 355ML",
+"price": 840,
+"sec": "CERVEZAS",
+"barcode": "18188288",
+"img": "p/cerveza-busch-light-lata-355ml.webp"
+},
+{
+"id": "cerveza-modelo-negra-botella-355ml",
+"name": "CERVEZA MODELO NEGRA BOTELLA 355ML",
+"price": 1320,
+"sec": "CERVEZAS",
+"barcode": "75031589",
+"img": "p/cerveza-modelo-negra-botella-355ml.webp"
+},
+{
+"id": "cerveza-bud-light-lata-355ml",
+"name": "CERVEZA BUD LIGHT LATA 355ML",
+"price": 1020,
+"sec": "CERVEZAS",
+"barcode": "1810622",
+"img": "p/cerveza-bud-light-lata-355ml.webp"
+},
+{
+"id": "sangria-estiu-botella-330ml",
+"name": "SANGRIA ESTIU BOTELLA 330ML",
+"price": 2160,
+"sec": "CERVEZAS",
+"barcode": "8437020181020",
+"img": "p/sangria-estiu-botella-330ml.webp"
+},
+{
+"id": "cerveza-sol-botella-330ml",
+"name": "CERVEZA SOL BOTELLA 330ML",
+"price": 1320,
+"sec": "CERVEZAS",
+"barcode": "75001629",
+"img": "p/cerveza-sol-botella-330ml.webp"
+},
+{
+"id": "cerveza-pilsen-lata-710ml",
+"name": "CERVEZA PILSEN LATA 710ML",
+"price": 1880,
+"sec": "CERVEZAS",
+"barcode": "764009027290",
+"img": "p/cerveza-pilsen-lata-710ml.webp"
+},
+{
+"id": "cerveza-imperial-lata-710-ml",
+"name": "CERVEZA IMPERIAL LATA 710 ML",
+"price": 1800,
+"sec": "CERVEZAS",
+"barcode": "764009027320",
+"img": "p/cerveza-imperial-lata-710-ml.webp"
+},
+{
+"id": "cerveza-imperial-silver-lata-710ml",
+"name": "CERVEZA IMPERIAL SILVER LATA 710ML",
+"price": 1800,
+"sec": "CERVEZAS",
+"barcode": "764009027306",
+"img": "p/cerveza-imperial-silver-lata-710ml.webp"
+},
+{
+"id": "cerveza-heineken-botella-355ml",
+"name": "CERVEZA HEINEKEN BOTELLA 355ML",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009016089",
+"img": "p/cerveza-heineken-botella-355ml.webp"
+},
+{
+"id": "cerveza-pilsen-lata-473ml",
+"name": "CERVEZA PILSEN LATA 473ML",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009020918",
+"img": "p/cerveza-pilsen-lata-473ml.webp"
+},
+{
+"id": "cerveza-pilsen-6-0-lata-350ml",
+"name": "CERVEZA PILSEN 6.0 LATA 350ML",
+"price": 1260,
+"sec": "CERVEZAS",
+"barcode": "764009040541",
+"img": "p/cerveza-pilsen-6-0-lata-350ml.webp"
+},
+{
+"id": "cerveza-pilsen-lata-350ml",
+"name": "CERVEZA PILSEN LATA 350ML",
+"price": 1260,
+"sec": "CERVEZAS",
+"barcode": "764009020314",
+"img": "p/cerveza-pilsen-lata-350ml.webp"
+},
+{
+"id": "cerveza-imperial-cero-lata-350ml",
+"name": "CERVEZA IMPERIAL CERO LATA 350ML",
+"price": 1260,
+"sec": "CERVEZAS",
+"barcode": "764009018069",
+"img": "p/cerveza-imperial-cero-lata-350ml.webp"
+},
+{
+"id": "cerveza-imperial-ultra-lata-350ml",
+"name": "CERVEZA IMPERIAL ULTRA LATA 350ML",
+"price": 1260,
+"sec": "CERVEZAS",
+"barcode": "764009039439",
+"img": "p/cerveza-imperial-ultra-lata-350ml.webp"
+},
+{
+"id": "cerveza-imperial-light-lata-350ml",
+"name": "CERVEZA IMPERIAL LIGHT LATA 350ML",
+"price": 1260,
+"sec": "CERVEZAS",
+"barcode": "764009000668",
+"img": "p/cerveza-imperial-light-lata-350ml.webp"
+},
+{
+"id": "cerveza-imperial-lata-350ml",
+"name": "CERVEZA IMPERIAL LATA 350ML",
+"price": 1260,
+"sec": "CERVEZAS",
+"barcode": "764009010315",
+"img": "p/cerveza-imperial-lata-350ml.webp"
+},
+{
+"id": "cerveza-silver-lata-350ml",
+"name": "CERVEZA SILVER LATA 350ML",
+"price": 1260,
+"sec": "CERVEZAS",
+"barcode": "764009004598",
+"img": "p/cerveza-silver-lata-350ml.webp"
+},
+{
+"id": "cerveza-imperial-silver-six-pack-lata-350ml",
+"name": "CERVEZA IMPERIAL SILVER SIX PACK LATA 350ML",
+"price": 6500,
+"sec": "CERVEZAS",
+"barcode": "764009009975",
+"img": "p/cerveza-imperial-silver-six-pack-lata-350ml.webp"
+},
+{
+"id": "cerveza-imperial-ultra-six-pack-lata-350ml",
+"name": "CERVEZA IMPERIAL ULTRA SIX PACK LATA 350ML",
+"price": 6500,
+"sec": "CERVEZAS",
+"barcode": "764009039453",
+"img": "p/cerveza-imperial-ultra-six-pack-lata-350ml.webp"
+},
+{
+"id": "cerveza-imperial-light-six-pack-lata-350ml",
+"name": "CERVEZA IMPERIAL LIGHT SIX PACK LATA 350ML",
+"price": 6500,
+"sec": "CERVEZAS",
+"barcode": "764009009951",
+"img": "p/cerveza-imperial-light-six-pack-lata-350ml.webp"
+},
+{
+"id": "cerveza-pilsen-six-pack-lata-350ml",
+"name": "CERVEZA PILSEN SIX PACK LATA 350ML",
+"price": 6500,
+"sec": "CERVEZAS",
+"barcode": "764009009944",
+"img": "p/cerveza-pilsen-six-pack-lata-350ml.webp"
+},
+{
+"id": "bavaria-gold-350ml",
+"name": "Bavaria Gold 350ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009024558",
+"img": "p/bavaria-gold-350ml.webp"
+},
+{
+"id": "bavaria-gold-botella-355ml",
+"name": "Bavaria Gold Botella 355ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009017871",
+"img": "p/bavaria-gold-botella-355ml.webp"
+},
+{
+"id": "bavaria-light-350ml",
+"name": "Bavaria Light 350ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009024541",
+"img": "p/bavaria-light-350ml.webp"
+},
+{
+"id": "bavaria-light-botella-355ml",
+"name": "Bavaria Light Botella 355ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009017864",
+"img": "p/bavaria-light-botella-355ml.webp"
+},
+{
+"id": "bavaria-masters-botella-355ml",
+"name": "Bavaria Masters Botella 355ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009041531",
+"img": "p/bavaria-masters-botella-355ml.webp"
+},
+{
+"id": "bavaria-masters-350ml",
+"name": "Bavaria Masters 350ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009042620",
+"img": "p/bavaria-masters-350ml.webp"
+},
+{
+"id": "bavaria-pura-malta-350ml",
+"name": "Bavaria Pura Malta 350ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009046918",
+"img": "p/bavaria-pura-malta-350ml.webp"
+},
+{
+"id": "busch-light-740ml",
+"name": "Busch Light 740ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "18200250040",
+"img": "p/busch-light-740ml.webp"
+},
+{
+"id": "cerveza-bohemia-350ml",
+"name": "Cerveza Bohemia 350ml",
+"price": 790,
+"sec": "CERVEZAS",
+"barcode": "764009009555",
+"img": "p/cerveza-bohemia-350ml.webp"
+},
+{
+"id": "cerveza-bud-light-botella-355ml",
+"name": "Cerveza Bud Light Botella 355ml",
+"price": 1020,
+"sec": "CERVEZAS",
+"barcode": "1816921",
+"img": "p/cerveza-bud-light-botella-355ml.webp"
+},
+{
+"id": "cerveza-coors-light-354ml",
+"name": "Cerveza Coors Light 354ml",
+"price": 1200,
+"sec": "CERVEZAS",
+"barcode": "641194200038",
+"img": "p/cerveza-coors-light-354ml.webp"
+},
+{
+"id": "cerveza-heineken-lata-350ml",
+"name": "Cerveza Heineken Lata 350ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009150318",
+"img": "p/cerveza-heineken-lata-350ml.webp"
+},
+{
+"id": "cerveza-imperial-light-710ml",
+"name": "Cerveza Imperial Light 710ml",
+"price": 1800,
+"sec": "CERVEZAS",
+"barcode": "764009027313",
+"img": "p/cerveza-imperial-light-710ml.webp"
+},
+{
+"id": "cerveza-imperial-original-473ml",
+"name": "Cerveza Imperial Original 473ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009010919",
+"img": "p/cerveza-imperial-original-473ml.webp"
+},
+{
+"id": "cerveza-imperial-original-litro",
+"name": "Cerveza Imperial Original Litro",
+"price": 2100,
+"sec": "CERVEZAS",
+"barcode": "764009014412",
+"img": "p/cerveza-imperial-original-litro.webp"
+},
+{
+"id": "cerveza-light-473ml",
+"name": "Cerveza Light 473ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009038685",
+"img": "p/cerveza-light-473ml.webp"
+},
+{
+"id": "cerveza-light-litro",
+"name": "Cerveza Light Litro",
+"price": 2100,
+"sec": "CERVEZAS",
+"barcode": "764009022608",
+"img": "p/cerveza-light-litro.webp"
+},
+{
+"id": "cerveza-modelo-355ml",
+"name": "Cerveza Modelo 355ml",
+"price": 1320,
+"sec": "CERVEZAS",
+"barcode": "75031602",
+"img": "p/cerveza-modelo-355ml.webp"
+},
+{
+"id": "cerveza-pilsen-litro",
+"name": "Cerveza Pilsen Litro",
+"price": 2100,
+"sec": "CERVEZAS",
+"barcode": "764009024411",
+"img": "p/cerveza-pilsen-litro.webp"
+},
+{
+"id": "cerveza-rock-limon-350ml",
+"name": "Cerveza Rock Limon 350ml",
+"price": 1260,
+"sec": "CERVEZAS",
+"barcode": "764009017505",
+"img": "p/cerveza-rock-limon-350ml.webp"
+},
+{
+"id": "cerveza-silver-473ml",
+"name": "Cerveza Silver 473ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009013071",
+"img": "p/cerveza-silver-473ml.webp"
+},
+{
+"id": "cerveza-silver-litro",
+"name": "Cerveza Silver Litro",
+"price": 2100,
+"sec": "CERVEZAS",
+"barcode": "764009015976",
+"img": "p/cerveza-silver-litro.webp"
+},
+{
+"id": "cerveza-tona-350ml",
+"name": "Cerveza Toña 350ml",
+"price": 1320,
+"sec": "CERVEZAS",
+"barcode": "702596940127",
+"img": "p/cerveza-tona-350ml.webp"
+},
+{
+"id": "cerveza-ultra-473ml",
+"name": "Cerveza Ultra 473ml",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "764009042330",
+"img": "p/cerveza-ultra-473ml.webp"
+},
+{
+"id": "corona-cerveza-355ml",
+"name": "Corona Cerveza 355ml ",
+"price": 1320,
+"sec": "CERVEZAS",
+"barcode": "75032715",
+"img": "p/corona-cerveza-355ml.webp"
+},
+{
+"id": "heineken-botella-330ml",
+"name": "Heineken Botella 330ml ",
+"price": 1440,
+"sec": "CERVEZAS",
+"barcode": "8712000030575",
+"img": "p/heineken-botella-330ml.webp"
+},
+{
+"id": "imperial-light-botella-350ml",
+"name": "Imperial Light Botella 350ml ",
+"price": 1200,
+"sec": "CERVEZAS",
+"barcode": "764009000651",
+"img": "p/imperial-light-botella-350ml.webp"
+},
+{
+"id": "imperial-original-botella-350ml",
+"name": "Imperial Original Botella 350ml ",
+"price": 1200,
+"sec": "CERVEZAS",
+"barcode": "764009010117",
+"img": "p/imperial-original-botella-350ml.webp"
+},
+{
+"id": "pilsen-botella-350ml",
+"name": "Pilsen Botella 350ml ",
+"price": 1200,
+"sec": "CERVEZAS",
+"barcode": "764009020116",
+"img": "p/pilsen-botella-350ml.webp"
+},
+{
+"id": "silver-botella-350ml",
+"name": "Silver Botella 350ml ",
+"price": 1200,
+"sec": "CERVEZAS",
+"barcode": "764009004406",
+"img": "p/silver-botella-350ml.webp"
+},
+{
+"id": "stela-artois-premium-500ml",
+"name": "Stela Artois Premium 500ml",
+"price": 1560,
+"sec": "CERVEZAS",
+"barcode": "5410228260516",
+"img": "p/stela-artois-premium-500ml.webp"
+},
+{
+"id": "ultra-botella-350ml",
+"name": "Ultra Botella 350ml ",
+"price": 1200,
+"sec": "CERVEZAS",
+"barcode": "764009039446",
+"img": "p/ultra-botella-350ml.webp"
+},
+{
+"id": "cerveza-estrella-galicia",
+"name": "CERVEZA ESTRELLA GALICIA",
+"price": 1800,
+"sec": "CERVEZAS",
+"barcode": "8412598024214",
+"img": "p/cerveza-estrella-galicia.webp"
+},
+{
+"id": "gatorade-lima-limon-600ml",
+"name": "GATORADE LIMA LIMÓN 600ML",
+"price": 1200,
+"sec": "ENERGIZANTES",
+"barcode": "764009041418",
+"img": "p/gatorade-lima-limon-600ml.webp"
+},
+{
+"id": "gatorade-fruit-punch-600ml",
+"name": "GATORADE FRUIT PUNCH 600ML",
+"price": 1200,
+"sec": "ENERGIZANTES",
+"barcode": "764009041432",
+"img": "p/gatorade-fruit-punch-600ml.webp"
+},
+{
+"id": "gatorade-uva-600ml",
+"name": "GATORADE UVA 600ML",
+"price": 1200,
+"sec": "ENERGIZANTES",
+"barcode": "764009041395",
+"img": "p/gatorade-uva-600ml.webp"
+},
+{
+"id": "gatorade-berry-blue-600ml",
+"name": "GATORADE BERRY BLUE 600ML",
+"price": 1200,
+"sec": "ENERGIZANTES",
+"barcode": "764009041425",
+"img": "p/gatorade-berry-blue-600ml.webp"
+},
+{
+"id": "max-energy-350ml",
+"name": "MAX ENERGY 350ML",
+"price": 1440,
+"sec": "ENERGIZANTES",
+"barcode": "764009028624",
+"img": "p/max-energy-350ml.webp"
+},
+{
+"id": "max-energy-cero-350ml",
+"name": "MAX ENERGY CERO 350ML",
+"price": 1440,
+"sec": "ENERGIZANTES",
+"barcode": "764009028617",
+"img": "p/max-energy-cero-350ml.webp"
+},
+{
+"id": "max-energy-sandia-cero-350ml",
+"name": "MAX ENERGY SANDIA CERO 350ML",
+"price": 1440,
+"sec": "ENERGIZANTES",
+"barcode": "764009028594",
+"img": "p/max-energy-sandia-cero-350ml.webp"
+},
+{
+"id": "max-energy-fresa-acai-350ml",
+"name": "MAX ENERGY FRESA ACAI 350ML",
+"price": 1440,
+"sec": "ENERGIZANTES",
+"barcode": "764009033819",
+"img": "p/max-energy-fresa-acai-350ml.webp"
+},
+{
+"id": "powerade-avalancha-600ml",
+"name": "POWERADE AVALANCHA 600ML",
+"price": 1200,
+"sec": "ENERGIZANTES",
+"barcode": "7441003504370",
+"img": "p/powerade-avalancha-600ml.webp"
+},
+{
+"id": "coca-cola-3-litros",
+"name": "COCA COLA 3 LITROS",
+"price": 2880,
+"sec": "GASEOSAS",
+"barcode": "7441003500150",
+"img": "p/coca-cola-3-litros.webp"
+},
+{
+"id": "coca-cola-600-ml",
+"name": "COCA COLA 600 ML",
+"price": 1140,
+"sec": "GASEOSAS",
+"barcode": "7441003500488",
+"img": "p/coca-cola-600-ml.webp"
+},
+{
+"id": "coca-cola-1-5-litros",
+"name": "COCA COLA 1.5 LITROS",
+"price": 1560,
+"sec": "GASEOSAS",
+"barcode": "7441003500723",
+"img": "p/coca-cola-1-5-litros.webp"
+},
+{
+"id": "coca-cola-zero-2-5-litros",
+"name": "COCA COLA ZERO 2.5 LITROS",
+"price": 2160,
+"sec": "GASEOSAS",
+"barcode": "7441003501966",
+"img": "p/coca-cola-zero-2-5-litros.webp"
+},
+{
+"id": "squirt-2-5-litros",
+"name": "SQUIRT 2.5 LITROS",
+"price": 1680,
+"sec": "GASEOSAS",
+"barcode": "7441003502017",
+"img": "p/squirt-2-5-litros.webp"
+},
+{
+"id": "coca-cola-sin-azucar-1-5-litros",
+"name": "COCA COLA SIN AZUCAR 1.5 LITROS",
+"price": 1440,
+"sec": "GASEOSAS",
+"barcode": "7441003502888",
+"img": "p/coca-cola-sin-azucar-1-5-litros.webp"
+},
+{
+"id": "coca-cola-light-600ml",
+"name": "COCA COLA LIGHT 600ML",
+"price": 1140,
+"sec": "GASEOSAS",
+"barcode": "7441003505483",
+"img": "p/coca-cola-light-600ml.webp"
+},
+{
+"id": "coca-cola-zero-600ml",
+"name": "COCA COLA ZERO 600ML",
+"price": 1140,
+"sec": "GASEOSAS",
+"barcode": "7441003518483",
+"img": "p/coca-cola-zero-600ml.webp"
+},
+{
+"id": "fanta-naranja-3-litros",
+"name": "FANTA NARANJA 3 LITROS",
+"price": 2580,
+"sec": "GASEOSAS",
+"barcode": "7441003520158",
+"img": "p/fanta-naranja-3-litros.webp"
+},
+{
+"id": "fanta-naranja-600-ml",
+"name": "FANTA NARANJA 600 ML",
+"price": 1140,
+"sec": "GASEOSAS",
+"barcode": "7441003520486",
+"img": "p/fanta-naranja-600-ml.webp"
+},
+{
+"id": "fanta-naranja-1-5-litros",
+"name": "FANTA NARANJA 1.5 LITROS",
+"price": 1560,
+"sec": "GASEOSAS",
+"barcode": "7441003520721",
+"img": "p/fanta-naranja-1-5-litros.webp"
+},
+{
+"id": "fanta-uva-600-ml",
+"name": "FANTA UVA 600 ML",
+"price": 1140,
+"sec": "GASEOSAS",
+"barcode": "7441003521483",
+"img": "p/fanta-uva-600-ml.webp"
+},
+{
+"id": "fanta-kolita-3-litros",
+"name": "FANTA KOLITA 3 LITROS",
+"price": 2580,
+"sec": "GASEOSAS",
+"barcode": "7441003522152",
+"img": "p/fanta-kolita-3-litros.webp"
+},
+{
+"id": "fanta-kolita-600-ml",
+"name": "FANTA KOLITA 600 ML",
+"price": 1140,
+"sec": "GASEOSAS",
+"barcode": "7441003522480",
+"img": "p/fanta-kolita-600-ml.webp"
+},
+{
+"id": "fanta-kolita-1-5-litros",
+"name": "FANTA KOLITA 1.5 LITROS",
+"price": 1560,
+"sec": "GASEOSAS",
+"barcode": "7441003522725",
+"img": "p/fanta-kolita-1-5-litros.webp"
+},
+{
+"id": "fresca-toronja-3-litros",
+"name": "FRESCA TORONJA 3 LITROS",
+"price": 2880,
+"sec": "GASEOSAS",
+"barcode": "7441003545151",
+"img": "p/fresca-toronja-3-litros.webp"
+},
+{
+"id": "fresca-600ml",
+"name": "FRESCA 600ML",
+"price": 1080,
+"sec": "GASEOSAS",
+"barcode": "7441003545489",
+"img": "p/fresca-600ml.webp"
+},
+{
+"id": "fresca-1-5-litros",
+"name": "FRESCA 1.5 LITROS",
+"price": 1560,
+"sec": "GASEOSAS",
+"barcode": "7441003545724",
+"img": "p/fresca-1-5-litros.webp"
+},
+{
+"id": "canada-dry-club-soda-2-litros",
+"name": "CANADA DRY CLUB SODA 2 LITROS",
+"price": 2160,
+"sec": "GASEOSAS",
+"barcode": "7441003570818",
+"img": "p/canada-dry-club-soda-2-litros.webp"
+},
+{
+"id": "gin-600-ml",
+"name": "GIN 600 ML",
+"price": 1140,
+"sec": "GASEOSAS",
+"barcode": "7441003571488",
+"img": "p/gin-600-ml.webp"
+},
+{
+"id": "canada-dry-gin-1-5-litros",
+"name": "CANADA DRY GIN 1.5 LITROS",
+"price": 1560,
+"sec": "GASEOSAS",
+"barcode": "7441003571723",
+"img": "p/canada-dry-gin-1-5-litros.webp"
+},
+{
+"id": "canada-dry-ligth-2-litros",
+"name": "CANADA DRY LIGTH 2 LITROS",
+"price": 2160,
+"sec": "GASEOSAS",
+"barcode": "7441003573819",
+"img": "p/canada-dry-ligth-2-litros.webp"
+},
+{
+"id": "pepsi-2-5-litros",
+"name": "PEPSI 2.5.LITROS",
+"price": 1800,
+"sec": "GASEOSAS",
+"barcode": "7441009010158",
+"img": "p/pepsi-2-5-litros.webp"
+},
+{
+"id": "whisky-black-and-white-l-1000-ml",
+"name": "WHISKY BLACK AND WHITE L 1000 ML",
+"price": 13200,
+"sec": "LICOR",
+"barcode": "50196081",
+"img": "p/whisky-black-and-white-l-1000-ml.webp"
+},
+{
+"id": "whisky-buchanan-s-12-anos-l-1000-ml",
+"name": "WHISKY BUCHANAN´S 12 AÑOS L 1000 ML",
+"price": 33600,
+"sec": "LICOR",
+"barcode": "50196364",
+"img": "p/whisky-buchanan-s-12-anos-l-1000-ml.webp"
+},
+{
+"id": "ron-flor-de-cana-4-anos-anejo-oro-l-1000-ml",
+"name": "RON FLOR DE CAÑA 4 AÑOS AÑEJO ORO L 1000 ML",
+"price": 10800,
+"sec": "LICOR",
+"barcode": "26964237689",
+"img": "p/ron-flor-de-cana-4-anos-anejo-oro-l-1000-ml.webp"
+},
+{
+"id": "whisky-chivas-regal-12-anos-l-1000-ml",
+"name": "WHISKY CHIVAS REGAL 12 AÑOS L 1000 ML",
+"price": 32900,
+"sec": "LICOR",
+"barcode": "80432400432",
+"img": "p/whisky-chivas-regal-12-anos-l-1000-ml.webp"
+},
+{
+"id": "whisky-something-special-l-1000-ml",
+"name": "WHISKY SOMETHING SPECIAL L 1000 ML",
+"price": 18200,
+"sec": "LICOR",
+"barcode": "80432402771",
+"img": "p/whisky-something-special-l-1000-ml.webp"
+},
+{
+"id": "whisky-jack-daniels-honey-l-1000-ml",
+"name": "WHISKY JACK DANIELS HONEY L 1000 ML",
+"price": 22800,
+"sec": "LICOR",
+"barcode": "82184000328",
+"img": "p/whisky-jack-daniels-honey-l-1000-ml.webp"
+},
+{
+"id": "whisky-jack-daniels-n7-l-1000-ml",
+"name": "WHISKY JACK DANIELS N7 L 1000 ML",
+"price": 22950,
+"sec": "LICOR",
+"barcode": "82184090442",
+"img": "p/whisky-jack-daniels-n7-l-1000-ml.webp"
+},
+{
+"id": "whisky-fireball-l-1000-ml",
+"name": "WHISKY FIREBALL L 1000 ML",
+"price": 24000,
+"sec": "LICOR",
+"barcode": "88004144678",
+"img": "p/whisky-fireball-l-1000-ml.webp"
+},
+{
+"id": "ron-malibu-l-1000-ml",
+"name": "RON MALIBÚ L 1000 ML",
+"price": 17400,
+"sec": "LICOR",
+"barcode": "89540448978",
+"img": "p/ron-malibu-l-1000-ml.webp"
+},
+{
+"id": "ron-cortez-oro-l-1000-ml",
+"name": "RON CORTEZ ORO L 1000 ML",
+"price": 7800,
+"sec": "LICOR",
+"barcode": "717398010305",
+"img": "p/ron-cortez-oro-l-1000-ml.webp"
+},
+{
+"id": "vodka-smirnoff-l-1000-ml",
+"name": "VODKA SMIRNOFF L 1000 ML",
+"price": 12000,
+"sec": "LICOR",
+"barcode": "760608550245",
+"img": "p/vodka-smirnoff-l-1000-ml.webp"
+},
+{
+"id": "licor-cacique-l-1000-ml",
+"name": "LICOR CACIQUE L 1000 ML",
+"price": 8400,
+"sec": "LICOR",
+"barcode": "762288000010",
+"img": "p/licor-cacique-l-1000-ml.webp"
+},
+{
+"id": "cacique-ligao-sandia-1-litro",
+"name": "CACIQUE LIGAO SANDIA 1 LITRO",
+"price": 8400,
+"sec": "LICOR",
+"barcode": "762288000959",
+"img": "p/cacique-ligao-sandia-1-litro.webp"
+},
+{
+"id": "cacique-ligao-frutal-1-l",
+"name": "CACIQUE LIGAO FRUTAL 1 L",
+"price": 8400,
+"sec": "LICOR",
+"barcode": "762288000980",
+"img": "p/cacique-ligao-frutal-1-l.webp"
+},
+{
+"id": "cacique-ligao-puerto-guayaba-1-litro",
+"name": "CACIQUE LIGAO PUERTO GUAYABA 1 LITRO",
+"price": 8400,
+"sec": "LICOR",
+"barcode": "762288001017",
+"img": "p/cacique-ligao-puerto-guayaba-1-litro.webp"
+},
+{
+"id": "tequila-jose-cuervo-gold-l-1000-ml",
+"name": "TEQUILA JOSE CUERVO GOLD L 1000 ML",
+"price": 16800,
+"sec": "LICOR",
+"barcode": "811538010801",
+"img": "p/tequila-jose-cuervo-gold-l-1000-ml.webp"
+},
+{
+"id": "tequila-jose-cuervo-silver-l-1000-ml",
+"name": "TEQUILA JOSE CUERVO SILVER L 1000 ML",
+"price": 15600,
+"sec": "LICOR",
+"barcode": "811538010825",
+"img": "p/tequila-jose-cuervo-silver-l-1000-ml.webp"
+},
+{
+"id": "cognac-courvoiser-v-s-l-1000-ml",
+"name": "COGNAC COURVOISER V.S. L 1000 ML",
+"price": 30000,
+"sec": "LICOR",
+"barcode": "3049197110106",
+"img": "p/cognac-courvoiser-v-s-l-1000-ml.webp"
+},
+{
+"id": "cognac-hennessy-very-especial-b-750-ml",
+"name": "COGNAC HENNESSY VERY ESPECIAL B 750 ML",
+"price": 39600,
+"sec": "LICOR",
+"barcode": "3245995960015",
+"img": "p/cognac-hennessy-very-especial-b-750-ml.webp"
+},
+{
+"id": "whisky-buchanan-s-18-anos-b-750-ml",
+"name": "WHISKY BUCHANAN´S 18 AÑOS B 750 ML",
+"price": 60000,
+"sec": "LICOR",
+"barcode": "5000196001695",
+"img": "p/whisky-buchanan-s-18-anos-b-750-ml.webp"
+},
+{
+"id": "whisky-buchanan-s-master-l-1000-ml",
+"name": "WHISKY BUCHANAN´S MASTER L 1000 ML",
+"price": 43200,
+"sec": "LICOR",
+"barcode": "5000196004023",
+"img": "p/whisky-buchanan-s-master-l-1000-ml.webp"
+},
+{
+"id": "whisky-johnnie-walker-black-label-l-1000-ml",
+"name": "WHISKY JOHNNIE WALKER BLACK LABEL L 1000 ML",
+"price": 26400,
+"sec": "LICOR",
+"barcode": "5000267023625",
+"img": "p/whisky-johnnie-walker-black-label-l-1000-ml.webp"
+},
+{
+"id": "whisky-johnnie-walker-double-black-l-1000-ml",
+"name": "WHISKY JOHNNIE WALKER DOUBLE BLACK L 1000 ML",
+"price": 30000,
+"sec": "LICOR",
+"barcode": "5000267112077",
+"img": "p/whisky-johnnie-walker-double-black-l-1000-ml.webp"
+},
+{
+"id": "whisky-old-parr-12-anos-l-1000-ml",
+"name": "WHISKY OLD PARR 12 AÑOS L 1000 ML",
+"price": 30000,
+"sec": "LICOR",
+"barcode": "5000281004020",
+"img": "p/whisky-old-parr-12-anos-l-1000-ml.webp"
+},
+{
+"id": "whisky-old-parr-18-anos-b-750-ml",
+"name": "WHISKY OLD PARR 18 AÑOS B 750 ML",
+"price": 45600,
+"sec": "LICOR",
+"barcode": "5000281055091",
+"img": "p/whisky-old-parr-18-anos-b-750-ml.webp"
+},
+{
+"id": "ginebra-tanqueray-l-1000-ml",
+"name": "GINEBRA TANQUERAY L 1000 ML",
+"price": 16800,
+"sec": "LICOR",
+"barcode": "5000291020805",
+"img": "p/ginebra-tanqueray-l-1000-ml.webp"
+},
+{
+"id": "whisky-passport-l-1000-ml",
+"name": "WHISKY PASSPORT L 1000 ML",
+"price": 10200,
+"sec": "LICOR",
+"barcode": "5000299210079",
+"img": "p/whisky-passport-l-1000-ml.webp"
+},
+{
+"id": "whisky-j-y-b-l-1000-ml",
+"name": "WHISKY J Y B L 1000 ML",
+"price": 14400,
+"sec": "LICOR",
+"barcode": "5010103800457",
+"img": "p/whisky-j-y-b-l-1000-ml.webp"
+},
+{
+"id": "crema-baileys-original-l-1000-ml",
+"name": "CREMA BAILEYS ORIGINAL L 1000 ML",
+"price": 16800,
+"sec": "LICOR",
+"barcode": "5011013100118",
+"img": "p/crema-baileys-original-l-1000-ml.webp"
+},
+{
+"id": "whisky-jack-daniels-fire-l-1000-ml",
+"name": "WHISKY JACK DANIELS FIRE L 1000 ML",
+"price": 24000,
+"sec": "LICOR",
+"barcode": "5099873006368",
+"img": "p/whisky-jack-daniels-fire-l-1000-ml.webp"
+},
+{
+"id": "crema-amarula-l-1000-ml",
+"name": "CREMA AMARULA L 1000 ML",
+"price": 15600,
+"sec": "LICOR",
+"barcode": "6001495062669",
+"img": "p/crema-amarula-l-1000-ml.webp"
+},
+{
+"id": "vodka-absolut-citron-l-1000-ml",
+"name": "VODKA ABSOLUT CITRON L 1000 ML",
+"price": 12000,
+"sec": "LICOR",
+"barcode": "7312040090105",
+"img": "p/vodka-absolut-citron-l-1000-ml.webp"
+},
+{
+"id": "ron-zacapa-23-anos-l-1000-ml",
+"name": "RON ZACAPA 23 AÑOS L 1000 ML",
+"price": 42000,
+"sec": "LICOR",
+"barcode": "7401005008603",
+"img": "p/ron-zacapa-23-anos-l-1000-ml.webp"
+},
+{
+"id": "ron-centenario-7-anos-anejo-l-1000-ml",
+"name": "RON CENTENARIO 7 AÑOS AÑEJO L 1000 ML",
+"price": 14400,
+"sec": "LICOR",
+"barcode": "7441001110962",
+"img": "p/ron-centenario-7-anos-anejo-l-1000-ml.webp"
+},
+{
+"id": "ron-centenario-4-anejo-blanco-b-750-ml",
+"name": "RON CENTENARIO 4 AÑEJO BLANCO B 750 ML",
+"price": 12000,
+"sec": "LICOR",
+"barcode": "7441001175114",
+"img": "p/ron-centenario-4-anejo-blanco-b-750-ml.webp"
+},
+{
+"id": "ron-centenario-4-anos-oro-l-1000-ml",
+"name": "RON CENTENARIO 4 AÑOS ORO L 1000 ML",
+"price": 12000,
+"sec": "LICOR",
+"barcode": "7441001178023",
+"img": "p/ron-centenario-4-anos-oro-l-1000-ml.webp"
+},
+{
+"id": "guaro-cacique-365ml",
+"name": "Guaro Cacique 365ml",
+"price": 2600,
+"sec": "LICOR",
+"barcode": "762288000027",
+"img": "p/guaro-cacique-365ml.webp"
+},
+{
+"id": "whisky-black-white-pacha-20cl",
+"name": "Whisky Black & White Pacha 20cl",
+"price": 3600,
+"sec": "LICOR",
+"barcode": "50196838",
+"img": "p/whisky-black-white-pacha-20cl.webp"
+},
+{
+"id": "whisky-buchanans-12-anos-750ml",
+"name": "Whisky Buchanans 12 Años 750ml",
+"price": 27600,
+"sec": "LICOR",
+"barcode": "50196388",
+"img": "p/whisky-buchanans-12-anos-750ml.webp"
+},
+{
+"id": "whisky-chivas-regal-18-anos-750ml",
+"name": "Whisky Chivas Regal 18 Años 750ml",
+"price": 60000,
+"sec": "LICOR",
+"barcode": "5000299225028",
+"img": "p/whisky-chivas-regal-18-anos-750ml.webp"
+},
+{
+"id": "whisky-chivas-regal-200ml",
+"name": "Whisky Chivas Regal 200ml",
+"price": 11880,
+"sec": "LICOR",
+"barcode": "5000299228685",
+"img": "p/whisky-chivas-regal-200ml.webp"
+},
+{
+"id": "whisky-jw-gold-label-reserve-750ml",
+"name": "Whisky JW Gold Label Reserve 750ml",
+"price": 48000,
+"sec": "LICOR",
+"barcode": "5000267107776",
+"img": "p/whisky-jw-gold-label-reserve-750ml.webp"
+},
+{
+"id": "whisky-johnnie-walker-red-label-750ml",
+"name": "Whisky Johnnie Walker Red Label 750ml",
+"price": 13800,
+"sec": "LICOR",
+"barcode": "5000267014074",
+"img": "p/whisky-johnnie-walker-red-label-750ml.webp"
+},
+{
+"id": "ron-bacardi-carta-blanca-l-980-ml",
+"name": "RON BACARDÍ CARTA BLANCA L 980 ML",
+"price": 9600,
+"sec": "LICOR",
+"barcode": "7501008603024",
+"img": "p/ron-bacardi-carta-blanca-l-980-ml.webp"
+},
+{
+"id": "ron-bacardi-carta-oro-l-980-ml",
+"name": "RON BACARDÍ CARTA ORO L 980 ML",
+"price": 10200,
+"sec": "LICOR",
+"barcode": "7501008604021",
+"img": "p/ron-bacardi-carta-oro-l-980-ml.webp"
+},
+{
+"id": "tequila-1800-reposado-b-750ml",
+"name": "TEQUILA 1800 REPOSADO B 750ML",
+"price": 21600,
+"sec": "LICOR",
+"barcode": "7501035010192",
+"img": "p/tequila-1800-reposado-b-750ml.webp"
+},
+{
+"id": "tequila-1800-anejo-b-700ml",
+"name": "TEQUILA 1800 AÑEJO B 700ML",
+"price": 21600,
+"sec": "LICOR",
+"barcode": "7501035013018",
+"img": "p/tequila-1800-anejo-b-700ml.webp"
+},
+{
+"id": "tequila-jarana-blanco-l-1000-ml",
+"name": "TEQUILA JARANA BLANCO L 1000 ML",
+"price": 14400,
+"sec": "LICOR",
+"barcode": "7501043710527",
+"img": "p/tequila-jarana-blanco-l-1000-ml.webp"
+},
+{
+"id": "tequila-jarana-reposado-l-1000-ml",
+"name": "TEQUILA JARANA REPOSADO L 1000 ML",
+"price": 14400,
+"sec": "LICOR",
+"barcode": "7501043710565",
+"img": "p/tequila-jarana-reposado-l-1000-ml.webp"
+},
+{
+"id": "aguardiente-antioqueno-azul-sin-azucar-b-750-ml",
+"name": "AGUARDIENTE ANTIOQUEÑO AZUL SIN AZÚCAR B 750 ML",
+"price": 10800,
+"sec": "LICOR",
+"barcode": "7702049000531",
+"img": "p/aguardiente-antioqueno-azul-sin-azucar-b-750-ml.webp"
+},
+{
+"id": "pro-semillas-mixtas-80g",
+"name": "PRO SEMILLAS MIXTAS 80G",
+"price": 1320,
+"sec": "SEMILLAS",
+"barcode": "7441005702200",
+"img": "p/pro-semillas-mixtas-80g.webp"
+},
+{
+"id": "pro-mani-con-chocolate-70g",
+"name": "PRO MANI CON CHOCOLATE 70G",
+"price": 1380,
+"sec": "SEMILLAS",
+"barcode": "7441005711516",
+"img": "p/pro-mani-con-chocolate-70g.webp"
+},
+{
+"id": "pro-mani-salado-con-pasas-80g",
+"name": "PRO MANI SALADO CON PASAS 80G",
+"price": 720,
+"sec": "SEMILLAS",
+"barcode": "7441005710212",
+"img": "p/pro-mani-salado-con-pasas-80g.webp"
+},
+{
+"id": "pro-mani-salado-80g",
+"name": "PRO MANI SALADO 80G",
+"price": 720,
+"sec": "SEMILLAS",
+"barcode": "7441005702231",
+"img": "p/pro-mani-salado-80g.webp"
+},
+{
+"id": "pro-mani-garapinado-80g",
+"name": "PRO MANI GARAPIÑADO 80G",
+"price": 720,
+"sec": "SEMILLAS",
+"barcode": "7441005702255",
+"img": "p/pro-mani-garapinado-80g.webp"
+},
+{
+"id": "pro-mani-con-limon-y-sal-80g",
+"name": "PRO MANI CON LIMON Y SAL 80G",
+"price": 720,
+"sec": "SEMILLAS",
+"barcode": "7441005703054",
+"img": "p/pro-mani-con-limon-y-sal-80g.webp"
+},
+{
+"id": "pringles-crema-cebolla-40g",
+"name": "PRINGLES CREMA/CEBOLLA 40G",
+"price": 900,
+"sec": "SNACKS",
+"barcode": "38000846748",
+"img": "p/pringles-crema-cebolla-40g.webp"
+},
+{
+"id": "pringles-queso-40g",
+"name": "PRINGLES QUESO 40G",
+"price": 900,
+"sec": "SNACKS",
+"barcode": "38000846755",
+"img": "p/pringles-queso-40g.webp"
+},
+{
+"id": "pringles-pizza-40g",
+"name": "PRINGLES PIZZA 40G",
+"price": 900,
+"sec": "SNACKS",
+"barcode": "38000849503",
+"img": "p/pringles-pizza-40g.webp"
+},
+{
+"id": "quesitos-diana-grandes-131g",
+"name": "QUESITOS DIANA GRANDES 131G",
+"price": 1320,
+"sec": "SNACKS",
+"barcode": "748757000149",
+"img": "p/quesitos-diana-grandes-131g.webp"
+},
+{
+"id": "papiolas-delux-150g",
+"name": "PAPIOLAS DELUX 150G",
+"price": 2280,
+"sec": "SNACKS",
+"barcode": "7441000701581",
+"img": "p/papiolas-delux-150g.webp"
+},
+{
+"id": "tronaditas-100g",
+"name": "TRONADITAS 100G",
+"price": 1200,
+"sec": "SNACKS",
+"barcode": "7441000701673",
+"img": "p/tronaditas-100g.webp"
+},
+{
+"id": "tosty-quesitos-116g",
+"name": "TOSTY QUESITOS 116G",
+"price": 1380,
+"sec": "SNACKS",
+"barcode": "7441000702908",
+"img": "p/tosty-quesitos-116g.webp"
+},
+{
+"id": "tronadita-175g",
+"name": "TRONADITA 175G",
+"price": 1800,
+"sec": "SNACKS",
+"barcode": "7441000708214",
+"img": "p/tronadita-175g.webp"
+},
+{
+"id": "papiola-deluxe-75g",
+"name": "PAPIOLA DELUXE 75G",
+"price": 1140,
+"sec": "SNACKS",
+"barcode": "7441000708931",
+"img": "p/papiola-deluxe-75g.webp"
+},
+{
+"id": "papiola-mesqui-75g",
+"name": "PAPIOLA MESQUI 75G",
+"price": 1080,
+"sec": "SNACKS",
+"barcode": "7441000711344",
+"img": "p/papiola-mesqui-75g.webp"
+},
+{
+"id": "papiolas-mezquite-bbq-180g",
+"name": "PAPIOLAS MEZQUITE BBQ 180G",
+"price": 2160,
+"sec": "SNACKS",
+"barcode": "7441000711351",
+"img": "p/papiolas-mezquite-bbq-180g.webp"
+},
+{
+"id": "papiola-clasica-tosty-75g",
+"name": "PAPIOLA CLASICA TOSTY 75G",
+"price": 1080,
+"sec": "SNACKS",
+"barcode": "7441000711597",
+"img": "p/papiola-clasica-tosty-75g.webp"
+},
+{
+"id": "papiolas-saladas-clasicas-180g",
+"name": "PAPIOLAS SALADAS CLASICAS 180G",
+"price": 2160,
+"sec": "SNACKS",
+"barcode": "7441000711603",
+"img": "p/papiolas-saladas-clasicas-180g.webp"
+},
+{
+"id": "rumba-patacones-60g",
+"name": "RUMBA PATACONES 60G",
+"price": 1020,
+"sec": "SNACKS",
+"barcode": "7441000721121",
+"img": "p/rumba-patacones-60g.webp"
+},
+{
+"id": "picaritas-jacks-75g",
+"name": "PICARITAS JACKS 75G",
+"price": 720,
+"sec": "SNACKS",
+"barcode": "7441001011252",
+"img": "p/picaritas-jacks-75g.webp"
+},
+{
+"id": "picaronas-queso-nacho-150g",
+"name": "PICARONAS QUESO NACHO 150G",
+"price": 1200,
+"sec": "SNACKS",
+"barcode": "7441001013089",
+"img": "p/picaronas-queso-nacho-150g.webp"
+},
+{
+"id": "jacks-picarona-queso-75g",
+"name": "JACKS PICARONA QUESO 75G",
+"price": 720,
+"sec": "SNACKS",
+"barcode": "7441001013256",
+"img": "p/jacks-picarona-queso-75g.webp"
+},
+{
+"id": "picaronas-queso-nacho-picante-150g",
+"name": "PICARONAS QUESO NACHO PICANTE 150G",
+"price": 1200,
+"sec": "SNACKS",
+"barcode": "7441001014086",
+"img": "p/picaronas-queso-nacho-picante-150g.webp"
+},
+{
+"id": "palomitas-act-ii-caramelo-161-4g",
+"name": "PALOMITAS ACT II CARAMELO 161.4G",
+"price": 1800,
+"sec": "SNACKS",
+"barcode": "76150230383",
+"img": "p/palomitas-act-ii-caramelo-161-4g.webp"
+},
+{
+"id": "palomitas-act-ii-queso-cheddar-96g",
+"name": "PALOMITAS ACT II QUESO CHEDDAR 96G",
+"price": 1080,
+"sec": "SNACKS",
+"barcode": "76150220230",
+"img": "p/palomitas-act-ii-queso-cheddar-96g.webp"
+},
+{
+"id": "pringles-original-40g",
+"name": "PRINGLES ORIGINAL 40G",
+"price": 900,
+"sec": "SNACKS",
+"barcode": "38000846731",
+"img": "p/pringles-original-40g.webp"
+},
+{
+"id": "chicharrito-limon-75g",
+"name": "CHICHARRITO LIMON 75G",
+"price": 2040,
+"sec": "SNACKS",
+"barcode": "7441001004841",
+"img": "p/chicharrito-limon-75g.webp"
+},
+{
+"id": "chirulitos-tosty-300g",
+"name": "CHIRULITOS TOSTY 300G",
+"price": 1920,
+"sec": "SNACKS",
+"barcode": "7441000714819",
+"img": "p/chirulitos-tosty-300g.webp"
+},
+{
+"id": "bolitas-de-queso-tosty-familiar-100g",
+"name": "BOLITAS DE QUESO TOSTY FAMILIAR 100G",
+"price": 1620,
+"sec": "SNACKS",
+"barcode": "7441000708276",
+"img": "p/bolitas-de-queso-tosty-familiar-100g.webp"
+},
+{
+"id": "bolitas-de-queso-tosty-med-50g",
+"name": "BOLITAS DE QUESO TOSTY MED 50G",
+"price": 840,
+"sec": "SNACKS",
+"barcode": "7441000700249",
+"img": "p/bolitas-de-queso-tosty-med-50g.webp"
+},
+{
+"id": "diana-jalapenos-160-g",
+"name": "DIANA JALAPENOS 160 G",
+"price": 1440,
+"sec": "SNACKS",
+"barcode": "748757000200",
+"img": "p/diana-jalapenos-160-g.webp"
+},
+{
+"id": "jacks-chicharrito-limon-35g",
+"name": "JACKS CHICHARRITO LIMON 35G",
+"price": 960,
+"sec": "SNACKS",
+"barcode": "7441001004858",
+"img": "p/jacks-chicharrito-limon-35g.webp"
+},
+{
+"id": "diana-jalapenos-75g",
+"name": "DIANA JALAPENOS 75G",
+"price": 840,
+"sec": "SNACKS",
+"barcode": "748757007223",
+"img": "p/diana-jalapenos-75g.webp"
+},
+{
+"id": "jacks-chicharrito-bbq-75g",
+"name": "JACKS CHICHARRITO BBQ 75G",
+"price": 2040,
+"sec": "SNACKS",
+"barcode": "7441001004865",
+"img": "p/jacks-chicharrito-bbq-75g.webp"
+},
+{
+"id": "jacks-chicharrito-bbq-35g",
+"name": "JACKS CHICHARRITO BBQ 35G",
+"price": 960,
+"sec": "SNACKS",
+"barcode": "7441001004872",
+"img": "p/jacks-chicharrito-bbq-35g.webp"
+},
+{
+"id": "picaronas-jacks-queso-nacho-picante-75g",
+"name": "PICARONAS JACKS QUESO NACHO PICANTE 75G",
+"price": 720,
+"sec": "SNACKS",
+"barcode": "7441001014253",
+"img": "p/picaronas-jacks-queso-nacho-picante-75g.webp"
+},
+{
+"id": "pro-toreaditos-bbq-90g",
+"name": "PRO TOREADITOS BBQ 90G",
+"price": 840,
+"sec": "SNACKS",
+"barcode": "7441005710380",
+"img": "p/pro-toreaditos-bbq-90g.webp"
+},
+{
+"id": "pro-toreaditos-limon-y-sal-90g",
+"name": "PRO TOREADITOS LIMON Y SAL 90G",
+"price": 840,
+"sec": "SNACKS",
+"barcode": "7441005710397",
+"img": "p/pro-toreaditos-limon-y-sal-90g.webp"
+},
+{
+"id": "platanitos-maduros-pro-75g",
+"name": "PLATANITOS MADUROS PRO 75G",
+"price": 720,
+"sec": "SNACKS",
+"barcode": "7441005713855",
+"img": "p/platanitos-maduros-pro-75g.webp"
+},
+{
+"id": "platanitos-limon-y-sal-pro-75g",
+"name": "PLATANITOS LIMON Y SAL PRO 75G",
+"price": 720,
+"sec": "SNACKS",
+"barcode": "7441005713879",
+"img": "p/platanitos-limon-y-sal-pro-75g.webp"
+},
+{
+"id": "yuquitas-pro-45g",
+"name": "YUQUITAS PRO 45G",
+"price": 780,
+"sec": "SNACKS",
+"barcode": "7441005713893",
+"img": "p/yuquitas-pro-45g.webp"
+},
+{
+"id": "palomitas-mixtas-de-la-chipps-235g",
+"name": "PALOMITAS MIXTAS DE LA CHIPPS 235G",
+"price": 1560,
+"sec": "SNACKS",
+"barcode": "7441084901891",
+"img": "p/palomitas-mixtas-de-la-chipps-235g.webp"
+},
+{
+"id": "platanitos-maduros-soldanza-71g",
+"name": "PLATANITOS MADUROS SOLDANZA 71G",
+"price": 660,
+"sec": "SNACKS",
+"barcode": "7441163911254",
+"img": "p/platanitos-maduros-soldanza-71g.webp"
+},
+{
+"id": "planito-con-limon-natural-soldanza-71g",
+"name": "PLANITO CON LIMON NATURAL SOLDANZA 71G",
+"price": 660,
+"sec": "SNACKS",
+"barcode": "7441163913203",
+"img": "p/planito-con-limon-natural-soldanza-71g.webp"
+},
+{
+"id": "yuquitas-soldanza-135g",
+"name": "YUQUITAS SOLDANZA 135G",
+"price": 1080,
+"sec": "SNACKS",
+"barcode": "7441163930033",
+"img": "p/yuquitas-soldanza-135g.webp"
+},
+{
+"id": "yuquitas-soldanza-45g",
+"name": "YUQUITAS SOLDANZA 45G",
+"price": 480,
+"sec": "SNACKS",
+"barcode": "7441163930408",
+"img": "p/yuquitas-soldanza-45g.webp"
+}
+]

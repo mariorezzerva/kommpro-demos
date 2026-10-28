@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Xocio's Lico Market en línea</title>
-<meta name="description" content="Licores nacionales e importados, cervezas bien frías, combos y bocas. Pagá con tarjeta y recibí por Uber Flash desde Xocios Heredia o Xocios Tibás. Venta solo a mayores de 18.">
+<meta name="description" content="Pedidos para fiestas privadas: birras por caja, destilados especiales, hielo y bocas. Pagá con tarjeta y recibí por Uber Flash desde Xocios Heredia o Xocios Tibás. Venta solo a mayores de 18.">
 <meta name="theme-color" content="#120830">
 <link rel="icon" href="img/logo-xocios-lm.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,6 +79,17 @@ header.top{position:sticky;top:0;z-index:40;background:rgba(18,8,48,.86);backdro
 .combo-glass h3{font-size:18px;font-weight:800;margin:14px 4px 2px}
 .combo-glass .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:6px 4px 2px}
 .combo-glass .big{font:900 30px var(--display);color:var(--gold);letter-spacing:-.02em}
+.combo-glass .ph{aspect-ratio:16/9}
+.party{display:grid;gap:8px;padding:2px 4px 0}
+.ptop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+.ptop h3{margin:0!important}
+.pstep{display:flex;border:1px solid rgba(255,255,255,.25);border-radius:999px;overflow:hidden}
+.pstep button{width:34px;height:30px;border:0;background:rgba(255,255,255,.06);font-size:17px}
+.pstep button:hover{background:rgba(245,195,59,.2)}
+.plines{display:grid;gap:3px;font-size:13px;color:#d6ccf6}
+.plines div{display:flex;justify-content:space-between;gap:10px}
+.plines span:last-child{font-variant-numeric:tabular-nums;color:#fff}
+.ptalk{background:none;border:0;color:var(--lilac);font-size:13px;text-decoration:underline;text-underline-offset:3px;justify-self:start;padding:0}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:28px;padding-block:44px 48px}.stage{min-height:auto;max-width:440px}.polaroid{display:none}.combo-glass{position:relative;width:100%;top:0}}
 
 .ticker{background:var(--gold);color:#1b0c44;overflow:hidden;white-space:nowrap}
@@ -356,12 +367,12 @@ form.co{display:grid;gap:14px}
     <div class="hex"></div>
     <div class="wrap">
       <div>
-        <div class="eyebrow">Xocios Heredia &amp; Xocios Tibás</div>
-        <h1 style="margin-top:14px">Pedí la <em>fría</em> sin salir de la casa.</h1>
-        <p class="lead">Licores nacionales e importados, birras heladas, combos y bocas. Pagás con tarjeta y te lo mandamos por Uber Flash desde la sede más cercana.</p>
+        <div class="eyebrow">Fiestas privadas · Xocios Heredia &amp; Tibás</div>
+        <h1 style="margin-top:14px">Hacé tu pedido para <em>fiestas privadas.</em></h1>
+        <p class="lead">Birras por caja, destilados especiales, hielo y bocas para 10 o para 100. Decinos cuántos son, lo pagás con tarjeta y Xocios te lo manda por Uber Flash. Y si es solo un six, también te lo llevamos.</p>
         <form class="search" id="heroSearch" role="search">
           <svg class="ic" style="color:#a99ccf"><use href="#i-search"/></svg>
-          <input id="q" type="search" placeholder="Buscá Imperial, Centenario, Buchanan's..." aria-label="Buscar en la tienda" autocomplete="off">
+          <input id="q" type="search" placeholder="Buscá Buchanan's, Zacapa, six pack, hielo..." aria-label="Buscar en la tienda" autocomplete="off">
           <button type="submit">Buscar</button>
         </form>
         <div class="pills" id="pills"></div>
@@ -373,10 +384,14 @@ form.co{display:grid;gap:14px}
       </div>
       <div class="stage">
         <figure class="polaroid" style="margin:0"><img src="img/lico-rotulo-plaza.webp" alt="Rótulo de Plaza Xocio's con Xocios Lab y Xocio's Lico Market"><span>Plaza Xocio's</span></figure>
-        <div class="combo-glass">
-          <div class="ph"><img src="img/p/combo-centenario.webp" alt="Ron Centenario 4 años y Coca-Cola 1,5 L"><span class="chip">Por tiempo limitado</span></div>
-          <h3>Combo Ron Centenario + Coca-Cola 1,5 L</h3>
-          <div class="row"><span class="big">₡12.000</span><button class="add" data-add="combo-centenario"><svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>Agregar</button></div>
+        <div class="combo-glass" id="partyCard">
+          <div class="ph"><img src="img/p/combo-mejenga.webp" alt="Six pack de Pilsen con hielo"><span class="chip">Fiesta privada</span></div>
+          <div class="party">
+            <div class="ptop"><h3>Fiesta para <span id="pN">20</span></h3><div class="pstep"><button type="button" data-pn="-5" aria-label="Menos personas">−</button><button type="button" data-pn="5" aria-label="Más personas">+</button></div></div>
+            <div class="plines" id="pLines"></div>
+            <div class="row"><span class="big" id="pTot"></span><button class="add" id="pAdd"><svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>Agregar todo</button></div>
+            <button type="button" class="ptalk" data-say="Fiesta para 20">Ajustarla con el asistente</button>
+          </div>
         </div>
       </div>
     </div>
@@ -420,8 +435,8 @@ form.co{display:grid;gap:14px}
   <section class="blk" id="destacados" style="padding-top:20px">
     <div class="wrap">
       <div class="head reveal">
-        <div><div class="eyebrow">Lo más pedido</div><h2>Lo que más sale esta semana</h2></div>
-        <p>Precios con IVA incluido. La existencia sale de las cajas de Heredia y Tibás, en vivo.</p>
+        <div><div class="eyebrow">Lo más pedido</div><h2>Para la fiesta y para el día a día</h2></div>
+        <p>Combos, destilados y también el six de siempre. Precios con IVA incluido; la existencia sale de las cajas de Heredia y Tibás, en vivo.</p>
       </div>
       <div class="shelf" id="featured"></div>
       <button class="morebtn" data-open="all">Ver toda la tienda <svg class="ic"><use href="#i-arrow"/></svg></button>
@@ -536,8 +551,8 @@ const stockOf = p => p.off ? 0 : p.h + p.t;
 const find = (txt,cat) => P.filter(p=>(!cat||p.cat===cat) && norm(p.name+" "+p.pres).includes(norm(txt)));
 
 /* Pills y cinta */
-$("#pills").innerHTML = [["Combos","cat:combos"],["Imperial","imperial"],["Centenario","centenario"],["Buchanan's","buchanan"],["Hielo","hielo"]].map(([l,q])=>q.startsWith("cat:")?`<button type="button" class="pill" data-open="${q}">${l}</button>`:`<button type="button" class="pill" data-q="${q}">${l}</button>`).join("");
-const TK = ["Licores nacionales e importados","Bien frías","Uber Flash coordinado por Xocios","Xocios Heredia","Xocios Tibás","Ediciones especiales","Solo mayores de 18","Tomá con moderación"].map(t=>`<span>${t}</span>`).join("");
+$("#pills").innerHTML = [["Fiesta para 30","say:Fiesta para 30"],["Carne asada","say:Carne asada para 12"],["Destilados especiales","cat:whisky"],["Combos","cat:combos"],["Six pack","six pack"]].map(([l,q])=>q.startsWith("cat:")?`<button type="button" class="pill" data-open="${q}">${l}</button>`:q.startsWith("say:")?`<button type="button" class="pill" data-say="${q.slice(4)}">${l}</button>`:`<button type="button" class="pill" data-q="${q}">${l}</button>`).join("");
+const TK = ["Fiestas privadas","Birras por caja","Destilados especiales","Hielo y bocas","Uber Flash coordinado por Xocios","Xocios Heredia","Xocios Tibás","Solo mayores de 18"].map(t=>`<span>${t}</span>`).join("");
 $("#tk1").innerHTML = TK; $("#tk2").innerHTML = TK;
 
 /* Pasillos */
@@ -623,7 +638,8 @@ $("#heroSearch").onsubmit=e=>{ e.preventDefault(); const v=$("#q").value.trim();
 
 document.addEventListener("click",e=>{
   const sb=e.target.closest("[data-season]"); if(sb){ seasonOverride=sb.dataset.season; renderFeatured(); return; }
-  const say=e.target.closest("[data-say]"); if(say){ sendChat(say.dataset.say); return; }
+  const say=e.target.closest("[data-say]"); if(say){ if(!say.closest("#chatBody")){ closeAll(); $("#asistente").scrollIntoView({behavior:"smooth"}); } sendChat(say.dataset.say); return; }
+  const pn=e.target.closest("[data-pn]"); if(pn){ partyN=Math.max(5,Math.min(150,partyN+Number(pn.dataset.pn))); renderParty(); return; }
   const t=e.target.closest("[data-add],[data-open],[data-scroll],[data-q],[data-tab],[data-close],[data-addall]");
   if(!t) return;
   if(t.dataset.add) addToCart(t.dataset.add);
@@ -829,6 +845,20 @@ function confirmOrder(mode,sede,ship,zone,name){
 }
 function refreshStock(){ document.querySelectorAll("[data-stock]").forEach(el=>{ const st=stockTxt(byId[el.dataset.stock]); el.className="stock "+st.c; el.textContent=st.t; }); }
 window.addEventListener("storage",e=>{ if(e.key==="xo-lico-stock"){ applyStock(); refreshStock(); } });
+
+/* Tarjeta del hero: la fiesta armada con lo que hay hoy */
+let partyN=20;
+function renderParty(){
+  const r=TOPICS.find(x=>x.id==="fiesta").build(partyN);
+  const items=r.items.filter(([id,q])=>q>0&&byId[id]&&stockOf(byId[id])>0).map(([id,q])=>[id,Math.min(q,stockOf(byId[id]))]);
+  const tot=items.reduce((s,[id,q])=>s+byId[id].price*q,0);
+  $("#pN").textContent=partyN+" personas";
+  $("#pLines").innerHTML=items.map(([id,q])=>`<div><span>${q} × ${esc(byId[id].name)}${/six pack/i.test(byId[id].pres)?" (six)":""}</span><span>${fmt(byId[id].price*q)}</span></div>`).join("");
+  $("#pTot").textContent=fmt(tot);
+  $("#pAdd").onclick=()=>{ items.forEach(([id,q])=>addToCart(id,q,true)); toast(`Fiesta para ${partyN} al carrito`); };
+  document.querySelector("#partyCard .ptalk").dataset.say=`Fiesta para ${partyN}`;
+}
+renderParty();
 
 let tt; function toast(msg){ $("#toastT").textContent=msg; $("#toast").classList.add("on"); clearTimeout(tt); tt=setTimeout(()=>$("#toast").classList.remove("on"),2000); }
 

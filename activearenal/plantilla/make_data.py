@@ -96,7 +96,7 @@ CIMG={'Zip Lines':'img/zipline.webp','Waterfall Rappelling (Canyoning)':'img/rap
 for c in combos:
     s2=c['pair'][2:]
     if s2 in CIMG: c['hero']=c['card']=CIMG[s2]
-    c['group_img']='img/rafting-rapids.webp' if 'rafting' in c['slug'] else 'img/safari-green-family.webp'
+    c['group_img']='img/rafting-green-vertical.webp' if 'rafting' in c['slug'] else 'img/safari-green-family.webp'
     c['gallery']=[c['group_img'],c['hero'],'img/arenal-volcano-lake.webp']
 base['brand']['hero_images']=['img/arenal-volcano-lake.webp','img/safari-green-family.webp']
 base['brand']['band_image']='img/rio-celeste-wide.webp'

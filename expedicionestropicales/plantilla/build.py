@@ -611,7 +611,6 @@ def tour_card(t, big=False):
 def booking_demo(t):
     p = t.get("price") or 0
     return f'''<div class="bk" data-price="{p}" data-comm="{t.get('comm', 20)}" data-child="{1 if t.get('child') else 0}" data-name="{e(t['title'])}">
-<div class="tabs" role="tablist"><button type="button" class="on" data-tab="trav" role="tab" aria-selected="true">Traveler</button><button type="button" data-tab="agen" role="tab" aria-selected="false">Agency</button></div>
 <div class="gap" data-pane="trav">
 <div><label for="bk-date">Date</label><input class="in2" id="bk-date" type="date"></div>
 <div><div class="rowp"><span><b>Adults</b><small>Ages 11 and up</small></span><span class="stp"><button type="button" data-k="ad" data-d="-1" aria-label="Fewer adults">{ic("x")}</button><output id="bk-ad">2</output><button type="button" data-k="ad" data-d="1" aria-label="More adults">{ic("plus")}</button></span></div>
@@ -619,13 +618,6 @@ def booking_demo(t):
 <div class="tot"><span><small>Total with 13% tax</small></span><b id="bk-tot">$0</b></div>
 <button class="btn btn-gold" type="button" id="bk-pay">{ic("card")} Pay by card and confirm</button>
 <div class="done" id="bk-done" hidden><b>This is where your checkout opens.</b>Card payment inside this page, instant confirmation by email and the pickup time by WhatsApp. Powered by Rezzerva.</div>
-</div>
-<div class="gap" data-pane="agen" hidden>
-<div><label for="bk-ag">Agency code</label><input class="in2" id="bk-ag" value="AG-0193" autocomplete="off"></div>
-<div><label for="bk-cl">Client name and file</label><input class="in2" id="bk-cl" value="Smith family · File 4471" autocomplete="off"></div>
-<div class="net"><span>Your net rate, {t.get('comm', 20)}% commission off</span><span id="bk-net">$0</span></div>
-<button class="btn btn-ink" type="button" id="bk-cred">{ic("brief")} Book on credit</button>
-<div class="done" id="bk-done2" hidden><b>Booking ET-24817 confirmed.</b>Voucher sent to your agency email, charged to your monthly statement. Nothing to pay today.</div>
 </div>
 {('<p class="demo">Operates with a minimum of ' + str(t["min"]) + ' guests.</p>') if t.get("min") else ""}<p class="demo">Demo: no real booking is made.</p>
 </div>'''
@@ -848,11 +840,11 @@ def js_book():
 function $(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:2})}
 var dt=document.getElementById('bk-date'),d=new Date(),u=new URLSearchParams(location.search);d.setDate(d.getDate()+2);dt.min=new Date().toISOString().slice(0,10);dt.value=u.get('date')||d.toISOString().slice(0,10);
 if(u.get('pax'))q.ad=Math.max(1,Math.min(30,+u.get('pax')||2));
-function upd(){document.getElementById('bk-ad').textContent=q.ad;var c=document.getElementById('bk-ch');if(c)c.textContent=q.ch;var sub=P*q.ad+(hasC?P*.75*q.ch:0);document.getElementById('bk-tot').textContent=$(Math.round(sub*1.13*100)/100);var cm=(+bk.dataset.comm||20)/100;document.getElementById('bk-net').textContent=$(Math.round(P*(1-cm)*(q.ad+(hasC?.75*q.ch:q.ch))*100)/100)+' + tax'}
+function upd(){document.getElementById('bk-ad').textContent=q.ad;var c=document.getElementById('bk-ch');if(c)c.textContent=q.ch;var sub=P*q.ad+(hasC?P*.75*q.ch:0);document.getElementById('bk-tot').textContent=$(Math.round(sub*1.13*100)/100);}
 bk.querySelectorAll('.stp button').forEach(function(b){b.onclick=function(){var k=b.dataset.k;q[k]=Math.max(k==='ad'?1:0,Math.min(30,q[k]+(+b.dataset.d)));upd()}});
-bk.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){bk.querySelectorAll('.tabs button').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});bk.querySelectorAll('[data-pane]').forEach(function(p){p.hidden=p.dataset.pane!==b.dataset.tab})}});
+
 document.getElementById('bk-pay').onclick=function(){document.getElementById('bk-done').hidden=false};
-document.getElementById('bk-cred').onclick=function(){document.getElementById('bk-done2').hidden=false};
+
 upd()})();
 """
 
@@ -915,7 +907,7 @@ FAQ_BASE = [
  ("Can I cancel?", "Yes. Cancel 48 hours or more before the tour and we refund 90%. Later cancellations and no-shows are not refundable."),
  ("Where do you pick us up?", "At your hotel in San José and the surrounding area. After booking we confirm the exact pickup time by WhatsApp."),
  ("How do I pay?", "By card, right here, through a secure checkout. Your spot is confirmed and the receipt arrives by email."),
- ("I am a travel agency. Can I book for my clients?", "Yes. Agencies get their own access with net rates, bookings on credit, vouchers in their name and a monthly statement."),
+ ("I am a travel agency. Can I book for my clients?", "Yes, through the agency portal: your net rate, bookings on credit, vouchers in your name and a monthly statement. Ask us for access."),
 ]
 
 def tour_body(t, base):
@@ -963,7 +955,7 @@ def tour_body(t, base):
 <aside class="book" id="book">
 <div class="bh">{price}{child}<div class="ch">Prices in USD plus 13% tax</div></div>
 <div class="bw">{booking_demo(t)}</div>
-<div class="bf"><a class="wa" href="{wa('Hi! I have a question about ' + t['title'] + '.')}" target="_blank" rel="noopener">{ic("chat")} Prefer to ask first? WhatsApp us</a><div class="secure">{ic("lock")} Secure card payment · agencies on credit</div>{PAY}</div>
+<div class="bf"><a class="wa" href="{wa('Hi! I have a question about ' + t['title'] + '.')}" target="_blank" rel="noopener">{ic("chat")} Prefer to ask first? WhatsApp us</a><div class="secure">{ic("lock")} Secure card payment · instant confirmation</div>{PAY}</div>
 </aside>
 </div>
 <section class="sec rel"><div class="w"><div class="shd rv"><div><div class="eyb">Keep exploring</div><h2>Another day <em>from San José.</em></h2></div></div><div class="grid">{relh}</div></div></section>

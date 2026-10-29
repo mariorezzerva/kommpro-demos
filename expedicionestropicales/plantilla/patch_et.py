@@ -421,3 +421,18 @@ PCSS = r"""
 s = s.replace("FONTS = '<link rel=\"preconnect\"", "CSS += " + repr(PCSS) + "\nFONTS = '<link rel=\"preconnect\"", 1)
 open(p, "w", encoding="utf-8").write(s)
 print("catalogo ok")
+
+# ================= la pagina publica es solo para el turista: sin pestaña de agencia en la reserva
+s = open(p, encoding="utf-8").read()
+import re as _re
+s, n1 = _re.subn(r'<div class="tabs" role="tablist">.*?</div>\n', '', s, count=1, flags=_re.S)
+s, n2 = _re.subn(r'<div class="gap" data-pane="agen" hidden>.*?\n</div>\n', '', s, count=1, flags=_re.S)
+s = s.replace("bk.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){bk.querySelectorAll('.tabs button').forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});bk.querySelectorAll('[data-pane]').forEach(function(p){p.hidden=p.dataset.pane!==b.dataset.tab})}});", "")
+s = s.replace("document.getElementById('bk-cred').onclick=function(){document.getElementById('bk-done2').hidden=false};", "")
+s = s.replace("var cm=(+bk.dataset.comm||20)/100;document.getElementById('bk-net').textContent=$(Math.round(P*(1-cm)*(q.ad+(hasC?.75*q.ch:q.ch))*100)/100)+' + tax'", "")
+s = s.replace('("I am a travel agency. Can I book for my clients?", "Yes. Agencies get their own access with net rates, bookings on credit, vouchers in their name and a monthly statement."),',
+              '("I am a travel agency. Can I book for my clients?", "Yes, through the agency portal: your net rate, bookings on credit, vouchers in your name and a monthly statement. Ask us for access."),')
+s = s.replace('<div class="secure">{ic("lock")} Secure card payment · agencies on credit</div>', '<div class="secure">{ic("lock")} Secure card payment · instant confirmation</div>')
+assert n1 == 1 and n2 == 1, (n1, n2)
+open(p, "w", encoding="utf-8").write(s)
+print("solo turista ok")

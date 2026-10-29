@@ -17,7 +17,7 @@ def rep(old, new, count=1):
 
 # ---------- paleta y tipografia (amarillo palmera, negro selva, verde de las olas)
 rep("--f:#12491d;--f2:#0e3b17;--leaf:#2a7a3a;--mint:#a0e0a0;--gold:#f2d26b;--onGold:#3a2a06;--paper:#f4f1e8;--paper2:#ebe6d8;--ink:#14241a;--mut:#5a6b5d;--line:rgba(20,36,26,.12);--glass:rgba(255,255,255,.08);--gbrd:rgba(160,224,160,.28);\n--disp:'Fraunces',Georgia,serif;",
-    "--f:#16261d;--f2:#0f1a14;--leaf:#2f8a45;--mint:#f6cf3f;--gold:#f6cf3f;--onGold:#17150a;--paper:#fbf9f2;--paper2:#f2eedf;--ink:#151a16;--mut:#5b645d;--line:rgba(21,26,22,.12);--glass:rgba(255,255,255,.08);--gbrd:rgba(246,207,63,.30);\n--disp:'Montserrat',system-ui,sans-serif;--script:'Sacramento','Brush Script MT',cursive;")
+    "--f:#16261d;--f2:#0f1a14;--leaf:#00944b;--mint:#f6cf3f;--gold:#f6cf3f;--onGold:#17150a;--paper:#fbf9f2;--paper2:#f2eedf;--ink:#151a16;--mut:#5b645d;--line:rgba(21,26,22,.12);--glass:rgba(255,255,255,.08);--gbrd:rgba(246,207,63,.30);\n--disp:'Montserrat',system-ui,sans-serif;--script:'Sacramento','Brush Script MT',cursive;")
 for a, b in [("rgba(160,224,160", "rgba(246,207,63"), ("rgba(9,38,15", "rgba(8,14,10"), ("rgba(18,73,29", "rgba(22,38,29"),
              ("rgba(11,48,19", "rgba(14,24,18"), ("rgba(14,59,23", "rgba(16,28,21"), ("rgba(238,245,238", "rgba(247,245,236"),
              ("rgba(242,210,107", "rgba(246,207,63")]:
@@ -373,3 +373,51 @@ show(0);if(rm||im.length<2)return;setTimeout(function(){setInterval(function(){k
 s = s.replace("/* hero carrusel */", REEL_JS + "\n/* hero carrusel */", 1)
 open(p, "w", encoding="utf-8").write(s)
 print("reel ok")
+
+# ================= catalogo oficial (manual de ventas 2024-2025): logos, verde de marca, paquetes, tarifa neta por tour
+s = open(p, encoding="utf-8").read()
+def r2(a, b):
+    global s
+    if a not in s: sys.exit("NO ENCONTRADO 2: " + a[:80])
+    s = s.replace(a, b, 1)
+r2('''<div class="fl"><img src="{img(B['logo'],300)}"''', '''<div class="fl"><img src="{img(B.get('logo_foot') or B['logo'],300)}"''')
+r2('''<span class="av"><img src="{img(B['logo'],120)}" alt=""></span>''', '''<span class="av"><img src="{img(B.get('mark') or B['logo'],120)}" alt=""></span>''')
+r2('''<img src="{img(B["logo"],80)}" alt="">expedicionestropicales''', '''<img src="{img(B.get("mark") or B["logo"],80)}" alt="">expedicionestropicales''')
+r2('<div class="bk" data-price="{p}" ', '<div class="bk" data-price="{p}" data-comm="{t.get(\'comm\', 20)}" ')
+r2('<p class="demo">Demo: no real booking is made.</p>', '{(\'<p class="demo">Operates with a minimum of \' + str(t["min"]) + \' guests.</p>\') if t.get("min") else ""}<p class="demo">Demo: no real booking is made.</p>')
+r2("document.getElementById('bk-net').textContent=$(Math.round(P*.8*(q.ad+q.ch)*100)/100)+' + tax'",
+   "var cm=(+bk.dataset.comm||20)/100;document.getElementById('bk-net').textContent=$(Math.round(P*(1-cm)*(q.ad+(hasC?.75*q.ch:q.ch))*100)/100)+' + tax'")
+r2('<div class="net"><span>Your net rate (example)</span>', '<div class="net"><span>Your net rate, {t.get(\'comm\', 20)}% commission off</span>')
+r2('("tag", "Your net rate, already applied", "Each agency sees its own contract rates. No price lists by email, no math."),',
+   '("tag", "Your net rate, already applied", "Commission from 10% to 23% depending on the tour, already off every price. No rate sheets by email, no math."),')
+PKG = r'''
+def packages_section():
+    P = D.get("packages") or []
+    if not P: return ""
+    rows = "".join(f'<a class="pk rv" href="{wa("Hi! I would like information about the package " + x["code"] + " " + x["name"] + ".")}" target="_blank" rel="noopener"><span class="pc">{e(x["code"])}</span><span class="pn"><b>{e(x["name"])}</b><small>{e(x["route"])}</small></span><span class="pd">{x["days"]} days<br><small>{x["nights"]} nights</small></span><span class="pp"><small>From</small><b>{money(x["from"])}</b><small>per person</small></span></a>' for x in P)
+    return f"""<section class="sec pks" id="packages"><div class="w">
+<div class="shd rv"><div><div class="eyb">Vacation packages</div><h2>Ten ways to see the country, <em>tour by tour.</em></h2></div><p class="lead">From five days to two weeks, built around our day tours. From price per person in double occupancy, economy or tourist hotels, plus 13% tax. Ask us to tailor any of them.</p></div>
+<div class="pkl">{rows}</div></div></section>"""
+
+# ---------------------------------------------------------------- AGENCIAS'''
+s = s.replace("# ---------------------------------------------------------------- AGENCIAS", PKG, 1)
+r2("    agency_html = agency_section()\n", "    agency_html = packages_section() + agency_section()\n")
+r2('<a href="{base}index.html#plan">Plan my day</a>', '<a href="{base}index.html#packages">Packages</a><a href="{base}index.html#plan">Plan my day</a>')
+PCSS = r"""
+.aax .logo img{height:46px}
+.aax .hdr.sc .logo img{height:40px}
+.aax .chat .av img{object-fit:contain;background:#fff;padding:3px}
+.aax .pkl{display:grid;border-top:1px solid var(--line)}
+.aax .pk{display:grid;grid-template-columns:70px minmax(0,1fr) 90px 120px;gap:18px;align-items:center;padding:18px 6px;border-bottom:1px solid var(--line);transition:background .2s}
+.aax .pk:hover{background:var(--paper2)}
+.aax .pk .pc{font-family:var(--disp);font-weight:800;font-size:.82rem;letter-spacing:.06em;color:var(--leaf)}
+.aax .pk .pn b{display:block;font-family:var(--disp);font-weight:700;font-size:1.08rem}
+.aax .pk .pn small{color:var(--mut);font-size:.9rem}
+.aax .pk .pd{font-weight:700;font-size:.95rem;line-height:1.2}.aax .pk .pd small{color:var(--mut);font-weight:600}
+.aax .pk .pp{text-align:right;font-variant-numeric:tabular-nums}.aax .pk .pp small{display:block;font-size:.72rem;color:var(--mut)}
+.aax .pk .pp b{font-family:var(--disp);font-size:1.35rem;font-weight:800}
+@media(max-width:700px){.aax .pk{grid-template-columns:56px minmax(0,1fr) auto;row-gap:6px}.aax .pk .pd{grid-column:2;grid-row:2;font-size:.85rem}.aax .pk .pd br{display:none}.aax .pk .pp{grid-row:1/span 2;grid-column:3}}
+"""
+s = s.replace("FONTS = '<link rel=\"preconnect\"", "CSS += " + repr(PCSS) + "\nFONTS = '<link rel=\"preconnect\"", 1)
+open(p, "w", encoding="utf-8").write(s)
+print("catalogo ok")

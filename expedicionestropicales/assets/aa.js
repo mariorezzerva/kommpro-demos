@@ -1,0 +1,40 @@
+
+(function(){
+var root=document.querySelector('.aax');
+document.querySelectorAll('.aax .legal span').forEach(function(sp){if(!sp.querySelector('a')&&/Rezzerva/.test(sp.textContent)){sp.innerHTML=sp.innerHTML.replace('Rezzerva','<a class="rzl" href="https://rezzerva.com/" target="_blank" rel="noopener">Rezzerva</a>')}});
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.aax .rv').forEach(function(el){io.observe(el)});
+var bi=document.querySelector('.aax .band .bimg');if(bi&&!matchMedia('(prefers-reduced-motion:reduce)').matches){var pf=function(){var r=bi.parentNode.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)bi.style.transform='translateY('+((r.top+r.height/2-innerHeight/2)*-.08)+'px)'};addEventListener('scroll',pf,{passive:true});pf()}
+document.querySelectorAll('.aax .rc').forEach(function(c){var x=c.querySelector('.rx'),m=c.querySelector('.more');if(x&&m&&x.scrollHeight>x.clientHeight+4){m.hidden=false;m.onclick=function(){c.classList.toggle('open');m.textContent=c.classList.contains('open')?'Show less':'Read more'}}});
+(function(){var t=document.getElementById('rtrack');if(!t)return;var cards=t.querySelectorAll('.rc'),dots=document.getElementById('rdots'),cnt=document.getElementById('rcount'),bs=document.querySelectorAll('.aax .rbtn');if(!cards.length){document.querySelector('.aax .rnav').hidden=true;return}
+cards.forEach(function(){dots.appendChild(document.createElement('i'))});
+function step(){var c=cards[0];return c.getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||16)}
+function upd(){var max=t.scrollWidth-t.clientWidth-4,vis=Math.max(1,Math.round(t.clientWidth/step())),first=Math.round(t.scrollLeft/step());
+ dots.querySelectorAll('i').forEach(function(d,i){d.classList.toggle('on',i>=first&&i<first+vis)});
+ cnt.textContent=Math.min(cards.length,first+vis)+' of '+cards.length;
+ bs[0].disabled=t.scrollLeft<4;bs[1].disabled=t.scrollLeft>=max;t.classList.toggle('end',t.scrollLeft>=max);
+ if(max<=0)document.querySelector('.aax .rnav').hidden=true}
+bs.forEach(function(b){b.onclick=function(){b.classList.remove('nudge');t.scrollBy({left:(+b.dataset.d)*step(),behavior:'smooth'})}});
+t.addEventListener('scroll',function(){requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);upd();
+var ob=new IntersectionObserver(function(es){if(es[0].isIntersecting){bs[1].classList.add('nudge');ob.disconnect()}},{threshold:.5});ob.observe(t)})();
+var h=document.getElementById('hdr');if(h){var f=function(){h.classList.toggle('sc',scrollY>40)};f();addEventListener('scroll',f,{passive:true})}
+})();
+var RZ_API="https://expedicionestropicales.rezzerva.com/rz/",RZ_TEN="expediciones-tropicales";
+(function(){
+var sel='[data-rz],[data-rzchild],[data-rztiers],[data-rzmin],[data-rzopt]',els=document.querySelectorAll(sel);if(!els.length)return;
+var slugs={};els.forEach(function(el){['rz','rzchild','rztiers','rzopt'].forEach(function(k){if(el.dataset[k])slugs[el.dataset[k]]=1});if(el.dataset.rzmin)el.dataset.rzmin.split(',').forEach(function(s){slugs[s]=1})});
+function $m(n){var v=n/100;return '$'+(v%1?v.toFixed(2):v.toLocaleString('en-US'))}
+function calc(j){var o={};if(j.passenger_types&&j.passenger_types.length){var a=j.passenger_types.filter(function(p){return p.code==='adult'})[0]||j.passenger_types[0],c=j.passenger_types.filter(function(p){return p.code==='child'})[0];o.from=a.price_minor;if(c)o.child=$m(c.price_minor)+' per child, ages '+c.min_age+' to '+c.max_age}
+ else if(j.tiers&&j.tiers.length){o.from=Math.min.apply(null,j.tiers.map(function(t){return t.amount_minor}));o.tiers=j.tiers.map(function(t){var n=t.min===t.max?t.min:t.min+'-'+t.max;return n+(n===1?' person ':' people ')+$m(t.amount_minor)}).join(' · ')}
+ return o}
+function get(s){var k='rz:'+RZ_TEN+':'+s;try{var c=JSON.parse(sessionStorage.getItem(k)||'null');if(c&&Date.now()-c.t<6e5)return Promise.resolve(c.v)}catch(_){}
+ return fetch(RZ_API+encodeURIComponent(RZ_TEN)+'/products/'+encodeURIComponent(s)).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){var v=calc(j);try{sessionStorage.setItem(k,JSON.stringify({t:Date.now(),v:v}))}catch(_){}return v})}
+var P={};Promise.all(Object.keys(slugs).map(function(s){return get(s).then(function(v){P[s]=v},function(){})})).then(function(){
+ document.querySelectorAll('[data-rz]').forEach(function(el){var v=P[el.dataset.rz];if(v&&v.from)el.textContent=$m(v.from)});
+ document.querySelectorAll('[data-rzchild]').forEach(function(el){var v=P[el.dataset.rzchild];if(v&&v.child)el.textContent=v.child});
+ document.querySelectorAll('[data-rztiers]').forEach(function(el){var v=P[el.dataset.rztiers];if(v&&v.tiers)el.textContent=v.tiers});
+ document.querySelectorAll('[data-rzmin]').forEach(function(el){var m=el.dataset.rzmin.split(',').map(function(s){return P[s]&&P[s].from}).filter(Boolean);if(m.length)el.textContent=$m(Math.min.apply(null,m))});
+ document.querySelectorAll('[data-rzopt]').forEach(function(el){var v=P[el.dataset.rzopt];if(v&&v.from)el.textContent=el.dataset.short+' · from '+$m(v.from)});
+ if(window.T)T.forEach(function(t){var v=P[t.s];if(v&&v.from)t.p=v.from/100});
+});
+})();

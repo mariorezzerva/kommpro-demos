@@ -935,7 +935,7 @@ def build():
     open(os.path.join(ad, "aa.css"), "w").write("html,body{margin:0;background:#f4f1e8}" + CSS)
     # Galerias servidas desde aa.js: un cambio de fotos sale en vivo en WordPress sin republicar paginas
     galmap = {t["slug"]: [img(u, 1200).replace('src="', '') if not u.startswith("img/") else DEMO_URL + u for u in (t.get("gallery") or [])[:3]] for t in ALL}
-    galjs = "(function(){var G=" + json.dumps(galmap) + ";var m=location.pathname.match(/(tour-[a-z0-9-]+)/);if(!m||!G[m[1]])return;var g=document.querySelector('.aax .gal');if(!g)return;var u=G[m[1]];g.className='gal n'+u.length;g.innerHTML=u.map(function(x){return '<div style=\"background-image:url(\''+x+'\')\"></div>'}).join('')})();\n"
+    galjs = "(function(){var G=" + json.dumps(galmap) + ";var m=location.pathname.match(/(tour-[a-z0-9-]+)/);if(!m||!G[m[1]])return;var g=document.querySelector('.aax .gal');if(!g)return;var u=G[m[1]];g.className='gal n'+u.length;g.innerHTML='';u.forEach(function(x){var d=document.createElement('div');d.style.backgroundImage='url('+JSON.stringify(x)+')';g.appendChild(d)})})();\n"
     open(os.path.join(ad, "aa.js"), "w").write(galjs + js_common() + js_prices(DEMO_URL + "rz/"))
     open(os.path.join(ad, "aa-home.js"), "w").write(wjs)
     open(os.path.join(OUT, "wp", "full", "home.html"), "w").write(wp_full(home_body("/", False).replace(fab, "") + fab, home=True))

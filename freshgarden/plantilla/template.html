@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Fresh Garden en línea</title>
-<meta name="description" content="Fruta importada de temporada, directo de nuestra bodega en Cenada a tu casa. Pago seguro con tarjeta.">
+<meta name="description" content="Catálogo navideño 2026: cajas, combos en bandeja y fruta por caja, con pago seguro con tarjeta.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,6 +23,9 @@
   --leaf:#3c5917;         /* verde hoja */
   --lime:#a2d45e;         /* verde lima */
   --sun:#ffd23f;
+  --gold:#f0c35a;
+  --xmas:#a3120d;
+  --xmas-d:#6c0606;
   --display:"Nunito",ui-rounded,"Segoe UI",system-ui,sans-serif;
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:18px;
@@ -51,32 +54,36 @@ header.top{position:sticky;top:0;z-index:40;background:rgba(23,26,20,.92);backdr
 .cartbtn .n{background:#fff;color:var(--heart);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;font-weight:800;padding:0 6px}
 @media (max-width:760px){.nav{display:none}.cartbtn{margin-left:auto}.cartbtn .lbl{display:none}}
 
-/* Hero */
-.hero{position:relative;overflow:hidden;color:#fff;min-height:540px;display:flex;align-items:flex-end}
-.hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 2.2s ease;transform:scale(1.04)}
-.hero .slide.on{opacity:1;animation:drift 14s ease-out forwards}
-@keyframes drift{to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,18,12,.86) 0%,rgba(15,18,12,.6) 45%,rgba(15,18,12,.15) 100%),linear-gradient(0deg,rgba(15,18,12,.7),transparent 50%)}
-.hero .wrap{position:relative;z-index:2;width:100%;padding-block:64px 52px}
-.hero h1{font-size:clamp(42px,6.4vw,80px);font-weight:900;letter-spacing:-.02em;max-width:12ch}
-.hero h1 em{font-style:normal;color:var(--lime)}
-.hero p.lead{max-width:46ch;font-size:18px;color:#e6ebde;margin:18px 0 26px}
-.search{display:flex;align-items:center;gap:10px;max-width:560px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:999px;padding:6px 6px 6px 18px}
+/* Hero: rojo del catálogo navideño con la caja como bodegón */
+.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(110% 95% at 72% 42%,#e4521d 0%,#b5170f 40%,var(--xmas-d) 100%)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.55) 1.4px,transparent 1.6px),radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.2px);background-size:140px 140px,90px 90px;background-position:20px 30px,60px 10px;opacity:.5;pointer-events:none}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center;padding-block:58px 50px}
+.hero .copy{min-width:0}
+.hero h1{font-size:clamp(42px,6vw,76px);font-weight:900;letter-spacing:-.02em;max-width:11ch}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.lead{max-width:44ch;font-size:18px;color:#ffe6dc;margin:18px 0 26px}
+.boxart{position:relative;min-width:0}
+.boxart img{width:100%;height:auto;-webkit-mask-image:radial-gradient(ellipse 66% 62% at 50% 52%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 66% 62% at 50% 52%,#000 58%,transparent 100%);transform:scale(1.12)}
+.boxart .price-chip{position:absolute;right:4%;bottom:-6px;cursor:pointer;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:16px;padding:10px 14px;display:grid;gap:2px}
+.boxart .price-chip small{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#ffd9c9}
+.boxart .price-chip b{font:900 22px var(--display);font-variant-numeric:tabular-nums}
+.search{display:flex;align-items:center;gap:10px;max-width:560px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:999px;padding:6px 6px 6px 18px}
 .search input{flex:1;min-width:0;background:none;border:0;color:#fff;font:16px var(--body);outline:none}
-.search input::placeholder{color:#cfd7c4}
-.search button{background:var(--heart);color:#fff;border:0;border-radius:999px;padding:11px 18px;font-weight:600;display:flex;gap:6px;align-items:center}
+.search input::placeholder{color:#ffd3c4}
+.search button{background:var(--leaf);color:#fff;border:0;border-radius:999px;padding:11px 18px;font-weight:600;display:flex;gap:6px;align-items:center}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.pill{height:32px;font-size:13px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.26);color:#fff;display:inline-flex;align-items:center}
+.pill{height:32px;font-size:13px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;display:inline-flex;align-items:center}
 .pill:hover{background:rgba(255,255,255,.2)}
-.hero .notes{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:26px;font-size:13px;color:#d3dbc8}
+.hero .notes{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:26px;font-size:13px;color:#ffe0d4}
 .hero .notes span{display:flex;align-items:center;gap:7px}
-.hero .notes .ic{width:15px;height:15px;color:var(--lime)}
+.hero .notes .ic{width:15px;height:15px;color:var(--gold)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:40px 36px}.boxart{max-width:480px}}
 
-/* Ticker */
+
 .ticker{background:var(--leaf);color:#eef6e2;overflow:hidden;white-space:nowrap;border-block:1px solid rgba(0,0,0,.15)}
 .ticker .track{display:inline-flex;gap:0;padding-block:12px;animation:tick 38s linear infinite}
 .ticker span{font:700 14px var(--display);letter-spacing:.04em;padding:0 22px;display:inline-flex;align-items:center;gap:22px}
-.ticker span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime)}
+.ticker span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* Secciones */
@@ -87,27 +94,20 @@ section.blk{padding-block:76px}
 .reveal{transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .8s}
 .reveal.pre{transform:translateY(18px)}
 
-/* Pasillos */
+/* Pasillos: foto del catálogo arriba, texto abajo */
 .aisles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.aisle{position:relative;border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:18px 18px 16px;text-align:left;display:flex;flex-direction:column;gap:4px;overflow:hidden;min-height:190px;transition:transform .3s,box-shadow .3s,border-color .3s}
-.aisle:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(30,45,15,.45);border-color:#c9d4b9}
-.aisle .plate{position:absolute;right:-26px;bottom:-30px;width:150px;height:150px;border-radius:50%;background:var(--tint)}
-.aisle img{position:absolute;right:6px;bottom:8px;width:122px;height:122px;object-fit:contain;mix-blend-mode:multiply;transition:transform .5s}
-.aisle:hover img{transform:rotate(-6deg) scale(1.06)}
-.aisle b{font:800 21px var(--display);position:relative}
-.aisle small{color:var(--muted);font-size:13px;position:relative;max-width:16ch;line-height:1.35}
-.aisle .count{margin-top:auto;font-size:12px;font-weight:600;color:var(--leaf);position:relative;display:flex;align-items:center;gap:4px}
-.aisle.wide{grid-column:span 2}
-.hero-aisle{grid-column:1/-1;min-height:250px;background-size:cover;background-position:center 40%;color:#fff;border:0;padding:30px 32px;justify-content:center}
-.hero-aisle b{font-size:clamp(34px,5vw,54px);font-weight:900}
-.hero-aisle small{color:#dbe3f2;font-size:15px;max-width:44ch}
-.hero-aisle .kicker{font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:#a9c4ff}
-.hero-aisle .count{color:#fff;margin-top:14px}
-.aisle.full{grid-column:1/-1;min-height:150px}
-.aisle.full img{width:150px;height:140px}
-@media (max-width:900px){.aisles{grid-template-columns:repeat(2,1fr)}.aisle.wide,.aisle.full{grid-column:1/-1}.hero-aisle{padding:24px 20px}}
+.aisle{border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:0;text-align:left;display:flex;flex-direction:column;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.aisle:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(90,10,10,.45)}
+.aisle .im{aspect-ratio:16/11;max-width:100%;background:var(--xmas);overflow:hidden}
+.aisle .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.aisle:hover .im img{transform:scale(1.05)}
+.aisle .tx{padding:14px 16px 16px;display:grid;gap:4px}
+.aisle b{font:800 20px var(--display)}
+.aisle small{color:var(--muted);font-size:13px;line-height:1.35}
+.aisle .count{margin-top:6px;font-size:12px;font-weight:600;color:var(--xmas);display:flex;align-items:center;gap:4px}
+@media (max-width:900px){.aisles{grid-template-columns:repeat(2,1fr)}}
 
-/* Asistente */
+
 .assist{background:var(--ink);color:#eef2e8;border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1fr 1.1fr;position:relative}
 .assist .copy{padding:48px 44px;display:flex;flex-direction:column;gap:16px;position:relative;z-index:1}
 .assist h2{font-size:clamp(32px,4vw,48px);font-weight:900;color:#fff}
@@ -131,7 +131,7 @@ section.blk{padding-block:76px}
 .msg time{display:block;text-align:right;font-size:11px;color:#8a9180;margin-top:2px}
 .msg .lines{margin:8px 0 4px;display:grid;gap:6px}
 .msg .ln{display:flex;align-items:center;gap:8px;font-size:13.5px}
-.msg .ln img{width:34px;height:34px;object-fit:contain;background:#fff;border-radius:8px}
+.msg .ln img{width:34px;height:34px;object-fit:cover;background:var(--xmas);border-radius:8px}
 .msg .ln span{flex:1;min-width:0}
 .msg .ln em{font-style:normal;color:var(--muted);font-size:12.5px;white-space:nowrap}
 .msg .addall{margin-top:6px;width:100%;background:var(--leaf);color:#fff;border:0;border-radius:9px;padding:9px;font-weight:600;font-size:13.5px}
@@ -148,10 +148,14 @@ section.blk{padding-block:76px}
 .shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .prod{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:6px;position:relative;transition:box-shadow .3s,transform .3s}
 .prod:hover{box-shadow:0 18px 40px -26px rgba(30,45,15,.5);transform:translateY(-2px)}
-.prod .ph{aspect-ratio:1/1;max-width:100%;border-radius:12px;background:#fff;display:grid;place-items:center;overflow:hidden}
-.prod .ph img{width:92%;height:92%;object-fit:contain;mix-blend-mode:multiply;transition:transform .5s}
+.prod .ph{aspect-ratio:4/3;max-width:100%;border-radius:12px;background:var(--xmas);display:grid;place-items:center;overflow:hidden}
+.prod .ph img{width:100%;height:100%;object-fit:cover;object-position:center 35%;transition:transform .5s}
+.prod .inc{list-style:none;padding:0;margin:2px 0 0;display:grid;gap:2px;font-size:12.5px;color:var(--muted)}
+.prod .inc li{display:flex;gap:6px;align-items:baseline}
+.prod .inc li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none;transform:translateY(-2px)}
 .prod:hover .ph img{transform:scale(1.05)}
-.prod .tag{position:absolute;top:22px;left:22px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:var(--sun);color:#3b2f00}
+.prod .tag{position:absolute;top:22px;left:22px;z-index:1;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:var(--gold);color:#3b2600}
+.prod .tag.chumis-t{background:#fff;color:#5a4fa6}
 .prod .tag.ori{background:rgba(255,255,255,.9);color:var(--leaf);border:1px solid var(--line);left:auto;right:22px}
 .prod h3{font:800 17px/1.2 var(--display);margin-top:6px}
 .prod .pres{font-size:13px;color:var(--muted)}
@@ -176,10 +180,13 @@ section.blk{padding-block:76px}
 .chumis .bag button{background:#5a4fa6;color:#fff;border:0;border-radius:999px;padding:6px 8px;font-size:12px;font-weight:700}
 .chumis .bag button:hover{background:#463c8c}
 @media (max-width:980px){.chumis{grid-column:span 2;grid-row:auto}}
-.prod.feat{grid-column:span 2;grid-row:span 2;flex-direction:column;background:linear-gradient(160deg,#fff 0%,#f6f1cf 100%)}
-.prod.feat .ph{background:none;aspect-ratio:auto;flex:1;min-height:260px}
-.prod.feat h3{font-size:26px}
-.prod.feat .story{color:var(--muted);font-size:14.5px;margin:0;max-width:44ch}
+.prod.feat{grid-column:span 2;grid-row:span 2;background:linear-gradient(165deg,#fff 0%,#fbf1e3 100%)}
+.prod.feat .ph{aspect-ratio:auto;flex:1;min-height:280px}
+.prod.feat .ph img{object-position:center 22%}
+.prod.feat h3{font-size:28px}
+.prod.feat .story{color:var(--muted);font-size:14.5px;margin:0;max-width:46ch}
+.prod.feat .inc{grid-template-columns:1fr 1fr;font-size:13.5px;gap:4px 14px;margin-top:4px}
+@media (max-width:520px){.prod.feat .inc{grid-template-columns:1fr}}
 @media (max-width:980px){.shelf{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:420px){.prod .row{flex-wrap:wrap}}
 .morebtn{margin:34px auto 0;display:flex;align-items:center;gap:8px;background:none;border:1.5px solid var(--text);border-radius:999px;padding:12px 22px;font-weight:600}
@@ -219,7 +226,7 @@ footer button.lnk:hover{color:#fff}
 .x{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center}
 .dbody{flex:1;overflow-y:auto;padding:16px 20px}
 .citem{display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line)}
-.citem img{width:60px;height:60px;object-fit:contain;background:#fff;border-radius:12px;border:1px solid var(--line)}
+.citem img{width:60px;height:60px;object-fit:cover;background:var(--xmas);border-radius:12px;border:1px solid var(--line)}
 .citem b{font:800 15px/1.2 var(--display);display:block}
 .citem small{color:var(--muted);font-size:12.5px}
 .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:#fff}
@@ -310,7 +317,7 @@ tr.flash td{animation:fl 1.6s}
   <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></symbol>
 </svg>
 
-<div class="demo-ribbon">Demo de tienda en línea <b>KommPro</b> · pagos en modo prueba · temporada actual: <b id="seasonName">Halloween</b> · ver <button data-season="halloween">Halloween</button><button data-season="navidad">Navidad</button><button data-season="regular">Todo el año</button></div>
+<div class="demo-ribbon">Demo de tienda en línea <b>KommPro</b> · pagos en modo prueba · catálogo navideño 2026</div>
 
 <header class="top">
   <div class="wrap">
@@ -319,42 +326,46 @@ tr.flash td{animation:fl 1.6s}
       <button data-open="all">Tienda</button>
       <button data-scroll="#pasillos">Pasillos</button>
       <button data-scroll="#asistente">Asistente</button>
-      <button data-open="cat:empacados">Chumis y Sweeta</button>
+      <button data-open="cat:combos">Combos</button>
     </nav>
     <button class="cartbtn" id="cartBtn" aria-label="Abrir carrito"><svg class="ic"><use href="#i-bag"/></svg><span class="lbl">Carrito</span><span class="n" id="cartCount">0</span></button>
   </div>
 </header>
 
 <main id="inicio">
-  <section class="hero" aria-label="Fresh Garden en línea">
-    <div class="slide on" style="background-image:url('{{arandanos}}')"></div>
-    <div class="slide" style="background-image:url('{{hero1}}')"></div>
-    <div class="slide" style="background-image:url('{{hero2}}')"></div>
+  <section class="hero" aria-label="Catálogo navideño Fresh Garden">
     <div class="wrap">
-      <div class="eyebrow" style="color:var(--lime)">La casa del arándano en Costa Rica</div>
-      <h1 style="margin-top:12px">Ponele corazón y <em>frescura</em> a tus días.</h1>
-      <p class="lead">La misma fruta que encontrás en los súper, ahora directo de nuestra bodega a tu casa. Escogida a mano, cuidada en frío, cobrada con tarjeta.</p>
-      <form class="search" id="heroSearch" role="search">
-        <svg class="ic" style="color:#cfd7c4"><use href="#i-search"/></svg>
-        <input id="q" type="search" placeholder="Buscá manzanas, uvas, cerezas..." aria-label="Buscar en la tienda" autocomplete="off">
-        <button type="submit">Buscar</button>
-      </form>
-      <div class="pills" id="pills"></div>
-      <div class="notes">
-        <span><svg class="ic"><use href="#i-truck"/></svg>Entrega en la GAM o retiro en Cenada</span>
-        <span><svg class="ic"><use href="#i-snow"/></svg>Cadena de frío propia</span>
-        <span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro con tarjeta</span>
+      <div class="copy">
+        <div class="eyebrow" style="color:var(--gold)">Catálogo navideño 2026</div>
+        <h1 style="margin-top:12px">La Navidad <em>nos une.</em></h1>
+        <p class="lead">Cajas y combos de fruta fresca para regalar, compartir y llevar a la mesa. Escogida a mano en Cenada y cobrada con tarjeta.</p>
+        <form class="search" id="heroSearch" role="search">
+          <svg class="ic" style="color:#ffd3c4"><use href="#i-search"/></svg>
+          <input id="q" type="search" placeholder="Buscá cajas, combos, uvas, manzanas..." aria-label="Buscar en la tienda" autocomplete="off">
+          <button type="submit">Buscar</button>
+        </form>
+        <div class="pills" id="pills"></div>
+        <div class="notes">
+          <span><svg class="ic"><use href="#i-truck"/></svg>Entrega en la GAM o retiro en tienda</span>
+          <span><svg class="ic"><use href="#i-box"/></svg>Precios con IVA incluido</span>
+          <span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro con tarjeta</span>
+        </div>
+      </div>
+      <div class="boxart">
+        <img src="{{herobox}}" alt="Caja Navideña No. 2 con uvas, manzanas y peras">
+        <button class="price-chip" data-add="caja2" style="color:#fff;text-align:left"><small>Caja Navideña No. 2</small><b>₡7,500 · Agregar</b></button>
       </div>
     </div>
   </section>
+
 
   <div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
 
   <section class="blk" id="pasillos">
     <div class="wrap">
       <div class="head reveal">
-        <div><div class="eyebrow">Pasillos</div><h2>Un mundo de frescura y sabor</h2></div>
-        <p>Nueve pasillos, con los arándanos de primero. Entrá al que se te antoje.</p>
+        <div><div class="eyebrow">Catálogo navideño</div><h2>Cuatro formas de regalar fruta</h2></div>
+        <p>Del combo en bandeja para cada colaborador a la caja de 8 kg para el negocio. Precios del catálogo 2026, con IVA incluido.</p>
       </div>
       <div class="aisles" id="aisles"></div>
     </div>
@@ -367,11 +378,11 @@ tr.flash td{animation:fl 1.6s}
         <div class="copy">
           <div class="eyebrow" style="color:var(--lime)">Asistente de compra</div>
           <h2>¿Qué estás buscando? <span>Decíme y te lo armo.</span></h2>
-          <p>Escribile como le escribís a la verdulería de confianza. Te arma el pedido con lo que hay en bodega hoy.</p>
+          <p>Escribile como le escribís a la verdulería de confianza. Te arma el pedido con el catálogo navideño y lo que hay en bodega hoy.</p>
           <ul>
-            <li><svg class="ic"><use href="#i-check"/></svg>"Fruta para las loncheras de la semana"</li>
-            <li><svg class="ic"><use href="#i-check"/></svg>"Algo para una tabla de quesos el sábado"</li>
-            <li><svg class="ic"><use href="#i-check"/></svg>"2 kilos de naranja para jugo y limones"</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>"20 cajas para regalar a mis colaboradores"</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>"Algo para la lonchera de los chiquitos"</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>"2 cajas de uva verde para el negocio"</li>
           </ul>
         </div>
         <div class="chatcard" aria-label="Chat con el asistente">
@@ -394,8 +405,8 @@ tr.flash td{animation:fl 1.6s}
   <section class="blk" id="destacados" style="padding-top:20px">
     <div class="wrap">
       <div class="head reveal">
-        <div><div class="eyebrow">Lo más pedido</div><h2>De temporada esta semana</h2></div>
-        <p>Precios por presentación. La existencia se actualiza con la bodega en tiempo real.</p>
+        <div><div class="eyebrow">Para regalar</div><h2>Lo más pedido en diciembre</h2></div>
+        <p>Precios del catálogo navideño, con IVA incluido. La existencia se actualiza con la bodega en tiempo real.</p>
       </div>
       <div class="shelf" id="featured"></div>
       <button class="morebtn" data-open="all">Ver toda la tienda <svg class="ic"><use href="#i-arrow"/></svg></button>
@@ -408,19 +419,15 @@ tr.flash td{animation:fl 1.6s}
     <div class="fgrid">
       <div>
         <img class="flogo" src="{{logo}}" alt="Fresh Garden">
-        <p style="max-width:34ch">Fruta seleccionada de Chile, Perú, España, México, USA y Europa, cuidada en frío desde el origen hasta tu mesa. Parte de Vida Produce Company.</p>
+        <p style="max-width:34ch">Fruta escogida a mano y cuidada en frío desde el origen hasta tu mesa. Parte de Vida Produce Company.</p>
       </div>
       <div>
         <h4>Tienda</h4>
         <ul id="footCats"></ul>
       </div>
       <div>
-        <h4>Visitanos</h4>
-        <ul>
-          <li style="display:flex;gap:8px"><svg class="ic" style="width:16px;margin-top:3px"><use href="#i-pin"/></svg><span>Cenada, Galpón 3, Local 3306<br>Barreal, Heredia</span></li>
-          <li>Tel. 2260-7949</li>
-          <li>Entregas lunes a sábado</li>
-        </ul>
+        <h4>Puntos de venta</h4>
+        <ul id="footStores"></ul>
       </div>
       <div>
         <h4>Pago seguro</h4>
@@ -485,129 +492,74 @@ tr.flash td{animation:fl 1.6s}
 const A = {{ASSETS}};
 const IMG = f => A[f] || "";
 const CATS = [
-  {id:"arandanos", name:"Arándanos", note:"La casa del arándano en Costa Rica", photo:true},
-  {id:"manzanas", name:"Manzanas", note:"Gala, Fuji, Honeycrisp, Pink Lady", img:"ManzanaRoja.webp", tint:"#fde3e3"},
-  {id:"uvas", name:"Uvas", note:"Con y sin semilla", img:"uvassss.webp", tint:"#e8f3d8"},
-  {id:"citricos", name:"Cítricos", note:"Limón amarillo, naranja, mandarina", img:"%E2%80%94Pngtree%E2%80%94orange-png-png-free-download_3619070.webp", tint:"#ffeccc"},
-  {id:"kiwis", name:"Kiwis", note:"SunGold, Hayward y rojo", img:"Kiwi-raw.png", tint:"#eef4d5"},
-  {id:"carozos", name:"Carozos", note:"Cereza, durazno, nectarina", img:"Durazno.webp", tint:"#ffe2d6"},
-  {id:"peras", name:"Peras", note:"Anjou, Bosc, asiática", img:"Peras.png", tint:"#f0f2d4"},
-  {id:"otras", name:"Otras frutas", note:"Aguacate, granada, pérsimon", img:"Aguacate-Haas.png", tint:"#e2eedd"},
-  {id:"empacados", name:"Empacados", note:"Chumis, Sweeta y bolsas listas", img:"BolsaManzanas6pack.png", tint:"#fff1bf"}
+  {id:"cajas", name:"Cajas navideñas", note:"Caja felices fiestas con uvas, manzanas y pera", img:"caja2"},
+  {id:"combos", name:"Combos en bandeja", note:"Listos para regalar, también de Chumis", img:"combo3"},
+  {id:"uvas", name:"Uva por caja", note:"Premium, caja de 8 kg", img:"uvaglobo"},
+  {id:"manzanas", name:"Manzana y pera por caja", note:"Roja, Gala, Granny, Golden y pera Danjou", img:"manzroja"}
 ];
-// precio de lista al público, en colones
+// Catálogo navideño VPC 2026. Precios del catálogo, con IVA incluido.
 const P = [
-  ["gala","Manzana Gala","manzanas","Bolsa 1 kg",2450,"Gala.webp",64,"Chile"],
-  ["fuji","Manzana Fuji","manzanas","Bolsa 1 kg",2950,"Fuji.webp",48,"USA"],
-  ["honey","Manzana Honeycrisp","manzanas","Bolsa 1 kg",4900,"Honeycrisp.webp",14,"USA"],
-  ["pink","Manzana Pink Lady","manzanas","Bolsa 1 kg",3900,"PinkLady.webp",26,"Chile"],
-  ["granny","Manzana Granny Smith","manzanas","Bolsa 1 kg",2650,"Granny-Smith.webp",52,"Chile"],
-  ["reddel","Manzana Red Delicious","manzanas","Bolsa 1 kg",2350,"RedDelicious.jpeg",70,"USA"],
-  ["ambrosia","Manzana Ambrosía","manzanas","Bolsa 1 kg",4200,"Ambrosia.webp",9,"Canadá"],
-  ["opal","Manzana Opal","manzanas","Bolsa 1 kg",4300,"Opal.webp",12,"USA"],
-  ["redglobe","Uva Red Globe","uvas","Bolsa 1 kg",3450,"RedGlobe.webp",40,"Perú"],
-  ["verde","Uva verde sin semilla","uvas","Bolsa 1 kg",4250,"VerdesinSemilla.webp",33,"Perú"],
-  ["roja","Uva roja sin semilla","uvas","Bolsa 1 kg",4250,"RojaSinSemilla.webp",28,"Perú"],
-  ["negra","Uva negra sin semilla","uvas","Bolsa 1 kg",4450,"NegraSinsemilla.webp",11,"Chile"],
-  ["grapered","Uva roja Grapeyard Bunch","uvas","Bolsa 900 g · Halloween",4450,"grapeRed",30,"USA"],
-  ["grapeblack","Uva negra Grapeyard Bunch","uvas","Bolsa 900 g · Halloween",4650,"grapeBlack",24,"USA"],
-  ["sweeta","Sweeta Blanc Seedless","empacados","Bolsa 500 g",2950,"UvaSweeta.webp",36,"Perú"],
-  ["limon","Limón amarillo","citricos","Malla 1 kg",2400,"Limon-Amarillo.webp",44,"España"],
-  ["naranja","Naranja","citricos","Malla 2 kg",3100,"naranja.webp",58,"Egipto"],
-  ["mandarina","Mandarina","citricos","Malla 1 kg",2250,"mandarina.webp",47,"España"],
-  ["toronja","Toronja","citricos","Unidad",650,"toronjasFG.webp",80,"USA"],
-  ["sungold","Kiwi SunGold","kiwis","Paquete de 6",3250,"KiwiSunGold.webp",30,"Italia"],
-  ["hayward","Kiwi Hayward","kiwis","Bolsa 1 kg",2900,"Hayward.jpeg",42,"Chile"],
-  ["kiwirojo","Kiwi rojo","kiwis","Bandeja de 4",3600,"kiwirojo-kiwifruit.png",8,"Italia"],
-  ["cereza","Cereza","carozos","Caja 500 g",5900,"cereza.webp",18,"Chile"],
-  ["nectarina","Nectarina","carozos","Bolsa 1 kg",3950,"nectarina.webp",22,"Chile"],
-  ["durazno","Durazno","carozos","Bolsa 1 kg",3750,"durazno.webp",25,"Chile"],
-  ["ciruela","Ciruela roja","carozos","Bolsa 1 kg",3650,"Ciruelarojanegra.jpeg",20,"Chile"],
-  ["pluot","Pluot","carozos","Bolsa 1 kg",4500,"pluot-e1778630581240.webp",7,"USA"],
-  ["paraguayo","Durazno paraguayo","carozos","Bandeja 500 g",3900,"duraznoparaguayo.webp",10,"España"],
-  ["anjou","Pera Anjou","peras","Bolsa 1 kg",2850,"Anjou.webp",38,"USA"],
-  ["bosc","Pera Bosc","peras","Bolsa 1 kg",3150,"Bosc.webp",19,"USA"],
-  ["redanjou","Pera Red Anjou","peras","Bolsa 1 kg",3350,"RedAnjou.webp",15,"USA"],
-  ["asiatica","Pera asiática","peras","Unidad",950,"Asiatica.webp",60,"Chile"],
-  ["forelle","Pera Forelle","peras","Bolsa 1 kg",3450,"Forelle.webp",13,"Sudáfrica"],
-  ["aguacate","Aguacate Hass","otras","Unidad",850,"Aguacate-Haas.png",90,"México"],
-  ["granada","Granada","otras","Unidad",1950,"granadaFG.webp",24,"Perú"],
-  ["persimon","Pérsimon","otras","Unidad",1100,"persimon.webp",30,"España"],
-  ["arandanos125","Arándanos","arandanos","Tarrina 125 g",2350,"594579015eb5d45f10e35b42-1.webp",120,"Perú"],
-  ["arandanos170","Arándanos","arandanos","Tarrina 170 g",2950,"594579015eb5d45f10e35b42-1.webp",96,"Perú"],
-  ["arandanos310","Arándanos","arandanos","Tarrina 310 g",4950,"arandanoBowl",64,"Perú"],
-  ["arandanos510","Arándanos familiar","arandanos","Caja 510 g",7500,"arandanoBowl",38,"Perú"],
-  ["esparragos","Espárragos","otras","Atado 500 g",3200,"Esparragos.webp",12,"Perú"],
-  ["datil","Dátil","otras","Caja 250 g",2950,"pngtree-ddatilfg.webp",21,"Egipto"],
-  ["ajonegro","Ajo negro","otras","Frasco 100 g",3500,"ajonegroFB.png",9,"España"],
-  ["chumisgala","Chumis Manzanitas Gala","empacados","Bolsa para loncheras",2650,"ChumisGALA.webp",40,"Chile"],
-  ["chumisroja","Chumis Manzanitas Rojas","empacados","Bolsa para loncheras",2650,"CHUMISRoja.webp",35,"Chile"],
-  ["chumisgranny","Chumis Manzanitas Granny","empacados","Bolsa para loncheras",2650,"ChumisGRANNY.webp",27,"Chile"],
-  ["chumishw","Chumis Halloween","empacados","Bolsa surtida: manzana, pera y uva",3450,"chumisHw",42,"Chile"],
-  ["bolsa6","Manzanas Fresh Garden","empacados","Bolsa de 6",2900,"BolsaManzanas6pack.png",45,"Chile"],
-  ["mixta","Manzana mixta","empacados","Bolsa 1,5 kg",3600,"m.mixta_.png",23,"Chile"],
-  ["kiwibolsa","Kiwi en bolsa","empacados","Bolsa 1 kg",2750,"kiwi-bolsa.webp",29,"Chile"],
-  ["perabolsa","Pera en bolsa","empacados","Bolsa 1 kg",2850,"pera-bolsa.webp",26,"USA"]
-].map(r=>({id:r[0],name:r[1],cat:r[2],pres:r[3],price:r[4],img:r[5],stock:r[6],origin:r[7]}));
+  {id:"caja1", name:"Caja Navideña No. 1", cat:"cajas", pres:"Caja felices fiestas", price:4000, stock:60, inc:["250 g uva globo","250 g uva verde","1 pera Danjou","2 manzanas rojas","1 manzana Granny","1 manzana Gala"]},
+  {id:"caja2", name:"Caja Navideña No. 2", cat:"cajas", pres:"Caja felices fiestas", price:7500, stock:45, inc:["500 g uva globo","500 g uva verde","2 peras Danjou","2 manzanas rojas","2 manzanas Granny","2 manzanas Gala"]},
+  {id:"combo1", name:"Combo No. 1 Chumis", cat:"combos", pres:"Precio por bandeja", price:1200, stock:120, tag:"Chumis", inc:["1 manzana roja","250 g uva globo"]},
+  {id:"combo2", name:"Combo No. 2 Chumis", cat:"combos", pres:"Bolsa navideña, precio por unidad", price:1600, stock:90, tag:"Chumis", inc:["250 g uva globo","1 pera Danjou","1 manzana roja"]},
+  {id:"combo3", name:"Combo No. 3", cat:"combos", pres:"Precio por bandeja", price:1200, stock:80, inc:["250 g uva globo","250 g uva verde","1 pera Danjou","1 manzana roja","1 manzana Granny"]},
+  {id:"combo4", name:"Combo No. 4", cat:"combos", pres:"Precio por bandeja", price:2700, stock:70, inc:["500 g uva globo","1 pera Danjou","1 manzana roja","1 manzana Gala"]},
+  {id:"combo5", name:"Combo No. 5", cat:"combos", pres:"Precio por bandeja", price:4200, stock:55, inc:["500 g uva globo","500 g uva verde","1 pera Danjou","1 manzana roja"]},
+  {id:"uvaglobo", name:"Uva globo premium", cat:"uvas", pres:"Caja de 8 kg", price:20000, stock:30},
+  {id:"uvaverde", name:"Uva verde premium", cat:"uvas", pres:"Caja de 8 kg", price:29000, stock:18},
+  {id:"uvanegra", name:"Uva negra premium", cat:"uvas", pres:"Caja de 8 kg", price:29000, stock:11},
+  {id:"uvaroja", name:"Uva roja sin semilla premium", cat:"uvas", pres:"Caja de 8 kg", price:29000, stock:14},
+  {id:"manzroja", name:"Manzana roja", cat:"manzanas", pres:"Caja, calibre 80, 88 o 100", price:28000, stock:25},
+  {id:"manzgala", name:"Manzana Gala", cat:"manzanas", pres:"Caja, calibre 80, 88 o 100", price:28000, stock:22},
+  {id:"manzgranny", name:"Manzana Granny", cat:"manzanas", pres:"Caja, calibre 80, 88 o 100", price:28000, stock:20},
+  {id:"manzgolden", name:"Manzana Golden", cat:"manzanas", pres:"Caja, calibre 88 o 100", price:28000, stock:9},
+  {id:"peradanjou", name:"Pera Danjou", cat:"manzanas", pres:"Caja", price:30000, stock:16}
+].map(p=>({...p, img:p.id}));
+const STORES = [
+  {id:"cenada", name:"Cenada, tienda", addr:"Galpón 3, Bodega 3311, Barreal de Heredia", tel:"2260-7949 ext. 120"},
+  {id:"borbon", name:"Mercado Borbón", addr:"Calle 10, Paso de la Vaca, San José centro", tel:"2260-7949 ext. 128"},
+  {id:"escazu", name:"Escazú centro", addr:"250 m este del parque, frente al EBAIS", tel:"2260-7949"}
+];
 const byId = Object.fromEntries(P.map(p=>[p.id,p]));
-const fmt = n => "₡" + Math.round(n).toLocaleString("es-CR");
+const fmt = n => "₡" + Math.round(n).toLocaleString("en-US");
 const $ = s => document.querySelector(s);
 
 /* Pills y cinta */
-const PILLS = [["Arándanos","arandanos"],["Uvas sin semilla","uvas sin semilla"],["Manzana Fuji","fuji"],["Kiwi SunGold","sungold"],["Chumis","chumis"]];
-$("#pills").innerHTML = PILLS.map(([l,q])=>`<button type="button" class="pill" data-q="${q}">${l}</button>`).join("");
-const ORIG = ["Chile","Perú","España","México","USA","Portugal","Italia","Egipto","Francia"];
-const tickItems = ORIG.map(o=>`<span>${o}</span>`).join("") + `<span>La casa del arándano en Costa Rica</span><span>Cadena de frío propia</span><span>Escogida a mano en Cenada</span>`;
+const PILLS = [["Cajas navideñas","cat:cajas"],["Combos Chumis","chumis"],["Uva por caja","cat:uvas"],["Manzana por caja","cat:manzanas"]];
+$("#pills").innerHTML = PILLS.map(([l,q])=>q.startsWith("cat:")?`<button type="button" class="pill" data-open="${q}">${l}</button>`:`<button type="button" class="pill" data-q="${q}">${l}</button>`).join("");
+const TICK = ["La Navidad nos une","Cajas felices fiestas","Combos en bandeja","Uva premium por caja de 8 kg","Retiro en Cenada, Mercado Borbón y Escazú","Precios con IVA incluido"];
+const tickItems = TICK.map(o=>`<span>${o}</span>`).join("");
 $("#ticker").innerHTML = tickItems + tickItems;
 
 /* Pasillos */
 $("#aisles").innerHTML = CATS.map(c=>{
   const n = P.filter(p=>p.cat===c.id).length;
-  if(c.photo) return `<button class="aisle hero-aisle reveal" data-open="cat:${c.id}" style="background-image:linear-gradient(90deg,rgba(14,24,48,.88) 0%,rgba(14,24,48,.55) 50%,rgba(14,24,48,.05) 100%),url(${A.arandanosPhoto})">
-    <span class="kicker">La casa del arándano en Costa Rica</span><b>Arándanos</b><small>Dulces, firmes y siempre en bodega. De la tarrina para la lonchera a la caja familiar para el batido de toda la semana.</small>
-    <span class="count">${n} presentaciones <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></button>`;
-  return `<button class="aisle reveal ${c.wide?'wide':''} ${c.full?'full':''}" style="--tint:${c.tint}" data-open="cat:${c.id}">
-    <span class="plate"></span><img src="${IMG(c.img,300)}" alt="" loading="lazy">
-    <b>${c.name}</b><small>${c.note}</small>
-    <span class="count">${n} productos <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></button>`}).join("");
+  return `<button class="aisle reveal" data-open="cat:${c.id}">
+    <span class="im"><img src="${IMG(c.img)}" alt="" loading="lazy"></span>
+    <span class="tx"><b>${c.name}</b><small>${c.note}</small>
+    <span class="count">${n} productos <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></span></button>`}).join("");
+$("#footStores").innerHTML = STORES.map(s=>`<li style="display:flex;gap:8px"><svg class="ic" style="width:16px;margin-top:3px"><use href="#i-pin"/></svg><span><b style="color:#fff;font-weight:600">${s.name}</b><br>${s.addr}<br>Tel. ${s.tel}</span></li>`).join("");
 $("#footCats").innerHTML = CATS.map(c=>`<li><button class="lnk" data-open="cat:${c.id}">${c.name}</button></li>`).join("");
 
 /* Tarjeta de producto */
 function card(p,extra=""){
-  const low = p.stock<=12;
+  const low = p.stock<=12, feat = extra==="feat";
   return `<article class="prod ${extra}">
-    ${extra==="feat"?`<span class="tag">Marca propia</span>`:""}
-    <span class="tag ori">${p.origin}</span>
-    <div class="ph"><img src="${IMG(p.img, extra==='feat'?800:420)}" alt="${p.name}" loading="lazy"></div>
+    ${feat?`<span class="tag">La más pedida para regalar</span>`:p.tag?`<span class="tag chumis-t">${p.tag}</span>`:""}
+    <div class="ph"><img src="${IMG(p.img)}" alt="${p.name}" loading="lazy"></div>
     <h3>${p.name}</h3>
-    ${extra==="feat"?`<p class="story">Nuestra uva estrella: firme, de piel delicada y muy dulce. Sin semilla, lista para la lonchera, la tabla de quesos o comer a puños.</p>`:""}
+    ${feat?`<p class="story">La caja completa para la mesa del 24 o para quedar bien con la familia. Viene lista para entregar, con tapa de felices fiestas.</p>`:""}
     <div class="pres">${p.pres}</div>
+    ${p.inc?`<ul class="inc">${p.inc.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}
     <div class="stock ${low?'low':''}" data-stock="${p.id}">${low?`Quedan ${p.stock}`:`${p.stock} en bodega`}</div>
     <div class="row"><span class="price">${fmt(p.price)}</span>
     <button class="add" data-add="${p.id}" aria-label="Agregar ${p.name}"><svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>Agregar</button></div>
   </article>`;
 }
-const SEASONS = {
-  halloween:{key:"halloween",label:"Halloween",tag:"Temporada de Halloween",title:"Travesuras con fruta",copy:"Dale un toque natural a tus travesuras. Chumis y uvas Grapeyard Bunch disfrazadas, solo hasta el 31 de octubre.",bg:"seasonHw",pos:"center 30%",items:["chumishw","grapered","grapeblack"],ids:["arandanos310","chumisgala","redglobe","sungold","fuji","aguacate","mandarina","honey","sweeta","granada","naranja","anjou"]},
-  navidad:{key:"navidad",label:"Navidad",tag:"Temporada navideña",title:"La fruta de la mesa de diciembre",copy:"Uvas, cerezas, arándanos y manzanas para la cena, el rompope y los regalos. Pedí con tiempo y lo llevamos en frío.",bg:"seasonNav",pos:"center",items:["redglobe","cereza","arandanos510"],ids:["arandanos310","fuji","pink","redanjou","verde","granada","datil","honey","sweeta","sungold","mandarina","anjou"]},
-  regular:{key:"regular",label:"Todo el año",logo:true,copy:"Manzanitas tamaño mini para manitas pequeñas. Con Sanita, Mandarín y Gajito, la lonchera se vuelve el momento favorito del día.",bg:"chumisBg",pos:"center top",items:["chumisgala","chumisroja","chumisgranny"],ids:["arandanos310","sweeta","fuji","cereza","sungold","redglobe","aguacate","mandarina","honey","granada","pink","naranja"]}
-};
-let seasonOverride = null;
-function currentSeason(){
-  if(seasonOverride) return SEASONS[seasonOverride];
-  const d = new Date(), m = d.getMonth()+1;
-  if(m===10) return SEASONS.halloween;
-  if(m===11 || m===12) return SEASONS.navidad;
-  return SEASONS.regular;
-}
 function renderFeatured(){
-  const s = currentSeason();
-  const ids = s.ids;
-  const bags = s.items.map(id=>{const p=byId[id];return `<div class="bag"><img src="${IMG(p.img)}" alt="${p.name}"><span>${p.name.replace("Chumis Manzanitas ","").replace(" Grapeyard Bunch","")}</span><span>${fmt(p.price)}</span><button data-add="${id}">Agregar</button></div>`}).join("");
-  const ch = `<article class="chumis" style="background-image:url(${A[s.bg]});background-position:${s.pos}"><div class="glass">${s.logo?`<img class="clogo" src="${A.chumisLogo}" alt="Chumis">`:`<span class="seasontag">${s.tag}</span><h3 class="stitle">${s.title}</h3>`}<p>${s.copy}</p><div class="bags">${bags}</div></div></article>`;
-  $("#seasonName").textContent = s.label;
-  document.querySelectorAll("[data-season]").forEach(b=>b.classList.toggle("on", b.dataset.season===s.key));
-  $("#featured").innerHTML = ch + ids.map(id=>card(byId[id])).join("");
+  const ids = ["caja1","combo1","combo2","combo3","combo4","combo5","uvaglobo","manzroja"];
+  $("#featured").innerHTML = card(byId.caja2,"feat") + ids.map(id=>card(byId[id])).join("");
 }
 renderFeatured();
 
@@ -654,7 +606,7 @@ function openCatalog(cat="all", q=""){
   catState = {cat,q};
   $("#catTabs").innerHTML = [`<button data-tab="all" class="${cat==='all'&&!q?'on':''}">Todo</button>`].concat(CATS.map(c=>`<button data-tab="${c.id}" class="${c.id===cat?'on':''}">${c.name}</button>`)).join("");
   let list = P, title = "Toda la tienda";
-  if(q){ const t = norm(q); list = P.filter(p=>norm(p.name+" "+p.cat+" "+p.pres+" "+p.origin).includes(t) || t.split(" ").every(w=>norm(p.name).includes(w))); title = `Resultados para "${q}"`; }
+  if(q){ const t = norm(q); list = P.filter(p=>norm(p.name+" "+p.cat+" "+p.pres+" "+(p.tag||"")+" "+(p.inc||[]).join(" ")).includes(t) || t.split(" ").every(w=>norm(p.name).includes(w))); title = `Resultados para "${q}"`; }
   else if(cat!=="all"){ list = P.filter(p=>p.cat===cat); title = CATS.find(c=>c.id===cat).name; }
   $("#catTitle").textContent = title;
   if(!list.length){ $("#catList").innerHTML = `<p style="color:var(--muted)">No encontramos "${q}" hoy en bodega. Probá con otra fruta o pedíselo al asistente.</p>`; }
@@ -670,7 +622,6 @@ $("#heroSearch").onsubmit = e=>{ e.preventDefault(); const v=$("#q").value.trim(
 
 /* Delegación de clics */
 document.addEventListener("click",e=>{
-  const sb = e.target.closest("[data-season]"); if(sb){ seasonOverride = sb.dataset.season; renderFeatured(); return; }
   const t = e.target.closest("[data-add],[data-open],[data-scroll],[data-q],[data-tab],[data-close],[data-addall]");
   if(!t) return;
   if(t.dataset.add) addToCart(t.dataset.add);
@@ -685,47 +636,50 @@ document.addEventListener("click",e=>{
 
 /* Asistente */
 const RECIPES = [
-  {k:["arandano","arandanos","blueberr","mora azul"], say:"Llegaste a la casa del arándano. Para la semana te sugiero la tarrina grande y una pequeña para andar:", items:[["arandanos310",1],["arandanos125",2]]},
-  {k:["halloween","disfraz","dulce o truco","brujas"], say:"Para un Halloween natural, nuestras bolsas de temporada:", items:[["chumishw",2],["grapered",1],["grapeblack",1]]},
-  {k:["lonchera","loncheras","escuela","ninos","niño","chiquitos","merienda","chumis"], say:"Para las loncheras de la semana te armé esto. Las manzanitas Chumis vienen tamaño mini, perfectas para manitas pequeñas:", items:[["chumisgala",1],["chumisroja",1],["mandarina",1],["sweeta",1]]},
-  {k:["queso","quesos","tabla","picada","vino","charcuteria"], say:"Para una buena tabla de quesos:", items:[["sweeta",1],["roja",1],["anjou",1],["datil",1],["granada",1]]},
-  {k:["jugo","jugos","batido","limonada","fresco"], say:"Para jugos y frescos:", items:[["naranja",1],["limon",1],["mandarina",1]]},
-  {k:["postre","pie","tarta","queque","hornear","strudel"], say:"Para hornear, la Granny Smith aguanta el calor y da ese toque ácido:", items:[["granny",2],["durazno",1],["limon",1]]},
-  {k:["ensalada","ensaladas","bowl","saludable","dieta"], say:"Para ensaladas frescas:", items:[["aguacate",3],["granada",1],["arandanos125",2],["esparragos",1]]},
-  {k:["navidad","diciembre","fiesta","fin de ano","cena","regalo"], say:"Para la mesa de fiesta, lo más pedido en diciembre:", items:[["redglobe",1],["cereza",1],["arandanos310",1],["fuji",1],["redanjou",1]]},
-  {k:["semana","casa","familia","surtido","variado","basico"], say:"Un surtido para la semana en casa:", items:[["gala",1],["naranja",1],["hayward",1],["anjou",1],["redglobe",1],["aguacate",3]]},
-  {k:["dulce","dulces","antojo"], say:"Para el antojo de algo dulce:", items:[["honey",1],["sweeta",1],["sungold",1],["persimon",2]]}
+  {k:["colaborador","empleado","empresa","oficina","equipo","personal","clientes","corporativ","trabajador"], qty:10, say:n=>`Para ${n} regalos de empresa, la Caja Navideña No. 1 es la favorita: rinde, se ve linda y cuesta ${fmt(4000)} cada una. Si querés algo más pequeño, el Combo No. 3 en bandeja sale a ${fmt(1200)}.`, items:[["caja1",1]]},
+  {k:["lonchera","escuela","ninos","niño","chiquito","chumis","guarderia","kinder"], say:()=>"Los combos Chumis vienen en tamaño ideal para manitas pequeñas, con empaque navideño:", items:[["combo1",2],["combo2",2]]},
+  {k:["familia","cena","mesa","nochebuena","24","compartir","fiesta","posada"], say:()=>"Para la mesa del 24, la Caja No. 2 trae de todo y el Combo No. 5 suma más uva:", items:[["caja2",1],["combo5",1]]},
+  {k:["regalo","regalar","detalle","amigo","vecino","suegr","profe","intercambio"], say:()=>"Para un detalle bonito sin gastar de más:", items:[["caja1",1],["combo4",1]]},
+  {k:["negocio","reventa","revender","pulperia","restaurante","hotel","soda","mayoreo","por caja","8 kg"], say:()=>"Para el negocio conviene por caja completa de 8 kg o de manzana:", items:[["uvaglobo",1],["manzroja",1],["manzgala",1]]}
 ];
+const STOP = ["caja","combo","premium","navidena","sin","no."];
 const chatBody = $("#chatBody");
 const now = ()=>new Date().toLocaleTimeString("es-CR",{hour:"numeric",minute:"2-digit"});
 function bubble(html,who){ $("#chatEmpty")?.remove(); const d=document.createElement("div"); d.className="msg "+who; d.innerHTML=html+`<time>${now()}</time>`; chatBody.appendChild(d); chatBody.scrollTop=chatBody.scrollHeight; return d; }
-function parseQty(txt){ const m = txt.match(/(\d+)\s*(kilo|kilos|kg|bolsa|bolsas|unidades|u)?/); return m?Math.max(1,parseInt(m[1])):null; }
+function parseQty(txt){ const m = txt.replace(/n[o°]\.?\s*\d/g,"").replace(/\d+\s*kg/g,"").match(/(\d+)/); return m?Math.max(1,parseInt(m[1])):null; }
 function answer(txt){
   const t = norm(txt);
-  let rec = RECIPES.find(r=>r.k.some(k=>t.includes(norm(k))));
   let items, say;
-  if(rec){ items = rec.items; say = rec.say; }
-  else {
-    // busca productos por nombre
-    const found = [];
-    const parts = t.split(/,| y | e |\+/);
-    parts.forEach(part=>{
+  const found = [];
+  // pedidos por número de caja o combo
+  t.replace(/(\d+)?\s*(?:x\s*)?(caja|combo)s?\s*(?:navidena\s*)?(?:n[o°]\.?\s*|numero\s*|#\s*)?([1-5])\b/g,(m,q,kind,n)=>{
+    const id = (kind==="caja"?"caja":"combo")+n;
+    if(byId[id] && !(kind==="caja" && n>2)) found.push([id, q?parseInt(q):1]);
+    return m;
+  });
+  // fruta por nombre (cajas de 8 kg y de manzana), solo si menciona una fruta
+  if(!found.length && /\b(uvas?|manzanas?|peras?)\b/.test(t)){
+    t.split(/,| y | e |\+/).forEach(part=>{
       const q = parseQty(part)||1;
-      const hit = P.filter(p=>{ const n = norm(p.name); return n.split(" ").filter(w=>w.length>3 && !["manzana","pera","uva"].includes(w)).some(w=>part.includes(w)) || (part.includes(n.split(" ")[0].replace(/s$/,"")) && n.split(" ").length===1); });
-      const generic = [["manzana","gala"],["uva","redglobe"],["pera","anjou"],["kiwi","hayward"],["naranja","naranja"],["limon","limon"],["mandarina","mandarina"],["cereza","cereza"],["aguacate","aguacate"],["durazno","durazno"],["arandano","arandanos310"],["granada","granada"],["toronja","toronja"]];
-      let pick = hit[0];
-      if(!pick){ const g = generic.find(([w])=>part.includes(w)); if(g) pick = byId[g[1]]; }
-      if(pick && !found.find(f=>f[0]===pick.id)){
-        const isKg = /kilo|kg/.test(part) && /1 kg/.test(pick.pres);
-        found.push([pick.id, isKg||!/2 kg/.test(pick.pres)?q:Math.ceil(q/2)]);
-      }
+      let best=null, bestScore=0;
+      P.filter(p=>p.cat==="uvas"||p.cat==="manzanas").forEach(p=>{
+        const words = norm(p.name).split(" ").filter(w=>w.length>2 && !STOP.includes(w));
+        const sc = words.filter(w=>new RegExp("\\b"+w.replace(/s$/,"")+"s?\\b").test(part)).length;
+        if(sc>bestScore){best=p;bestScore=sc;}
+      });
+      if(best && !found.find(f=>f[0]===best.id)) found.push([best.id,q]);
     });
-    if(found.length){ items = found; say = "Listo, esto es lo que tengo en bodega para vos:"; }
   }
-  if(!items){ return bubble(`Mmm, no te entendí del todo. Podés pedirme frutas por nombre ("2 kilos de naranja y limones") o contarme para qué es ("algo para una tabla de quesos").`, "bot"); }
-  const avail = items.filter(([id])=>byId[id].stock>0);
+  const rec = RECIPES.find(r=>r.k.some(k=>t.includes(norm(k))));
+  if(found.length){ items = found; say = "Listo, esto es lo que tengo en bodega para vos:"; }
+  else if(rec){
+    const n = rec.qty ? (parseQty(t)||rec.qty) : null;
+    items = rec.items.map(([id,q])=>[id, n||q]); say = rec.say(n);
+  }
+  if(!items){ return bubble(`No te entendí del todo. Podés pedirme por nombre ("Caja Navideña No. 2", "2 cajas de uva verde") o contarme para qué es ("regalos para 15 colaboradores"). Si preferís, llamanos al 2260-7949.`, "bot"); }
+  const avail = items.filter(([id])=>byId[id].stock>0).map(([id,q])=>[id, Math.min(q, byId[id].stock)]);
   const total = avail.reduce((s,[id,q])=>s+byId[id].price*q,0);
-  const lines = avail.map(([id,q])=>{const p=byId[id];return `<div class="ln"><img src="${IMG(p.img,100)}" alt=""><span>${q} × ${p.name}<br><em>${p.pres}</em></span><em>${fmt(p.price*q)}</em></div>`}).join("");
+  const lines = avail.map(([id,q])=>{const p=byId[id];return `<div class="ln"><img src="${IMG(p.img)}" alt=""><span>${q} × ${p.name}<br><em>${p.pres}</em></span><em>${fmt(p.price*q)}</em></div>`}).join("");
   bubble(`${say}<div class="lines">${lines}</div><b>Total: ${fmt(total)}</b><button class="addall" data-addall='${JSON.stringify(avail)}'>Agregar todo al carrito</button>`, "bot");
 }
 $("#chatForm").onsubmit = e=>{
@@ -744,10 +698,11 @@ function renderCheckout(){
   $("#coBody").innerHTML = `<form class="co" id="coForm">
     <div class="seg">
       <label><input type="radio" name="mode" value="envio" checked><b>Entrega a domicilio</b>GAM, al día siguiente · ${fmt(2500)}</label>
-      <label><input type="radio" name="mode" value="retiro"><b>Retiro en Cenada</b>Galpón 3, Local 3306 · gratis</label>
+      <label><input type="radio" name="mode" value="retiro"><b>Retiro en tienda</b>Cenada, Mercado Borbón o Escazú · gratis</label>
     </div>
     <div class="two"><div class="fld"><label for="cn">Nombre completo</label><input id="cn" required value="Ana Solís"></div>
     <div class="fld"><label for="ct">Teléfono</label><input id="ct" required value="8888-1234" inputmode="tel"></div></div>
+    <div class="fld" id="storeF" hidden><label for="cs">Punto de venta</label><select id="cs">${STORES.map(s=>`<option value="${s.id}">${s.name} · ${s.addr}</option>`).join("")}</select></div>
     <div class="fld" id="addrF"><label for="ca">Dirección de entrega</label><input id="ca" value="Santo Domingo de Heredia, 200 m norte de la iglesia"></div>
     <div class="fld"><label for="ce">Correo para la factura electrónica</label><input id="ce" type="email" required value="ana.solis@correo.cr"></div>
     <div class="cardbox">
@@ -764,21 +719,21 @@ function renderCheckout(){
     <button class="primary" type="submit"><svg class="ic"><use href="#i-lock"/></svg><span id="payLbl">Pagar ${fmt(s+2500)}</span></button>
   </form>`;
   const f = $("#coForm");
-  f.addEventListener("change",()=>{ const r=f.mode.value==="retiro"; const sh=r?0:2500; $("#addrF").hidden=r; $("#coShip").textContent=r?"Gratis":fmt(sh); $("#coTot").textContent=fmt(s+sh); $("#payLbl").textContent=`Pagar ${fmt(s+sh)}`; });
-  f.onsubmit = e=>{ e.preventDefault(); const btn=f.querySelector(".primary"); btn.disabled=true; btn.innerHTML="Procesando pago..."; setTimeout(()=>confirmOrder(f.mode.value), 1400); };
+  f.addEventListener("change",()=>{ const r=f.mode.value==="retiro"; const sh=r?0:2500; $("#addrF").hidden=r; $("#storeF").hidden=!r; $("#coShip").textContent=r?"Gratis":fmt(sh); $("#coTot").textContent=fmt(s+sh); $("#payLbl").textContent=`Pagar ${fmt(s+sh)}`; });
+  f.onsubmit = e=>{ e.preventDefault(); const btn=f.querySelector(".primary"); btn.disabled=true; btn.innerHTML="Procesando pago..."; const st = STORES.find(s=>s.id===$("#cs").value); setTimeout(()=>confirmOrder(f.mode.value, st), 1400); };
 }
 let orders = [];
-function confirmOrder(mode){
+function confirmOrder(mode, store){
   const num = "FG-" + (10427 + orders.length);
   const lines = Object.entries(cart);
   lines.forEach(([id,q])=>{ byId[id].stock -= q; });
-  orders.unshift({num, lines, total: subtotal()+(mode==="retiro"?0:2500), mode, time: now()});
+  orders.unshift({num, lines, total: subtotal()+(mode==="retiro"?0:2500), mode, store, time: now()});
   lastChanged = lines.map(([id])=>id);
   cart = {}; save(); renderCart(); refreshStock();
   $("#coTitle").textContent = "Pedido confirmado";
   $("#coBody").innerHTML = `<div class="done"><div class="check"><svg class="ic"><use href="#i-check"/></svg></div>
     <h3>¡Gracias! Pedido ${num}</h3>
-    <p>${mode==="retiro"?"Te avisamos por WhatsApp cuando esté listo para retirar en Cenada, Galpón 3, Local 3306.":"Lo alistamos en bodega y sale mañana en camión refrigerado. Te avisamos por WhatsApp cuando vaya en camino."}</p>
+    <p>${mode==="retiro"?`Te avisamos por WhatsApp cuando esté listo para retirar en ${store.name} (${store.addr}).`:"Lo alistamos en bodega y sale mañana en camión refrigerado. Te avisamos por WhatsApp cuando vaya en camino."}</p>
     <p style="font-size:13px">La existencia en bodega ya se rebajó. Mirá el panel para verlo.</p>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
       <button class="primary" style="padding:12px 18px" id="seePanel">Ver panel de bodega</button>
@@ -805,12 +760,12 @@ function openPanel(){
       <div class="kpi"><small>Productos por reponer</small><b>${low.length}</b></div>
     </div>
     ${orders.length?`<div class="sub" style="margin-top:0">Últimos pedidos</div><div class="tbl" style="margin-bottom:16px"><table><thead><tr><th>Pedido</th><th>Hora</th><th>Entrega</th><th>Productos</th><th style="text-align:right">Total</th></tr></thead><tbody>
-      ${orders.map(o=>`<tr><td><b>${o.num}</b></td><td>${o.time}</td><td>${o.mode==="retiro"?"Retiro Cenada":"Domicilio GAM"}</td><td>${o.lines.map(([id,q])=>q+"× "+byId[id].name).join(", ")}</td><td class="n">${fmt(o.total)}</td></tr>`).join("")}</tbody></table></div>`:""}
+      ${orders.map(o=>`<tr><td><b>${o.num}</b></td><td>${o.time}</td><td>${o.mode==="retiro"?"Retiro "+o.store.name:"Domicilio GAM"}</td><td>${o.lines.map(([id,q])=>q+"× "+byId[id].name).join(", ")}</td><td class="n">${fmt(o.total)}</td></tr>`).join("")}</tbody></table></div>`:""}
     <div class="sub" style="margin-top:0">Existencia · Bodega Cenada</div>
-    <div class="tbl"><table><thead><tr><th>Producto</th><th>Pasillo</th><th>Presentación</th><th>Origen</th><th style="text-align:right">Precio</th><th style="text-align:right">Existencia</th></tr></thead><tbody>
-      ${rows.map(p=>`<tr class="${lastChanged.includes(p.id)?'flash':''}"><td><b>${p.name}</b></td><td>${CATS.find(c=>c.id===p.cat).name}</td><td>${p.pres}</td><td>${p.origin}</td><td class="n">${fmt(p.price)}</td><td class="n" style="color:${p.stock<=12?'#a5590a':'inherit'};font-weight:${p.stock<=12?700:400}">${p.stock}</td></tr>`).join("")}
+    <div class="tbl"><table><thead><tr><th>Producto</th><th>Pasillo</th><th>Presentación</th><th style="text-align:right">Precio</th><th style="text-align:right">Existencia</th></tr></thead><tbody>
+      ${rows.map(p=>`<tr class="${lastChanged.includes(p.id)?'flash':''}"><td><b>${p.name}</b></td><td>${CATS.find(c=>c.id===p.cat).name}</td><td>${p.pres}</td><td class="n">${fmt(p.price)}</td><td class="n" style="color:${p.stock<=12?'#a5590a':'inherit'};font-weight:${p.stock<=12?700:400}">${p.stock}</td></tr>`).join("")}
     </tbody></table></div>
-    <p style="font-size:12.5px;color:var(--muted);margin-top:12px">Una sola existencia para la caja de Cenada y la tienda en línea: lo que se vende en un lado se rebaja en el otro.</p>`;
+    <p style="font-size:12.5px;color:var(--muted);margin-top:12px">Una sola existencia para las cajas de Cenada, Mercado Borbón y Escazú y la tienda en línea: lo que se vende en un lado se rebaja en el otro.</p>`;
   openOverlay($("#panelModal"));
 }
 $("#panelLink").onclick = openPanel;
@@ -819,9 +774,6 @@ $("#panelLink").onclick = openPanel;
 let tt;
 function toast(msg){ $("#toastT").textContent=msg; $("#toast").classList.add("on"); clearTimeout(tt); tt=setTimeout(()=>$("#toast").classList.remove("on"),1900); }
 
-/* Hero: fundido lento entre dos fotos */
-const slides = document.querySelectorAll(".hero .slide"); let si=0;
-setInterval(()=>{ slides[si].classList.remove("on"); si=(si+1)%slides.length; slides[si].classList.add("on"); }, 7000);
 
 /* Entrada al hacer scroll: visible por defecto, se anima solo si hay soporte */
 if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches){

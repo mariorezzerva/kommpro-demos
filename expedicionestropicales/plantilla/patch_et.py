@@ -337,10 +337,10 @@ REEL_CSS = r"""
 s = s.replace("FONTS = '<link rel=\"preconnect\"", "CSS += " + repr(REEL_CSS) + "\nFONTS = '<link rel=\"preconnect\"", 1)
 
 REEL_FN = '''REELS = [
- ("Irazú at sunrise", "Above the clouds before 8 a.m.", ["https://www.expedicionestropicales.com/wp-content/uploads/2015/08/maxresdefault.jpg", "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/wide-1000-4-dsc0142.jpg", "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/Irazu-volcano-cambio.jpg"], "irazu-volcano"),
- ("Sarchí", "Where the oxcarts are still painted by hand", ["https://www.expedicionestropicales.com/wp-content/uploads/2015/08/Doka-Grecia-and-Sarchi-Oxcart-Factory.jpg", "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/GEDC1008.jpg", "https://www.expedicionestropicales.com/wp-content/uploads/2016/01/Poas-Doka-Grecia-y-Sarchi.jpg"], "poas-doka-grecia-sarchi"),
- ("Tortuga Island", "Ceviche, live music, white sand", ["https://www.expedicionestropicales.com/wp-content/uploads/2015/08/Tortuga-island-tour.jpg", "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/Tortuga-island.jpg", "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/costa-rica-Tortuga-island-tour.jpg"], "tortuga-island-cruise"),
- ("La Paz", "Five waterfalls and a hummingbird garden", ["https://www.expedicionestropicales.com/wp-content/uploads/2016/02/La-Paz-Waterfall-Gardens-Tour.jpg", "https://www.expedicionestropicales.com/wp-content/uploads/2016/02/Costa-Rica-La-Paz-Waterfall-Gardens.jpg", "https://www.expedicionestropicales.com/wp-content/uploads/2016/02/La-Paz-Waterfall-Gardens.jpg"], "la-paz-waterfall-gardens"),
+ ("Irazú", "Above the clouds before 8 a.m.", ["img/ig-irazu.webp", "img/ig-lankester.webp", "img/ig-japanese-garden.webp"], "irazu-orosi-lankester"),
+ ("Doka & Sarchí", "The golden bean and the oxcart painters", ["img/ig-doka.webp", "img/ig-sarchi-artisan.webp", "img/ig-sarchi-sign.webp"], "poas-doka-grecia-sarchi"),
+ ("San Luis", "Zip lines over a cloud forest canyon", ["img/ig-zipline.webp", "img/ig-group.webp", "img/ig-trail.webp"], "san-luis-zip-lines"),
+ ("Tortuga Island", "Ceviche, live music, white sand", ["img/ig-tortuga.webp", "img/ig-monkey.webp"], "tortuga-island-cruise"),
 ]
 def reel_section(base):
     cards = ""

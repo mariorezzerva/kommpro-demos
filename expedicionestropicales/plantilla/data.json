@@ -304,7 +304,7 @@
    ],
    "bring": "Light jacket or sweater, walking shoes, raincoat, camera and binoculars. It is cold at the summit.",
    "gallery": [
-    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/1.jpg",
+    "img/ig-japanese-garden.webp",
     "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/maxresdefault1.jpg",
     "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/orosi-valley.jpg"
    ],
@@ -336,7 +336,7 @@
    "short": "Poás, Doka, Grecia & Sarchí",
    "lead": "The crater, the golden bean and the oxcart painters, in one loop through the coffee hills.",
    "hero": "https://www.expedicionestropicales.com/wp-content/uploads/2016/01/Poas-Doka-Grecia-y-Sarchi.jpg",
-   "card": "https://www.expedicionestropicales.com/wp-content/uploads/2016/01/Poas-Doka-Grecia-y-Sarchi.jpg",
+   "card": "img/ig-sarchi-artisan.webp",
    "duration": "8 hours",
    "difficulty": "Easy",
    "departs": "7:00 to 8:00 a.m.",
@@ -377,9 +377,9 @@
    ],
    "bring": "Light jacket, walking shoes, camera and binoculars.",
    "gallery": [
-    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/10386712.jpg",
-    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/4396850708_93bd7fbb8d_o.jpg",
-    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/GEDC1008.jpg"
+    "img/ig-sarchi-artisan.webp",
+    "img/ig-sarchi-sign.webp",
+    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/10386712.jpg"
    ],
    "cats": [
     "volcano",
@@ -627,7 +627,7 @@
    "short": "Manuel Antonio",
    "lead": "Monkeys on the trail, sloths in the canopy and a beach where the forest meets the sea.",
    "hero": "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/Parque-Nacional-Manuel-Antonio.jpg",
-   "card": "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/Parque-Nacional-Manuel-Antonio.jpg",
+   "card": "img/ig-monkey.webp",
    "duration": "12 hours",
    "difficulty": "Easy to moderate",
    "departs": "4:30 to 5:30 a.m.",
@@ -666,9 +666,9 @@
    ],
    "bring": "Hat, sunscreen, insect repellent, swimsuit, towel, sandals, camera and binoculars.",
    "gallery": [
+    "img/ig-monkey.webp",
     "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/011.jpg",
-    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/021.jpg",
-    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/031.jpg"
+    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/021.jpg"
    ],
    "cats": [
     "water",
@@ -967,8 +967,8 @@
    "title": "Orosi Valley & Lankester Botanical Gardens",
    "short": "Orosi & Lankester",
    "lead": "Orchids in the morning light and a colonial church at the bottom of the valley. A late, easy start.",
-   "hero": "https://www.expedicionestropicales.com/wp-content/uploads/2018/04/Valle-Orosi-y-Jardin-Botanico-Lankester.jpg",
-   "card": "https://www.expedicionestropicales.com/wp-content/uploads/2018/04/Valle-Orosi-y-Jardin-Botanico-Lankester.jpg",
+   "hero": "img/ig-japanese-garden.webp",
+   "card": "img/ig-japanese-garden.webp",
    "duration": "Half day",
    "difficulty": "Easy",
    "pickup": "Hotels in San José",
@@ -1023,7 +1023,9 @@
    ],
    "bring": "Walking shoes, hat and camera.",
    "gallery": [
-    "https://www.expedicionestropicales.com/wp-content/uploads/2018/04/Valle-Orosi-y-Jardin-Botanico-Lankester.jpg"
+    "img/ig-japanese-garden.webp",
+    "img/ig-lankester.webp",
+    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/orosi-valley.jpg"
    ],
    "meals": "L",
    "departs": "Late departure"
@@ -1231,8 +1233,8 @@
    "title": "San Luis Adventure Park: Zip Lines",
    "short": "San Luis zip lines",
    "lead": "Cables over the treetops of a cloud forest canyon, a short drive from San José.",
-   "hero": "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/canopysanluis.jpg",
-   "card": "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/canopysanluis.jpg",
+   "hero": "img/ig-zipline.webp",
+   "card": "img/ig-zipline.webp",
    "duration": "Full day",
    "difficulty": "Moderate",
    "pickup": "Hotels in San José",
@@ -1279,10 +1281,13 @@
    ],
    "bring": "Closed shoes, long pants and a light jacket.",
    "gallery": [
-    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/canopysanluis.jpg"
+    "img/ig-zipline.webp",
+    "img/ig-group.webp",
+    "img/ig-trail.webp"
    ],
    "meals": "L",
-   "badge": "Adrenaline"
+   "badge": "Adrenaline",
+   "hero_pos": "center 40%"
   },
   {
    "slug": "san-luis-hanging-bridges",
@@ -1290,8 +1295,8 @@
    "title": "San Luis Adventure Park: Hanging Bridges",
    "short": "San Luis hanging bridges",
    "lead": "Walk the bridges at the height of the canopy, slowly, with a naturalist.",
-   "hero": "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/canopysanluis.jpg",
-   "card": "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/canopysanluis.jpg",
+   "hero": "img/ig-trail.webp",
+   "card": "img/ig-trail.webp",
    "duration": "Full day",
    "difficulty": "Easy",
    "pickup": "Hotels in San José",
@@ -1338,7 +1343,8 @@
    ],
    "bring": "Walking shoes, raincoat and binoculars.",
    "gallery": [
-    "https://www.expedicionestropicales.com/wp-content/uploads/2015/08/canopysanluis.jpg"
+    "img/ig-trail.webp",
+    "img/ig-group.webp"
    ],
    "meals": "L"
   },

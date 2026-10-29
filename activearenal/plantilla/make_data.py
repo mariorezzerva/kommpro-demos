@@ -67,8 +67,8 @@ DEP={'tour-night-walk':'5:30 p.m.','tour-arenal-volcano':'8:00 a.m. or 1:30 p.m.
 for t in tours: t['departs']=DEP[t['slug']];t['unit']='adult'
 # Fotos propias en alta (img/), de la carpeta WEBSITE de Driver Costa Rica
 PH={
- 'tour-rio-celeste':('img/rio-celeste-wide.webp','img/rio-celeste-trail.webp',['img/rio-celeste-wide.webp','img/rio-celeste-trail.webp','img/rio-celeste-pool.webp']),
- 'tour-white-water-rafting':('img/rafting-green-wide.webp','img/rafting-green-card.webp',['img/rafting-green-wide.webp','img/rafting-rapids.webp','img/rafting-river.webp']),
+ 'tour-rio-celeste':('img/rio-celeste-wide.webp','img/rio-celeste-trail.webp',['img/rio-celeste-stairs.webp','img/rio-celeste-wide.webp','img/rio-celeste-pool.webp']),
+ 'tour-white-water-rafting':('img/rafting-green-wide.webp','img/rafting-green-card.webp',['img/rafting-green-wide.webp','img/rafting-rapids.webp']),
  'tour-sloth':('img/sloth-mother.webp','img/sloth-mother.webp',['img/sloth-mother.webp','img/sloth.webp','img/owl.webp']),
  'tour-arenal-hanging-bridges':('img/hanging-bridges-aerial.webp','img/hanging-bridges-aerial.webp',['img/hanging-bridges-aerial.webp','img/hanging-bridges.webp','img/motmot.webp']),
  'tour-arenal-volcano':('img/arenal-volcano-lake.webp','img/arenal-volcano-lake.webp',['img/arenal-volcano-lake.webp','img/volcano-hiker.webp','img/kayak-volcano.webp']),
@@ -97,7 +97,7 @@ for c in combos:
     s2=c['pair'][2:]
     if s2 in CIMG: c['hero']=c['card']=CIMG[s2]
     c['group_img']='img/rafting-green-card.webp' if 'rafting' in c['slug'] else 'img/safari-green-family.webp'
-    c['gallery']=[c['group_img'],c['hero'],'img/arenal-volcano-lake.webp']
+    c['gallery']=[c['group_img'],c['hero'],'img/volcano-hiker.webp' if 'volcano' in c['hero'] else 'img/arenal-volcano-lake.webp']
 base['brand']['hero_images']=['img/arenal-volcano-lake.webp','img/safari-green-family.webp']
 base['brand']['band_image']='img/rio-celeste-wide.webp'
 base['brand']['band_pos']='center 60%'
@@ -113,5 +113,11 @@ for _t in base['tours']:
     if isinstance(_t.get('bring'),str): _t['bring']=_nowater(_t['bring'])
     for _k in ('included','highlights'):
         if isinstance(_t.get(_k),list): _t[_k]=[x for x in _t[_k] if 'water' not in x.lower() or 'waterfall' in x.lower() or 'white water' in x.lower()]
+# nunca la misma foto dos veces en una galeria
+for _t in base['tours']+base.get('combos',[]):
+    _g=[]
+    for _x in _t.get('gallery',[]):
+        if _x not in _g: _g.append(_x)
+    _t['gallery']=_g
 json.dump(base,open('data.json','w'),ensure_ascii=False,indent=1)
 print(len(tours),len(combos))

@@ -475,6 +475,8 @@ font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5
 .aax .gal{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:420px}
 .aax .gal div{border-radius:18px;background:var(--paper2) center/cover}
 .aax .gal div:first-child{grid-row:span 2}
+.aax .gal.n2{grid-template-columns:3fr 2fr;grid-template-rows:1fr}.aax .gal.n2 div:first-child{grid-row:auto}
+.aax .gal.n1{grid-template-columns:1fr;grid-template-rows:1fr}
 .aax .tl{list-style:none;padding:0;margin:0;position:relative}
 .aax .tl li{position:relative;padding:0 0 22px 46px;font-weight:700}
 .aax .tl li::before{content:counter(list-item);position:absolute;left:0;top:-3px;width:30px;height:30px;border-radius:50%;background:var(--f2);color:#fff;display:grid;place-items:center;font-size:.82rem;font-weight:800}
@@ -805,7 +807,6 @@ def tour_body(t, base):
     ov = "".join(f"<p>{e(p)}</p>" for p in (t.get("overview") or [t["lead"]]))
     hl = "".join(f'<li>{ic("check")}<span>{e(x)}</span></li>' for x in (t.get("highlights") or []))
     gal = (t.get("gallery") or [])[:3]
-    while len(gal) < 3 and gal: gal.append(gal[-1])
     galh = "".join(f'<div style="background-image:url(\'{img(u,1200)}\')"></div>' for u in gal)
     steps = "".join(f"<li>{e(s)}</li>" for s in (t.get("steps") or []))
     inc = "".join(f'<li>{ic("check")}{e(x)}</li>' for x in (t.get("included") or []))
@@ -834,7 +835,7 @@ def tour_body(t, base):
 <div>
 {sec("The day, <em>in short</em>", ov)}
 {sec("Highlights", f'<ul class="hl">{hl}</ul>' if hl else "")}
-{sec("Gallery", f'<div class="gal">{galh}</div>' if galh else "")}
+{sec("Gallery", f'<div class="gal n{galh.count("<div")}">{galh}</div>' if galh else "")}
 {sec("Your day, <em>step by step</em>", f'<ol class="tl">{steps}</ol>' if steps else "")}
 {sec("What's included", f'<div class="inc"><div class="yes"><h3>Included</h3><ul>{inc}</ul></div><div class="no"><h3>Not included</h3><ul>{noi}</ul></div></div>' if inc else "")}
 {sec("What to bring", f'<div class="bring">{e(t["bring"])}</div>' if t.get("bring") else "")}

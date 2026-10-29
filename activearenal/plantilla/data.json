@@ -302,8 +302,8 @@
    ],
    "bring": "Hiking shoes, rain jacket, sunscreen, camera, cash for extras.",
    "gallery": [
+    "img/rio-celeste-stairs.webp",
     "img/rio-celeste-wide.webp",
-    "img/rio-celeste-trail.webp",
     "img/rio-celeste-pool.webp"
    ],
    "short": "Río Celeste Waterfall",
@@ -370,8 +370,7 @@
    "bring": "Quick-dry clothes, secured sandals or water shoes, sunscreen, a change of clothes, waterproof camera.",
    "gallery": [
     "img/rafting-green-wide.webp",
-    "img/rafting-rapids.webp",
-    "img/rafting-river.webp"
+    "img/rafting-rapids.webp"
    ],
    "short": "White Water Rafting",
    "cats": [
@@ -1086,7 +1085,7 @@
    "gallery": [
     "img/safari-green-family.webp",
     "img/arenal-volcano-lake.webp",
-    "img/arenal-volcano-lake.webp"
+    "img/volcano-hiker.webp"
    ],
    "unit": "person",
    "departs": "8:00 a.m."

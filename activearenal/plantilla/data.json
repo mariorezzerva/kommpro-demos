@@ -148,7 +148,7 @@
    "title": "Two in one day",
    "icon": "spark",
    "blurb": "Eleven pairings, one pickup.",
-   "image": "img/rafting-rapids.webp",
+   "image": "img/rafting-green-wide.webp",
    "keywords": [
     "combo",
     "two",
@@ -303,8 +303,8 @@
    "bring": "Hiking shoes, rain jacket, sunscreen, camera, cash for extras.",
    "gallery": [
     "img/rio-celeste-stairs.webp",
-    "img/rio-celeste-wide.webp",
-    "img/rio-celeste-pool.webp"
+    "img/rio-celeste-tapir.webp",
+    "img/rio-celeste-hiker.webp"
    ],
    "short": "Río Celeste Waterfall",
    "cats": [
@@ -369,8 +369,7 @@
    ],
    "bring": "Quick-dry clothes, secured sandals or water shoes, sunscreen, a change of clothes, waterproof camera.",
    "gallery": [
-    "img/rafting-green-wide.webp",
-    "img/rafting-rapids.webp"
+    "img/rafting-green-wide.webp"
    ],
    "short": "White Water Rafting",
    "cats": [

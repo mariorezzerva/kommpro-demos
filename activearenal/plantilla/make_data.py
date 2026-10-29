@@ -67,8 +67,8 @@ DEP={'tour-night-walk':'5:30 p.m.','tour-arenal-volcano':'8:00 a.m. or 1:30 p.m.
 for t in tours: t['departs']=DEP[t['slug']];t['unit']='adult'
 # Fotos propias en alta (img/), de la carpeta WEBSITE de Driver Costa Rica
 PH={
- 'tour-rio-celeste':('img/rio-celeste-wide.webp','img/rio-celeste-trail.webp',['img/rio-celeste-stairs.webp','img/rio-celeste-wide.webp','img/rio-celeste-pool.webp']),
- 'tour-white-water-rafting':('img/rafting-green-wide.webp','img/rafting-green-card.webp',['img/rafting-green-wide.webp','img/rafting-rapids.webp']),
+ 'tour-rio-celeste':('img/rio-celeste-wide.webp','img/rio-celeste-trail.webp',['img/rio-celeste-stairs.webp','img/rio-celeste-tapir.webp','img/rio-celeste-hiker.webp']),
+ 'tour-white-water-rafting':('img/rafting-green-wide.webp','img/rafting-green-card.webp',['img/rafting-green-wide.webp']),
  'tour-sloth':('img/sloth-mother.webp','img/sloth-mother.webp',['img/sloth-mother.webp','img/sloth.webp','img/owl.webp']),
  'tour-arenal-hanging-bridges':('img/hanging-bridges-aerial.webp','img/hanging-bridges-aerial.webp',['img/hanging-bridges-aerial.webp','img/hanging-bridges.webp','img/motmot.webp']),
  'tour-arenal-volcano':('img/arenal-volcano-lake.webp','img/arenal-volcano-lake.webp',['img/arenal-volcano-lake.webp','img/volcano-hiker.webp','img/kayak-volcano.webp']),
@@ -101,7 +101,7 @@ for c in combos:
 base['brand']['hero_images']=['img/arenal-volcano-lake.webp','img/safari-green-family.webp']
 base['brand']['band_image']='img/rio-celeste-wide.webp'
 base['brand']['band_pos']='center 60%'
-CAT={'water':'img/kayak-green.webp','wildlife':'img/sloth-mother.webp','volcano':'img/hanging-bridges-aerial.webp','night':'img/frog-night.webp','combo':'img/rafting-rapids.webp'}
+CAT={'water':'img/kayak-green.webp','wildlife':'img/sloth-mother.webp','volcano':'img/hanging-bridges-aerial.webp','night':'img/frog-night.webp','combo':'img/rafting-green-wide.webp'}
 for cat in base['categories']: cat['image']=CAT.get(cat['id'],cat['image'])
 base['tours']=tours;base['combos']=combos
 # Como en Driver: el agua no se menciona en los tours (ni incluida ni en "que traer")

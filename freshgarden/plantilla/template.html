@@ -24,8 +24,6 @@
   --lime:#a2d45e;         /* verde lima */
   --sun:#ffd23f;
   --gold:#f0c35a;
-  --xmas:#a3120d;
-  --xmas-d:#6c0606;
   --display:"Nunito",ui-rounded,"Segoe UI",system-ui,sans-serif;
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:18px;
@@ -54,36 +52,44 @@ header.top{position:sticky;top:0;z-index:40;background:rgba(23,26,20,.92);backdr
 .cartbtn .n{background:#fff;color:var(--heart);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;font-weight:800;padding:0 6px}
 @media (max-width:760px){.nav{display:none}.cartbtn{margin-left:auto}.cartbtn .lbl{display:none}}
 
-/* Hero: rojo del catálogo navideño con la caja como bodegón */
-.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(110% 95% at 72% 42%,#e4521d 0%,#b5170f 40%,var(--xmas-d) 100%)}
-.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.55) 1.4px,transparent 1.6px),radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.2px);background-size:140px 140px,90px 90px;background-position:20px 30px,60px 10px;opacity:.5;pointer-events:none}
-.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center;padding-block:58px 50px}
+/* Hero: el oscuro de freshgarden.cr, con la caja navideña como bodegón sobre vidrio */
+.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(70% 90% at 78% 45%,#2c3a1d 0%,var(--ink) 62%)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.5) 1.2px,transparent 1.5px);background-size:120px 120px;background-position:30px 20px;opacity:.18;pointer-events:none}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding-block:56px 52px}
 .hero .copy{min-width:0}
 .hero h1{font-size:clamp(42px,6vw,76px);font-weight:900;letter-spacing:-.02em;max-width:11ch}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero p.lead{max-width:44ch;font-size:18px;color:#ffe6dc;margin:18px 0 26px}
-.boxart{position:relative;min-width:0}
-.boxart img{width:100%;height:auto;-webkit-mask-image:radial-gradient(ellipse 66% 62% at 50% 52%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 66% 62% at 50% 52%,#000 58%,transparent 100%);transform:scale(1.12)}
-.boxart .price-chip{position:absolute;right:4%;bottom:-6px;cursor:pointer;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:16px;padding:10px 14px;display:grid;gap:2px}
-.boxart .price-chip small{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#ffd9c9}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hero p.lead{max-width:44ch;font-size:18px;color:#dfe6d5;margin:18px 0 26px}
+.boxart{position:relative;min-width:0;aspect-ratio:5/4;max-width:100%}
+.boxart .plate{position:absolute;inset:14% 4% 6%;border-radius:28px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.boxart img{position:absolute;filter:drop-shadow(0 22px 26px rgba(0,0,0,.45))}
+.boxart .b-main{left:8%;bottom:16%;width:84%;height:auto}
+.boxart .b-grape{width:30%;left:-1%;top:2%;transform:rotate(-8deg)}
+.boxart .b-pear{width:19%;right:1%;top:6%;transform:rotate(9deg)}
+.boxart .b-apple{width:22%;right:6%;bottom:2%}
+.boxart .price-chip{position:absolute;left:6%;bottom:2%;z-index:2;cursor:pointer;color:#fff;text-align:left;background:rgba(23,26,20,.55);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:16px;padding:10px 14px;display:grid;gap:2px}
+.boxart .price-chip small{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
 .boxart .price-chip b{font:900 22px var(--display);font-variant-numeric:tabular-nums}
-.search{display:flex;align-items:center;gap:10px;max-width:560px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:999px;padding:6px 6px 6px 18px}
+.boxart .price-chip:hover{background:rgba(23,26,20,.75)}
+.search{display:flex;align-items:center;gap:10px;max-width:560px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.26);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:999px;padding:6px 6px 6px 18px}
 .search input{flex:1;min-width:0;background:none;border:0;color:#fff;font:16px var(--body);outline:none}
-.search input::placeholder{color:#ffd3c4}
-.search button{background:var(--leaf);color:#fff;border:0;border-radius:999px;padding:11px 18px;font-weight:600;display:flex;gap:6px;align-items:center}
+.search input::placeholder{color:#c3ccb7}
+.search button{background:var(--heart);color:#fff;border:0;border-radius:999px;padding:11px 18px;font-weight:600;display:flex;gap:6px;align-items:center}
+.search button:hover{background:var(--heart-d)}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.pill{height:32px;font-size:13px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;display:inline-flex;align-items:center}
-.pill:hover{background:rgba(255,255,255,.2)}
-.hero .notes{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:26px;font-size:13px;color:#ffe0d4}
+.pill{height:32px;font-size:13px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.24);color:#fff;display:inline-flex;align-items:center}
+.pill:hover{background:rgba(255,255,255,.18)}
+.hero .notes{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:26px;font-size:13px;color:#cdd5c2}
 .hero .notes span{display:flex;align-items:center;gap:7px}
-.hero .notes .ic{width:15px;height:15px;color:var(--gold)}
-@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:40px 36px}.boxart{max-width:480px}}
+.hero .notes .ic{width:15px;height:15px;color:var(--lime)}
+.xmas-line{height:4px;background:repeating-linear-gradient(90deg,var(--heart) 0 26px,#fff 26px 34px,var(--leaf) 34px 60px,#fff 60px 68px)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:40px 30px}.boxart{max-width:520px;width:100%;margin-bottom:64px}.boxart .price-chip{left:0;bottom:-62px}}
 
-
+/* Ticker */
 .ticker{background:var(--leaf);color:#eef6e2;overflow:hidden;white-space:nowrap;border-block:1px solid rgba(0,0,0,.15)}
 .ticker .track{display:inline-flex;gap:0;padding-block:12px;animation:tick 38s linear infinite}
 .ticker span{font:700 14px var(--display);letter-spacing:.04em;padding:0 22px;display:inline-flex;align-items:center;gap:22px}
-.ticker span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.ticker span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime)}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* Secciones */
@@ -94,20 +100,20 @@ section.blk{padding-block:76px}
 .reveal{transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .8s}
 .reveal.pre{transform:translateY(18px)}
 
-/* Pasillos: foto del catálogo arriba, texto abajo */
+/* Pasillos: producto recortado sobre plato de color, como en freshgarden.cr */
 .aisles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.aisle{border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:0;text-align:left;display:flex;flex-direction:column;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.aisle:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(90,10,10,.45)}
-.aisle .im{aspect-ratio:16/11;max-width:100%;background:var(--xmas);overflow:hidden}
-.aisle .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.aisle:hover .im img{transform:scale(1.05)}
-.aisle .tx{padding:14px 16px 16px;display:grid;gap:4px}
-.aisle b{font:800 20px var(--display)}
-.aisle small{color:var(--muted);font-size:13px;line-height:1.35}
-.aisle .count{margin-top:6px;font-size:12px;font-weight:600;color:var(--xmas);display:flex;align-items:center;gap:4px}
+.aisle{position:relative;border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:18px 18px 16px;text-align:left;display:flex;flex-direction:column;gap:4px;overflow:hidden;min-height:230px;transition:transform .3s,box-shadow .3s,border-color .3s}
+.aisle:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(30,45,15,.45);border-color:#c9d4b9}
+.aisle .plate{position:absolute;right:-34px;bottom:-40px;width:190px;height:190px;border-radius:50%;background:var(--tint)}
+.aisle img{position:absolute;right:8px;bottom:12px;width:66%;height:52%;object-fit:contain;object-position:right bottom;filter:drop-shadow(0 12px 14px rgba(30,45,15,.22));transition:transform .5s}
+.aisle:hover img{transform:rotate(-4deg) scale(1.05)}
+.aisle b{font:800 20px var(--display);position:relative;max-width:12ch}
+.aisle small{color:var(--muted);font-size:13px;position:relative;max-width:18ch;line-height:1.35}
+.aisle .count{margin-top:auto;font-size:12px;font-weight:600;color:var(--leaf);position:relative;display:flex;align-items:center;gap:4px}
 @media (max-width:900px){.aisles{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.aisle{min-height:260px}.aisle img{width:76%;height:38%;bottom:40px;right:6px}.aisle .count{z-index:1}}
 
-
+/* Asistente */
 .assist{background:var(--ink);color:#eef2e8;border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1fr 1.1fr;position:relative}
 .assist .copy{padding:48px 44px;display:flex;flex-direction:column;gap:16px;position:relative;z-index:1}
 .assist h2{font-size:clamp(32px,4vw,48px);font-weight:900;color:#fff}
@@ -131,7 +137,7 @@ section.blk{padding-block:76px}
 .msg time{display:block;text-align:right;font-size:11px;color:#8a9180;margin-top:2px}
 .msg .lines{margin:8px 0 4px;display:grid;gap:6px}
 .msg .ln{display:flex;align-items:center;gap:8px;font-size:13.5px}
-.msg .ln img{width:34px;height:34px;object-fit:cover;background:var(--xmas);border-radius:8px}
+.msg .ln img{width:34px;height:34px;object-fit:contain;background:#f4f7ef;border-radius:8px;padding:2px}
 .msg .ln span{flex:1;min-width:0}
 .msg .ln em{font-style:normal;color:var(--muted);font-size:12.5px;white-space:nowrap}
 .msg .addall{margin-top:6px;width:100%;background:var(--leaf);color:#fff;border:0;border-radius:9px;padding:9px;font-weight:600;font-size:13.5px}
@@ -148,13 +154,13 @@ section.blk{padding-block:76px}
 .shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .prod{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:6px;position:relative;transition:box-shadow .3s,transform .3s}
 .prod:hover{box-shadow:0 18px 40px -26px rgba(30,45,15,.5);transform:translateY(-2px)}
-.prod .ph{aspect-ratio:4/3;max-width:100%;border-radius:12px;background:var(--xmas);display:grid;place-items:center;overflow:hidden}
-.prod .ph img{width:100%;height:100%;object-fit:cover;object-position:center 35%;transition:transform .5s}
+.prod .ph{aspect-ratio:4/3;max-width:100%;border-radius:12px;background:radial-gradient(circle at 50% 62%,#fff 0%,#eef3e6 75%);display:grid;place-items:center;overflow:hidden}
+.prod .ph img{width:88%;height:84%;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(30,45,15,.2));transition:transform .5s}
 .prod .inc{list-style:none;padding:0;margin:2px 0 0;display:grid;gap:2px;font-size:12.5px;color:var(--muted)}
 .prod .inc li{display:flex;gap:6px;align-items:baseline}
-.prod .inc li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none;transform:translateY(-2px)}
+.prod .inc li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--lime);flex:none;transform:translateY(-2px)}
 .prod:hover .ph img{transform:scale(1.05)}
-.prod .tag{position:absolute;top:22px;left:22px;z-index:1;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:var(--gold);color:#3b2600}
+.prod .tag{position:absolute;top:22px;left:22px;z-index:1;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:var(--heart);color:#fff}
 .prod .tag.chumis-t{background:#fff;color:#5a4fa6}
 .prod .tag.ori{background:rgba(255,255,255,.9);color:var(--leaf);border:1px solid var(--line);left:auto;right:22px}
 .prod h3{font:800 17px/1.2 var(--display);margin-top:6px}
@@ -180,9 +186,9 @@ section.blk{padding-block:76px}
 .chumis .bag button{background:#5a4fa6;color:#fff;border:0;border-radius:999px;padding:6px 8px;font-size:12px;font-weight:700}
 .chumis .bag button:hover{background:#463c8c}
 @media (max-width:980px){.chumis{grid-column:span 2;grid-row:auto}}
-.prod.feat{grid-column:span 2;grid-row:span 2;background:linear-gradient(165deg,#fff 0%,#fbf1e3 100%)}
-.prod.feat .ph{aspect-ratio:auto;flex:1;min-height:280px}
-.prod.feat .ph img{object-position:center 22%}
+.prod.feat{grid-column:span 2;grid-row:span 2;background:linear-gradient(165deg,#fff 0%,#eef4e2 100%)}
+.prod.feat .ph{aspect-ratio:auto;flex:1;min-height:280px;background:radial-gradient(circle at 50% 60%,#fff 0%,#e5eed6 80%)}
+.prod.feat .ph img{width:86%;height:86%}
 .prod.feat h3{font-size:28px}
 .prod.feat .story{color:var(--muted);font-size:14.5px;margin:0;max-width:46ch}
 .prod.feat .inc{grid-template-columns:1fr 1fr;font-size:13.5px;gap:4px 14px;margin-top:4px}
@@ -226,7 +232,7 @@ footer button.lnk:hover{color:#fff}
 .x{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center}
 .dbody{flex:1;overflow-y:auto;padding:16px 20px}
 .citem{display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line)}
-.citem img{width:60px;height:60px;object-fit:cover;background:var(--xmas);border-radius:12px;border:1px solid var(--line)}
+.citem img{width:60px;height:60px;object-fit:contain;padding:4px;background:#fff;border-radius:12px;border:1px solid var(--line)}
 .citem b{font:800 15px/1.2 var(--display);display:block}
 .citem small{color:var(--muted);font-size:12.5px}
 .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:#fff}
@@ -336,11 +342,11 @@ tr.flash td{animation:fl 1.6s}
   <section class="hero" aria-label="Catálogo navideño Fresh Garden">
     <div class="wrap">
       <div class="copy">
-        <div class="eyebrow" style="color:var(--gold)">Catálogo navideño 2026</div>
+        <div class="eyebrow" style="color:var(--lime)">Catálogo navideño 2026</div>
         <h1 style="margin-top:12px">La Navidad <em>nos une.</em></h1>
         <p class="lead">Cajas y combos de fruta fresca para regalar, compartir y llevar a la mesa. Escogida a mano en Cenada y cobrada con tarjeta.</p>
         <form class="search" id="heroSearch" role="search">
-          <svg class="ic" style="color:#ffd3c4"><use href="#i-search"/></svg>
+          <svg class="ic" style="color:#c3ccb7"><use href="#i-search"/></svg>
           <input id="q" type="search" placeholder="Buscá cajas, combos, uvas, manzanas..." aria-label="Buscar en la tienda" autocomplete="off">
           <button type="submit">Buscar</button>
         </form>
@@ -352,13 +358,18 @@ tr.flash td{animation:fl 1.6s}
         </div>
       </div>
       <div class="boxart">
-        <img src="{{herobox}}" alt="Caja Navideña No. 2 con uvas, manzanas y peras">
-        <button class="price-chip" data-add="caja2" style="color:#fff;text-align:left"><small>Caja Navideña No. 2</small><b>₡7,500 · Agregar</b></button>
+        <span class="plate"></span>
+        <img class="b-grape" src="{{uvaverde}}" alt="">
+        <img class="b-pear" src="{{peradanjou}}" alt="">
+        <img class="b-main" src="{{caja2}}" alt="Caja Navideña No. 2 con uvas, manzanas y peras">
+        <img class="b-apple" src="{{manzroja}}" alt="">
+        <button class="price-chip" data-add="caja2"><small>Caja Navideña No. 2</small><b>₡7,500 · Agregar</b></button>
       </div>
     </div>
   </section>
 
 
+  <div class="xmas-line" aria-hidden="true"></div>
   <div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
 
   <section class="blk" id="pasillos">
@@ -492,10 +503,10 @@ tr.flash td{animation:fl 1.6s}
 const A = {{ASSETS}};
 const IMG = f => A[f] || "";
 const CATS = [
-  {id:"cajas", name:"Cajas navideñas", note:"Caja felices fiestas con uvas, manzanas y pera", img:"caja2"},
-  {id:"combos", name:"Combos en bandeja", note:"Listos para regalar, también de Chumis", img:"combo3"},
-  {id:"uvas", name:"Uva por caja", note:"Premium, caja de 8 kg", img:"uvaglobo"},
-  {id:"manzanas", name:"Manzana y pera por caja", note:"Roja, Gala, Granny, Golden y pera Danjou", img:"manzroja"}
+  {id:"cajas", name:"Cajas navideñas", note:"Caja felices fiestas con uvas, manzanas y pera", img:"caja2", tint:"#fde3e3"},
+  {id:"combos", name:"Combos en bandeja", note:"Listos para regalar, también de Chumis", img:"combo5", tint:"#e8f3d8"},
+  {id:"uvas", name:"Uva por caja", note:"Premium, caja de 8 kg", img:"uvaverde", tint:"#eef4d5"},
+  {id:"manzanas", name:"Manzana y pera por caja", note:"Roja, Gala, Granny, Golden y pera Danjou", img:"manzgala", tint:"#ffeccc"}
 ];
 // Catálogo navideño VPC 2026. Precios del catálogo, con IVA incluido.
 const P = [
@@ -516,6 +527,7 @@ const P = [
   {id:"manzgolden", name:"Manzana Golden", cat:"manzanas", pres:"Caja, calibre 88 o 100", price:28000, stock:9},
   {id:"peradanjou", name:"Pera Danjou", cat:"manzanas", pres:"Caja", price:30000, stock:16}
 ].map(p=>({...p, img:p.id}));
+const WHATSAPP = "8936-3773";
 const STORES = [
   {id:"cenada", name:"Cenada, tienda", addr:"Galpón 3, Bodega 3311, Barreal de Heredia", tel:"2260-7949 ext. 120"},
   {id:"borbon", name:"Mercado Borbón", addr:"Calle 10, Paso de la Vaca, San José centro", tel:"2260-7949 ext. 128"},
@@ -528,18 +540,18 @@ const $ = s => document.querySelector(s);
 /* Pills y cinta */
 const PILLS = [["Cajas navideñas","cat:cajas"],["Combos Chumis","chumis"],["Uva por caja","cat:uvas"],["Manzana por caja","cat:manzanas"]];
 $("#pills").innerHTML = PILLS.map(([l,q])=>q.startsWith("cat:")?`<button type="button" class="pill" data-open="${q}">${l}</button>`:`<button type="button" class="pill" data-q="${q}">${l}</button>`).join("");
-const TICK = ["La Navidad nos une","Cajas felices fiestas","Combos en bandeja","Uva premium por caja de 8 kg","Retiro en Cenada, Mercado Borbón y Escazú","Precios con IVA incluido"];
+const TICK = ["La Navidad nos une","Cajas felices fiestas","Combos en bandeja","Uva premium por caja de 8 kg","Retiro en Cenada, Mercado Borbón y Escazú","WhatsApp 8936-3773"];
 const tickItems = TICK.map(o=>`<span>${o}</span>`).join("");
 $("#ticker").innerHTML = tickItems + tickItems;
 
 /* Pasillos */
 $("#aisles").innerHTML = CATS.map(c=>{
   const n = P.filter(p=>p.cat===c.id).length;
-  return `<button class="aisle reveal" data-open="cat:${c.id}">
-    <span class="im"><img src="${IMG(c.img)}" alt="" loading="lazy"></span>
-    <span class="tx"><b>${c.name}</b><small>${c.note}</small>
-    <span class="count">${n} productos <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></span></button>`}).join("");
-$("#footStores").innerHTML = STORES.map(s=>`<li style="display:flex;gap:8px"><svg class="ic" style="width:16px;margin-top:3px"><use href="#i-pin"/></svg><span><b style="color:#fff;font-weight:600">${s.name}</b><br>${s.addr}<br>Tel. ${s.tel}</span></li>`).join("");
+  return `<button class="aisle reveal" style="--tint:${c.tint}" data-open="cat:${c.id}">
+    <span class="plate"></span><img src="${IMG(c.img)}" alt="" loading="lazy">
+    <b>${c.name}</b><small>${c.note}</small>
+    <span class="count">${n} productos <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span></button>`}).join("");
+$("#footStores").innerHTML = `<li style="display:flex;gap:8px"><svg class="ic" style="width:16px;margin-top:3px;color:var(--lime)"><use href="#i-send"/></svg><span><b style="color:#fff;font-weight:600">Call Center y WhatsApp</b><br>${WHATSAPP}</span></li>` + STORES.map(s=>`<li style="display:flex;gap:8px"><svg class="ic" style="width:16px;margin-top:3px"><use href="#i-pin"/></svg><span><b style="color:#fff;font-weight:600">${s.name}</b><br>${s.addr}<br>Tel. ${s.tel}</span></li>`).join("");
 $("#footCats").innerHTML = CATS.map(c=>`<li><button class="lnk" data-open="cat:${c.id}">${c.name}</button></li>`).join("");
 
 /* Tarjeta de producto */
@@ -680,7 +692,7 @@ function answer(txt){
     const n = rec.qty ? (parseQty(t)||rec.qty) : null;
     items = rec.items.map(([id,q])=>[id, n||q]); say = rec.say(n);
   }
-  if(!items){ return bubble(`No te entendí del todo. Podés pedirme por nombre ("Caja Navideña No. 2", "2 cajas de uva verde") o contarme para qué es ("regalos para 15 colaboradores"). Si preferís, llamanos al 2260-7949.`, "bot"); }
+  if(!items){ return bubble(`No te entendí del todo. Podés pedirme por nombre ("Caja Navideña No. 2", "2 cajas de uva verde") o contarme para qué es ("regalos para 15 colaboradores"). Si preferís, escribinos al WhatsApp 8936-3773.`, "bot"); }
   const avail = items.filter(([id])=>byId[id].stock>0).map(([id,q])=>[id, Math.min(q, byId[id].stock)]);
   const total = avail.reduce((s,[id,q])=>s+byId[id].price*q,0);
   const lines = avail.map(([id,q])=>{const p=byId[id];return `<div class="ln"><img src="${IMG(p.img)}" alt=""><span>${q} × ${p.name}<br><em>${p.pres}</em></span><em>${fmt(p.price*q)}</em></div>`}).join("");
@@ -737,7 +749,7 @@ function confirmOrder(mode, store){
   $("#coTitle").textContent = "Pedido confirmado";
   $("#coBody").innerHTML = `<div class="done"><div class="check"><svg class="ic"><use href="#i-check"/></svg></div>
     <h3>¡Gracias! Pedido ${num}</h3>
-    <p>${mode==="retiro"?`Te avisamos por WhatsApp cuando esté listo para retirar en ${store.name} (${store.addr}).`:"Lo alistamos en bodega y sale mañana en camión refrigerado. Te avisamos por WhatsApp cuando vaya en camino."}</p>
+    <p>${mode==="retiro"?`Te avisamos por WhatsApp cuando esté listo para retirar en ${store.name} (${store.addr}).`:"Lo alistamos en bodega y sale mañana en camión refrigerado. Te escribimos desde el WhatsApp 8936-3773 cuando vaya en camino."}</p>
     <p style="font-size:13px">La existencia en bodega ya se rebajó. Mirá el panel para verlo.</p>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
       <button class="primary" style="padding:12px 18px" id="seePanel">Ver panel de bodega</button>

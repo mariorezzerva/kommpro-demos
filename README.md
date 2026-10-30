@@ -8,7 +8,7 @@ Cada carpeta es un sitio estático. Desde el 26 oct se publican en **Cloudflare 
 | lacruz | lacruz.kommpro.com | distribuidoralacruz |
 | kommpro | kommpro.com | kommpro |
 | activearenal | activearenal-demo.pages.dev (demo Rezzerva · tour operadores) | activearenal-demo |
-| freshgarden | freshgarden.kommpro.com | freshgarden |
+| freshgarden | freshgarden-kommpro.pages.dev (dominio propio pendiente) | freshgarden-kommpro |
 | xocios | xocios.kommpro.com (licorera) y xocios.kommpro.com/lab/ (perfumería) | xocios (por crear) |
 
 `activearenal/` se genera con `activearenal/plantilla/build.py` (datos en `data.json`). Para cambiar textos o tours: editar `data_base.json` o `make_data.py`, correr `python3 make_data.py && python3 build.py` dentro de `plantilla/` y hacer commit de todo. `activearenal/wp/` trae los bloques para pegar en Elementor.

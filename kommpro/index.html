@@ -5,6 +5,10 @@
 <meta name="theme-color" content="#0C0F22">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KommPro · Tienda, inventario y pago en línea</title>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="KommPro">
+<meta property="og:image" content="https://kommpro.com/img/kommpro-icon-512.png">
 <meta name="description" content="KommPro: tienda, inventario y pago en línea en una sola plataforma para outlets, ferreterías y distribuidores. Suscripción mensual. Hecho en Costa Rica.">
 <meta property="og:title" content="KommPro · Tienda, inventario y pago en línea">
 <meta property="og:description" content="Todo en una sola plataforma. Para outlets, ferreterías y distribuidores en Costa Rica.">
@@ -41,6 +45,12 @@ svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-widt
 .logo b{font-weight:800}
 .logo i{display:inline-flex;align-items:center;margin-left:.1em;padding:.1em .32em .16em;border-radius:.3em;background:linear-gradient(145deg,var(--mint),#8FA6FF);color:var(--deep);font-size:.72em;font-weight:700;font-style:normal;letter-spacing:-.02em}
 .kicon{width:44px;height:44px;flex:none;display:block}
+.brandh{display:inline-flex;align-items:center;gap:11px}
+.hk{width:36px;height:36px;flex:none;display:block;border-radius:9px;box-shadow:0 6px 18px rgba(180,197,255,.22)}
+.hero>.w{position:relative;z-index:1}
+.kbg{position:absolute;z-index:0;pointer-events:none;color:#B4C5FF}
+.kbg1{width:620px;height:620px;right:-170px;top:-60px;opacity:.07;transform:rotate(-8deg)}
+.kbg2{width:300px;height:300px;left:-110px;bottom:-90px;opacity:.045;transform:rotate(10deg)}
 header{position:sticky;top:0;z-index:50;background:rgba(12,15,34,.72);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.07)}
 header .w{display:flex;align-items:center;gap:28px;height:72px}
 nav{display:flex;gap:2px}
@@ -131,7 +141,7 @@ footer .bd .brand{display:flex;align-items:center;gap:12px;flex:none}
 .w{padding:0 18px}
 nav,.hr .login{display:none}
 header .w{height:64px}
-.logo{font-size:24px}
+.logo{font-size:24px}.hk{width:32px;height:32px;border-radius:8px}.brandh{gap:9px}.kbg1{width:380px;height:380px;right:-150px;top:-30px}.kbg2{display:none}
 .hero{padding:56px 0 44px}
 h1{font-size:36px}
 .lead{font-size:16.5px}
@@ -169,7 +179,7 @@ h1{font-size:36px}
 
 <header id="hd">
 <div class="w">
-<a href="/" aria-label="KommPro, inicio"><span class="logo" aria-hidden="true"><b>KOMM</b><i>pro</i></span></a>
+<a href="/" class="brandh" aria-label="KommPro, inicio"><svg class="hk" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#B4C5FF"/><g fill="none" stroke="#0C0F22" stroke-width="9" stroke-linejoin="round"><path stroke-linecap="round" d="M30 24V76"/><path d="M60 43L70 33Q76 27 71 21Q66 16 60 22L32 50L60 78Q66 84 71 79Q76 73 70 67L60 57"/></g></svg><span class="logo" aria-hidden="true"><b>KOMM</b><i>pro</i></span></a>
 <nav aria-label="Principal"><a href="/distribuidores/">Distribuidores</a><a href="/outlet/">Outlet</a><a href="/ferreterias/">Ferreterías</a><a href="#contacto">Contacto</a></nav>
 <div class="hr"><a href="https://app.kommpro.com" class="login">Iniciar sesión</a><a href="mailto:hola@kommpro.com?subject=Quiero%20un%20demo%20de%20KommPro" class="btn btn-m">Solicitar demo</a></div>
 </div>
@@ -177,6 +187,8 @@ h1{font-size:36px}
 
 <main>
 <section class="hero" aria-labelledby="t-hero">
+<svg class="kbg kbg1" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="round"><path stroke-linecap="round" d="M30 24V76"/><path d="M60 43L70 33Q76 27 71 21Q66 16 60 22L32 50L60 78Q66 84 71 79Q76 73 70 67L60 57"/></g></svg>
+<svg class="kbg kbg2" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="round"><path stroke-linecap="round" d="M30 24V76"/><path d="M60 43L70 33Q76 27 71 21Q66 16 60 22L32 50L60 78Q66 84 71 79Q76 73 70 67L60 57"/></g></svg>
 <div class="w">
 <a href="#verticales" class="pill rv"><b>Nuevo</b><span>Pedidos por chat con el inventario real</span></a>
 <h1 id="t-hero" class="bg rv"><span class="l1">Tienda, inventario y pago en línea.</span><span class="l2">Todo en una sola plataforma.</span></h1>

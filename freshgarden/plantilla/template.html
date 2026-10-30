@@ -565,8 +565,12 @@ renderFeatured();
 
 /* Carrito */
 let cart = {};
-try { cart = JSON.parse(localStorage.getItem("fg-cart")||"{}") } catch(e){}
-function save(){ try{localStorage.setItem("fg-cart",JSON.stringify(cart))}catch(e){} }
+const CART_KEY = "fg-cart-navidad-2026";
+try { cart = JSON.parse(localStorage.getItem(CART_KEY)||"{}") } catch(e){}
+// solo productos que existen en este catálogo, con cantidades válidas
+cart = Object.fromEntries(Object.entries(cart||{}).filter(([id,q])=>byId[id] && q>0).map(([id,q])=>[id,Math.min(q,byId[id].stock)]));
+try { localStorage.removeItem("fg-cart") } catch(e){}
+function save(){ try{localStorage.setItem(CART_KEY,JSON.stringify(cart))}catch(e){} }
 function addToCart(id,q=1,silent){
   const p = byId[id]; if(!p) return;
   const cur = cart[id]||0;

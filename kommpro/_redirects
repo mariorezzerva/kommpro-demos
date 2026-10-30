@@ -1,4 +1,3 @@
-# Landings de verticales: mientras no existan, vuelven al home
-/outlet/*          /#v-outlet   302
-/ferreterias/*     /#v-ferre    302
-/distribuidores/*  /#v-dist     302
+# Redirecciones de kommpro.com (Cloudflare Pages)
+/precios  /precio/  301
+/precios/ /precio/  301

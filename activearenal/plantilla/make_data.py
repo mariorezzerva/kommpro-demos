@@ -118,7 +118,7 @@ for c in combos:
     if raft: c['difficulty']='Moderate'
     if c['unit']=='group':
         c['unit']='person'
-        c['price_note']={'tour-rafting-atv':'1 person $185 · 2 people $290','tour-safari-float-atv':'1 person $165 · 2 people $260'}[c['slug']]
+        c['price_note']={'tour-rafting-atv':'1 person $185 · 2 on a double ATV $290 · 2 on single ATVs $370','tour-safari-float-atv':'1 person $165 · 2 on a double ATV $260 · 2 on single ATVs $330'}[c['slug']]
 POS={'tour-sloth':'center 45%','tour-white-water-rafting':'center 40%','tour-rio-celeste':'center 60%','tour-night-walk':'center 32%'}
 for t in tours:
     t['hero_pos']=POS.get(t['slug'],'center')

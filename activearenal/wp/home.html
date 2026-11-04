@@ -605,7 +605,9 @@ var RZ_API="https://app.rezzerva.com/v1/widget/",RZ_TEN="active-arenal";
 var sel='[data-rz],[data-rzchild],[data-rztiers],[data-rzmin],[data-rzopt]',els=document.querySelectorAll(sel);if(!els.length)return;
 var slugs={};els.forEach(function(el){['rz','rzchild','rztiers','rzopt'].forEach(function(k){if(el.dataset[k])slugs[el.dataset[k]]=1});if(el.dataset.rzmin)el.dataset.rzmin.split(',').forEach(function(s){slugs[s]=1})});
 function $m(n){var v=n/100;return '$'+(v%1?v.toFixed(2):v.toLocaleString('en-US'))}
-function calc(j){var o={};if(j.passenger_types&&j.passenger_types.length){var a=j.passenger_types.filter(function(p){return p.code==='adult'})[0]||j.passenger_types[0],c=j.passenger_types.filter(function(p){return p.code==='child'})[0];o.from=a.price_minor;if(c)o.child=$m(c.price_minor)+' per child, ages '+c.min_age+' to '+c.max_age}
+function calc(j){var o={};if(j.passenger_types&&j.passenger_types.length){var a=j.passenger_types.filter(function(p){return p.code==='adult'})[0]||j.passenger_types[0],c=j.passenger_types.filter(function(p){return p.code==='child'})[0];o.from=a.price_minor;if(c)o.child=$m(c.price_minor)+' per child, ages '+c.min_age+' to '+c.max_age;
+  (j.extras||[]).forEach(function(x){if(!x.required)return;var u1=(x.prices.filter(function(p){return p.min_per_unit===1})[0]||{}).amount_minor,u2=(x.prices.filter(function(p){return p.min_per_unit===2})[0]||{}).amount_minor;
+   if(u1){o.from+=u1;o.tiers='1 person '+$m(a.price_minor+u1)+(u2?' · 2 on a double ATV '+$m(2*a.price_minor+u2):'')+' · 2 on single ATVs '+$m(2*(a.price_minor+u1))}})}
  else if(j.tiers&&j.tiers.length){o.from=Math.min.apply(null,j.tiers.map(function(t){return t.amount_minor}));o.tiers=j.tiers.map(function(t){var n=t.min===t.max?t.min:t.min+'-'+t.max;return n+(n===1?' person ':' people ')+$m(t.amount_minor)}).join(' · ')}
  return o}
 function get(s){var k='rz:'+RZ_TEN+':'+s;try{var c=JSON.parse(sessionStorage.getItem(k)||'null');if(c&&Date.now()-c.t<6e5)return Promise.resolve(c.v)}catch(_){}

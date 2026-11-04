@@ -85,6 +85,40 @@ for t in tours:
         t['highlights']=['Short drive to the volcano trails','Guided hike across lava fields and rainforest trails','Panoramic volcano and lake viewpoints','Bilingual guide (English / Spanish)']
         t['steps']=['Hotel pickup','Short drive to the volcano trails','Guided hike across lava fields and rainforest trails','Panoramic volcano and lake viewpoints','Return to your hotel']
         t['included']=['Round-trip transportation','Naturalist guide','Trail entrance']
+# Pedidos de Leo (4 nov 2026): duraciones, dificultad, rio y lo que incluye cada tour
+LEO={
+ 'tour-white-water-rafting':dict(duration='6 hours',difficulty='Moderate'),
+ 'tour-arenal-hanging-bridges':dict(duration='4 hours'),
+ 'tour-arenal-volcano':dict(duration='4 hours'),
+ 'tour-sloth':dict(duration='3 hours'),
+ 'tour-jungle-river-safari':dict(duration='4 hours'),
+ 'tour-night-walk':dict(duration='3 hours'),
+}
+def _swap(lst,old,new): return [new if x==old else x for x in lst]
+for t in tours:
+    t.update(LEO.get(t['slug'],{}))
+    s=t['slug']
+    if s=='tour-white-water-rafting':
+        t['overview'][0]="Grab a paddle and hit the whitewater. Class II and III rapids on the Sarapiquí River wind through lush rainforest canyons, with calm stretches to soak in the scenery and spot toucans, herons and monkeys along the banks."
+        t['overview']=[p.replace('A riverside snack caps off the ride.','Lunch caps off the day.') for p in t['overview']]
+        for k in ('highlights','steps','included'): t[k]=_swap(t[k],'Riverside snack','Lunch')
+        t['keywords']=[k for k in t['keywords'] if k!='balsa']
+    if s=='tour-arenal-hanging-bridges': t['included']=t['included']+['Fresh fruit']
+    if s=='tour-arenal-volcano': t['included']=t['included']+['Snack']
+    if s=='tour-jungle-river-safari': t['included']=_swap(t['included'],'Fresh fruit','Traditional Costa Rican snack')
+    if s=='tour-rio-celeste':
+        t['included']=t['included']+['Park entrance fee']
+        t['not_included']=[x for x in t['not_included'] if 'entrance' not in x.lower()]
+# Combos: que incluyen. Con rafting va almuerzo; con safari, snack tradicional
+for c in combos:
+    raft='rafting' in c['slug']
+    c['included']=['Round-trip transportation from your hotel in La Fortuna','Bilingual guides (English / Spanish)','Safety gear for both activities',
+                   'Lunch' if raft else 'Traditional Costa Rican snack']
+    c['not_included']=['Gratuities','Personal expenses']
+    if raft: c['difficulty']='Moderate'
+    if c['unit']=='group':
+        c['unit']='person'
+        c['price_note']={'tour-rafting-atv':'1 person $185 · 2 people $290','tour-safari-float-atv':'1 person $165 · 2 people $260'}[c['slug']]
 POS={'tour-sloth':'center 45%','tour-white-water-rafting':'center 40%','tour-rio-celeste':'center 60%','tour-night-walk':'center 32%'}
 for t in tours:
     t['hero_pos']=POS.get(t['slug'],'center')

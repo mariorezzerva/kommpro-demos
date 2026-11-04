@@ -293,12 +293,12 @@
     "Round-trip transportation",
     "Professional naturalist guide",
     "Park safety equipment",
-    "Traditional Costa Rican lunch"
+    "Traditional Costa Rican lunch",
+    "Park entrance fee"
    ],
    "not_included": [
     "Personal expenses",
-    "Gratuities (optional)",
-    "Park entrance fee"
+    "Gratuities (optional)"
    ],
    "bring": "Hiking shoes, rain jacket, sunscreen, camera, cash for extras.",
    "gallery": [
@@ -334,34 +334,34 @@
    "lead": "Paddle through jungle rapids on one of Costa Rica's best rivers.",
    "hero": "img/rafting-green-wide.webp",
    "card": "img/rafting-green-card.webp",
-   "duration": "½ day",
-   "difficulty": "Moderate–High",
+   "duration": "6 hours",
+   "difficulty": "Moderate",
    "guide": "English / Spanish",
    "pickup": "La Fortuna / Arenal",
    "price": 98,
    "child": "$79 per child, ages 5 to 11",
    "overview": [
-    "Grab a paddle and hit the whitewater. Class II and III rapids on the Balsa or Sarapiquí River wind through lush rainforest canyons, with calm stretches to soak in the scenery and spot toucans, herons and monkeys along the banks.",
-    "Certified guides lead every raft, so first-timers and thrill-seekers alike get the perfect balance of adrenaline and safety. A riverside snack caps off the ride."
+    "Grab a paddle and hit the whitewater. Class II and III rapids on the Sarapiquí River wind through lush rainforest canyons, with calm stretches to soak in the scenery and spot toucans, herons and monkeys along the banks.",
+    "Certified guides lead every raft, so first-timers and thrill-seekers alike get the perfect balance of adrenaline and safety. Lunch caps off the day."
    ],
    "highlights": [
     "Safety briefing and gear fitting",
     "The river run through rapids and calm pools",
-    "Riverside snack",
+    "Lunch",
     "Bilingual guide (English / Spanish)"
    ],
    "steps": [
     "Hotel pickup",
     "Safety briefing and gear fitting",
     "The river run through rapids and calm pools",
-    "Riverside snack",
+    "Lunch",
     "Return to your hotel"
    ],
    "included": [
     "Round-trip transportation",
     "Certified rafting guide",
     "All safety gear (helmet, vest, paddle)",
-    "Riverside snack"
+    "Lunch"
    ],
    "not_included": [
     "Gratuities",
@@ -382,7 +382,6 @@
     "adrenaline",
     "white water",
     "paddle",
-    "balsa",
     "sarapiqui",
     "rafting",
     "rapidos",
@@ -399,7 +398,7 @@
    "lead": "Meet Costa Rica's most beloved local, the sloth, in the wild.",
    "hero": "img/sloth-mother.webp",
    "card": "img/sloth-mother.webp",
-   "duration": "2–3 hours",
+   "duration": "3 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
    "pickup": "La Fortuna / Arenal",
@@ -462,7 +461,7 @@
    "lead": "Walk the treetops on suspended bridges above the rainforest.",
    "hero": "img/hanging-bridges-aerial.webp",
    "card": "img/hanging-bridges-aerial.webp",
-   "duration": "2–3 hours",
+   "duration": "4 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
    "pickup": "La Fortuna / Arenal",
@@ -486,7 +485,8 @@
    "included": [
     "Round-trip transportation",
     "Naturalist guide",
-    "Park/reserve entrance"
+    "Park/reserve entrance",
+    "Fresh fruit"
    ],
    "not_included": [
     "Gratuities",
@@ -523,7 +523,7 @@
    "lead": "Hike the lava trails at the foot of an iconic volcano.",
    "hero": "img/arenal-volcano-lake.webp",
    "card": "img/arenal-volcano-lake.webp",
-   "duration": "3–4 hours",
+   "duration": "4 hours",
    "difficulty": "Easy–Moderate",
    "guide": "English / Spanish",
    "pickup": "La Fortuna / Arenal",
@@ -549,7 +549,8 @@
    "included": [
     "Round-trip transportation",
     "Naturalist guide",
-    "Trail entrance"
+    "Trail entrance",
+    "Snack"
    ],
    "not_included": [
     "Gratuities",
@@ -585,7 +586,7 @@
    "lead": "Drift downriver and let the wildlife come to you.",
    "hero": "img/safari-green-family.webp",
    "card": "img/safari-green-family.webp",
-   "duration": "~3 hours",
+   "duration": "4 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
    "pickup": "La Fortuna / Arenal",
@@ -610,7 +611,7 @@
     "Round-trip transportation",
     "Naturalist guide",
     "Boat and safety gear",
-    "Fresh fruit"
+    "Traditional Costa Rican snack"
    ],
    "not_included": [
     "Gratuities",
@@ -654,7 +655,7 @@
    "lead": "The rainforest wakes up when the sun goes down.",
    "hero": "img/frog-night.webp",
    "card": "img/frog-night.webp",
-   "duration": "~2 hours",
+   "duration": "3 hours",
    "difficulty": "Easy",
    "guide": "English / Spanish",
    "pickup": "La Fortuna / Arenal",
@@ -720,7 +721,7 @@
    "hero": "img/zipline.webp",
    "card": "img/zipline.webp",
    "duration": "Two tours, one day",
-   "difficulty": null,
+   "difficulty": "Moderate",
    "price": 168,
    "cats": [
     "combo",
@@ -753,7 +754,17 @@
     "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
-   "departs": "8:15 a.m."
+   "departs": "8:15 a.m.",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Lunch"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   },
   {
    "slug": "tour-rafting-canyoning",
@@ -768,7 +779,7 @@
    "hero": "img/rappel.webp",
    "card": "img/rappel.webp",
    "duration": "Two tours, one day",
-   "difficulty": null,
+   "difficulty": "Moderate",
    "price": 172,
    "cats": [
     "combo",
@@ -801,7 +812,17 @@
     "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
-   "departs": "8:15 a.m."
+   "departs": "8:15 a.m.",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Lunch"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   },
   {
    "slug": "tour-rafting-atv",
@@ -816,7 +837,7 @@
    "hero": "img/atv.webp",
    "card": "img/atv.webp",
    "duration": "Two tours, one day",
-   "difficulty": null,
+   "difficulty": "Moderate",
    "price": 185,
    "cats": [
     "combo",
@@ -847,9 +868,19 @@
     "img/atv.webp",
     "img/arenal-volcano-lake.webp"
    ],
-   "unit": "group",
+   "unit": "person",
    "departs": "8:15 a.m.",
-   "price_note": "1 person $185 · 2 people $290"
+   "price_note": "1 person $185 · 2 people $290",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Lunch"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   },
   {
    "slug": "tour-rafting-la-fortuna-waterfall",
@@ -864,7 +895,7 @@
    "hero": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
    "card": "https://activearenal.com/wp-content/uploads/2026/09/la-fortuna-aerial-hero.jpg",
    "duration": "Two tours, one day",
-   "difficulty": null,
+   "difficulty": "Moderate",
    "price": 154,
    "cats": [
     "combo",
@@ -896,7 +927,17 @@
     "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
-   "departs": "8:15 a.m."
+   "departs": "8:15 a.m.",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Lunch"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   },
   {
    "slug": "tour-safari-float-zip-lines",
@@ -944,7 +985,17 @@
     "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
-   "departs": "8:00 a.m."
+   "departs": "8:00 a.m.",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Traditional Costa Rican snack"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   },
   {
    "slug": "tour-safari-float-canyoning",
@@ -992,7 +1043,17 @@
     "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
-   "departs": "8:00 a.m."
+   "departs": "8:00 a.m.",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Traditional Costa Rican snack"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   },
   {
    "slug": "tour-safari-float-atv",
@@ -1038,9 +1099,19 @@
     "img/atv.webp",
     "img/arenal-volcano-lake.webp"
    ],
-   "unit": "group",
+   "unit": "person",
    "departs": "8:00 a.m.",
-   "price_note": "1 person $165 · 2 people $260"
+   "price_note": "1 person $165 · 2 people $260",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Traditional Costa Rican snack"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   },
   {
    "slug": "tour-safari-float-arenal-volcano",
@@ -1087,7 +1158,17 @@
     "img/volcano-hiker.webp"
    ],
    "unit": "person",
-   "departs": "8:00 a.m."
+   "departs": "8:00 a.m.",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Traditional Costa Rican snack"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   },
   {
    "slug": "tour-safari-float-hanging-bridges",
@@ -1133,7 +1214,17 @@
     "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
-   "departs": "8:00 a.m."
+   "departs": "8:00 a.m.",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Traditional Costa Rican snack"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   },
   {
    "slug": "tour-safari-float-rainforest-wildlife-walk",
@@ -1180,7 +1271,17 @@
     "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
-   "departs": "8:00 a.m."
+   "departs": "8:00 a.m.",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Traditional Costa Rican snack"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   },
   {
    "slug": "tour-safari-float-la-fortuna-waterfall",
@@ -1227,7 +1328,17 @@
     "img/arenal-volcano-lake.webp"
    ],
    "unit": "person",
-   "departs": "8:00 a.m."
+   "departs": "8:00 a.m.",
+   "included": [
+    "Round-trip transportation from your hotel in La Fortuna",
+    "Bilingual guides (English / Spanish)",
+    "Safety gear for both activities",
+    "Traditional Costa Rican snack"
+   ],
+   "not_included": [
+    "Gratuities",
+    "Personal expenses"
+   ]
   }
  ]
 }

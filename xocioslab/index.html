@@ -334,6 +334,38 @@ form.co{display:grid;gap:14px}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 .toast .ic{color:#b48f45}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal.pre{transform:none;opacity:1}}
+
+/* Página de producto */
+.pdp{display:grid;grid-template-columns:1.05fr 1fr;gap:34px;align-items:start}
+.pdp .pimg{background:#f6f3f2;border:1px solid var(--line);aspect-ratio:4/5;overflow:hidden}
+.pdp .pimg img{width:100%;height:100%;object-fit:cover}
+.pdp .pinfo{display:flex;flex-direction:column;gap:14px;min-width:0}
+.pdp .pinfo h2{font-size:clamp(30px,3.6vw,44px);font-weight:500}
+.pdp .pmeta{color:var(--muted);font-size:14px}
+.pdp .pprice{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.pdp .pprice b{font:500 34px/1 var(--display);color:var(--gold-2)}
+.pdp .pprice small{font-size:13px;color:var(--muted)}
+.pdp .pstory{font-size:16px;line-height:1.6;color:#e7e1ea;margin:0}
+.pdp .chips{display:flex;flex-wrap:wrap;gap:8px}
+.pdp .chips span{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12.5px;color:#e7e1ea}
+.pdp .pfacts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.pdp .pfacts div{background:var(--ink-2);padding:12px 14px}
+.pdp .pfacts small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.pdp .pfacts span{font-size:14px}
+.pdp .pbuy{display:flex;gap:10px;align-items:stretch}
+.pdp .pbuy .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:0 6px}
+.pdp .pbuy .qty button{background:none;border:0;color:var(--gold-2);font-size:20px;width:36px;height:46px}
+.pdp .pbuy .qty span{min-width:22px;text-align:center}
+.pdp .pbuy .primary{flex:1;display:flex;align-items:center;justify-content:center;gap:8px}
+.pdp .ptrust{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:14px;color:#e7e1ea}
+.pdp .ptrust li{display:flex;gap:10px;align-items:flex-start}
+.pdp .ptrust .ic{color:var(--gold);flex:none;margin-top:2px}
+.pdp .pwa{font-size:13.5px;color:var(--muted)}
+.pdp .pwa a{color:var(--gold-2)}
+.prel{margin-top:34px;border-top:1px solid var(--line);padding-top:24px}
+.prel h4{font:500 22px var(--display);margin:0 0 16px}
+.prod{cursor:pointer}
+@media (max-width:860px){.pdp{grid-template-columns:1fr;gap:20px}.pdp .pfacts{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -519,6 +551,11 @@ form.co{display:grid;gap:14px}
   <div class="mbody"><div class="tabs" id="catTabs"></div><div id="catList"></div></div></div>
 </div>
 
+<div class="modal" id="pdpModal" role="dialog" aria-modal="true" aria-labelledby="pdpTitle">
+  <div class="mbox"><div class="mhead"><h3 id="pdpTitle">Perfume</h3><button class="x" data-close aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+  <div class="mbody" id="pdpBody"></div></div>
+</div>
+
 <div class="modal" id="coModal" role="dialog" aria-modal="true" aria-labelledby="coTitle">
   <div class="mbox sm"><div class="mhead"><h3 id="coTitle">Pagar</h3><button class="x" data-close aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
   <div class="mbody" id="coBody"></div></div>
@@ -622,7 +659,7 @@ renderCart();
 /* Overlays */
 const scrim=$("#scrim"); let openEl=null;
 function openOverlay(el){ closeAll(); el.classList.add("on"); scrim.classList.add("on"); openEl=el; document.body.style.overflow="hidden"; }
-function closeAll(){ document.querySelectorAll(".drawer.on,.modal.on").forEach(e=>e.classList.remove("on")); scrim.classList.remove("on"); document.body.style.overflow=""; openEl=null; }
+function closeAll(){ document.querySelectorAll(".drawer.on,.modal.on").forEach(e=>e.classList.remove("on")); scrim.classList.remove("on"); document.body.style.overflow=""; openEl=null; if(/^#p-/.test(location.hash)) history.replaceState(null,"",location.pathname+location.search); }
 scrim.onclick=closeAll;
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeAll(); });
 document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{ if(e.target===m) closeAll(); }));
@@ -653,6 +690,64 @@ document.addEventListener("click",e=>{
   else if(t.dataset.tab) openCatalog(t.dataset.tab);
   else if(t.dataset.close!==undefined) closeAll();
 });
+
+
+/* Página de producto: se abre al tocar una tarjeta y tiene su propio enlace (#p-id) para compartir en Instagram o WhatsApp */
+const NOTAS={fresco:"Cítricos, notas acuáticas y aromáticas",dulce:"Vainilla, frutas y ámbar suave",intenso:"Maderas, especias y cuero",arabe:"Oud, azafrán y ámbar",cuidado:"Cuerpo y piel, aroma que acompaña todo el día"};
+const MOMENTO={fresco:"Día, oficina y calor",dulce:"Citas y fines de semana",intenso:"Noche y salidas",arabe:"Cuando querés dejar estela",cuidado:"Después del baño, todos los días"};
+const GEN={m:"Para él",f:"Para ella",u:"Unisex"};
+let pdpQty=1, pdpId=null;
+function pdpHTML(p){
+  const st=stockTxt(p);
+  const fams=p.fam.filter(f=>NOTAS[f]);
+  const rel=P.filter(x=>x.id!==p.id&&x.fam.some(f=>p.fam.includes(f))&&(x.g===p.g||x.g==="u"||p.g==="u")).slice(0,4);
+  return `<div class="pdp">
+    <div class="pimg"><img src="${p.img}" alt="${esc(p.brand+' '+p.name)}"></div>
+    <div class="pinfo">
+      <div class="eyebrow">${esc(p.brand)}</div>
+      <h2>${esc(p.name)}</h2>
+      <div class="pmeta">${p.ml} · ${famTxt(p)}</div>
+      <div class="pprice"><b>${fmt(p.price)}</b><small>IVA incluido</small><span class="stock ${st.low?'low':''}">${st.t}</span></div>
+      <p class="pstory">${p.story}</p>
+      <div class="pfacts">
+        <div><small>Notas</small><span>${fams.map(f=>NOTAS[f]).join(". ")}</span></div>
+        <div><small>Cuándo usarlo</small><span>${fams.map(f=>MOMENTO[f]).join(" · ")}</span></div>
+      </div>
+      <div class="pbuy">
+        <div class="qty"><button type="button" data-pq="-1" aria-label="Menos">−</button><span id="pdpQ">${pdpQty}</span><button type="button" data-pq="1" aria-label="Más">+</button></div>
+        <button class="primary" type="button" data-padd="${p.id}" ${p.stock<=0?'disabled':''}><svg class="ic"><use href="#i-bag"/></svg>${p.stock<=0?'Agotado por hoy':'Agregar a tu selección'}</button>
+      </div>
+      <ul class="ptrust">
+        <li><svg class="ic"><use href="#i-seal"/></svg>100% original, sellado de fábrica.</li>
+        <li><svg class="ic"><use href="#i-moto"/></svg>Uber Flash el mismo día en la GAM o Correos de Costa Rica al resto del país.</li>
+        <li><svg class="ic"><use href="#i-lock"/></svg>Pago seguro con tarjeta. Factura electrónica al correo.</li>
+        <li><svg class="ic"><use href="#i-gift"/></svg>¿Es regalo? Lo marcás al pagar.</li>
+      </ul>
+      <div class="pwa">¿Dudas con este perfume? <a href="${WA}?text=${encodeURIComponent('Hola, tengo una consulta sobre '+p.brand+' '+p.name)}" target="_blank" rel="noopener">Escribinos al WhatsApp</a>.</div>
+    </div>
+  </div>
+  ${rel.length?`<div class="prel"><h4>Si te gusta este, también</h4><div class="shelf">${rel.map(x=>card(x)).join("")}</div></div>`:""}`;
+}
+function openProduct(id,push=true){
+  const p=byId[id]; if(!p) return;
+  pdpId=id; pdpQty=1;
+  $("#pdpTitle").textContent="Perfumería";
+  $("#pdpBody").innerHTML=pdpHTML(p);
+  if(openEl!==$("#pdpModal")) openOverlay($("#pdpModal"));
+  $("#pdpModal .mbox").scrollTop=0;
+  if(push && location.hash!=="#p-"+id) history.replaceState(null,"","#p-"+id);
+}
+$("#pdpModal").addEventListener("click",e=>{
+  const q=e.target.closest("[data-pq]"); if(q){ const p=byId[pdpId]; pdpQty=Math.max(1,Math.min(p.stock||1,pdpQty+Number(q.dataset.pq))); $("#pdpQ").textContent=pdpQty; return; }
+  const a=e.target.closest("[data-padd]"); if(a){ addToCart(a.dataset.padd,pdpQty); openOverlay($("#drawer")); }
+});
+document.addEventListener("click",e=>{
+  if(e.target.closest("[data-add],button,a")) return;
+  const c=e.target.closest(".prod[data-pid]"); if(c) openProduct(c.dataset.pid);
+});
+function fromHash(){ const m=location.hash.match(/^#p-(.+)$/); if(m && byId[m[1]]) openProduct(m[1],false); }
+window.addEventListener("hashchange",fromHash);
+setTimeout(fromHash,200);
 
 /* Asesoría: entiende para quién, familia olfativa, momento y presupuesto, y recuerda lo anterior.
    Al salir en vivo, una función de servidor llama a la IA con el catálogo real; esto queda de respaldo. */

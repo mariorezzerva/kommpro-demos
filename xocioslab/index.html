@@ -104,15 +104,21 @@ section.blk{padding-block:88px}
 .citem-c b{font:500 clamp(28px,3.2vw,40px)/1 var(--display);flex:1}
 .citem-c small{color:var(--muted);font-size:13px;max-width:22ch;text-align:right}
 .citem-c:hover,.citem-c.on{padding-left:14px;color:var(--gold-2)}
-.cview{position:relative;border-radius:4px;overflow:hidden;min-height:440px;background:var(--ink-3);border:1px solid var(--line)}
-.cview .pic{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
-.cview .pic div{background:#000 center/cover no-repeat;transition:transform 1.2s}
-.cview:hover .pic div{transform:scale(1.03)}
-.cview .cap{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(11,9,16,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:4px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.cview .cap p{margin:0;font-size:14px;color:#ddd5e6;font-weight:300}
+.cview{display:flex;flex-direction:column;gap:12px;min-width:0}
+.cview .hero2{position:relative;aspect-ratio:5/4;overflow:hidden;border:1px solid var(--line);background:#000}
+.cview .hero2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:cfade .6s both;transition:transform 1.2s}
+.cview:hover .hero2 img{transform:scale(1.03)}
+.cview .pic{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cview .pic button{position:relative;display:block;border:1px solid var(--line);background:#f6f3f2;padding:0;aspect-ratio:4/5;overflow:hidden;cursor:pointer;animation:cfade .5s both}
+.cview .pic button:nth-child(2){animation-delay:.05s}.cview .pic button:nth-child(3){animation-delay:.1s}.cview .pic button:nth-child(4){animation-delay:.15s}
+.cview .pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cview .pic button:hover img{transform:scale(1.05)}
+.cview .cap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.cview .cap p{margin:0;font-size:14px;color:var(--muted)}
 .ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);color:var(--gold-2);background:none;border-radius:999px;padding:9px 16px;font-size:13px;letter-spacing:.06em;white-space:nowrap}
 .ghost:hover{background:var(--gold);color:#1b1407}
-@media (max-width:900px){.colls{grid-template-columns:1fr}.cview{min-height:300px;order:-1}}
+@keyframes cfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.colls{grid-template-columns:1fr}.cview{order:-1}}
 
 /* Asistente */
 .assist{display:grid;grid-template-columns:1fr 1.05fr;gap:0;border:1px solid var(--line);background:radial-gradient(700px 400px at 0% 100%,rgba(58,26,85,.6),transparent 70%),var(--ink-2);position:relative;overflow:hidden}
@@ -440,7 +446,7 @@ form.co{display:grid;gap:14px}
       </div>
       <div class="colls reveal">
         <div class="clist" id="clist"></div>
-        <div class="cview" id="cview"><div class="pic" id="cpic"></div><div class="cap"><p id="ccap"></p><button class="ghost" id="cgo">Ver colección <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></button></div></div>
+        <div class="cview" id="cview"><div class="hero2" id="chero"></div><div class="pic" id="cpic"></div><div class="cap"><p id="ccap"></p><button class="ghost" id="cgo">Ver colección <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow"/></svg></button></div></div>
       </div>
     </div>
   </section>
@@ -578,12 +584,12 @@ const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 const COLLS = [
-  {id:"el", name:"Para él", note:"Del clásico de oficina al que se roba la noche", f:p=>p.g==="m"||p.g==="u"},
-  {id:"ella", name:"Para ella", note:"Dulces, florales y con carácter", f:p=>p.g==="f"||p.g==="u"},
-  {id:"arabe", name:"Perfumería árabe", note:"Lattafa, Armaf, Bharara y Orientica: presencia que dura", f:p=>p.fam.includes("arabe")},
-  {id:"dia", name:"Frescos para el día", note:"Cítricos y acuáticos para el calor de aquí", f:p=>p.fam.includes("fresco")},
-  {id:"noche", name:"Intensos de noche", note:"Ámbar, vainilla y maderas para dejar estela", f:p=>p.fam.includes("intenso")},
-  {id:"cuidado", name:"Cuidado personal", note:"Brumas, cremas y lociones de Bath & Body Works", f:p=>p.fam.includes("cuidado")}
+  {id:"el", name:"Para él", note:"Del clásico de oficina al que se roba la noche", f:p=>p.g==="m"||p.g==="u", top:["sauvage","valentino-uomo","bleu","lemale"]},
+  {id:"ella", name:"Para ella", note:"Dulces, florales y con carácter", f:p=>p.g==="f"||p.g==="u", top:["goodgirl","valentino-donna","kaos","yara"]},
+  {id:"arabe", name:"Perfumería árabe", note:"Presencia que dura todo el día", f:p=>p.fam.includes("arabe"), top:["asad","orientica","odyssey","bharara"]},
+  {id:"dia", name:"Frescos para el día", note:"Cítricos y acuáticos para el calor de aquí", f:p=>p.fam.includes("fresco"), top:["lightblue","acqua","versace","212"]},
+  {id:"noche", name:"Intensos de noche", note:"Ámbar, vainilla y maderas para dejar estela", f:p=>p.fam.includes("intenso"), top:["chmen","lemale","orientica","sauvage"]},
+  {id:"cuidado", name:"Cuidado personal", note:"Brumas, cremas y lociones de Bath & Body Works", f:p=>p.fam.includes("cuidado"), top:["bbw-cinderella","bbw-strawberry"]}
 ];
 // Catálogo compartido con el panel de Fabio (data/catalogo.js) + perfumes nuevos subidos desde el celular
 const P = XO.get("xo-lab-new",[]).concat(XO_LAB.products).map(p=>({...p, img: p.img.startsWith("data:")?p.img:"img/"+p.img}));
@@ -600,15 +606,18 @@ $("#tk1").innerHTML=TK; $("#tk2").innerHTML=TK;
 /* Colecciones */
 let curColl="el";
 function showColl(id){
-  curColl=id; const c=COLLS.find(x=>x.id===id); const list=P.filter(c.f).slice(0,3);
+  curColl=id; const c=COLLS.find(x=>x.id===id); const all=P.filter(c.f);
+  const list=(c.top||[]).map(i=>byId[i]).filter(p=>p&&c.f(p)); all.forEach(p=>{ if(list.length<4 && !list.includes(p)) list.push(p); });
   document.querySelectorAll(".citem-c").forEach(b=>b.classList.toggle("on",b.dataset.coll===id));
-  $("#cpic").innerHTML=list.map(p=>`<div style="background-image:url(${p.img})"></div>`).join("");
-  $("#ccap").textContent=`${P.filter(c.f).length} fragancias · ${c.note}`;
+  $("#cpic").innerHTML=list.slice(0,4).map(p=>`<button type="button" data-cprod="${p.id}" title="${esc(p.name)}"><img src="${p.img}" alt="${esc(p.brand+' '+p.name)}" loading="lazy"></button>`).join("");
+  $("#chero").innerHTML=`<img src="img/coll/${c.id}.webp" alt="${esc(c.name)}">`;
+  $("#ccap").textContent=`${all.length} ${all.length===1?"producto":c.id==="cuidado"?"productos":"fragancias"} · ${c.note}`;
 }
 $("#clist").innerHTML=COLLS.map((c,i)=>`<button class="citem-c" data-coll="${c.id}"><span class="num">0${i+1}</span><b>${c.name}</b></button>`).join("");
 $("#clist").addEventListener("mouseover",e=>{ const b=e.target.closest("[data-coll]"); if(b && b.dataset.coll!==curColl) showColl(b.dataset.coll); });
 $("#clist").addEventListener("click",e=>{ const b=e.target.closest("[data-coll]"); if(!b) return; if(matchMedia("(hover:hover)").matches || curColl===b.dataset.coll) openCatalog(b.dataset.coll); else showColl(b.dataset.coll); });
 $("#cgo").onclick=()=>openCatalog(curColl);
+$("#cpic").addEventListener("click",e=>{ const b=e.target.closest("[data-cprod]"); if(b) openProduct(b.dataset.cprod); });
 showColl("el");
 $("#footCats").innerHTML=COLLS.map(c=>`<li><button class="lnk" data-open="${c.id}">${c.name}</button></li>`).join("");
 

@@ -360,11 +360,21 @@ form.co{display:grid;gap:14px}
 .fld input,.fld select{border:1px solid rgba(185,162,255,.3);border-radius:12px;padding:12px 14px;font:16px var(--body);background:#0f0626;color:#fff;width:100%}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:480px){.two{grid-template-columns:1fr}}
-.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.seg label{border:1.5px solid var(--line);border-radius:14px;padding:12px;background:rgba(255,255,255,.04);display:grid;gap:2px;cursor:pointer;font-size:12.5px;color:var(--muted);position:relative}
-.seg label b{color:#fff;font-size:15px}
-.seg input{position:absolute;opacity:0}
-.seg label:has(input:checked){border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,195,59,.22)}
+.cohead{font:500 11px/1 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:6px 0 -4px}
+.seg{display:grid;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:rgba(245,195,59,.05)}
+.seg label{display:grid;grid-template-columns:38px 1fr auto 20px;align-items:center;gap:12px;padding:13px 14px;cursor:pointer;font-size:12.5px;color:var(--muted);position:relative;transition:background .2s}
+.seg label+label{border-top:1px solid var(--line)}
+.seg label .si{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(245,195,59,.14);color:var(--gold)}
+.seg label .si .ic{width:18px;height:18px}
+.seg label .st{display:grid;gap:2px;min-width:0}
+.seg label b{color:#fff;font-size:15px;font-weight:500}
+.seg label .sp{font-size:13px;color:var(--gold);white-space:nowrap}
+.seg label .dot{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(245,195,59,.55)}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){background:rgba(245,195,59,.12)}
+.seg label:has(input:checked) .dot{border-color:var(--gold);background:radial-gradient(circle,var(--gold) 0 5px,transparent 6px)}
+.seg label:has(input:checked) .si{background:var(--gold);color:#1a1206}
+.seg label:has(input:focus-visible){outline:1.5px solid var(--gold);outline-offset:-3px}
 .uber{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#d6ccf6;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
 .uber .u{background:#000;color:#fff;font:800 11px var(--body);border-radius:6px;padding:4px 7px;letter-spacing:.02em;flex:none}
 .check18{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#e8e0ff;background:rgba(245,195,59,.07);border:1px solid rgba(245,195,59,.35);border-radius:12px;padding:12px}
@@ -1050,13 +1060,15 @@ function renderCheckout(){
   const s=subtotal();
   $("#coTitle").textContent="Pagar pedido";
   $("#coBody").innerHTML=`<form class="co" id="coForm">
-    <div class="seg">
-      <label><input type="radio" name="mode" value="uber" checked><b>Uber Flash</b>Lo coordina Xocios desde la sede más cercana</label>
-      <label><input type="radio" name="mode" value="retiro"><b>Retiro en sede</b>Heredia o Tibás · gratis</label>
+    <div class="cohead">¿Cómo lo recibís?</div>
+    <div class="seg" role="radiogroup" aria-label="Entrega">
+      <label><input type="radio" name="mode" value="uber" checked><span class="si"><svg class="ic"><use href="#i-moto"/></svg></span><span class="st"><b>Uber Flash</b>Desde la sede más cercana</span><span class="sp">desde ${fmt(Math.min(...ZONES.map(z=>z[2])))}</span><span class="dot"></span></label>
+      <label><input type="radio" name="mode" value="retiro"><span class="si"><svg class="ic"><use href="#i-store"/></svg></span><span class="st"><b>Retiro en sede</b>Heredia o Tibás</span><span class="sp">Gratis</span><span class="dot"></span></label>
     </div>
     <div class="fld" id="zoneF"><label for="cz">¿A qué zona va?</label><select id="cz">${ZONES.map(z=>`<option value="${z[0]}">${z[1]} · ${fmt(z[2])}</option>`).join("")}</select></div>
     <div class="uber" id="uberNote"><span class="u">Uber Flash</span><span id="uberTxt"></span></div>
     <div class="fld" id="sedeF" hidden><label for="cs">¿En cuál sede retirás?</label><select id="cs"><option>Heredia</option><option>Tibás</option></select></div>
+    <div class="cohead">Tus datos</div>
     <div class="two"><div class="fld"><label for="cn">Nombre completo</label><input id="cn" required value="Daniel Mora" autocomplete="name"></div>
     <div class="fld"><label for="ct">WhatsApp</label><input id="ct" required value="8888-1234" inputmode="tel"></div></div>
     <div class="fld" id="addrF"><label for="ca">Dirección exacta</label><input id="ca" value="San Francisco de Heredia, 100 m sur del parque, portón negro"></div>

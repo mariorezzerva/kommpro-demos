@@ -38,7 +38,7 @@
     return o;
   };
 
-  /* Xocios Lab: existencia única (vitrina de Heredia) */
+  /* Xocios Lab: existencia única (inventario de Heredia) */
   X.labStock = () => { const ov = X.get("xo-lab-stock", {}); return Object.fromEntries((window.XO_LAB ? XO_LAB.products : []).concat(X.get("xo-lab-new", [])).map(p => [p.id, ov[p.id] !== undefined ? ov[p.id] : p.stock])); };
   X.setLabStock = (id, n, who) => {
     const ov = X.get("xo-lab-stock", {}); const prev = X.labStock()[id];

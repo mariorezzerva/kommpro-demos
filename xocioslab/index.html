@@ -156,16 +156,19 @@ section.blk{padding-block:88px}
 .chatin button{width:44px;height:44px;border-radius:50%;border:0;background:#17121d;color:var(--gold-2);display:grid;place-items:center}
 @media (max-width:900px){.assist{grid-template-columns:1fr}.assist .copy{padding:38px 24px 0}.chatcard{margin:18px}}
 
-/* Vitrina */
+/* Inventario */
 .shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 18px}
 .prod{display:flex;flex-direction:column;gap:6px;position:relative}
 .prod .ph{aspect-ratio:4/5;background:#000;overflow:hidden;position:relative;border:1px solid rgba(214,178,106,.14)}
 .prod .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
-.prod:hover .ph img{transform:scale(1.05)}
+.prod:hover .ph img{transform:scale(1.03)}
 /* Fotos oficiales sobre blanco, enmarcadas en dorado */
 .prod .ph:has(img[src*="lab2/"]){background:#fff;border-color:rgba(214,178,106,.45)}
 .prod .ph img[src*="lab2/"]{object-fit:contain;padding:9% 7%}
 .prod .ph:has(img[src*="lab2/"])::after{background:none}
+/* Fotos de estudio sobre fondo claro (img/lab4) */
+.prod .ph:has(img[src*="lab4/"]){background:#f6f3f2;border-color:rgba(214,178,106,.3)}
+.prod .ph:has(img[src*="lab4/"])::after{background:none}
 .citem img[src*="lab2/"],.msg .rec img[src*="lab2/"]{object-fit:contain;background:#fff}
 .prod .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.35),transparent 40%);pointer-events:none}
 .prod .tag{position:absolute;top:10px;left:10px;z-index:1;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:5px 9px;background:rgba(11,9,16,.7);border:1px solid var(--gold);color:var(--gold-2)}
@@ -414,7 +417,7 @@ form.co{display:grid;gap:14px}
         <div class="copy">
           <div class="eyebrow">Asesoría de fragancias</div>
           <h2>¿Qué estás buscando? <span>Decíme y te lo armo.</span></h2>
-          <p>Contale para quién es, si lo querés fresco o intenso, para el día o la noche, y cuánto querés invertir. Te recomienda lo que hay hoy en vitrina.</p>
+          <p>Contale para quién es, si lo querés fresco o intenso, para el día o la noche, y cuánto querés invertir. Te recomienda lo que hay hoy en inventario.</p>
           <ul>
             <li><svg class="ic"><use href="#i-check"/></svg>"Un regalo para mi novio, algo fresco"</li>
             <li><svg class="ic"><use href="#i-check"/></svg>"Para ella, dulce, con 60 mil"</li>
@@ -433,8 +436,8 @@ form.co{display:grid;gap:14px}
   <section class="blk" id="destacados" style="padding-top:0">
     <div class="wrap">
       <div class="head reveal">
-        <div><div class="eyebrow">En vitrina</div><h2>Los más <em>pedidos</em></h2></div>
-        <p>Precios con IVA incluido. Lo que ves está en vitrina hoy: la existencia se sube desde el celular de la tienda.</p>
+        <div><div class="eyebrow">Disponibles hoy</div><h2>Los más <em>pedidos</em></h2></div>
+        <p>Precios con IVA incluido. Lo que ves está disponible hoy: el inventario se actualiza desde el celular de la tienda.</p>
       </div>
       <div class="shelf" id="featured"></div>
       <button class="morebtn" data-open="all">Ver toda la perfumería <svg class="ic" style="width:15px;height:15px"><use href="#i-arrow"/></svg></button>
@@ -523,7 +526,7 @@ form.co{display:grid;gap:14px}
 
 <div class="modal" id="panelModal" role="dialog" aria-modal="true" aria-label="Panel del celular">
   <div class="phone">
-    <div class="ph-top"><img src="img/logo-lab-brush.webp" alt=""><div><b>Vitrina Lab</b><small><i></i><span id="phSync">Conectado a la tienda en línea</span></small></div><button class="x" data-close aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div class="ph-top"><img src="img/logo-lab-brush.webp" alt=""><div><b>Inventario Lab</b><small><i></i><span id="phSync">Conectado a la tienda en línea</span></small></div><button class="x" data-close aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
     <div class="ph-body" id="phBody"></div>
     <div class="ph-foot"><button class="primary" id="phUpload" disabled><svg class="ic"><use href="#i-cloud"/></svg><span id="phUpLbl">Sin cambios por subir</span></button><small>Los cambios salen en la web apenas tocás subir.</small></div>
   </div>
@@ -576,7 +579,7 @@ showColl("el");
 $("#footCats").innerHTML=COLLS.map(c=>`<li><button class="lnk" data-open="${c.id}">${c.name}</button></li>`).join("");
 
 /* Tarjetas */
-function stockTxt(p){ return p.stock<=0?{low:true,t:"Agotado por hoy"}:p.stock<=5?{low:true,t:`Quedan ${p.stock} en vitrina`}:{low:false,t:`${p.stock} en vitrina`}; }
+function stockTxt(p){ return p.stock<=0?{low:true,t:"Agotado por hoy"}:p.stock<=5?{low:true,t:`Quedan ${p.stock} en inventario`}:{low:false,t:`${p.stock} en inventario`}; }
 function card(p,big){
   const st=stockTxt(p);
   return `<article class="prod ${big?'big':''}" data-pid="${p.id}">
@@ -632,7 +635,7 @@ function openCatalog(cat="all",q=""){
   if(q){ const t=norm(q); list=P.filter(p=>{const h=norm(`${p.name} ${p.brand} ${p.ml} ${famTxt(p)} ${p.fam.join(" ")}`); return h.includes(t)||t.split(/\s+/).every(w=>h.includes(w));}); title=`Resultados para "${q}"`; }
   else if(cat!=="all"){ const c=COLLS.find(x=>x.id===cat); list=P.filter(c.f); title=c.name; }
   $("#catTitle").textContent=title;
-  $("#catList").innerHTML=list.length?`<div class="shelf">${list.map(p=>card(p)).join("")}</div>`:`<p style="color:var(--muted)">No tenemos "${esc(q)}" en vitrina hoy. Escribinos al WhatsApp 6005-7770 y te lo conseguimos.</p>`;
+  $("#catList").innerHTML=list.length?`<div class="shelf">${list.map(p=>card(p)).join("")}</div>`:`<p style="color:var(--muted)">No tenemos "${esc(q)}" en inventario hoy. Escribinos al WhatsApp 6005-7770 y te lo conseguimos.</p>`;
   if(openEl!==$("#catModal")) openOverlay($("#catModal"));
   $("#catModal .mbox").scrollTop=0;
 }
@@ -666,7 +669,7 @@ const FAQ=[
   {k:["apartar","apartado","reservar","separar"],a:"No manejamos apartados: el pago es en línea y así el frasco queda tuyo al instante. Si se te complica, escribinos y vemos cómo te ayudamos."},
   {k:["donde","dónde","ubicacion","ubicación","tienda","local","heredia","direccion","dirección"],a:"Xocios Lab está en Heredia, junto con Xocios Licorera. Podés comprar en línea y pasar a retirar sin fila."},
   {k:["cambio","devolucion","devolución","garantia","garantía"],a:"Por ser perfumería sellada, los cambios aplican si el frasco llega dañado o con defecto. Nos escribís en las primeras 24 horas con fotos y lo resolvemos."},
-  {k:["dura","duracion","duración","fijacion","fijación","rinde"],a:"Los de mejor fijación en vitrina son los árabes (Asad, Bharara King, Amber Rouge) y los Parfum de diseñador como Sauvage y Bleu de Chanel. Aplicalos en cuello y muñecas, sin frotar.",rec:{fam:"intenso"}}
+  {k:["dura","duracion","duración","fijacion","fijación","rinde"],a:"Los de mejor fijación que tenemos son los árabes (Asad, Bharara King, Amber Rouge) y los Parfum de diseñador como Sauvage y Bleu de Chanel. Aplicalos en cuello y muñecas, sin frotar.",rec:{fam:"intenso"}}
 ];
 function parse(t){
   const r={};
@@ -703,7 +706,7 @@ function answerRecs(intro){
   const recs=recommend();
   if(!recs.length){
     const lo=Math.min(...P.filter(p=>(!mem.g||p.g===mem.g||p.g==="u")).map(p=>p.price));
-    return bubble(`Con ese presupuesto no tengo nada en vitrina${mem.g==="f"?" para ella":mem.g==="m"?" para él":""}. Lo más accesible arranca en ${fmt(lo)}. ¿Subimos un poquito o buscamos otra cosa?`+quick([`Hasta ${Math.ceil(lo/1000)} mil`,"Ver árabes","Ver todo"]),"bot");
+    return bubble(`Con ese presupuesto no tengo nada en inventario${mem.g==="f"?" para ella":mem.g==="m"?" para él":""}. Lo más accesible arranca en ${fmt(lo)}. ¿Subimos un poquito o buscamos otra cosa?`+quick([`Hasta ${Math.ceil(lo/1000)} mil`,"Ver árabes","Ver todo"]),"bot");
   }
   mem.shown.push(...recs.map(p=>p.id)); rindeSaid=false;
   const cards=recs.map(p=>`<div class="rec"><img src="${p.img}" alt=""><div><b>${esc(p.brand)} · ${esc(p.name)}</b><small>${why(p)}</small><div class="pr"><span>${fmt(p.price)} · ${p.ml}</span><button data-add="${p.id}">Agregar</button></div></div></div>`).join("");
@@ -724,7 +727,7 @@ function answer(txt){
   const named=P.filter(p=>{ const n=norm(p.name+" "+p.brand); return n.split(/\s+/).filter(w=>w.length>3&&!["eau","parfum","pour","homme","born","roma","toilette"].includes(w)).some(w=>t.includes(w)); });
   if(named.length && !r.g && !r.fam){ const p=named[0]; mem.shown.push(p.id);
     const sim=P.filter(x=>x.id!==p.id && x.g===p.g && x.fam.some(f=>p.fam.includes(f))).sort((a,b)=>(b.fam.filter(f=>p.fam.includes(f)).length-a.fam.filter(f=>p.fam.includes(f)).length)||Math.abs(a.price-p.price)-Math.abs(b.price-p.price))[0];
-    return bubble(`<div class="recs"><div class="rec"><img src="${p.img}" alt=""><div><b>${esc(p.brand)} · ${esc(p.name)}</b><small>${p.story} ${p.stock<=5?`Quedan ${p.stock} en vitrina.`:"Lo tenemos en vitrina."}</small><div class="pr"><span>${fmt(p.price)} · ${p.ml}</span><button data-add="${p.id}">Agregar</button></div></div></div></div>${sim?`Si te gusta ese estilo, también te puede gustar ${esc(sim.brand)} ${esc(sim.name)} (${fmt(sim.price)}).`:""}`+quick(["¿Es original?","¿Cuánto cuesta el envío?","Algo parecido más barato"]),"bot"); }
+    return bubble(`<div class="recs"><div class="rec"><img src="${p.img}" alt=""><div><b>${esc(p.brand)} · ${esc(p.name)}</b><small>${p.story} ${p.stock<=5?`Quedan ${p.stock} en inventario.`:"Lo tenemos disponible."}</small><div class="pr"><span>${fmt(p.price)} · ${p.ml}</span><button data-add="${p.id}">Agregar</button></div></div></div></div>${sim?`Si te gusta ese estilo, también te puede gustar ${esc(sim.brand)} ${esc(sim.name)} (${fmt(sim.price)}).`:""}`+quick(["¿Es original?","¿Cuánto cuesta el envío?","Algo parecido más barato"]),"bot"); }
   if(!hasProfile && named.length===0){
     if(/parecido|similar/.test(t) && mem.shown.length){ const last=byId[mem.shown[mem.shown.length-1]]; mem.g=last.g; mem.fam=last.fam[0]; mem.b=Math.round(last.price*.7); return answerRecs("Con el mismo estilo y más accesible:"); }
     return bubble(`Te ayudo a escoger. Decime para quién es (él o ella), si lo querés fresco, dulce o intenso, y un presupuesto aproximado. También podés escribirnos directo.`+quick(["Para él, fresco","Para ella, dulce","Un regalo con 50 mil"],true),"bot");
@@ -787,7 +790,7 @@ function confirmOrder(mode,ship,gift){
   $("#coBody").innerHTML=`<div class="done"><div class="check"><svg class="ic"><use href="#i-check"/></svg></div>
     <h3>Gracias. Pedido ${num}</h3>
     <p>${mode==="retiro"?"Te avisamos por WhatsApp cuando esté listo para retirar en Xocios Heredia.":mode==="correos"?"Lo empacamos hoy y sale por Correos de Costa Rica. Te mandamos la guía para rastrearlo.":"Xocios coordina tu Uber Flash y te manda el enlace para seguirlo por WhatsApp."}${gift?" Va envuelto para regalo, con tu tarjeta.":""}</p>
-    <p style="font-size:13px">La venta ya entró al panel de Fabio y la existencia de la vitrina se rebajó.</p>
+    <p style="font-size:13px">La venta ya entró al panel de Fabio y el inventario se rebajó.</p>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px"><a class="primary" style="padding:12px 20px;text-decoration:none" href="panel/index.html#lab-pedidos" target="_blank" rel="noopener">Ver en el panel</a><button class="ghost" id="seePanel">Celular de la tienda</button><button class="morebtn" style="margin:0" data-close>Seguir viendo</button></div></div>`;
   $("#seePanel").onclick=openPanel;
 }
@@ -810,7 +813,7 @@ function renderPanel(){
     </div>
     ${sheet||""}
     <div class="ph-kpis"><div><b>${orders.length}</b>ventas web hoy</div><div><b>${fmt(ventas).replace("₡","₡")}</b>vendido</div><div><b>${P.filter(p=>p.stock<=3).length}</b>por reponer</div></div>
-    <div class="ph-search"><svg class="ic" style="color:var(--gold)"><use href="#i-search"/></svg><input id="phQ" type="search" placeholder="Buscar en la vitrina" value="${esc(phQuery)}" autocomplete="off"></div>
+    <div class="ph-search"><svg class="ic" style="color:var(--gold)"><use href="#i-search"/></svg><input id="phQ" type="search" placeholder="Buscar en el inventario" value="${esc(phQuery)}" autocomplete="off"></div>
     ${list.map(p=>{ const v=draft[p.id]??p.stock, dirty=v!==p.stock; return `<div class="inv ${dirty?'dirty':''}" data-inv="${p.id}"><img src="${p.img}" alt=""><div><b>${esc(p.name)}</b><small>${esc(p.brand)} · ${p.ml} · ${fmt(p.price)}</small>${dirty?`<span class="was">En la web: ${p.stock}</span>`:""}</div><div class="stp"><button data-st="${p.id}" data-dd="-1" aria-label="Restar">−</button><span>${v}</span><button data-st="${p.id}" data-dd="1" aria-label="Sumar">+</button></div></div>`}).join("")}
     <div class="log">${logTxt().slice(0,5).map(l=>`<div>${esc(l)}</div>`).join("")}</div>`;
   $("#phUpload").disabled=!changes.length;
@@ -847,7 +850,7 @@ function saveNew(){
   const n=$("#nxN").value.trim(), br=$("#nxB").value.trim()||"Xocios Lab", pr=parseInt(($("#nxP").value||"").replace(/\D/g,"")), st=parseInt($("#nxS").value)||1;
   if(!n||!pr){ toast("Poné al menos el nombre y el precio"); return; }
   const id="nuevo-"+Date.now();
-  const p={id,name:n,brand:br,ml:$("#nxM").value.trim()||"100 ml",g:$("#nxG").value,fam:["intenso"],price:pr,stock:0,story:"Recién llegado a la vitrina de Xocios Lab.",img:pendingPhoto||"img/logo-lab-brush.webp",isNew:true};
+  const p={id,name:n,brand:br,ml:$("#nxM").value.trim()||"100 ml",g:$("#nxG").value,fam:["intenso"],price:pr,stock:0,story:"Recién llegado al inventario de Xocios Lab.",img:pendingPhoto||"img/logo-lab-brush.webp",isNew:true};
   P.unshift(p); byId[id]=p; draft[id]=st; pendingPhoto=null;
   sheet=`<div class="sheet"><h4>${esc(n)}</h4><p>Quedó listo. Tocá "Subir" para publicarlo en la web.</p></div>`;
   renderPanel();

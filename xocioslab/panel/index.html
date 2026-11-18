@@ -437,7 +437,7 @@ function invLab(){
   let L=labProducts().filter(p=>!invQ||norm(p.name+" "+p.brand).includes(norm(invQ)));
   if(invLow) L=L.filter(p=>(st[p.id]??p.stock)<=3);
   const log=XO.get("xo-lab-log",[]);
-  $("#content").innerHTML=`<div class="sync"><span class="pill"><i></i><b>Vitrina Heredia</b> · última carga desde el celular ${log.length?hhmm(log[0].t):"9:02 a. m."}</span><span class="pill"><b>${labProducts().length}</b> productos · <b>${L.reduce((s,p)=>s+(st[p.id]??p.stock),0)}</b> unidades</span></div>
+  $("#content").innerHTML=`<div class="sync"><span class="pill"><i></i><b>Inventario Heredia</b> · última carga desde el celular ${log.length?hhmm(log[0].t):"9:02 a. m."}</span><span class="pill"><b>${labProducts().length}</b> productos · <b>${L.reduce((s,p)=>s+(st[p.id]??p.stock),0)}</b> unidades</span></div>
     <div class="tools"><label class="search"><svg class="ic" style="color:var(--muted)"><use href="#i-search"/></svg><input id="invQ" type="search" placeholder="Buscar perfume o marca" value="${esc(invQ)}"></label><div class="chips"><button id="invLow" class="${invLow?'on':''}">Por reponer</button></div>
       <a class="btn pri" style="margin-left:auto" href="${LAB_URL}#panel" target="_blank" rel="noopener"><svg class="ic"><use href="#i-phone"/></svg>Abrir el celular de la tienda</a></div>
     <div class="tbl"><table><thead><tr><th>Producto</th><th>Para</th><th class="n">Precio</th><th class="n">Existencia</th><th>Último cambio</th></tr></thead><tbody>
@@ -491,12 +491,12 @@ function conexiones(){
     ["Factura electrónica","Por conectar","Se emite con el sistema de facturación que ya usa Xocios.","Pendiente"],
     ["Asistente de compra","Activo","Arma pedidos por persona y presupuesto con el catálogo real de la tienda.","IA al salir en vivo"]
   ]:[
-    ["Celular de la tienda","Activo","La persona de la vitrina toma foto del frasco, ajusta la existencia y la sube a la web. Sin POS.","Última carga hoy"],
+    ["Celular de la tienda","Activo","La persona de la tienda toma foto del frasco, ajusta la existencia y la sube a la web. Sin POS.","Última carga hoy"],
     ["Onvo · pagos con tarjeta","Activo","Tienda en línea y links de pago para lo que se vende por WhatsApp.","Modo prueba en la demo"],
     ["Uber Flash y Correos de CR","Activo","Uber Flash en la GAM coordinado por Xocios; Correos al resto del país.","Manual por ahora"],
     ["Instagram @xocios.lab","Por conectar","Los productos se pueden etiquetar en los posts para comprar directo.","Pendiente"],
     ["Factura electrónica","Por conectar","Se emite con el sistema de facturación de Xocios.","Pendiente"],
-    ["Asesoría de fragancias","Activo","Recomienda por persona, familia olfativa y presupuesto con lo que hay en vitrina.","IA al salir en vivo"]
+    ["Asesoría de fragancias","Activo","Recomienda por persona, familia olfativa y presupuesto con lo que hay en inventario.","IA al salir en vivo"]
   ];
   $("#content").innerHTML=`<div class="conn">${c.map(([t,s,d,f])=>`<div class="card"><b>${t}</b><span class="st ${/Conectada|Activo/.test(s)?"ok":/Coordinado/.test(s)?"go":""}" style="justify-self:start">${s}</span><p>${d}</p><small class="note" style="margin:0">${f}</small></div>`).join("")}</div>
     ${biz==="lico"?`<div class="card" style="margin-top:14px"><h3>Cómo se ligan las dos licoreras</h3><p class="note" style="margin:0">Cada sede tiene su propia existencia en su caja. KommPro lee las dos y la tienda en línea vende la suma. Cuando entra un pedido, se asigna a la sede que lo despacha (la más cercana para Uber Flash, o la que el cliente escoge para retirar) y se rebaja de esa sede. Si una sede no tiene suficiente, se completa con la otra y aparece como transferencia pendiente. Mientras el POS no esté conectado, se puede subir el export del POS desde Inventario por sede.</p></div>`:""}`;

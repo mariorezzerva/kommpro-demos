@@ -270,7 +270,7 @@ LAB = [
     ('bbw-cinderella', 'Cinderella: crema y bruma', 'Bath & Body Works', '226 g + 236 ml', 'f', ['dulce', 'cuidado'], 32000, 5, 'Body cream y fine fragrance mist de la colección Disney Princess.', 'lab/bbw-cinderella.webp'),
     ('bbw-strawberry', 'Strawberry Pound Cake: bruma y loción', 'Bath & Body Works', '236 ml + 236 ml', 'f', ['dulce', 'cuidado'], 29000, 6, 'Para oler a pastelito de fresa todo el día.', 'lab/bbw-strawberry.webp'),
 ]
-LABP = [dict(id=r[0], name=r[1], brand=r[2], ml=r[3], g=r[4], fam=r[5], price=r[6], stock=r[7], story=r[8], img=next((f'{d}/{r[0]}.webp' for d in ('lab3', 'lab2') if os.path.exists(f'../../xocioslab/img/{d}/{r[0]}.webp')), r[9])) for r in LAB]
+LABP = [dict(id=r[0], name=r[1], brand=r[2], ml=r[3], g=r[4], fam=r[5], price=r[6], stock=r[7], story=r[8], img=next((f'{d}/{r[0]}.webp' for d in ('lab4', 'lab2') if os.path.exists(f'../../xocioslab/img/{d}/{r[0]}.webp')), r[9])) for r in LAB]
 
 os.makedirs('../data', exist_ok=True)
 with open('../data/catalogo.js', 'w') as f:

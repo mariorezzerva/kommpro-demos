@@ -61,4 +61,7 @@
   X.links = biz => X.get("xo-links-" + biz, []);
   X.addLink = (biz, l) => { const L = X.links(biz); l.code = (biz === "lab" ? "LB" : "LX") + Math.random().toString(36).slice(2, 7).toUpperCase(); l.time = nowISO(); l.status = "Pendiente"; L.unshift(l); X.set("xo-links-" + biz, L); return l; };
   X.reset = () => { ["xo-lico-stock", "xo-lico-orders", "xo-lico-cart", "xo-lab-stock", "xo-lab-orders", "xo-lab-cart", "xo-lab-new", "xo-lab-log", "xo-links-lico", "xo-links-lab"].forEach(k => { try { localStorage.removeItem(k); } catch (e) {} }); };
+  /* Versión de la demo: al subirla, cada navegador arranca limpio una vez (borra pruebas viejas, como perfumes de ensayo) */
+  const DEMO_V = 2;
+  if (X.get("xo-demo-v", 0) !== DEMO_V) { X.reset(); X.set("xo-demo-v", DEMO_V); }
 })();

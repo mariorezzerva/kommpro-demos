@@ -34,11 +34,6 @@ h1,h2,h3{font-family:var(--display);line-height:1.04;margin:0;text-wrap:balance}
 .eyebrow{font:700 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .ic{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-.demo-ribbon{background:#0a0420;color:#9a8fc0;font-size:12px;padding:6px 16px;display:flex;gap:10px;align-items:center;justify-content:center;white-space:nowrap}
-.demo-ribbon b{color:var(--gold);font-weight:600}
-.demo-ribbon select,.demo-ribbon a{background:none;border:1px solid #3a2b6e;color:#cfc4f2;border-radius:999px;padding:2px 10px;font:12px var(--body);text-decoration:none}
-.demo-ribbon select{color:var(--gold);cursor:pointer}
-.demo-ribbon option{background:#1b0c44;color:#fff}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 header.top{position:sticky;top:0;z-index:40;background:rgba(18,8,48,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
@@ -221,6 +216,7 @@ section.blk{padding-block:80px}
 .stock::before{content:"";width:7px;height:7px;border-radius:50%;background:#2fbf71}
 .stock.low{color:#ffc28a}.stock.low::before{background:#ff9a3c}
 .stock.out{color:#ff9a9a}.stock.out::before{background:#ff5c5c}
+.stock.none{display:none}
 .feat{grid-column:span 2;grid-row:span 2;border-radius:var(--r);overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;min-height:480px;border:1px solid rgba(255,255,255,.14)}
 .feat.photo{background:#0b0618 center top/cover no-repeat}
 .feat.photo::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,5,34,.96) 0%,rgba(14,5,34,.25) 50%,transparent 70%)}
@@ -308,6 +304,9 @@ footer button.lnk:hover,footer a:hover{color:#fff}
 .legal b{color:var(--gold);font:900 16px var(--display);border:2px solid var(--gold);border-radius:50%;width:38px;height:38px;display:grid;place-items:center;flex:none}
 .fbase{border-top:1px solid rgba(255,255,255,.08);margin-top:28px;padding-top:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#8a7fb4}
 .fbase a{color:inherit;text-underline-offset:3px}
+.fdemo{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.fdemo select{background:none;border:1px solid #3a2b6e;color:var(--gold);border-radius:999px;padding:2px 10px;font:12px var(--body);margin-left:6px;cursor:pointer}
+.fdemo option{background:#1b0c44;color:#fff}
 @media (max-width:860px){.fgrid{grid-template-columns:1fr 1fr}}
 @media (max-width:480px){.fgrid{grid-template-columns:1fr}}
 
@@ -431,7 +430,7 @@ form.co{display:grid;gap:14px}
   </div>
 </div>
 
-<div class="demo-ribbon"><span>Demo <b>KommPro</b></span><label class="rsel"><span class="sr">Temporada</span><select id="tmpSel" aria-label="Temporada de la demo"><option value="halloween">Halloween</option><option value="black">Black Month</option><option value="navidad">Navidad</option><option value="verano">Verano</option><option value="parejas">Parejas</option><option value="regular">Todo el año</option></select></label><a href="panel/index.html#lico-resumen">Panel</a></div>
+
 
 <header class="top">
   <div class="wrap">
@@ -462,11 +461,6 @@ form.co{display:grid;gap:14px}
           <button type="submit">Buscar</button>
         </form>
         <div class="pills" id="pills"></div>
-        <div class="notes">
-          <span><svg class="ic"><use href="#i-moto"/></svg>Uber Flash coordinado por Xocios</span>
-          <span><svg class="ic"><use href="#i-store"/></svg>Retiro gratis en Heredia o Tibás</span>
-          <span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro con tarjeta</span>
-        </div>
       </div>
       <div class="stage">
         <figure class="polaroid" id="sPoster" hidden><img src="img/lico-miedo.webp" alt="Post de Halloween de Xocio's con Buchanan's Coconut"><span>@xocios.licorera</span></figure>
@@ -482,7 +476,6 @@ form.co{display:grid;gap:14px}
     <div class="wrap">
       <div class="head reveal">
         <div><div class="eyebrow">Pasillos</div><h2>Todo lo de la lico, a un toque</h2></div>
-        <p>Las mismas refris y estantes de Heredia y Tibás, ordenados para que encontrés rápido lo que andás buscando.</p>
       </div>
       <div class="aisles"><div class="atabs" role="tablist" aria-label="Pasillos" id="atabs"></div><div class="apanel" role="tabpanel" id="apanel"></div></div>
     </div>
@@ -507,7 +500,6 @@ form.co{display:grid;gap:14px}
         <div class="copy">
           <div class="eyebrow">Asistente de compra</div>
           <h2>¿Qué estás buscando? <span>Decíme y te lo armo.</span></h2>
-          <p>Contale para qué es, cuántos son y cuánto querés gastar. Te arma el pedido con lo que hay hoy en las refris.</p>
           <ul>
             <li><svg class="ic"><use href="#i-check"/></svg>"Fiesta para 15 el sábado"</li>
             <li><svg class="ic"><use href="#i-check"/></svg>"Algo para la carne asada, somos 8"</li>
@@ -527,7 +519,7 @@ form.co{display:grid;gap:14px}
     <div class="wrap">
       <div class="head reveal">
         <div><div class="eyebrow" id="fKick"></div><h2 id="fTitle"></h2></div>
-        <p id="fCopy"></p>
+        <p id="fCopy" hidden></p>
       </div>
       <div class="shelf" id="featured"></div>
       <button class="morebtn" data-open="all">Ver toda la tienda <svg class="ic"><use href="#i-arrow"/></svg></button>
@@ -540,12 +532,7 @@ form.co{display:grid;gap:14px}
         <div class="copy">
           <div class="eyebrow">Fiestas privadas y pedidos grandes</div>
           <h2>¿Fiesta grande? <em>El Xocio te la cotiza.</em></h2>
-          <p>Cumpleaños, bodas, fiestas de empresa o el fiestón en la casa. Para pedidos grandes armamos la lista a la medida, con precio por volumen y la entrega coordinada desde Heredia o Tibás.</p>
-          <ul>
-            <li><svg class="ic"><use href="#i-check"/></svg>Birras por caja y destilados especiales que no siempre están en línea</li>
-            <li><svg class="ic"><use href="#i-check"/></svg>Hielo, mezcladores y bocas calculados para tu gente</li>
-            <li><svg class="ic"><use href="#i-check"/></svg>Te respondemos por WhatsApp con la cotización y un link de pago</li>
-          </ul>
+          <p>Cumpleaños, bodas o la fiesta en la casa. Te cotizamos por WhatsApp.</p>
           <img class="waart" src="img/lico-whatsapp.webp" alt="Escribinos al WhatsApp 6298-9825">
         </div>
         <form id="fiestaForm" aria-label="Pedir cotización para una fiesta">
@@ -573,7 +560,6 @@ form.co{display:grid;gap:14px}
         <div class="gl">
           <div class="eyebrow">Dos sedes, el mismo trato</div>
           <h2>De la refri a tu casa, <em>bien fría.</em></h2>
-          <p>Licores nacionales e importados, ediciones especiales y lo de siempre para la mejenga. Pedí en línea y retirás sin hacer fila, o te lo mandamos por Uber Flash.</p>
           <div class="sedes">
             <div class="sede"><b>Xocios Heredia</b><span>Retiro y Uber Flash</span></div>
             <div class="sede"><b>Xocios Tibás</b><span>Retiro y Uber Flash</span></div>
@@ -605,17 +591,16 @@ form.co{display:grid;gap:14px}
       </div>
       <div>
         <h4>Pago seguro</h4>
-        <p>Pagás en línea con tarjeta de crédito o débito.</p>
         <div class="pay" aria-label="Tarjetas aceptadas">
           <span class="card-badge" title="Visa"><svg viewBox="0 0 60 20"><text x="0" y="16" font-family="Arial Black,Arial" font-weight="900" font-style="italic" font-size="18" fill="#1a1f71">VISA</text></svg></span>
           <span class="card-badge" title="Mastercard"><svg viewBox="0 0 38 24"><circle cx="14" cy="12" r="10" fill="#eb001b"/><circle cx="24" cy="12" r="10" fill="#f79e1b" fill-opacity=".9"/><path d="M19 4.3a10 10 0 0 1 0 15.4 10 10 0 0 1 0-15.4Z" fill="#ff5f00"/></svg></span>
           <span class="card-badge" title="American Express" style="background:#2e77bc"><svg viewBox="0 0 60 20"><text x="2" y="15" font-family="Arial" font-weight="800" font-size="13" fill="#fff">AMEX</text></svg></span>
         </div>
-        <div class="secure"><svg class="ic"><use href="#i-lock"/></svg>Transacción cifrada y protegida</div>
+        
       </div>
     </div>
     <div class="legal"><b>18+</b><span>Prohibida la venta de bebidas alcohólicas a menores de edad (Ley 9047). Al entregar pedimos cédula. Tomá con moderación y si tomás, no manejés.</span></div>
-    <div class="fbase"><span>Xocio's Lico Market © 2026. Precios con IVA incluido.</span><a href="panel/index.html#lico-resumen">Panel de administración (demo)</a></div>
+    <div class="fbase"><span>Xocio's Lico Market © 2026. Precios con IVA incluido.</span><span class="fdemo"><label>Temporada (demo) <select id="tmpSel" aria-label="Temporada de la demo"><option value="halloween">Halloween</option><option value="black">Black Month</option><option value="navidad">Navidad</option><option value="verano">Verano</option><option value="parejas">Parejas</option><option value="regular">Todo el año</option></select></label><a href="panel/index.html#lico-resumen">Panel de Fabio</a></span></div>
   </div>
 </footer>
 
@@ -688,7 +673,7 @@ $("#footCats").innerHTML = CATS.map(c=>`<li><button class="lnk" data-open="cat:$
 
 /* Tarjeta */
 const plus = `<svg class="ic" style="width:15px;height:15px"><use href="#i-plus"/></svg>`;
-function stockTxt(p){ const n=stockOf(p); return n<=0?{c:"out",t:"Agotado por hoy"}:n<=6?{c:"low",t:`Quedan ${n}`}:{c:"",t:`${n} disponibles`}; }
+function stockTxt(p){ const n=stockOf(p); return n<=0?{c:"out",t:"Agotado por hoy"}:n<=6?{c:"low",t:`Quedan ${n}`}:{c:"none",t:""}; }
 function priceHTML(p){
   if(p.dealWas) return `<span class="price"><span class="was">${fmt(p.dealWas)}</span>${fmt(p.price)}</span>`;
   if(p.was && p.was>p.price) return `<span class="price"><span class="was">${fmt(p.was)} por separado</span>${fmt(p.price)}</span>`;
@@ -712,7 +697,7 @@ const SEASONS = {
   halloween:{key:"halloween",ask:"Fiesta de Halloween para 20",askL:"Armame la fiesta de Halloween",label:"Halloween",dealTag:"Halloween",
     eye:"Temporada de Halloween · hasta el 31 de octubre",
     h1:"¿Miedo? Miedo da <em>quedarse sin hielo.</em>",
-    lead:"Armá la fiesta de disfraces con Buchanan's Coconut, la pócima roja de guaro y birras bien frías. Pagás con tarjeta y te llega por Uber Flash, o retirás en Heredia o Tibás.",
+    lead:"Disfraces, guaro y birras bien frías.",
     poster:["img/lico-miedo.webp","Post de Halloween de Xocio's con Buchanan's Coconut"], hero:"combo-coco-highball", chip:"El trago de la noche",
     pills:[["Coco Highball","add:combo-coco-highball"],["Pócima roja","add:combo-pocima"],["Fiesta de disfraces para 20","say:Fiesta de Halloween para 20"],["Lo picante","q:fire"]],
     tk:["Halloween en Xocio's","Buchanan's Coconut","Pócima roja","Fiesta de disfraces","Uber Flash coordinado por Xocios","Solo mayores de 18"],
@@ -726,7 +711,7 @@ const SEASONS = {
   black:{key:"black",ask:"¿Qué hay en promo?",askL:"¿Qué hay en precio Black hoy?",label:"Black Month",dealTag:"Precio Black",
     eye:"Xocios Black Month · todo noviembre",
     h1:"Noviembre se pone <em>negro.</em>",
-    lead:"Un mes entero de precios Black en etiquetas negras, whisky y birras oscuras. Cada semana cambia la promo y el viernes 27 se viene el Black Friday con los combos más bravos.",
+    lead:"Precios Black todo el mes. Black Friday el 27.",
     stamp:["Xocios","Black<br>Month","NOV"], hero:"combo-black-label", chip:"Precio Black",
     pills:[["Black Label con soda","add:combo-black-label"],["Whisky en promo","cat:whisky"],["Noche negra","add:combo-noche-negra"],["Black Friday","add:combo-duo-black"]],
     tk:["Xocios Black Month","Precios Black todo noviembre","Black Friday 27 de noviembre","Etiquetas negras","Uber Flash coordinado por Xocios","Solo mayores de 18"],
@@ -742,7 +727,7 @@ const SEASONS = {
   navidad:{key:"navidad",ask:"Un regalo con 40 mil",askL:"Ayudame con un regalo",label:"Navidad",dealTag:"Navidad",
     eye:"Navidad en Xocio's · todo diciembre",
     h1:"Lo que se regala, <em>se brinda.</em>",
-    lead:"Estuches para quedar bien, el Baileys del rompope y combos para la cena del 24 y el 31. Pedí con tiempo: en diciembre las refris se vacían rápido.",
+    lead:"Estuches, rompope y combos para el 24 y el 31.",
     stamp:["Xocio's","Feliz<br>Navidad","DIC"], hero:"combo-cena-24", chip:"Para la cena",
     pills:[["Cena del 24","add:combo-cena-24"],["Rompope y sobremesa","add:combo-rompope"],["Regalo con 40 mil","say:Un regalo con 40 mil"],["Estuches","q:años"]],
     tk:["Navidad en Xocio's","Estuches de regalo","Cena del 24","Brindis del 31","Pedí con tiempo","Solo mayores de 18"],
@@ -756,7 +741,7 @@ const SEASONS = {
   verano:{key:"verano",ask:"Paseo a la playa para 10",askL:"Armame la hielera",label:"Verano",dealTag:"Verano",
     eye:"Combos de verano · todo enero",
     h1:"Hielera llena, <em>verano completo.</em>",
-    lead:"Todo en lata para la playa, el río o la piscina. Six packs, preparados bien fríos y hielo de sobra, listo para echar al carro.",
+    lead:"Todo en lata para la playa, el río o la piscina.",
     stamp:["Xocio's","Combos de<br>verano","ENE"], hero:"combo-hielera", chip:"Para la playa",
     pills:[["Hielera playera","add:combo-hielera"],["Tarde de piscina","add:combo-piscina"],["Paseo para 10","say:Paseo a la playa para 10"],["Listos para tomar","cat:listos"]],
     tk:["Combos de verano","Todo en lata","Hielo de sobra","Playa, río y piscina","Uber Flash coordinado por Xocios","Si tomás, no manejés"],
@@ -770,7 +755,7 @@ const SEASONS = {
   parejas:{key:"parejas",ask:"Noche para dos",askL:"Armame la noche para dos",label:"Parejas",dealTag:"Para dos",
     eye:"Mes de parejas · todo febrero",
     h1:"Una botella, <em>dos copas.</em>",
-    lead:"Para la cena en casa, la peli del sábado o el detalle del 14. Combos para dos, listos para pedir y que te lleguen a la puerta.",
+    lead:"Combos para dos, a tu puerta.",
     stamp:["Xocio's","Mes de<br>parejas","FEB"], hero:"combo-peli", chip:"Noche para dos",
     pills:[["Noche de peli","add:combo-peli"],["Brindis del 14","add:combo-brindis-14"],["Algo dulce","q:crema"],["Un detalle con 25 mil","say:Un regalo con 25 mil"]],
     tk:["Mes de parejas","Combos para dos","Brindis del 14","Noche de peli","Uber Flash coordinado por Xocios","Solo mayores de 18"],
@@ -784,7 +769,7 @@ const SEASONS = {
   regular:{key:"regular",ask:"Fiesta para 10",askL:"Armame un pedido",label:"Todo el año",dealTag:"Promo",
     eye:"Xocios Heredia & Tibás · en línea",
     h1:"La lico de siempre, <em>ahora en línea.</em>",
-    lead:"Birras bien frías, destilados, combos y bocas. Pagás con tarjeta y te llega por Uber Flash, o retirás sin fila en Heredia o Tibás.",
+    lead:"Birras frías, destilados y bocas, a tu puerta.",
     poster:["img/lico-whatsapp.webp","Pedidos por WhatsApp al 6298-9825 en Xocio's"], hero:"combo-centenario", chip:"El combo de siempre",
     pills:[["Combos","cat:combos"],["Para el partido","say:Para el partido somos 6"],["Whisky","cat:whisky"],["Six pack","q:six pack"]],
     tk:["Xocio's Lico Market","Birras bien frías","Combos","Uber Flash coordinado por Xocios","Xocios Heredia","Xocios Tibás","Solo mayores de 18"],

@@ -9,7 +9,8 @@ Cada carpeta es un sitio estático. Desde el 26 oct se publican en **Cloudflare 
 | kommpro | kommpro.com | kommpro |
 | activearenal | activearenal-demo.pages.dev (demo Rezzerva · tour operadores) | activearenal-demo |
 | freshgarden | freshgarden-kommpro.pages.dev (dominio propio pendiente) | freshgarden-kommpro |
-| xocios | xocios.kommpro.com (licorera) y xocios.kommpro.com/lab/ (perfumería) | xocios (por crear) |
+| xocios | xocios.kommpro.com (Xocio's Lico Market, licorera) | xocios (por crear) |
+| xocioslab | xocioslab.kommpro.com (Xocios Lab, perfumería) | xocioslab (por crear) |
 
 `activearenal/` se genera con `activearenal/plantilla/build.py` (datos en `data.json`). Para cambiar textos o tours: editar `data_base.json` o `make_data.py`, correr `python3 make_data.py && python3 build.py` dentro de `plantilla/` y hacer commit de todo. `activearenal/wp/` trae los bloques para pegar en Elementor.
 
@@ -19,4 +20,4 @@ Precios en vivo: al cargar, el sitio lee los precios de Rezzerva por `/rz/<tenan
 
 Demos de clientes de Rezzerva: en `<cliente>.rezzerva.com`. Demos de KommPro: en `<cliente>.kommpro.com`.
 
-`xocios/` se genera con `xocios/plantilla/build.py`: arma `xocios/index.html` (licorera) y `xocios/lab/index.html` (Xocios Lab) con las fotos embebidas. Ver `xocios/README.md`.
+`xocios/` (licorera) y `xocioslab/` (perfumería) son dos sitios separados de la misma cuenta de Fabio. El catálogo y el panel se editan en `xocios/` y `xocios/plantilla/separar.py` los copia a `xocioslab/`. Ver `xocios/README.md` y `xocioslab/README.md`.

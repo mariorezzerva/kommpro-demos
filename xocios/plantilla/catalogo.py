@@ -264,13 +264,13 @@ LAB = [
     ('acqua', 'Acqua di Giò Eau de Parfum', 'Giorgio Armani', '75 ml', 'm', ['fresco'], 72000, 7, 'Notas marinas y bergamota. El de la playa y la oficina.', 'lab/acqua.webp'),
     ('lemale', 'Le Male', 'Jean Paul Gaultier', '125 ml', 'm', ['dulce', 'intenso'], 78000, 4, 'Lavanda, menta y vainilla. Un clásico que se reconoce de lejos.', 'lab/lemale.webp'),
     ('lightblue', 'Light Blue Pour Homme', 'Dolce & Gabbana', '125 ml', 'm', ['fresco'], 54000, 8, 'Pomelo, enebro y almizcle. Mediterráneo y fresco.', 'lab/lightblue.webp'),
-    ('212', '212 Men', 'Carolina Herrera', '100 ml', 'm', ['fresco'], 56000, 6, 'Cítrico y especiado. Urbano y limpio.', 'lab/212.webp'),
+    ('212', '212 Men Heroes', 'Carolina Herrera', '100 ml', 'm', ['fresco'], 56000, 6, 'Cítrico y verde. Fresco para rendir en el día.', 'lab/212.webp'),
     ('chmen', 'CH Men', 'Carolina Herrera', '100 ml', 'm', ['intenso'], 62000, 5, 'Cuero y maderas. Elegancia de noche.', 'lab/chmen.webp'),
     ('kaos', 'Kaos', 'Tous', '90 ml', 'f', ['dulce', 'fresco'], 45000, 7, 'Frutal y floral. Divertido, para el día a día.', 'lab/kaos.webp'),
     ('bbw-cinderella', 'Cinderella: crema y bruma', 'Bath & Body Works', '226 g + 236 ml', 'f', ['dulce', 'cuidado'], 32000, 5, 'Body cream y fine fragrance mist de la colección Disney Princess.', 'lab/bbw-cinderella.webp'),
     ('bbw-strawberry', 'Strawberry Pound Cake: bruma y loción', 'Bath & Body Works', '236 ml + 236 ml', 'f', ['dulce', 'cuidado'], 29000, 6, 'Para oler a pastelito de fresa todo el día.', 'lab/bbw-strawberry.webp'),
 ]
-LABP = [dict(id=r[0], name=r[1], brand=r[2], ml=r[3], g=r[4], fam=r[5], price=r[6], stock=r[7], story=r[8], img=('lab2/' + r[0] + '.webp') if os.path.exists('../img/lab2/' + r[0] + '.webp') else r[9]) for r in LAB]
+LABP = [dict(id=r[0], name=r[1], brand=r[2], ml=r[3], g=r[4], fam=r[5], price=r[6], stock=r[7], story=r[8], img=next((f'{d}/{r[0]}.webp' for d in ('lab3', 'lab2') if os.path.exists(f'../../xocioslab/img/{d}/{r[0]}.webp')), r[9])) for r in LAB]
 
 os.makedirs('../data', exist_ok=True)
 with open('../data/catalogo.js', 'w') as f:

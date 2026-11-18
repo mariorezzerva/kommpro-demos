@@ -211,13 +211,15 @@ const day=d=>new Date(d).toLocaleDateString("es-CR",{weekday:"short",day:"numeri
 const isToday=d=>new Date(d).toDateString()===new Date().toDateString();
 let tt; const toast=m=>{ const t=$("#toast"); t.textContent=m; t.classList.add("on"); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("on"),2200); };
 
+// Cada tienda vive en su propio dominio: la licorera en xocios.kommpro.com y Lab en xocioslab.kommpro.com
+const LIMG="../img/", LABIMG="https://xocioslab.kommpro.com/img/", LICO_URL="../index.html", LAB_URL="https://xocioslab.kommpro.com/";
 const BIZ={
-  lico:{name:"Xocio's Lico Market",short:"Lico Market",sub:"Heredia y Tibás",logo:"../img/logo-xocios-lm.webp",lbg:"#231c5c",store:"../index.html",b1:"#6a22f0",b2:"#f5c33b"},
-  lab:{name:"Xocios Lab",short:"Xocios Lab",sub:"Perfumería · Heredia",logo:"../img/logo-lab-brush.webp",lbg:"#0b0910",store:"../lab/index.html",b1:"#0b0910",b2:"#d6b26a"}
+  lico:{name:"Xocio's Lico Market",short:"Lico Market",sub:"Heredia y Tibás",logo:LIMG+"logo-xocios-lm.webp",lbg:"#231c5c",store:LICO_URL,b1:"#6a22f0",b2:"#f5c33b"},
+  lab:{name:"Xocios Lab",short:"Xocios Lab",sub:"Perfumería · Heredia",logo:LABIMG+"logo-lab-brush.webp",lbg:"#0b0910",store:LAB_URL,b1:"#0b0910",b2:"#d6b26a"}
 };
 const LP=XO_LICO.products, LPid=Object.fromEntries(LP.map(p=>[p.id,p]));
 const labProducts=()=>XO.get("xo-lab-new",[]).concat(XO_LAB.products);
-const labImg=p=>p.img.startsWith("data:")?p.img:"../img/"+p.img;
+const labImg=p=>p.img.startsWith("data:")?p.img:LABIMG+p.img;
 const labPh=XO.get("xo-lab-photos",{});
 
 /* Historia de demo: ventas de días anteriores y pedidos de hoy temprano, fijas por fecha */
@@ -250,7 +252,7 @@ function orders(biz){
   return all.sort((a,b)=>new Date(b.time)-new Date(a.time));
 }
 const pName=(biz,id)=>biz==="lico"?(LPid[id]?LPid[id].name:id):(labProducts().find(p=>p.id===id)||{name:id}).name;
-const pImg=(biz,id)=>{ if(biz==="lico") return LPid[id]?"../img/"+LPid[id].img:""; const p=labProducts().find(p=>p.id===id); return p?(labPh[id]||labImg(p)):""; };
+const pImg=(biz,id)=>{ if(biz==="lico") return LPid[id]?LIMG+LPid[id].img:""; const p=labProducts().find(p=>p.id===id); return p?(labPh[id]||labImg(p)):""; };
 
 /* Ruteo */
 /* Ruta en el hash: #lico-resumen, #lab-pedidos... (también acepta ?n=lico) */
@@ -282,7 +284,7 @@ function render(soft){
     </aside>
     <main>
       <div class="top"><span class="bizlogo" style="background:${B.lbg}"><img src="${B.logo}" alt=""></span><div class="grow"><h1>${VIEWS[biz].find(v=>v[0]===view)[1]}</h1><small>${B.name} · ${new Date().toLocaleDateString("es-CR",{weekday:"long",day:"numeric",month:"long"})}</small></div>
-        <div class="acts"><a class="btn" href="${B.store}" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ext"/></svg>Tienda</a>${biz==="lab"?`<a class="btn" href="../lab/index.html#panel" target="_blank" rel="noopener"><svg class="ic"><use href="#i-phone"/></svg>Celular</a>`:""}<a class="btn pri" href="#${biz}-links"><svg class="ic"><use href="#i-link"/></svg>Nuevo link de pago</a></div></div>
+        <div class="acts"><a class="btn" href="${B.store}" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ext"/></svg>Tienda</a>${biz==="lab"?`<a class="btn" href="${LAB_URL}#panel" target="_blank" rel="noopener"><svg class="ic"><use href="#i-phone"/></svg>Celular</a>`:""}<a class="btn pri" href="#${biz}-links"><svg class="ic"><use href="#i-link"/></svg>Nuevo link de pago</a></div></div>
       <div class="mtabs"><select id="mBiz" aria-label="Negocio">${Object.entries(BIZ).map(([k,b])=>`<option value="${k}" ${k===biz?"selected":""}>${b.short}</option>`).join("")}</select>${VIEWS[biz].map(([id,l])=>`<a href="#${biz}-${id}" class="${id===view?'on':''}">${l}</a>`).join("")}</div>
       <div class="content" id="content"></div>
     </main></div>`;
@@ -323,7 +325,7 @@ function resumen(){
     kpis=[["Ventas hoy",fmt(ventas),`${n} pedidos`],["Por links de pago",fmt(tL),"lo que se vende por WhatsApp"],["Para regalo",today.filter(o=>o.gift).length,"con empaque y tarjeta"],["Por reponer",low,"3 unidades o menos"]];
     chart=bars(days.map(d=>[d.web,d.link]),days,["Tienda en línea","Links de pago"],["#1f1a28","var(--b2)"]);
     const log=XO.get("xo-lab-log",[]).slice(0,5);
-    side=`<div class="card"><h3>Celular de la tienda <small>últimos cambios</small></h3>${log.length?`<div class="toplist">${log.map(l=>`<div style="grid-template-columns:1fr auto"><span>${esc(l.txt)}</span><small>${hhmm(l.t)}</small></div>`).join("")}</div>`:`<p class="note" style="margin:0">Hoy a las 9:02 a. m. se subió la existencia del día desde el celular (19 productos).</p>`}<p class="note"><a href="../lab/index.html#panel" target="_blank" rel="noopener">Abrir el celular de la tienda</a></p></div>`;
+    side=`<div class="card"><h3>Celular de la tienda <small>últimos cambios</small></h3>${log.length?`<div class="toplist">${log.map(l=>`<div style="grid-template-columns:1fr auto"><span>${esc(l.txt)}</span><small>${hhmm(l.t)}</small></div>`).join("")}</div>`:`<p class="note" style="margin:0">Hoy a las 9:02 a. m. se subió la existencia del día desde el celular (19 productos).</p>`}<p class="note"><a href="${LAB_URL}#panel" target="_blank" rel="noopener">Abrir el celular de la tienda</a></p></div>`;
   }
   const top={}; O.filter(o=>new Date(o.time)>Date.now()-7*864e5).forEach(o=>o.lines.forEach(([id,q,pr])=>{ top[id]=top[id]||[0,0]; top[id][0]+=q; top[id][1]+=q*(pr||0); }));
   const topL=Object.entries(top).sort((a,b)=>b[1][1]-a[1][1]).slice(0,5);
@@ -380,7 +382,7 @@ function invLico(){
       <span style="margin-left:auto;display:flex;gap:8px"><label class="btn"><svg class="ic"><use href="#i-up"/></svg>Importar export del POS<input type="file" id="csvIn" accept=".csv,.txt" hidden></label><button class="btn" id="csvOut"><svg class="ic"><use href="#i-down"/></svg>Descargar CSV</button></span></div>
     <div class="tbl"><table><thead><tr><th>Producto</th><th>Pasillo</th><th class="n">Precio</th><th class="n">Heredia</th><th class="n">Tibás</th><th class="n">En la web</th><th>En línea</th><th></th></tr></thead><tbody>
     ${L.slice(0,120).map(p=>{ const s=st[p.id], t=s.h+s.t, c=t<=0?"out":t<=6?"low":"";
-      return `<tr data-row="${p.id}" class="${flashId===p.id?'flash':''}"><td><div class="pi"><img src="../img/${p.img}" alt=""><span><b>${esc(p.name)}</b><small>${esc(p.pres)}${p.barcode?" · "+p.barcode:""}</small></span></div></td><td>${XO_LICO.cats.find(c=>c.id===p.cat).name}</td><td class="n">${fmt(p.price)}</td>
+      return `<tr data-row="${p.id}" class="${flashId===p.id?'flash':''}"><td><div class="pi"><img src="${LIMG}${p.img}" alt=""><span><b>${esc(p.name)}</b><small>${esc(p.pres)}${p.barcode?" · "+p.barcode:""}</small></span></div></td><td>${XO_LICO.cats.find(c=>c.id===p.cat).name}</td><td class="n">${fmt(p.price)}</td>
       <td class="n">${stepper(p.id,"h",s.h)}</td><td class="n">${stepper(p.id,"t",s.t)}</td><td class="n"><span class="tot ${c}">${s.on?t:"Oculto"}</span></td>
       <td><button class="sw ${s.on?'on':''}" data-on="${p.id}" aria-label="Vender en línea ${esc(p.name)}"></button></td><td><button class="btn sm" data-tr="${p.id}" title="Pasar unidades de una sede a otra"><svg class="ic" style="width:15px;height:15px"><use href="#i-swap"/></svg>Transferir</button></td></tr>`; }).join("")}
     </tbody></table></div>
@@ -405,7 +407,7 @@ function bindInv(){
 function transfer(id){
   const p=LPid[id], s=XO.licoStock()[id];
   const m=document.createElement("div"); m.className="modal";
-  m.innerHTML=`<div class="box"><h3>Transferir entre sedes</h3><div class="pi" style="display:flex;gap:10px;align-items:center"><img src="../img/${p.img}" style="width:48px;height:48px;object-fit:contain;border:1px solid var(--line);border-radius:8px"><span><b>${esc(p.name)}</b><br><small class="note">Heredia ${s.h} · Tibás ${s.t}</small></span></div>
+  m.innerHTML=`<div class="box"><h3>Transferir entre sedes</h3><div class="pi" style="display:flex;gap:10px;align-items:center"><img src="${LIMG}${p.img}" style="width:48px;height:48px;object-fit:contain;border:1px solid var(--line);border-radius:8px"><span><b>${esc(p.name)}</b><br><small class="note">Heredia ${s.h} · Tibás ${s.t}</small></span></div>
     <div class="fld"><label>De</label><select id="trF"><option value="h">Heredia a Tibás</option><option value="t">Tibás a Heredia</option></select></div>
     <div class="fld"><label>Unidades</label><input id="trN" type="number" min="1" value="1" inputmode="numeric"></div>
     <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" id="trX">Cancelar</button><button class="btn pri" id="trOk">Transferir</button></div></div>`;
@@ -437,7 +439,7 @@ function invLab(){
   const log=XO.get("xo-lab-log",[]);
   $("#content").innerHTML=`<div class="sync"><span class="pill"><i></i><b>Vitrina Heredia</b> · última carga desde el celular ${log.length?hhmm(log[0].t):"9:02 a. m."}</span><span class="pill"><b>${labProducts().length}</b> productos · <b>${L.reduce((s,p)=>s+(st[p.id]??p.stock),0)}</b> unidades</span></div>
     <div class="tools"><label class="search"><svg class="ic" style="color:var(--muted)"><use href="#i-search"/></svg><input id="invQ" type="search" placeholder="Buscar perfume o marca" value="${esc(invQ)}"></label><div class="chips"><button id="invLow" class="${invLow?'on':''}">Por reponer</button></div>
-      <a class="btn pri" style="margin-left:auto" href="../lab/index.html#panel" target="_blank" rel="noopener"><svg class="ic"><use href="#i-phone"/></svg>Abrir el celular de la tienda</a></div>
+      <a class="btn pri" style="margin-left:auto" href="${LAB_URL}#panel" target="_blank" rel="noopener"><svg class="ic"><use href="#i-phone"/></svg>Abrir el celular de la tienda</a></div>
     <div class="tbl"><table><thead><tr><th>Producto</th><th>Para</th><th class="n">Precio</th><th class="n">Existencia</th><th>Último cambio</th></tr></thead><tbody>
     ${L.map(p=>{ const v=st[p.id]??p.stock, c=v<=0?"out":v<=3?"low":""; const lc=log.find(l=>l.txt.includes(p.name));
       return `<tr class="${flashId===p.id?'flash':''}"><td><div class="pi dark"><img src="${labPh[p.id]||labImg(p)}" alt=""><span><b>${esc(p.name)}</b><small>${esc(p.brand)} · ${esc(p.ml)}${p.isNew?" · nuevo desde el celular":""}</small></span></div></td><td>${p.g==="m"?"Él":p.g==="f"?"Ella":"Unisex"}</td><td class="n">${fmt(p.price)}</td><td class="n"><span class="${c}">${stepper(p.id,"n",v)}</span></td><td><small class="note">${lc?hhmm(lc.t)+" · "+esc(lc.txt.split(":")[0]):"Carga del día"}</small></td></tr>`; }).join("")}

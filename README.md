@@ -11,7 +11,7 @@ Cada carpeta es un sitio estático. Desde el 26 oct se publican en **Cloudflare 
 | freshgarden | freshgarden-kommpro.pages.dev (dominio propio pendiente) | freshgarden-kommpro |
 | xocios | xocios.kommpro.com (Xocio's Lico Market, licorera) | xocios |
 | xocioslab | xocioslab.kommpro.com (Xocios Lab, perfumería) | xocioslab |
-| bioenergy | bioenergycr.com (BioEnergy S.A., cliente real, no demo) | bioenergy |
+| bioenergy | sin publicar (BioEnergy S.A.; proyecto de Pages y zona borrados el 23 nov, el código queda de respaldo) | ninguno |
 
 `activearenal/` se genera con `activearenal/plantilla/build.py` (datos en `data.json`). Para cambiar textos o tours: editar `data_base.json` o `make_data.py`, correr `python3 make_data.py && python3 build.py` dentro de `plantilla/` y hacer commit de todo. `activearenal/wp/` trae los bloques para pegar en Elementor.
 

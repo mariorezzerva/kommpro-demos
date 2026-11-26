@@ -5,7 +5,6 @@ Cada carpeta es un sitio estático. Desde el 26 oct se publican en **Cloudflare 
 | Carpeta | Sitio | Proyecto (Cloudflare Pages) |
 |---|---|---|
 | sabo | sabo.kommpro.com | saboenlinea |
-| lacruz | lacruz.kommpro.com | distribuidoralacruz |
 | kommpro | kommpro.com | kommpro |
 | activearenal | activearenal-demo.pages.dev (demo Rezzerva · tour operadores) | activearenal-demo |
 | freshgarden | freshgarden-kommpro.pages.dev (dominio propio pendiente) | freshgarden-kommpro |
